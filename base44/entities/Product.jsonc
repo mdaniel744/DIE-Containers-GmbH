@@ -1,0 +1,154 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Product title"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL slug"
+    },
+    "description": {
+      "type": "string",
+      "description": "Full product description"
+    },
+    "short_description": {
+      "type": "string",
+      "description": "Short description for cards"
+    },
+    "price_from": {
+      "type": "number",
+      "description": "Starting price in EUR"
+    },
+    "size": {
+      "type": "string",
+      "enum": [
+        "10ft",
+        "20ft",
+        "40ft"
+      ],
+      "description": "Container size"
+    },
+    "condition": {
+      "type": "string",
+      "enum": [
+        "Neu",
+        "Gebraucht",
+        "General\u00fcberholt"
+      ],
+      "description": "Container condition"
+    },
+    "container_type": {
+      "type": "string",
+      "enum": [
+        "Standard",
+        "High Cube",
+        "Open Side",
+        "Doppelt\u00fcr",
+        "K\u00fchlcontainer",
+        "B\u00fcrocontainer"
+      ],
+      "description": "Type of container"
+    },
+    "color": {
+      "type": "string",
+      "enum": [
+        "Blau",
+        "Anthrazit",
+        "Gr\u00fcn",
+        "Wei\u00df"
+      ],
+      "description": "Container color"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Main product image"
+    },
+    "gallery_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Additional gallery images"
+    },
+    "badge": {
+      "type": "string",
+      "enum": [
+        "Neu",
+        "Gebraucht",
+        "Bestseller",
+        "Angebot"
+      ],
+      "description": "Display badge"
+    },
+    "is_available": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether product is available"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show on homepage"
+    },
+    "outer_length": {
+      "type": "string"
+    },
+    "outer_width": {
+      "type": "string"
+    },
+    "outer_height": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "string"
+    },
+    "material": {
+      "type": "string"
+    },
+    "floor": {
+      "type": "string"
+    },
+    "doors": {
+      "type": "string"
+    },
+    "csc_certified": {
+      "type": "boolean",
+      "default": true
+    },
+    "weather_resistant": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "title",
+    "price_from",
+    "size",
+    "condition",
+    "container_type"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": true,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

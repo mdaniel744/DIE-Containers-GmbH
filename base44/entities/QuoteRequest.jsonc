@@ -1,0 +1,89 @@
+{
+  "name": "QuoteRequest",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "reviewed",
+        "quoted",
+        "accepted",
+        "declined"
+      ],
+      "default": "pending"
+    },
+    "container_size": {
+      "type": "string"
+    },
+    "container_type": {
+      "type": "string"
+    },
+    "condition": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "number",
+      "default": 1
+    },
+    "product_id": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "postal_code": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string",
+      "default": "Deutschland"
+    },
+    "unloading_method": {
+      "type": "string"
+    },
+    "ground_conditions": {
+      "type": "string"
+    },
+    "additional_notes": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "accepted_terms": {
+      "type": "boolean"
+    },
+    "accepted_privacy": {
+      "type": "boolean"
+    },
+    "confirmed_non_binding": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "container_size",
+    "container_type",
+    "email",
+    "first_name",
+    "last_name"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Attribute",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Attribute name, e.g. Color, Material, Door Type"
+    },
+    "slug": {
+      "type": "string",
+      "description": "Internal key used for filtering, e.g. color, material"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the attribute"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this attribute is shown in filters and product forms"
+    }
+  },
+  "required": [
+    "name",
+    "slug"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": true,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
