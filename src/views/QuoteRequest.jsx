@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
+import { isBase44Configured } from "@/lib/app-params";
+import { PRODUCT_DATA } from "@/lib/productData";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Send, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -57,7 +59,9 @@ export default function QuoteRequest() {
     let cancelled = false;
     (async () => {
       try {
-        const product = await base44.entities.Product.get(productId);
+        const product = isBase44Configured
+          ? await base44.entities.Product.get(productId)
+          : PRODUCT_DATA.find((item) => item.id === productId || item.slug === productId);
         if (cancelled || !product) return;
         const typeMap = {
           Standard: "Seecontainer",
@@ -106,7 +110,9 @@ export default function QuoteRequest() {
 
   const handleSubmit = async () => {
     setSubmitting(true);
-    await base44.entities.QuoteRequest.create(data);
+    if (isBase44Configured) {
+      await base44.entities.QuoteRequest.create(data);
+    }
     setSubmitting(false);
     setSubmitted(true);
   };

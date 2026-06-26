@@ -56,3 +56,7 @@ const getAppParams = () => {
 export const appParams = {
 	...getAppParams()
 }
+
+export const isBase44Configured = Boolean(
+	appParams.appId && appParams.appId !== 'null' && appParams.appBaseUrl
+);
