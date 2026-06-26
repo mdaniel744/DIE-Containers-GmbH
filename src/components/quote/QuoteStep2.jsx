@@ -42,6 +42,11 @@ const CONDITIONS = ["Neu", "Gebraucht", "Generalüberholt"];
 
 export default function QuoteStep2({ data, setData }) {
   const update = (key, value) => setData((prev) => ({ ...prev, [key]: value }));
+  const updateQuantity = (value) => {
+    if (value === "" || /^[1-9]\d*$/.test(value)) {
+      update("quantity", value);
+    }
+  };
   const [showDateInfo, setShowDateInfo] = useState(false);
 
   return (
@@ -86,10 +91,12 @@ export default function QuoteStep2({ data, setData }) {
         <div className="space-y-2">
           <Label className="text-sm font-medium">Anzahl Container *</Label>
           <Input
-            type="number"
+            type="text"
+            inputMode="numeric"
+            pattern="[1-9][0-9]*"
             min="1"
-            value={data.quantity || 1}
-            onChange={(e) => update("quantity", parseInt(e.target.value) || 1)}
+            value={data.quantity ?? ""}
+            onChange={(e) => updateQuantity(e.target.value)}
           />
         </div>
       </div>

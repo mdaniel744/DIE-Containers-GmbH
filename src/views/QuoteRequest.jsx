@@ -13,6 +13,10 @@ import QuoteStep3 from "@/components/quote/QuoteStep3";
 
 const ORANGE = "#F28C28";
 const stepLabels = ["Containertyp", "Details & Transport", "Kontaktdaten"];
+const isPositiveInteger = (value) => {
+  const numericValue = Number(value);
+  return Number.isInteger(numericValue) && numericValue > 0;
+};
 
 export default function QuoteRequest() {
   const navigate = useNavigate();
@@ -100,7 +104,7 @@ export default function QuoteRequest() {
       return true;
     }
     if (step === 1) {
-      return data.container_size && data.condition && data.unloading_method;
+      return data.container_size && data.condition && data.unloading_method && isPositiveInteger(data.quantity);
     }
     if (step === 2) {
       return data.first_name && data.last_name && data.email && data.phone && data.accepted_terms;
@@ -110,8 +114,12 @@ export default function QuoteRequest() {
 
   const handleSubmit = async () => {
     setSubmitting(true);
+    const quoteData = {
+      ...data,
+      quantity: Number(data.quantity),
+    };
     if (isBase44Configured) {
-      await base44.entities.QuoteRequest.create(data);
+      await base44.entities.QuoteRequest.create(quoteData);
     }
     setSubmitting(false);
     setSubmitted(true);
