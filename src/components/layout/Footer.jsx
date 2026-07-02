@@ -2,52 +2,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
-
-const legalLinks = [
-{ label: "Impressum", path: "/impressum" },
-{ label: "Datenschutzerklärung", path: "/datenschutz" },
-{ label: "Cookie Policy", path: "/cookie-policy" },
-{ label: "AGB", path: "/agb" },
-{ label: "Widerrufsrecht", path: "/widerrufsrecht" },
-{ label: "Rückgabe & Erstattung", path: "/rueckgabe" },
-{ label: "Versand & Lieferung", path: "/versand" },
-{ label: "Zahlungsbedingungen", path: "/zahlungsbedingungen" },
-{ label: "Allgemeine Geschäftsbedingungen (EN)", path: "/general-terms" },
-{ label: "Mehrwertsteuer & Zölle", path: "/vat-duties" },
-];
-
-
-const shopLinks = [
-{ label: "Seecontainer kaufen", path: "/seecontainer-kaufen" },
-{ label: "10 Fuß Container", path: "/10-fuss-container-kaufen" },
-{ label: "20 Fuß Container", path: "/20-fuss-container-kaufen" },
-{ label: "40 Fuß Container", path: "/40-fuss-container-kaufen" },
-{ label: "Open Side Container", path: "/open-side-container-kaufen" },
-{ label: "Double Door Container", path: "/double-door-container-kaufen" },
-{ label: "Lagercontainer", path: "/lagercontainer-kaufen" },
-{ label: "Bürocontainer", path: "/buerocontainer-kaufen" },
-{ label: "Kühlcontainer", path: "/kuehlcontainer-kaufen" },
-{ label: "Wohncontainer", path: "/wohncontainer-kaufen" },
-{ label: "Alle Container", path: "/shop" }];
-
-
-const ratgeberLinks = [
-{ label: "Container Maße", path: "/container-masse" },
-{ label: "Container Gewicht", path: "/container-gewicht" },
-{ label: "Container Kosten", path: "/container-kosten" },
-{ label: "Container Fundament", path: "/container-fundament" },
-{ label: "Container Lieferung", path: "/container-lieferung" },
-{ label: "Container Genehmigung", path: "/container-genehmigung" }];
-
-
-const infoLinks = [
-{ label: "Über uns", path: "/ueber-uns" },
-{ label: "Kontakt", path: "/kontakt" },
-{ label: "FAQ", path: "/faq" },
-{ label: "Container Kaufberater", path: "/kaufberater" }];
-
+import { useT, useSection } from "@/lib/i18n";
 
 export default function Footer() {
+  const t = useT();
+  // All link arrays now read from i18n.js — labels translate per locale
+  const shopLinks = useSection("footerShopLinks");
+  const ratgeberLinks = useSection("footerGuideLinks");
+  const legalLinks = useSection("footerLegalLinks");
+  const infoLinks = useSection("footerInfoLinks");
+
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* Main footer */}
@@ -57,10 +21,8 @@ export default function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-2.5 mb-5">
               <img src="https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/1f0c99f16_csav-germany.png"
-
-              alt="CSAV Container Logo"
-              className="w-11 h-11 rounded-full object-cover" />
-              
+                alt="CSAV Container Logo"
+                className="w-11 h-11 rounded-full object-cover" />
               <div className="flex flex-col">
                 <span className="font-heading font-bold text-lg leading-none">CSAV</span>
                 <span className="font-heading text-[10px] font-semibold tracking-[0.25em] text-primary-foreground/60 uppercase">
@@ -68,9 +30,7 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            <p className="text-sm text-primary-foreground/70 leading-relaxed mb-5">Seit 2014 Ihr zuverlässiger Partner für neue und gebrauchte Seecontainer – deutschlandweit lieferbar innerhalb von 72 Stunden.
-
-            </p>
+            <p className="text-sm text-primary-foreground/70 leading-relaxed mb-5">{t("footer.tagline")}</p>
             <div className="space-y-3 text-sm text-primary-foreground/70">
               <a href="tel:+491512437142" className="flex items-center gap-2 hover:text-secondary transition-colors">
                 <Phone className="w-4 h-4" /> +49 151 243 71427
@@ -86,10 +46,10 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">Container Katalog</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">{t("footer.catalog")}</h4>
             <ul className="space-y-2.5">
               {shopLinks.map((link) =>
-              <li key={link.path}>
+                <li key={link.path}>
                   <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-secondary transition-colors">
                     {link.label}
                   </Link>
@@ -100,10 +60,10 @@ export default function Footer() {
 
           {/* Ratgeber */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">Ratgeber</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">{t("footer.guide")}</h4>
             <ul className="space-y-2.5">
               {ratgeberLinks.map((link) =>
-              <li key={link.path}>
+                <li key={link.path}>
                   <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-secondary transition-colors">
                     {link.label}
                   </Link>
@@ -114,10 +74,10 @@ export default function Footer() {
 
           {/* Info */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">Informationen</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">{t("footer.info")}</h4>
             <ul className="space-y-2.5">
               {infoLinks.map((link) =>
-              <li key={link.path}>
+                <li key={link.path}>
                   <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-secondary transition-colors">
                     {link.label}
                   </Link>
@@ -128,10 +88,10 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">Rechtliches</h4>
+            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-5">{t("footer.legal")}</h4>
             <ul className="space-y-2.5 font-mono text-xs">
               {legalLinks.map((link) =>
-              <li key={link.path}>
+                <li key={link.path}>
                   <Link to={link.path} className="text-primary-foreground/60 hover:text-secondary transition-colors">
                     {link.label}
                   </Link>
@@ -147,14 +107,14 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-xs text-primary-foreground/50 font-mono">
-              © {new Date().getFullYear()} CSAV Container. Alle Rechte vorbehalten.
+              © {new Date().getFullYear()} CSAV Container. {t("footer.copyright")}
             </p>
             <p className="text-xs text-primary-foreground/40 font-mono">
-              Preise zzgl. Transport · Alle Angaben ohne Gewähr
+              {t("footer.disclaimer")}
             </p>
           </div>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  );
 }

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
-import { useProduct } from "@/hooks/useProducts";
+import { useTranslatedProduct } from "@/hooks/useTranslatedProduct";
 import ProductGallery from "@/components/product/ProductGallery";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -16,8 +16,17 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import ContactBanner from "@/components/shared/ContactBanner";
+import { useSection } from "@/lib/i18n";
+import { useLocale } from "@/hooks/useLocale";
+import { useAttributeValueTranslations } from "@/hooks/useAttributeValueTranslations";
 
 const ORANGE = "#F28C28";
+
+// Maps raw DB condition codes to locale-correct display labels.
+const CONDITION_DISPLAY = {
+  de: { new: "Neu", used: "Gebraucht", refurbished: "Generalüberholt" },
+  en: { new: "New", used: "Used", refurbished: "Fully refurbished" },
+};
 
 function AttributeItem({ icon: Icon, label, value }) {
   return (
@@ -44,8 +53,19 @@ function DimensionBadge({ label, value }) {
 
 export default function ProductDetail() {
   const { slug } = useParams();
-  const { product, loading } = useProduct(slug);
+  const { product, loading } = useTranslatedProduct(slug);
   const [quantity, setQuantity] = useState(1);
+  const T = useSection("product");
+  const Tpd = useSection("productDetail");
+  const locale = useLocale();
+
+  // Locale-aware condition label using the raw condition_code from DB
+  const conditionDisplay = product
+    ? (CONDITION_DISPLAY[locale]?.[product.condition_code] || product.condition)
+    : "";
+
+  // Translates raw attribute values (e.g. "Kühlcontainer" → "Refrigerated container")
+  const translateAttrValue = useAttributeValueTranslations();
 
   if (loading) {
     return (
@@ -58,9 +78,9 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <div className="pt-32 pb-20 text-center">
-        <h1 className="font-heading font-bold text-2xl mb-4">Produkt nicht gefunden</h1>
+        <h1 className="font-heading font-bold text-2xl mb-4">{T.notFound}</h1>
         <Link to="/shop">
-          <Button variant="outline"><ArrowLeft className="w-4 h-4 mr-2" /> Zurück zum Shop</Button>
+          <Button variant="outline"><ArrowLeft className="w-4 h-4 mr-2" /> {T.backToShop}</Button>
         </Link>
       </div>
     );
@@ -68,27 +88,19 @@ export default function ProductDetail() {
 
   const images = [product.image_url, ...(product.gallery_urls || [])];
 
-  const typeSpecific = {
-    Kühlcontainer: "Das integrierte Kühlaggregat ermöglicht präzise Temperaturregulierung von -25 °C bis +25 °C. Ideal für lebensmittelverarbeitende Betriebe, Pharmaunternehmen sowie die Lagerung temperaturempfindlicher Güter. Die innere Edelstahlverkleidung ist leicht zu reinigen und erfüllt alle Hygieneanforderungen.",
-    Bürocontainer: "Die Innenausstattung umfasst eine vollständige Elektroinstallation mit Sicherungskasten, LED-Beleuchtung und Steckdosen sowie Doppelglasscheiben mit integriertem Sonnenschutz. Der PVC-Boden auf Vollwärmeisolierung sorgt ganzjährig für angenehme Arbeitstemperaturen – kein zusätzliches Heizsystem erforderlich.",
-    "Open Side": "Die vollständig öffenbare Seitenwand mit CSC-zertifizierten Türflügeln ermöglicht das Be- und Entladen per Gabelstapler oder Förderband – ohne Wendemanöver, direkt von der Seite. Besonders gefragt im Einzelhandel, auf Messen und in der Logistik.",
-  }[product.container_type] || "";
+  const typeSpecific = Tpd.typeSpecific?.[product.container_type] || "";
 
   const seoDescription = [
     product.description,
-
-    `Der ${product.title} von CSAV Container ist aus hochwertigem Corten-Stahl (wetterfester Baustahl nach EN 10025-5) gefertigt. Die natürliche Oxidationsschutzschicht des Corten-Stahls macht aufwendige Oberflächenbehandlungen überflüssig und sorgt für eine außergewöhnlich lange Lebensdauer – auch unter extremen Witterungsbedingungen. Alle Schweißnähte sind nach ISO 3834 wasserdicht ausgeführt; der ${product.floor} garantiert maximale Belastbarkeit und Widerstandsfähigkeit gegen mechanischen Abrieb.`,
-
+    Tpd.seoPara2(product.title, product.floor),
     typeSpecific,
-
-    `Einsatzbereiche: Der ${product.size} ${product.container_type}-Container eignet sich hervorragend als Lager-, Werkzeug- und Materialcontainer auf Baustellen, als Außenlager für Industrie und Handel, als sicherer Archiv- und Aktenschrank oder als Basis für individuelle Containerumbauten (Wohncontainer, Pop-up-Stores, Sanitärcontainer). Dank seiner standardisierten ISO-Außenmaße ist er stapelbar und problemlos mit Kran, Reach-Stacker oder Gabelstapler handhabbar.`,
-
-    `Qualitätssicherung & Zertifizierung: Vor der Auslieferung durchläuft jeder Container eine mehrstufige Qualitätsprüfung durch unser zertifiziertes Serviceteam: Sichtprüfung aller Strukturbauteile, Wassereinbringtest auf Dichheit, Messung der Bodentraglast sowie Funktionsprüfung aller Türverriegelungen. ${product.csc_certified ? "Das beigelegte CSC-Zertifikat (Convention for Safe Containers) bestätigt die Verwendbarkeit im internationalen Seefrachtverkehr." : ""} Auf Wunsch kann ein TÜV-Gutachten als Zusatzleistung beauftragt werden.`,
-
-    `Lieferung & Service: CSAV Container liefert deutschlandweit mit eigenem Kranfahrzeug innerhalb von 72 Stunden direkt an Ihren Wunschort – inklusive fachmännischer Abladeberatung. Unser Team berät Sie kostenlos zu Untergrundbeschaffenheit, Aufstellgenehmigungen und individuellen Umbauwünschen. Fordern Sie jetzt Ihr unverbindliches Angebot an.`,
+    Tpd.seoPara3(product.size, product.container_type),
+    Tpd.seoPara4(product.csc_certified),
+    Tpd.seoPara5,
   ].filter(Boolean);
 
-  const metaDescription = product.short_description || `${product.title} kaufen – wind- und wasserdichter ISO-Stahlcontainer von CSAV Container. Ab ${product.price_from?.toLocaleString("de-DE")} €, deutschlandweite Lieferung.`;
+  const metaDescription = product.short_description ||
+    Tpd.metaFallback(product.title, product.price_from?.toLocaleString("de-DE"));
 
   const productSchema = {
     "@context": "https://schema.org/",
@@ -109,7 +121,7 @@ export default function ProductDetail() {
   return (
     <>
       <Helmet>
-        <title>{product.title} kaufen – Ab {product.price_from?.toLocaleString("de-DE")} € | CSAV Container</title>
+        <title>{product.title} {Tpd.titleAction} – Ab {product.price_from?.toLocaleString("de-DE")} € | CSAV Container</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={`https://csavcontainer.de/produkt/${product.slug || product.id}`} />
         <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
@@ -152,7 +164,7 @@ export default function ProductDetail() {
                 )}
                 {product.is_available && (
                   <Badge className="bg-emerald-500/10 text-emerald-700 border-emerald-500/20 text-xs">
-                    ✓ Auf Lager
+                    ✓ {T.inStock}
                   </Badge>
                 )}
               </div>
@@ -164,15 +176,15 @@ export default function ProductDetail() {
             <div className="border-t border-b border-border py-4">
               <div className="flex items-baseline gap-2">
                 <span className="font-heading font-bold text-3xl text-foreground">
-                  Ab {product.price_from?.toLocaleString("de-DE")} €
+                  {T.from} {product.price_from?.toLocaleString("de-DE")} €
                 </span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">zzgl. Transportkosten · Preise netto · inkl. Beratung</p>
+              <p className="text-xs text-muted-foreground mt-1">{T.priceNote}</p>
             </div>
 
             {/* Quantity */}
             <div>
-              <label className="text-xs text-muted-foreground font-medium mb-2 block">Anzahl Container</label>
+              <label className="text-xs text-muted-foreground font-medium mb-2 block">{T.quantityLabel}</label>
               <div className="inline-flex items-center border border-border rounded-lg">
                 <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-2.5 hover:bg-muted transition-colors">
                   <Minus className="w-4 h-4" />
@@ -192,30 +204,30 @@ export default function ProductDetail() {
                 style={{ backgroundColor: ORANGE }}
               >
                 <FileText className="w-5 h-5 mr-2" />
-                {quantity > 1 ? `${quantity} × Container – Angebot anfordern` : "Unverbindliches Angebot anfordern"}
+                {quantity > 1 ? T.ctaMulti(quantity) : T.ctaSingle}
               </Button>
             </Link>
 
             {/* Dimensions quick-view */}
             <div>
-              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-3">Außenmaße</p>
+              <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider mb-3">{T.externalDimensions}</p>
               <div className="grid grid-cols-3 gap-2">
-                <DimensionBadge label="Länge" value={product.outer_length} />
-                <DimensionBadge label="Breite" value={product.outer_width} />
-                <DimensionBadge label="Höhe" value={product.outer_height} />
+                <DimensionBadge label={T.dimLength} value={product.outer_length} />
+                <DimensionBadge label={T.dimWidth} value={product.outer_width} />
+                <DimensionBadge label={T.dimHeight} value={product.outer_height} />
               </div>
             </div>
 
             {/* Key attributes with icons — 2-column grid */}
             <div className="grid grid-cols-2 gap-2">
-              <AttributeItem icon={Box} label="Zustand" value={product.condition} />
-              <AttributeItem icon={Layers} label="Typ" value={product.container_type} />
-              <AttributeItem icon={Maximize2} label="Größe" value={product.size} />
-              <AttributeItem icon={Weight} label="Eigengewicht" value={product.weight} />
-              <AttributeItem icon={Package} label="Nutzlast" value={product.payload} />
-              <AttributeItem icon={Ruler} label="Material" value={product.material} />
+              <AttributeItem icon={Box} label={T.attrCondition} value={conditionDisplay} />
+              <AttributeItem icon={Layers} label={T.attrType} value={translateAttrValue(product.container_type)} />
+              <AttributeItem icon={Maximize2} label={T.attrSize} value={product.size} />
+              <AttributeItem icon={Weight} label={T.attrWeight} value={product.weight} />
+              <AttributeItem icon={Package} label={T.attrPayload} value={product.payload} />
+              <AttributeItem icon={Ruler} label={T.attrMaterial} value={translateAttrValue(product.material)} />
               <div className="col-span-2">
-                <AttributeItem icon={DoorOpen} label="Türen" value={product.doors} />
+                <AttributeItem icon={DoorOpen} label={T.attrDoors} value={product.doors} />
               </div>
             </div>
 
@@ -224,25 +236,25 @@ export default function ProductDetail() {
               {product.csc_certified && (
                 <div className="flex items-center gap-1.5 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  CSC-Zertifiziert
+                  {T.cscLabel}
                 </div>
               )}
               {product.weather_resistant && (
                 <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5" />
-                  Wasser- & Winddicht
+                  {T.weatherLabel}
                 </div>
               )}
               <div className="flex items-center gap-1.5 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5">
                 <Award className="w-3.5 h-3.5" />
-                ISO-Norm konform
+                {T.isoLabel}
               </div>
             </div>
 
             {/* Trust badges */}
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1.5"><Truck className="w-4 h-4" /> Deutschlandweite Lieferung</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4" /> Qualitätsgeprüft</span>
+              <span className="flex items-center gap-1.5"><Truck className="w-4 h-4" /> {T.deliveryBadge}</span>
+              <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4" /> {T.qualityLabel}</span>
             </div>
           </motion.div>
         </div>
@@ -252,10 +264,10 @@ export default function ProductDetail() {
           <Tabs defaultValue="description" className="w-full">
             <TabsList className="w-full justify-start border-b border-border rounded-none bg-transparent p-0 h-auto gap-0 flex-wrap">
               {[
-                { value: "description", label: "Beschreibung" },
-                { value: "specs", label: "Technische Daten" },
-                { value: "features", label: "Merkmale" },
-                { value: "delivery", label: "Versand & Lieferung" },
+                { value: "description", label: T.tabDescription },
+                { value: "specs", label: T.tabSpecs },
+                { value: "features", label: T.tabFeatures },
+                { value: "delivery", label: T.tabDelivery },
               ].map((tab) => (
                 <TabsTrigger
                   key={tab.value}
@@ -280,10 +292,10 @@ export default function ProductDetail() {
                   <div className="rounded-2xl mb-8 overflow-hidden" style={{ background: "linear-gradient(135deg,#1B3A5C,#0f2540)" }}>
                     <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
                       {[
-                        { icon: Ruler, label: "Länge", value: product.outer_length },
-                        { icon: Maximize2, label: "Breite", value: product.outer_width },
-                        { icon: BarChart3, label: "Höhe", value: product.outer_height },
-                        { icon: Package, label: "Nutzlast", value: product.payload },
+                        { icon: Ruler, label: T.dimLength, value: product.outer_length },
+                        { icon: Maximize2, label: T.dimWidth, value: product.outer_width },
+                        { icon: BarChart3, label: T.dimHeight, value: product.outer_height },
+                        { icon: Package, label: T.dimPayload, value: product.payload },
                       ].filter(d => d.value).map(({ icon: Ic, label, value }, i) => (
                         <div key={i} className="flex flex-col items-center gap-2 py-6 px-4 text-center">
                           <Ic className="w-7 h-7 text-white/60" />
@@ -298,12 +310,12 @@ export default function ProductDetail() {
                 {/* Key facts grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
                   {[
-                    { label: "Zustand", value: product.condition },
-                    { label: "Containertyp", value: product.container_type },
-                    { label: "Größe", value: product.size },
-                    { label: "Material", value: product.material },
-                    { label: "Boden", value: product.floor },
-                    { label: "Türen", value: product.doors },
+                    { label: T.attrCondition, value: conditionDisplay },
+                    { label: T.attrType, value: translateAttrValue(product.container_type) },
+                    { label: T.attrSize, value: product.size },
+                    { label: T.attrMaterial, value: translateAttrValue(product.material) },
+                    { label: T.attrFloor, value: product.floor },
+                    { label: T.attrDoors, value: product.doors },
                   ].filter(f => f.value).map((f, i) => (
                     <div key={i} className="bg-muted/40 border border-border rounded-xl px-4 py-3">
                       <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">{f.label}</p>
@@ -316,19 +328,19 @@ export default function ProductDetail() {
                 <div className="flex flex-wrap gap-2">
                   {product.csc_certified && (
                     <span className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-full px-3 py-1.5 text-xs font-medium">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> CSC-Zertifiziert
+                      <CheckCircle2 className="w-3.5 h-3.5" /> {T.cscLabel}
                     </span>
                   )}
                   {product.weather_resistant && (
                     <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-700 rounded-full px-3 py-1.5 text-xs font-medium">
-                      <Wind className="w-3.5 h-3.5" /> Wasser- & Winddicht
+                      <Wind className="w-3.5 h-3.5" /> {T.weatherLabel}
                     </span>
                   )}
                   <span className="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 rounded-full px-3 py-1.5 text-xs font-medium">
-                    <Award className="w-3.5 h-3.5" /> ISO-Norm konform
+                    <Award className="w-3.5 h-3.5" /> {T.isoLabel}
                   </span>
                   <span className="inline-flex items-center gap-1.5 bg-purple-50 border border-purple-200 text-purple-700 rounded-full px-3 py-1.5 text-xs font-medium">
-                    <Star className="w-3.5 h-3.5" /> Qualitätsgeprüft
+                    <Star className="w-3.5 h-3.5" /> {T.qualityLabel}
                   </span>
                 </div>
               </div>

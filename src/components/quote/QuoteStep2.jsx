@@ -5,91 +5,64 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Truck, PackageCheck, Warehouse, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSection } from "@/lib/i18n";
 
 const ORANGE = "#F28C28";
 
-const TRANSPORT_OPTIONS = [
-  {
-    value: "delivery_no_unload",
-    label: "Lieferung ohne Entladung",
-    desc: "Container wird angeliefert, Entladung durch Sie",
-    icon: Truck,
-  },
-  {
-    value: "delivery_with_unload",
-    label: "Lieferung mit Entladung",
-    desc: "Wir liefern und setzen den Container am Wunschort ab",
-    icon: PackageCheck,
-  },
-  {
-    value: "self_pickup",
-    label: "Selbstabholung im Depot",
-    desc: "Sie holen den Container direkt bei uns ab",
-    icon: Warehouse,
-  },
-];
-
-const SIZES = [
-  { value: "10ft", label: "10 Fuß (Standard)" },
-  { value: "20ft", label: "20 Fuß (Standard)" },
-  { value: "20ft HC", label: "20 Fuß (High Cube)" },
-  { value: "40ft", label: "40 Fuß (Standard)" },
-  { value: "40ft HC", label: "40 Fuß (High Cube)" },
-];
-
-const COLORS = ["Blau", "Anthrazit", "Grün", "Weiß", "RAL nach Wunsch"];
-const CONDITIONS = ["Neu", "Gebraucht", "Generalüberholt"];
+const TRANSPORT_ICONS = {
+  delivery_no_unload: Truck,
+  delivery_with_unload: PackageCheck,
+  self_pickup: Warehouse,
+};
 
 export default function QuoteStep2({ data, setData }) {
+  const T = useSection("quote");
   const update = (key, value) => setData((prev) => ({ ...prev, [key]: value }));
   const updateQuantity = (value) => {
-    if (value === "" || /^[1-9]\d*$/.test(value)) {
-      update("quantity", value);
-    }
+    if (value === "" || /^[1-9]\d*$/.test(value)) update("quantity", value);
   };
   const [showDateInfo, setShowDateInfo] = useState(false);
 
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="font-heading font-bold text-xl mb-1">Container-Details & Transport</h2>
-        <p className="text-sm text-muted-foreground">Konfigurieren Sie Ihren Container und wählen Sie Ihre Transportoption.</p>
+        <h2 className="font-heading font-bold text-xl mb-1">{T.step2Title}</h2>
+        <p className="text-sm text-muted-foreground">{T.step2Sub}</p>
       </div>
 
-      {/* Size, Condition, Color, Quantity */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="space-y-2">
-          <Label className="text-sm font-medium">Größe *</Label>
+          <Label className="text-sm font-medium">{T.sizeLabel} *</Label>
           <Select value={data.container_size || ""} onValueChange={(v) => update("container_size", v)}>
-            <SelectTrigger><SelectValue placeholder="Größe wählen" /></SelectTrigger>
+            <SelectTrigger><SelectValue placeholder={T.sizePlaceholder} /></SelectTrigger>
             <SelectContent>
-              {SIZES.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
+              {T.sizes.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>
 
         <div className="space-y-2">
-          <Label className="text-sm font-medium">Zustand *</Label>
+          <Label className="text-sm font-medium">{T.conditionLabel} *</Label>
           <Select value={data.condition || ""} onValueChange={(v) => update("condition", v)}>
-            <SelectTrigger><SelectValue placeholder="Zustand wählen" /></SelectTrigger>
+            <SelectTrigger><SelectValue placeholder={T.conditionPlaceholder} /></SelectTrigger>
             <SelectContent>
-              {CONDITIONS.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+              {T.conditions.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>
 
         <div className="space-y-2">
-          <Label className="text-sm font-medium">Farbe</Label>
+          <Label className="text-sm font-medium">{T.colorLabel}</Label>
           <Select value={data.color || ""} onValueChange={(v) => update("color", v)}>
-            <SelectTrigger><SelectValue placeholder="Farbe wählen (optional)" /></SelectTrigger>
+            <SelectTrigger><SelectValue placeholder={T.colorPlaceholder} /></SelectTrigger>
             <SelectContent>
-              {COLORS.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+              {T.colors.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>
 
         <div className="space-y-2">
-          <Label className="text-sm font-medium">Anzahl Container *</Label>
+          <Label className="text-sm font-medium">{T.quantityLabel2} *</Label>
           <Input
             type="text"
             inputMode="numeric"
@@ -101,11 +74,11 @@ export default function QuoteStep2({ data, setData }) {
         </div>
       </div>
 
-      {/* Transport Options */}
       <div className="space-y-3">
-        <Label className="text-sm font-medium">Transportoption *</Label>
+        <Label className="text-sm font-medium">{T.transportLabel} *</Label>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {TRANSPORT_OPTIONS.map(({ value, label, desc, icon: Icon }) => {
+          {T.transportOptions.map(({ value, label, desc }) => {
+            const Icon = TRANSPORT_ICONS[value];
             const active = data.unloading_method === value;
             return (
               <button
@@ -124,36 +97,22 @@ export default function QuoteStep2({ data, setData }) {
         </div>
       </div>
 
-      {/* Desired Delivery Date */}
       {data.unloading_method !== "self_pickup" && (
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-2">
           <div className="flex items-center gap-2">
-            <Label className="text-sm font-medium">Gewünschtes Lieferdatum</Label>
-            <button
-              type="button"
-              onClick={() => setShowDateInfo(!showDateInfo)}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
+            <Label className="text-sm font-medium">{T.deliveryDateLabel}</Label>
+            <button type="button" onClick={() => setShowDateInfo(!showDateInfo)} className="text-muted-foreground hover:text-foreground transition-colors">
               <Info className="w-4 h-4" />
             </button>
           </div>
-
           <AnimatePresence>
             {showDateInfo && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="flex gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800"
-              >
+              <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="flex gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
                 <Info className="w-3.5 h-3.5 shrink-0 mt-0.5 text-amber-500" />
-                <p>
-                  <strong>Hinweis:</strong> Das Lieferdatum ist unverbindlich. Wir bemühen uns, Ihren Wunschtermin einzuhalten – eine Lieferung innerhalb von 14 Werktagen ist unser Ziel. Die genaue Terminbestätigung erfolgt nach Auftragserteilung.
-                </p>
+                <p>{T.deliveryNote}</p>
               </motion.div>
             )}
           </AnimatePresence>
-
           <Input
             type="date"
             value={data.desired_delivery_date || ""}

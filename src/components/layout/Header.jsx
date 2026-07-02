@@ -4,47 +4,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-
-/* ─── Category data for the mega dropdown ─── */
-const CATEGORIES = [
-  {
-    label: "10ft Container",
-    path: "/kategorien/10ft",
-    desc: "Kompakt & vielseitig",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d97452f56_Standard_10-Fuss-1024x668.png",
-  },
-  {
-    label: "20ft Container",
-    path: "/kategorien/20ft",
-    desc: "Meistverkauft",
-    badge: "Bestseller",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/87f1ec1e8_Standard_20-Fuss-1024x6681.png",
-  },
-  {
-    label: "40ft Container",
-    path: "/kategorien/40ft",
-    desc: "Maximales Volumen",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/e840b5a6e_Pallet-Wide-Container-2-1024x668.png",
-  },
-  {
-    label: "Kühlcontainer",
-    path: "/kategorien/kuehlcontainer",
-    desc: "Reefer mit Kühlaggregat",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/2fca4821f_Kuehlcontainer-2-600x391.png",
-  },
-  {
-    label: "Bürocontainer",
-    path: "/kategorien/buerocontainer",
-    desc: "Mobiles Büro & Arbeitsraum",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/9cb0b31d1_Hard-Top-Container-2-1024x668.png",
-  },
-  {
-    label: "Open Side Container",
-    path: "/kategorien/open-side",
-    desc: "Seitenwand vollständig öffenbar",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/21a6ae7d4_Open-Side-Container-2-1024x668.png",
-  },
-];
+import { useFeaturedCategories } from "@/hooks/useCategories";
+import { HERO_IMAGE } from "@/lib/productData";
+import { useT } from "@/lib/i18n";
+import { useLocale } from "@/hooks/useLocale";
+import { isLocalizablePath, stripLocalePrefix } from "@/lib/locale";
+import NextLink from "next/link";
 
 const simpleNavItems = [
   { label: "Home", path: "/" },
@@ -78,7 +43,10 @@ function useHoverDropdown(delay = 180) {
 }
 
 /* ─── Mega dropdown component ─── */
-function CatalogDropdown({ visible }) {
+function CatalogDropdown({ visible, categories }) {
+  const t = useT();
+  if (categories.length === 0) return null;
+
   return (
     <AnimatePresence>
       {visible && (
@@ -93,43 +61,35 @@ function CatalogDropdown({ visible }) {
         >
           {/* Header bar */}
           <div className="px-5 py-3 border-b border-border bg-muted/50 flex items-center justify-between">
-            <span className="font-heading font-bold text-sm text-foreground">Container Kategorien</span>
+            <span className="font-heading font-bold text-sm text-foreground">{t("nav.catalog")}</span>
             <Link
               to="/shop"
               className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Alle anzeigen →
+              {t("nav.showAll")}
             </Link>
           </div>
 
           {/* Grid */}
           <div className="grid grid-cols-3 gap-3 p-4">
-            {CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <Link
-                key={cat.path}
-                to={cat.path}
+                key={cat.slug}
+                to={`/shop?category=${encodeURIComponent(cat.slug)}`}
                 className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#F28C28]/70 hover:shadow-md transition-all overflow-hidden"
               >
                 {/* Image area */}
                 <div className="relative bg-[#fdf8f0] flex items-center justify-center p-3 h-28 overflow-hidden">
-                  {cat.badge && (
-                    <span
-                      className="absolute top-2 right-2 text-[9px] font-bold px-1.5 py-0.5 rounded-full text-white z-10"
-                      style={{ backgroundColor: "#F28C28" }}
-                    >
-                      {cat.badge}
-                    </span>
-                  )}
                   <img
-                    src={cat.img}
-                    alt={cat.label}
+                    src={cat.image_url || HERO_IMAGE}
+                    alt={cat.name}
                     className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 {/* Label */}
                 <div className="px-3 py-2.5 border-t border-border/60">
                   <p className="font-heading font-semibold text-xs text-foreground group-hover:text-[#1B3A5C] transition-colors leading-tight">
-                    {cat.label}
+                    {cat.name}
                   </p>
                 </div>
               </Link>
@@ -143,7 +103,7 @@ function CatalogDropdown({ visible }) {
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "#F28C28" }}
             >
-              Kostenloses Angebot anfordern →
+              {t("nav.requestQuote")}
             </Link>
           </div>
         </motion.div>
@@ -160,6 +120,23 @@ export default function Header() {
   const [mobileKatalogOpen, setMobileKatalogOpen] = useState(false);
   const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
   const location = useLocation();
+  const { categories } = useFeaturedCategories();
+  const t = useT();
+  const locale = useLocale();
+
+  // Build the alternate-locale URL for the switcher.
+  // If the current page has no English equivalent, fall back to /en homepage.
+  const alternatePath = (() => {
+    const raw = location.pathname;
+    if (locale === "de") {
+      // If an EN version of this page exists, link to it.
+      // Otherwise stay on the same German page — never bounce to homepage.
+      return isLocalizablePath(raw) ? `/en${raw === "/" ? "" : raw}` : raw;
+    }
+    // English → German: strip /en prefix
+    const stripped = stripLocalePrefix(raw);
+    return stripped || "/";
+  })();
 
   useEffect(() => {
     setIsOpen(false);
@@ -193,7 +170,7 @@ export default function Header() {
                   : "text-foreground/80 hover:text-foreground hover:bg-muted"
               }`}
             >
-              Home
+              {t("nav.home")}
             </Link>
 
             {/* Container Katalog with mega dropdown */}
@@ -210,12 +187,12 @@ export default function Header() {
                     : "text-foreground/80 hover:text-foreground hover:bg-muted"
                 }`}
               >
-                Container Katalog
+                {t("nav.catalog")}
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${catalog.open ? "rotate-180" : ""}`}
                 />
               </Link>
-              <CatalogDropdown visible={catalog.open} />
+              <CatalogDropdown visible={catalog.open} categories={categories} />
             </div>
 
             {/* Container Service dropdown */}
@@ -231,7 +208,7 @@ export default function Header() {
                     : "text-foreground/80 hover:text-foreground hover:bg-muted"
                 }`}
               >
-                Container Service
+                {t("nav.service")}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${service.open ? "rotate-180" : ""}`} />
               </button>
               <AnimatePresence>
@@ -261,7 +238,7 @@ export default function Header() {
             </div>
 
             {/* Über uns & Kontakt */}
-            {[{ label: "Über uns", path: "/ueber-uns" }, { label: "Kontakt", path: "/kontakt" }].map((item) => (
+            {[{ label: t("nav.about"), path: "/ueber-uns" }, { label: t("nav.contact"), path: "/kontakt" }].map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
@@ -285,9 +262,17 @@ export default function Header() {
               <Phone className="w-4 h-4" />
               <span>+49 151 243 71427</span>
             </a>
+            {/* Language switcher — uses NextLink directly to bypass locale-aware resolveHref */}
+            <NextLink
+              href={alternatePath}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-border text-xs font-semibold font-mono hover:bg-muted transition-colors"
+              title={locale === "de" ? "Switch to English" : "Zur deutschen Version wechseln"}
+            >
+              {locale === "de" ? "EN" : "DE"}
+            </NextLink>
             <Link to="/angebot">
               <Button className="font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
-                Angebot anfordern
+                {t("nav.cta")}
               </Button>
             </Link>
           </div>
@@ -296,7 +281,7 @@ export default function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-            aria-label="Menü"
+            aria-label={t("nav.menu")}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -332,7 +317,7 @@ export default function Header() {
                   onClick={() => setMobileKatalogOpen(!mobileKatalogOpen)}
                   className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium hover:bg-muted transition-colors"
                 >
-                  Container Katalog
+                  {t("nav.catalog")}
                   <ChevronDown className={`w-4 h-4 transition-transform ${mobileKatalogOpen ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
@@ -344,16 +329,16 @@ export default function Header() {
                       className="overflow-hidden"
                     >
                       <div className="grid grid-cols-2 gap-2 px-2 py-2">
-                        {CATEGORIES.map((cat) => (
+                        {categories.map((cat) => (
                           <Link
-                            key={cat.path}
-                            to={cat.path}
+                            key={cat.slug}
+                            to={`/shop?category=${encodeURIComponent(cat.slug)}`}
                             className="flex flex-col items-center p-2 rounded-xl border border-border bg-card text-center overflow-hidden"
                           >
                             <div className="w-full h-16 bg-[#fdf8f0] rounded-lg mb-1.5 flex items-center justify-center p-1">
-                              <img src={cat.img} alt={cat.label} className="w-full h-full object-contain" />
+                              <img src={cat.image_url || HERO_IMAGE} alt={cat.name} className="w-full h-full object-contain" />
                             </div>
-                            <p className="font-heading font-semibold text-[11px] text-foreground leading-tight">{cat.label}</p>
+                            <p className="font-heading font-semibold text-[11px] text-foreground leading-tight">{cat.name}</p>
                           </Link>
                         ))}
                       </div>
@@ -368,7 +353,7 @@ export default function Header() {
                   onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
                   className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium hover:bg-muted transition-colors"
                 >
-                  Container Service
+                  {t("nav.service")}
                   <ChevronDown className={`w-4 h-4 transition-transform ${mobileServiceOpen ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
@@ -395,12 +380,18 @@ export default function Header() {
                 </AnimatePresence>
               </div>
 
-              <div className="pt-3 border-t border-border mt-3">
+              <div className="pt-3 border-t border-border mt-3 space-y-2">
                 <Link to="/angebot" className="block">
                   <Button className="w-full font-heading font-semibold text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
-                    Angebot anfordern
+                    {t("nav.cta")}
                   </Button>
                 </Link>
+                <NextLink
+                  href={alternatePath}
+                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg border border-border text-sm font-semibold font-mono hover:bg-muted transition-colors"
+                >
+                  {locale === "de" ? "🌐 Switch to English (EN)" : "🌐 Zur deutschen Version (DE)"}
+                </NextLink>
               </div>
             </nav>
           </motion.div>

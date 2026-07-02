@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useSection } from "@/lib/i18n";
 
 const ORANGE = "#F28C28";
 
-/* ── Product images (isolated on black background) ── */
 const IMG = {
   seecontainer: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/03a8322fe_Seecontainer.png",
   kuehlcontainer: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/77201763e_Khlcontainer.png",
@@ -16,20 +16,17 @@ const IMG = {
   openside: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/f726750d8_OpenSideContainer.png",
 };
 
-const MAIN_CATEGORIES = [
-  { value: "Seecontainer", label: "Seecontainer", desc: "Standard ISO – 10ft, 20ft, 40ft", img: IMG.seecontainer },
-  { value: "Kühlcontainer", label: "Kühlcontainer", desc: "Reefer mit Kühlaggregat", img: IMG.kuehlcontainer },
-  { value: "Modifizierter Container", label: "Modifizierter Container", desc: "Doppeltür, Open Side & Open Top", img: IMG.modifiziert },
-  { value: "Container Garage", label: "Container Garage", desc: "Sichere Fahrzeug- & Lagergarage", img: IMG.garage },
-  { value: "Bürocontainer", label: "Bürocontainer", desc: "Mobiler Arbeits- & Büroraum", img: IMG.buero },
-  { value: "Wohncontainer", label: "Wohncontainer", desc: "Flexible Wohnlösung", img: IMG.wohn },
-];
-
-const MODIFIED_SUBTYPES = [
-  { value: "Doppeltür", label: "Doppeltür", desc: "Türen an beiden Stirnseiten", img: IMG.doppeltuer },
-  { value: "Open Side", label: "Open Side", desc: "Öffenbare Seitenwand", img: IMG.openside },
-  { value: "Open Top", label: "Open Top", desc: "Offenes Dach für Übermaßgut", img: null },
-];
+// Map category value → image (value never changes, only label/desc translate)
+const CATEGORY_IMAGES = {
+  "Seecontainer": IMG.seecontainer,
+  "Kühlcontainer": IMG.kuehlcontainer,
+  "Modifizierter Container": IMG.modifiziert,
+  "Container Garage": IMG.garage,
+  "Bürocontainer": IMG.buero,
+  "Wohncontainer": IMG.wohn,
+  "Doppeltür": IMG.doppeltuer,
+  "Open Side": IMG.openside,
+};
 
 function CategoryCard({ item, active, onClick, compact }) {
   return (
@@ -51,12 +48,15 @@ function CategoryCard({ item, active, onClick, compact }) {
           </div>
         )}
       </div>
-      <p className={`font-heading font-semibold ${compact ? "text-[11px]" : "text-sm"} leading-tight ${active ? "text-foreground" : "text-foreground/80"}`}>{item.label}</p>
+      <p className={`font-heading font-semibold ${compact ? "text-[11px]" : "text-sm"} leading-tight ${active ? "text-foreground" : "text-foreground/80"}`}>
+        {item.label}
+      </p>
     </motion.button>
   );
 }
 
 export default function QuoteStep1({ data, setData }) {
+  const T = useSection("quote");
   const update = (key, value) => setData((prev) => ({ ...prev, [key]: value }));
   const selectedMain = data.main_category || "";
 
@@ -71,15 +71,19 @@ export default function QuoteStep1({ data, setData }) {
     }
   };
 
+  // Attach images (which never change) to the translated category items
+  const mainCategories = T.categories.map((c) => ({ ...c, img: CATEGORY_IMAGES[c.value] || null }));
+  const subTypes = T.subtypes.map((c) => ({ ...c, img: CATEGORY_IMAGES[c.value] || null }));
+
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="font-heading font-bold text-xl mb-1">Welchen Container benötigen Sie?</h2>
-        <p className="text-sm text-muted-foreground">Wählen Sie die gewünschte Containerkategorie.</p>
+        <h2 className="font-heading font-bold text-xl mb-1">{T.step1Title}</h2>
+        <p className="text-sm text-muted-foreground">{T.step1Sub}</p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        {MAIN_CATEGORIES.map((item) => (
+        {mainCategories.map((item) => (
           <CategoryCard
             key={item.value}
             item={item}
@@ -91,9 +95,9 @@ export default function QuoteStep1({ data, setData }) {
 
       {selectedMain === "Modifizierter Container" && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
-          <p className="text-sm font-medium text-foreground">Welcher Typ interessiert Sie?</p>
+          <p className="text-sm font-medium text-foreground">{T.step1SubtypePrompt}</p>
           <div className="grid grid-cols-3 gap-3">
-            {MODIFIED_SUBTYPES.map((item) => (
+            {subTypes.map((item) => (
               <CategoryCard
                 key={item.value}
                 item={item}

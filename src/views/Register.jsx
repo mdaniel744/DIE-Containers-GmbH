@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { UserPlus, Mail, Lock, Loader2 } from "lucide-react";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 import AuthLayout from "@/components/AuthLayout";
+import { friendlyAuthError } from "@/lib/authErrors";
 import GoogleIcon from "@/components/GoogleIcon";
 import { toast } from "@/components/ui/use-toast";
 
@@ -32,7 +33,7 @@ export default function Register() {
       await base44.auth.register({ email, password });
       setShowOtp(true);
     } catch (err) {
-      setError(err.message || "Registration failed");
+      setError(friendlyAuthError(err, "Registration failed. Please try again."));
     } finally {
       setLoading(false);
     }
@@ -48,7 +49,7 @@ export default function Register() {
       }
       window.location.href = "/";
     } catch (err) {
-      setError(err.message || "Invalid verification code");
+      setError(friendlyAuthError(err, "Invalid verification code. Please try again."));
     } finally {
       setLoading(false);
     }
@@ -63,7 +64,7 @@ export default function Register() {
         description: "Check your email for the new code.",
       });
     } catch (err) {
-      setError(err.message || "Failed to resend code");
+      setError(friendlyAuthError(err, "Failed to resend code. Please try again."));
     }
   };
 

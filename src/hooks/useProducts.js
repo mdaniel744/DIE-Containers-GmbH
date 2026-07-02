@@ -1,30 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
 import { base44 } from "@/api/base44Client";
-import { isBase44Configured } from "@/lib/app-params";
-import { PRODUCT_DATA } from "@/lib/productData";
-
-const findLocalProduct = (slugOrId) =>
-  PRODUCT_DATA.find((product) => product.slug === slugOrId || product.id === slugOrId) || null;
 
 export function useProducts() {
-  const [products, setProducts] = useState(() => isBase44Configured ? [] : PRODUCT_DATA);
-  const [loading, setLoading] = useState(isBase44Configured);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isBase44Configured) {
-      setProducts(PRODUCT_DATA);
-      setLoading(false);
-      return;
-    }
-
     let cancelled = false;
     base44.entities.Product.list()
       .then((results) => {
         if (!cancelled) setProducts(results);
       })
       .catch(() => {
-        if (!cancelled) setProducts(PRODUCT_DATA);
+        if (!cancelled) setProducts([]);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
@@ -39,20 +28,12 @@ export function useProducts() {
 }
 
 export function useProduct(slugOrId) {
-  const [product, setProduct] = useState(() =>
-    isBase44Configured ? null : findLocalProduct(slugOrId)
-  );
-  const [loading, setLoading] = useState(isBase44Configured);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!slugOrId) {
       setProduct(null);
-      setLoading(false);
-      return;
-    }
-
-    if (!isBase44Configured) {
-      setProduct(findLocalProduct(slugOrId));
       setLoading(false);
       return;
     }
@@ -70,12 +51,12 @@ export function useProduct(slugOrId) {
               if (!cancelled) setProduct(result);
             })
             .catch(() => {
-              if (!cancelled) setProduct(findLocalProduct(slugOrId));
+              if (!cancelled) setProduct(null);
             });
         }
       })
       .catch(() => {
-        if (!cancelled) setProduct(findLocalProduct(slugOrId));
+        if (!cancelled) setProduct(null);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

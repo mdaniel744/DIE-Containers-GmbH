@@ -2,23 +2,23 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
-import { isBase44Configured } from "@/lib/app-params";
-import { PRODUCT_DATA } from "@/lib/productData";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Send, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import QuoteStep1 from "@/components/quote/QuoteStep1";
 import QuoteStep2 from "@/components/quote/QuoteStep2";
 import QuoteStep3 from "@/components/quote/QuoteStep3";
+import { useSection } from "@/lib/i18n";
 
 const ORANGE = "#F28C28";
-const stepLabels = ["Containertyp", "Details & Transport", "Kontaktdaten"];
+// stepLabels are now read from i18n inside the component
 const isPositiveInteger = (value) => {
   const numericValue = Number(value);
   return Number.isInteger(numericValue) && numericValue > 0;
 };
 
 export default function QuoteRequest() {
+  const T = useSection("quote");
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("product");
@@ -63,9 +63,7 @@ export default function QuoteRequest() {
     let cancelled = false;
     (async () => {
       try {
-        const product = isBase44Configured
-          ? await base44.entities.Product.get(productId)
-          : PRODUCT_DATA.find((item) => item.id === productId || item.slug === productId);
+        const product = await base44.entities.Product.get(productId);
         if (cancelled || !product) return;
         const typeMap = {
           Standard: "Seecontainer",
@@ -118,9 +116,7 @@ export default function QuoteRequest() {
       ...data,
       quantity: Number(data.quantity),
     };
-    if (isBase44Configured) {
-      await base44.entities.QuoteRequest.create(quoteData);
-    }
+    await base44.entities.QuoteRequest.create(quoteData);
     setSubmitting(false);
     setSubmitted(true);
   };
@@ -136,16 +132,14 @@ export default function QuoteRequest() {
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
             <Check className="w-8 h-8 text-emerald-500" />
           </div>
-          <h1 className="font-heading font-bold text-2xl mb-3">Anfrage erfolgreich gesendet!</h1>
-          <p className="text-muted-foreground mb-8">
-            Vielen Dank für Ihre Anfrage. Wir werden Ihnen innerhalb von 24 Stunden ein individuelles Angebot per E-Mail zusenden.
-          </p>
+          <h1 className="font-heading font-bold text-2xl mb-3">{T.successTitle}</h1>
+          <p className="text-muted-foreground mb-8">{T.successText}</p>
           <Button
             onClick={() => navigate("/")}
             className="font-heading font-semibold text-[#1a1a1a] hover:opacity-90"
             style={{ backgroundColor: ORANGE }}
           >
-            Zurück zur Startseite
+            {T.backToHome}
           </Button>
         </motion.div>
       </div>
@@ -157,8 +151,8 @@ export default function QuoteRequest() {
       <div className="max-w-2xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
-          <h1 className="font-heading font-bold text-3xl tracking-tight mb-2">Angebot anfordern</h1>
-          <p className="text-muted-foreground">Kostenlos und unverbindlich – in 3 Schritten zum Angebot</p>
+          <h1 className="font-heading font-bold text-3xl tracking-tight mb-2">{T.title}</h1>
+          <p className="text-muted-foreground">{T.subtitle}</p>
         </motion.div>
 
         {prefilledProduct && (
@@ -169,7 +163,7 @@ export default function QuoteRequest() {
           >
             <img src={prefilledProduct.image_url} alt={prefilledProduct.title} className="w-12 h-12 rounded-lg object-cover shrink-0" />
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-mono uppercase tracking-wide" style={{ color: ORANGE }}>Ausgewähltes Produkt</p>
+              <p className="text-xs font-mono uppercase tracking-wide" style={{ color: ORANGE }}>{T.selectedProduct}</p>
               <p className="font-heading font-semibold text-sm text-foreground truncate">{prefilledProduct.title}</p>
             </div>
             <Check className="w-5 h-5 text-emerald-500 shrink-0" />
@@ -179,7 +173,7 @@ export default function QuoteRequest() {
         {/* Progress stepper */}
         <div className="mb-10">
           <div className="flex items-center justify-between mb-3">
-            {stepLabels.map((label, i) => (
+            {T.steps.map((label, i) => (
               <div key={label} className="flex flex-col items-center gap-1">
                 <div
                   className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
@@ -238,7 +232,7 @@ export default function QuoteRequest() {
             disabled={step === 0}
             className="font-medium"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" /> Zurück
+            <ArrowLeft className="w-4 h-4 mr-2" /> {T.back}
           </Button>
 
           {step < 2 ? (
@@ -248,7 +242,7 @@ export default function QuoteRequest() {
               className="font-heading font-semibold text-[#1a1a1a] hover:opacity-90"
               style={{ backgroundColor: ORANGE }}
             >
-              Weiter <ArrowRight className="w-4 h-4 ml-2" />
+              {T.next} <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           ) : (
             <Button
@@ -260,12 +254,12 @@ export default function QuoteRequest() {
               {submitting ? (
                 <span className="flex items-center gap-2">
                   <span className="w-4 h-4 border-2 border-[#1a1a1a]/30 border-t-[#1a1a1a] rounded-full animate-spin" />
-                  Wird gesendet...
+                  {T.submitting}
                 </span>
               ) : (
                 <>
                   <Send className="w-4 h-4 mr-2" />
-                  Kostenloses Angebot anfordern
+                  {T.submit}
                 </>
               )}
             </Button>

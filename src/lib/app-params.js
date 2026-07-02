@@ -43,10 +43,18 @@ const getAppParams = () => {
 
 	const currentHref = isNode ? undefined : window.location.href;
 
+	// Sanitise from_url: only accept same-origin paths to prevent open redirect.
+	// An attacker could supply ?from_url=https://evil.com; we reject anything
+	// that is not a relative path starting with '/'.
+	const rawFromUrl = getAppParamValue("from_url", { defaultValue: currentHref });
+	const safeFromUrl = (!rawFromUrl || rawFromUrl.startsWith('/'))
+		? rawFromUrl
+		: currentHref;
+
 	return {
 		appId: getAppParamValue("app_id", { defaultValue: process.env.NEXT_PUBLIC_BASE44_APP_ID }),
 		token: getAppParamValue("access_token", { removeFromUrl: true }),
-		fromUrl: getAppParamValue("from_url", { defaultValue: currentHref }),
+		fromUrl: safeFromUrl,
 		functionsVersion: getAppParamValue("functions_version", { defaultValue: process.env.NEXT_PUBLIC_BASE44_FUNCTIONS_VERSION }),
 		appBaseUrl: getAppParamValue("app_base_url", { defaultValue: process.env.NEXT_PUBLIC_BASE44_APP_BASE_URL }),
 	}

@@ -7,6 +7,25 @@ import {
   usePathname,
   useRouter,
 } from "next/navigation";
+import { getLocaleFromPathname, localePath, isLocalizablePath, DEFAULT_LOCALE } from "@/lib/locale";
+
+// Resolve an internal href to be locale-aware.
+// Only paths that have a real /en/ route get the locale prefix — everything
+// else (German-only SEO landing pages, legal pages, etc.) stays un-prefixed
+// so the user lands on the German version rather than hitting a 404.
+function resolveHref(rawHref, locale) {
+  if (
+    locale === DEFAULT_LOCALE ||
+    !rawHref ||
+    typeof rawHref !== "string" ||
+    !rawHref.startsWith("/") ||
+    rawHref.startsWith(`/${locale}`) ||
+    !isLocalizablePath(rawHref)
+  ) {
+    return rawHref;
+  }
+  return localePath(rawHref, locale);
+}
 
 const readBrowserLocation = () => {
   if (typeof window === "undefined") {
@@ -20,8 +39,13 @@ const readBrowserLocation = () => {
 };
 
 export function Link({ to, href, replace, children, ...props }) {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const rawHref = href || to || "#";
+  const resolvedHref = resolveHref(rawHref, locale);
+
   return (
-    <NextLink href={href || to || "#"} replace={replace} {...props}>
+    <NextLink href={resolvedHref} replace={replace} {...props}>
       {children}
     </NextLink>
   );
@@ -58,6 +82,8 @@ export function useLocation() {
 
 export function useNavigate() {
   const router = useRouter();
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
 
   return (to, options = {}) => {
     if (typeof to === "number") {
@@ -65,8 +91,9 @@ export function useNavigate() {
       return;
     }
 
-    if (options.replace) router.replace(to);
-    else router.push(to);
+    const resolved = resolveHref(to, locale);
+    if (options.replace) router.replace(resolved);
+    else router.push(resolved);
   };
 }
 

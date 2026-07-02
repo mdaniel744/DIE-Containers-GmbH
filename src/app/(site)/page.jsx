@@ -6,6 +6,7 @@ export const metadata = makeMetadata({
   description:
     "Neue und gebrauchte 10ft, 20ft und 40ft Seecontainer kaufen. CSAV Container liefert deutschlandweit und berät kostenlos.",
   path: "/",
+  enPath: "/en",
 });
 
 export default function Page() {

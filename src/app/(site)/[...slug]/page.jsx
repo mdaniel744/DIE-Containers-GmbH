@@ -303,10 +303,16 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  // Routes that have an /en/ mirror get hreflang alternates.
+  // Keep in sync with EN_ROUTES in src/app/en/[...slug]/page.jsx.
+  const EN_MIRRORED = new Set(["shop", "angebot", "ueber-uns", "kontakt", "faq"]);
+  const enPath = EN_MIRRORED.has(key) ? `/en/${key}` : undefined;
+
   return makeMetadata({
     title: route.title,
     description: route.description,
     path: `/${key}`,
+    enPath,
   });
 }
 

@@ -8,12 +8,14 @@ import { SlidersHorizontal, X, Package } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useSection } from "@/lib/i18n";
 import ShopSeoBanner20ft from "@/components/shop/ShopSeoBanner20ft";
 import ShopSeoBanner40ft from "@/components/shop/ShopSeoBanner40ft";
 import ShopSeoContainerKaufen from "@/components/shop/ShopSeoContainerKaufen";
 
 export default function Shop() {
   const { products: allProducts, loading } = useProducts();
+  const T = useSection("shop");
   const [searchParams] = useSearchParams();
 
   const getFiltersFromParams = () => {
@@ -85,7 +87,7 @@ export default function Shop() {
             animate={{ opacity: 1, y: 0 }}
             className="font-heading font-bold text-3xl lg:text-4xl tracking-tight"
           >
-            Alle Container
+            {T.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -93,7 +95,7 @@ export default function Shop() {
             transition={{ delay: 0.1 }}
             className="text-muted-foreground mt-2"
           >
-            {filteredProducts.length} Container verfügbar
+            {filteredProducts.length} {T.available}
           </motion.p>
         </div>
 
@@ -114,7 +116,7 @@ export default function Shop() {
                 <SheetTrigger asChild>
                   <Button variant="outline" size="sm" className="lg:hidden">
                     <SlidersHorizontal className="w-4 h-4 mr-2" />
-                    Filter
+                    {T.filter}
                     {activeCount > 0 && (
                       <span className="ml-1.5 w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-xs flex items-center justify-center">
                         {activeCount}
@@ -135,8 +137,8 @@ export default function Shop() {
                 onChange={(e) => setSortBy(e.target.value)}
                 className="text-sm border border-border rounded-lg px-3 py-2 bg-card focus:ring-2 focus:ring-secondary/30 focus:border-secondary outline-none"
               >
-                <option value="price_asc">Preis: Niedrigster zuerst</option>
-                <option value="price_desc">Preis: Höchster zuerst</option>
+                <option value="price_asc">{T.sortAsc}</option>
+                <option value="price_desc">{T.sortDesc}</option>
               </select>
             </div>
 
@@ -150,15 +152,13 @@ export default function Shop() {
             ) : (
               <div className="text-center py-20">
                 <Package className="w-12 h-12 mx-auto text-muted-foreground/40 mb-4" />
-                <h3 className="font-heading font-semibold text-lg mb-2">Keine Container gefunden</h3>
-                <p className="text-sm text-muted-foreground mb-6">
-                  Versuchen Sie andere Filterkriterien.
-                </p>
+                <h3 className="font-heading font-semibold text-lg mb-2">{T.empty}</h3>
+                <p className="text-sm text-muted-foreground mb-6">{T.emptyHint}</p>
                 <Button
                   variant="outline"
                   onClick={() => { setFilters({}); setPriceRange([0, 50000]); }}
                 >
-                  <X className="w-4 h-4 mr-2" /> Filter zurücksetzen
+                  <X className="w-4 h-4 mr-2" /> {T.resetFilters}
                 </Button>
               </div>
             )}

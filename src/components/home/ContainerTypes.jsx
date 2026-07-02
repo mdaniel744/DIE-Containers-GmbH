@@ -4,26 +4,28 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/shared/SectionHeading";
-import { TYPE_IMAGES } from "@/lib/productData";
-
-const types = [
-  { type: "Standard", label: "Standardcontainer", desc: "Der meistgenutzte Container für Lagerung und Transport.", image: TYPE_IMAGES["Standard"], path: "/seecontainer-kaufen" },
-  { type: "High Cube", label: "High Cube Container", desc: "30 cm mehr Höhe für sperrige Güter und Umbauten.", image: TYPE_IMAGES["High Cube"], path: "/shop?type=High+Cube" },
-  { type: "Open Side", label: "Open Side Container", desc: "Seitliche Öffnung für maximale Flexibilität.", image: TYPE_IMAGES["Open Side"], path: "/shop?type=Open+Side" },
-  { type: "Kühlcontainer", label: "Kühlcontainer", desc: "Temperaturgeführte Lagerung von -25°C bis +25°C.", image: TYPE_IMAGES["Kühlcontainer"], path: "/kuehlcontainer-kaufen" },
-  { type: "Doppeltür", label: "Doppeltürcontainer", desc: "Türen an beiden Stirnseiten für Durchlade-Betrieb.", image: TYPE_IMAGES["Doppeltür"], path: "/shop?type=Doppelt%C3%BCr" },
-  { type: "Bürocontainer", label: "Bürocontainer", desc: "Sofort bezugsfertiges Büro mit Elektrik und Isolierung.", image: TYPE_IMAGES["Bürocontainer"], path: "/buerocontainer-kaufen" },
-];
+import { HERO_IMAGE } from "@/lib/productData";
+import { useFeaturedCategories } from "@/hooks/useCategories";
+import { useSection } from "@/lib/i18n";
 
 export default function ContainerTypes() {
+  const { categories, loading } = useFeaturedCategories();
+  const T = useSection("containerTypes");
+
+  if (loading || categories.length === 0) return null;
+
+  const types = categories.map((cat) => ({
+    type: cat.slug,
+    label: cat.name,
+    desc: cat.description || T.description,
+    image: cat.image_url || HERO_IMAGE,
+    path: `/shop?category=${encodeURIComponent(cat.slug)}`,
+  }));
+
   return (
     <section className="py-20 lg:py-28 bg-muted/50 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          label="Containertypen"
-          title="Für jeden Einsatz der richtige Container"
-          description="Entdecken Sie unsere Vielfalt an Containertypen – von Standard bis Spezial."
-        />
+        <SectionHeading label={T.label} title={T.title} description={T.description} />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {types.map((item, i) => (
