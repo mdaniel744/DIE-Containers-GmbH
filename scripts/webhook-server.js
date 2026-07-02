@@ -1,10 +1,13 @@
-const http = require("http");
-const crypto = require("crypto");
-const { execFile } = require("child_process");
-const fs = require("fs");
-const path = require("path");
+import http from "http";
+import crypto from "crypto";
+import { execFile } from "child_process";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-// Read WEBHOOK_SECRET from .env.local sitting next to this scripts/ folder
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Read WEBHOOK_SECRET from .env.local
 const envPath = path.join(__dirname, "..", ".env.local");
 const envContent = fs.readFileSync(envPath, "utf8");
 const secretMatch = envContent.match(/^WEBHOOK_SECRET=(.+)$/m);
@@ -40,14 +43,14 @@ http.createServer((req, res) => {
     const sig = req.headers["x-hub-signature-256"] || "";
 
     if (!verifySignature(body, sig)) {
-      console.warn("[webhook] rejected request — bad signature");
+      console.warn("[webhook] rejected — bad signature");
       res.writeHead(401);
       return res.end("Unauthorized");
     }
 
     if (deploying) {
       res.writeHead(202);
-      return res.end("Deploy already running — skipped");
+      return res.end("Deploy already running");
     }
 
     res.writeHead(200);
@@ -60,7 +63,7 @@ http.createServer((req, res) => {
       deploying = false;
       if (err) {
         console.error("[webhook] deploy FAILED:", err.message);
-        if (stderr) console.error("[webhook] stderr:", stderr.trim());
+        if (stderr) console.error(stderr.trim());
       } else {
         console.log("[webhook] deploy SUCCESS:\n" + stdout.trim());
       }
