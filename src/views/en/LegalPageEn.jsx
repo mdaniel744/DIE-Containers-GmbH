@@ -10,23 +10,23 @@ const LEGAL_CONTENT = {
       <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Information according to § 5 TMG</h2>
-          <p>CSAV Container GmbH<br />Ballindamm 27<br />20095 Hamburg<br />Germany</p>
+          <p>DIE Container GmbH<br />Hermann-Oberth-Str. 23<br />85640 Putzbrunn<br />Germany</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Contact</h2>
-          <p>Phone: +49 151 243 71427<br />Email: verkauf@csavcontainers.com</p>
+          <p>Phone: 0049 163 5393 159<br />Email: contact@diecontainers.com</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Commercial register</h2>
-          <p>Commercial register: Amtsgericht Saarbrücken<br />Registration number: HRB 131612</p>
+          <p>Commercial register / EUID: HRB256757</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">VAT identification number</h2>
-          <p>VAT ID number pursuant to § 27a of the German VAT Act: DE 137858974</p>
+          <p>VAT ID number pursuant to § 27a of the German VAT Act: DE 330443785</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Responsible for content</h2>
-          <p>Managing Director, CSAV Container GmbH, Ballindamm 27, 20095 Hamburg</p>
+          <p>Managing Director, DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn</p>
         </section>
       </div>
     ),
@@ -38,7 +38,7 @@ const LEGAL_CONTENT = {
       <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">1. Data controller</h2>
-          <p>CSAV Container GmbH, Ballindamm 27, 20095 Hamburg, Germany. Email: verkauf@csavcontainers.com</p>
+          <p>DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Germany. Email: contact@diecontainers.com</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">2. Data we collect</h2>
@@ -54,7 +54,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">5. Your rights</h2>
-          <p>You have the right to access, rectification, erasure, restriction of processing and data portability. To exercise these rights, contact us at verkauf@csavcontainers.com.</p>
+          <p>You have the right to access, rectification, erasure, restriction of processing and data portability. To exercise these rights, contact us at contact@diecontainers.com.</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">6. Cookies</h2>
@@ -68,7 +68,7 @@ const LEGAL_CONTENT = {
     label: "Legal",
     content: (
       <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
-        <p>This Cookie Policy explains how CSAV Container GmbH uses cookies and similar technologies on this website.</p>
+        <p>This Cookie Policy explains how DIE Container GmbH uses cookies and similar technologies on this website.</p>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">What are cookies?</h2>
           <p>Cookies are small text files stored on your device when you visit a website. They allow the website to remember your preferences and improve your experience.</p>
@@ -84,7 +84,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Contact</h2>
-          <p>For questions about our use of cookies: verkauf@csavcontainers.com</p>
+          <p>For questions about our use of cookies: contact@diecontainers.com</p>
         </section>
       </div>
     ),
@@ -94,10 +94,10 @@ const LEGAL_CONTENT = {
     label: "Legal",
     content: (
       <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
-        <p>These Terms & Conditions apply to all sales contracts between CSAV Container GmbH (Hamburg, Germany) and customers purchasing containers via this website or direct order.</p>
+        <p>These Terms & Conditions apply to all sales contracts between DIE Container GmbH (Putzbrunn, Germany) and customers purchasing containers via this website or direct order.</p>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">1. Scope</h2>
-          <p>These terms apply to all business transactions with CSAV Container GmbH. Deviating terms of the buyer are not recognised unless expressly agreed in writing.</p>
+          <p>These terms apply to all business transactions with DIE Container GmbH. Deviating terms of the buyer are not recognised unless expressly agreed in writing.</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">2. Conclusion of contract</h2>
@@ -117,7 +117,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">6. Jurisdiction</h2>
-          <p>German law applies. Place of jurisdiction is Hamburg.</p>
+          <p>German law applies. The place of jurisdiction is determined by the applicable statutory provisions.</p>
         </section>
         <p className="text-xs">The full German version of these Terms & Conditions is legally binding. The English version is provided for information purposes only.</p>
       </div>
@@ -138,7 +138,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">How to exercise your right</h2>
-          <p>To exercise your right of withdrawal, notify us (CSAV Container GmbH, Ballindamm 27, 20095 Hamburg, verkauf@csavcontainers.com) by a clear written statement.</p>
+          <p>To exercise your right of withdrawal, notify us (DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, contact@diecontainers.com) by a clear written statement.</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Exclusions</h2>
@@ -174,7 +174,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">How to initiate a return</h2>
-          <p>Contact us at verkauf@csavcontainers.com or +49 151 243 71427 to arrange a return.</p>
+          <p>Contact us at contact@diecontainers.com or 0049 163 5393 159 to arrange a return.</p>
         </section>
       </div>
     ),
@@ -212,7 +212,7 @@ const LEGAL_CONTENT = {
     label: "Legal",
     content: (
       <div className="space-y-6 text-sm text-muted-foreground leading-relaxed">
-        <p>At CSAV Container, we value transparent, secure and traceable payment processes — with no hidden fees or intermediary payment processors.</p>
+        <p>At DIE Container GmbH, we value transparent, secure and traceable payment processes — with no hidden fees or intermediary payment processors.</p>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Available payment methods</h2>
           <p><strong className="text-foreground">SEPA bank transfer (prepayment):</strong> Payment is made by SEPA bank transfer to our official business account. Delivery takes place after receipt of full payment.</p>
@@ -227,7 +227,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Questions</h2>
-          <p>For payment questions please contact: verkauf@csavcontainers.com or +49 151 243 71427.</p>
+          <p>For payment questions please contact: contact@diecontainers.com or 0049 163 5393 159.</p>
         </section>
       </div>
     ),

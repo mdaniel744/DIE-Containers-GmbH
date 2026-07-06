@@ -3,7 +3,7 @@ import AdminProducts from "@/views/admin/AdminProducts";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Admin Produkte | CSAV Container",
+  title: "Admin Produkte | DIE Container GmbH",
   robots: { index: false, follow: false },
 };
 

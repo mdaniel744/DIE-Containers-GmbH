@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
   const readable = slug.replace(/-/g, " ");
 
   return makeMetadata({
-    title: `${readable} — Buy | CSAV Container`,
+    title: `${readable} — Buy | DIE Container GmbH`,
     description:
       "Product details, technical specs, images and request a no-obligation quote for this container.",
     path: `/en/produkt/${slug}`,

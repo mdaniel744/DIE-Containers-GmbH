@@ -255,7 +255,7 @@ export default function ContainerLieferung() {
                   
                   Lieferangebot anfordern <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a href="tel:+491512437142"
+                <a href="tel:+491635393159"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white border border-white/20 hover:bg-white/10 transition-colors">
                   
                   <Phone className="w-4 h-4" /> Direkt anrufen

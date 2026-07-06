@@ -3,7 +3,7 @@ import AdminDashboard from "@/views/admin/AdminDashboard";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Admin Dashboard | CSAV Container",
+  title: "Admin Dashboard | DIE Container GmbH",
   robots: { index: false, follow: false },
 };
 

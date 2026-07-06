@@ -33,7 +33,7 @@ export default function AdminLayout({ children }) {
           <Container className="w-4 h-4 text-white" />
         </div>
         <div>
-          <p className="font-heading font-bold text-white text-sm leading-none">CSAV Admin</p>
+          <p className="font-heading font-bold text-white text-sm leading-none">DIE Container Admin</p>
           <p className="text-slate-500 text-[10px] mt-0.5">Container Management</p>
         </div>
       </div>
@@ -103,7 +103,7 @@ export default function AdminLayout({ children }) {
           <button onClick={() => setMobileOpen(true)} className="text-slate-400 hover:text-white">
             <Menu className="w-5 h-5" />
           </button>
-          <span className="font-heading font-bold text-white text-sm">CSAV Admin</span>
+          <span className="font-heading font-bold text-white text-sm">DIE Container Admin</span>
         </header>
 
         {/* Breadcrumb bar */}

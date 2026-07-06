@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { SeoSection, SeoTable, FaqAccordion, InternalLinkGrid, CtaBanner } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
-import { Search, Mail, Truck, CheckCircle, MapPin, FileText } from "lucide-react";
+import { Mail, Truck, CheckCircle, MapPin, FileText } from "lucide-react";
 
 const ORANGE = "#F28C28";
 

@@ -1,7 +1,7 @@
 import Login from "@/views/Login";
 
 export const metadata = {
-  title: "Login | CSAV Container",
+  title: "Login | DIE Container GmbH",
   robots: { index: false, follow: false },
 };
 

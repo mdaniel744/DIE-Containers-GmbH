@@ -62,7 +62,7 @@ export default function WieLangeHaelt() {
         </ol>
       </SeoSection>
 
-      <CtaBanner text="Container kaufen – mit Qualitätsgarantie von CSAV" btnHref="/angebot" />
+      <CtaBanner text="Container kaufen – mit Qualitätsgarantie von DIE Container" btnHref="/angebot" />
 
       <SeoSection title="Weiterführende Informationen">
         <p>Mehr zu Container-Typen und Kauf:</p>

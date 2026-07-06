@@ -88,7 +88,7 @@ export default function Container10Fuss() {
           Der 10 Fuß Container, auch als Halbcontainer oder halber TEU bezeichnet, ist die kleinste in der Praxis weit verbreitete ISO-Containereinheit. Mit einer Außenlänge von knapp drei Metern bietet er ein Ladevolumen von ca. 15,7 m³ – mehr als genug für zahlreiche Lager- und Transportaufgaben, bei denen ein <Link to="/20-fuss-container-kaufen" className="text-orange-500 hover:underline">20 Fuß Container</Link> zu groß und zu teuer wäre.
         </p>
         <p>
-          CSAV Container führt 10 Fuß Seecontainer in verschiedenen Ausführungen: als Standard- und High-Cube-Variante, neu oder gebraucht, in unterschiedlichen Farben. Alle Einheiten werden vor der Auslieferung einer mehrstufigen Qualitätsprüfung unterzogen und sind wasser- sowie winddicht.
+          DIE Container GmbH führt 10 Fuß Seecontainer in verschiedenen Ausführungen: als Standard- und High-Cube-Variante, neu oder gebraucht, in unterschiedlichen Farben. Alle Einheiten werden vor der Auslieferung einer mehrstufigen Qualitätsprüfung unterzogen und sind wasser- sowie winddicht.
         </p>
         <p>
           Ob als <Link to="/lagercontainer-kaufen" className="text-orange-500 hover:underline">Lagercontainer</Link> im Garten, als Baustellendepot oder als Basis für einen individuellen Umbauprojekt – der 10 Fuß Container ist vielseitiger als sein kompaktes Format vermuten lässt. Auf dieser Seite erhalten Sie alle relevanten Informationen, um die richtige Kaufentscheidung zu treffen.
@@ -117,7 +117,7 @@ export default function Container10Fuss() {
             <strong className="text-foreground">Kompatibel & stapelbar:</strong> Dank ISO-genormter Eckbeschläge lassen sich 10 Fuß Container mit anderen ISO-Containern kombinieren und stapeln. Das eröffnet flexible Erweiterungsmöglichkeiten.
           </li>
           <li>
-            <strong className="text-foreground">Schnell verfügbar:</strong> 10 Fuß Container sind ab Lager lieferbar. CSAV Container liefert deutschlandweit innerhalb von 72 Stunden. Details zur <Link to="/container-lieferung" className="text-orange-500 hover:underline">Container Lieferung</Link> finden Sie in unserem Ratgeber.
+            <strong className="text-foreground">Schnell verfügbar:</strong> 10 Fuß Container sind ab Lager lieferbar. DIE Container GmbH liefert deutschlandweit innerhalb von 72 Stunden. Details zur <Link to="/container-lieferung" className="text-orange-500 hover:underline">Container Lieferung</Link> finden Sie in unserem Ratgeber.
           </li>
         </ul>
       </SeoSection>
@@ -188,7 +188,7 @@ export default function Container10Fuss() {
       {/* Lieferung */}
       <SeoSection title="Lieferung innerhalb Deutschlands">
         <p>
-          CSAV Container liefert 10 Fuß Container deutschlandweit per Kranwagen direkt an Ihren gewünschten Aufstellort. Da der Container nur ca. 1.300–1.500 kg wiegt, sind auch beengte Zufahrtssituationen oft problemlos handhabbar.
+          DIE Container GmbH liefert 10 Fuß Container deutschlandweit per Kranwagen direkt an Ihren gewünschten Aufstellort. Da der Container nur ca. 1.300–1.500 kg wiegt, sind auch beengte Zufahrtssituationen oft problemlos handhabbar.
         </p>
         <p>
           Wichtig für die Lieferplanung: Der Unterstellplatz sollte eben und tragfähig sein. Für weichen Untergrund (Rasen, lockere Erde) empfehlen wir eine einfache Fundamentlösung. Unser <Link to="/container-fundament" className="text-orange-500 hover:underline">Ratgeber zu Container-Fundamenten</Link> zeigt alle gängigen Varianten mit Kosten- und Aufwandsschätzung.
@@ -201,8 +201,8 @@ export default function Container10Fuss() {
         </p>
       </SeoSection>
 
-      {/* Warum CSAV */}
-      <SeoSection title="Warum einen 10 Fuß Container bei CSAV Container kaufen?">
+      {/* Warum DIE Container GmbH */}
+      <SeoSection title="Warum einen 10 Fuß Container bei DIE Container GmbH kaufen?">
         <p>
           Als spezialisierter Containerhandel mit langjähriger Erfahrung bieten wir Ihnen mehr als nur den Kauf eines Containers:
         </p>

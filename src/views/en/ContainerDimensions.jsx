@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { SeoPageLayout, SeoSection, SeoTable, FaqAccordion, InternalLinkGrid, CtaBanner } from "@/components/seo/SeoPageLayout";
+import { SeoSection, SeoTable, FaqAccordion, InternalLinkGrid, CtaBanner } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
 const ORANGE = "#F28C28";

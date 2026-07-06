@@ -54,7 +54,7 @@ export default function DeliveryProcess() {
                 </div>
                 <div>
                   <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">{T.phoneLabel}</p>
-                  <a href="tel:+4940000000" className="font-heading font-semibold text-white hover:opacity-80 transition-opacity">+49 151 243 71427 </a>
+                  <a href="tel:+491635393159" className="font-heading font-semibold text-white hover:opacity-80 transition-opacity">0049 163 5393 159</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -63,7 +63,7 @@ export default function DeliveryProcess() {
                 </div>
                 <div>
                   <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">{T.emailLabel}</p>
-                  <a href="mailto:info@csav-container.de" className="font-heading font-semibold text-white hover:opacity-80 transition-opacity break-all">verkauf@csavcontainers.com</a>
+                  <a href="mailto:contact@diecontainers.com" className="font-heading font-semibold text-white hover:opacity-80 transition-opacity break-all">contact@diecontainers.com</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">

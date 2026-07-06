@@ -26,7 +26,7 @@ export default function ContactBanner() {
           <p className="text-white/60 text-sm">{T.description}</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-          <a href="tel:+4915124371427" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] transition-opacity hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
+          <a href="tel:+491635393159" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] transition-opacity hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
             <Phone className="w-4 h-4" />
             {T.ctaPhone}
           </a>

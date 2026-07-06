@@ -11,7 +11,7 @@ const NAVY = "#1B3A5C";
 const legalContent = {
   impressum: {
     title: "Impressum",
-    content: "**Angaben gemäß § 5 TMG:**\n\nCSAV Container GmbH\nBallindamm 27\n20095 Hamburg\n\n**Kontakt:**\nTelefon: +49 151 243 71427\nE-Mail: verkauf@csavcontainers.com\n\n**Registereintrag:**\nEingetragen im Handelsregister.\nRegistergericht: Amtsgericht Saarbrücken\nRegisternummer: HRB 131612\n\n**Umsatzsteuer-ID:**\nUmsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:\nDE 137858974\n\n**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**\nCSAV Container GmbH\nBallindamm 27\n20095 Hamburg",
+    content: "**Angaben gemäß § 5 TMG:**\n\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland\n\n**Kontakt:**\nTelefon: 0049 163 5393 159\nE-Mail: contact@diecontainers.com\n\n**Handelsregister / EUID:**\nHRB256757\n\n**Umsatzsteuer-ID:**\nUmsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:\nDE 330443785\n\n**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland",
   },
   "cookie-policy": {
     title: "Cookie Policy",
@@ -104,27 +104,27 @@ function ContactBlock() {
     <div className="mt-4 rounded-2xl overflow-hidden border border-border">
       <div className="p-1" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 items-stretch">
-          <a href="mailto:verkauf@csavcontainers.com"
+          <a href="mailto:contact@diecontainers.com"
             className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
             <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">E-Mail</p>
-              <p className="text-sm font-semibold text-white leading-tight break-all">verkauf@csavcontainers.com</p>
+              <p className="text-sm font-semibold text-white leading-tight break-all">contact@diecontainers.com</p>
             </div>
           </a>
-          <a href="https://wa.me/4915124371427" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/491635393159" target="_blank" rel="noopener noreferrer"
             className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
             <MessageCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">WhatsApp</p>
-              <p className="text-sm font-semibold text-white leading-tight">+49 151 243 71427</p>
+              <p className="text-sm font-semibold text-white leading-tight">0049 163 5393 159</p>
             </div>
           </a>
           <div className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-4">
             <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">Adresse</p>
-              <p className="text-sm font-semibold text-white leading-tight">Ballindamm 27, 20095 Hamburg</p>
+              <p className="text-sm font-semibold text-white leading-tight">Hermann-Oberth-Str. 23, 85640 Putzbrunn</p>
             </div>
           </div>
         </div>
@@ -176,7 +176,7 @@ function ZahlungsbedingungenPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Zahlungsbedingungen & Zahlungsrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Bei Csav Container legen wir großen Wert auf transparente, sichere und nachvollziehbare Zahlungsprozesse – ohne versteckte Gebühren oder zwischengeschaltete Zahlungsdienstleister.
+              Bei DIE Container GmbH legen wir großen Wert auf transparente, sichere und nachvollziehbare Zahlungsprozesse – ohne versteckte Gebühren oder zwischengeschaltete Zahlungsdienstleister.
             </p>
           </div>
 
@@ -197,7 +197,7 @@ function ZahlungsbedingungenPage() {
                 "Nach Zahlungseingang wird der Container für die Lieferung freigegeben",
               ]} />
               <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                <p className="text-xs text-amber-800"><strong>⚠️ Wichtiger Hinweis:</strong> Zahlungen sind ausschließlich auf das offizielle Firmenkonto von Csav Container zu leisten, das Ihnen im Rechnungsdokument mitgeteilt wird.</p>
+                <p className="text-xs text-amber-800"><strong>⚠️ Wichtiger Hinweis:</strong> Zahlungen sind ausschließlich auf das offizielle Firmenkonto von DIE Container GmbH zu leisten, das Ihnen im Rechnungsdokument mitgeteilt wird.</p>
               </div>
             </Section>
 
@@ -263,7 +263,7 @@ function AgbPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen Csav Containers, Ballindamm 27, 20095 Hamburg, Deutschland und seinen Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
+              Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
             </p>
           </div>
 
@@ -272,7 +272,7 @@ function AgbPage() {
               <BulletList items={[
                 "Alle Angebote auf unserer Website oder per E-Mail sind freibleibend und unverbindlich.",
                 "Ein verbindlicher Kaufvertrag kommt erst durch unsere schriftliche Auftragsbestätigung oder durch Lieferung der Ware zustande.",
-                "Änderungen oder Sonderwünsche bedürfen der schriftlichen Zustimmung der Csav Containers GmbH.",
+                "Änderungen oder Sonderwünsche bedürfen der schriftlichen Zustimmung von DIE Container GmbH.",
               ]} />
             </Section>
 
@@ -297,7 +297,7 @@ function AgbPage() {
 
             <Section number="4" title="Eigentumsvorbehalt">
               <BulletList items={[
-                "Die gelieferte Ware bleibt bis zur vollständigen Zahlung Eigentum der Csav Containers GmbH.",
+                "Die gelieferte Ware bleibt bis zur vollständigen Zahlung Eigentum von DIE Container GmbH.",
                 "Bei Zahlungsverzug behalten wir uns das Recht vor, die Ware auf Kosten des Käufers zurückzufordern.",
               ]} />
             </Section>
@@ -370,24 +370,24 @@ function DatenschutzPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Datenschutzerklärung</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Wir bei Csav Container verstehen, dass einige Ihrer persönlichen Daten sensibler Natur sind und Sie vielleicht Bedenken haben, diese persönlichen Daten mit uns zu teilen. Wenn Sie sich jedoch dafür entscheiden, mit uns zu interagieren oder uns Ihre Daten mitzuteilen, werden wir Ihre Privatsphäre auf die in dieser Richtlinie aufgeführte Weise schützen. Diese Richtlinie kann sich von Zeit zu Zeit ändern, daher sollten Sie sich über Änderungen informieren.
+              Wir bei DIE Container GmbH verstehen, dass einige Ihrer persönlichen Daten sensibler Natur sind und Sie vielleicht Bedenken haben, diese persönlichen Daten mit uns zu teilen. Wenn Sie sich jedoch dafür entscheiden, mit uns zu interagieren oder uns Ihre Daten mitzuteilen, werden wir Ihre Privatsphäre auf die in dieser Richtlinie aufgeführte Weise schützen. Diese Richtlinie kann sich von Zeit zu Zeit ändern, daher sollten Sie sich über Änderungen informieren.
             </p>
           </div>
 
           <div className="divide-y divide-border">
             <Section number="1" title="Die von uns gesammelten Informationen">
-              <p>Wenn Sie Informationen von der Csav Container anfordern, benötigen wir häufig Informationen wie den Namen Ihres Unternehmens, die Namen der autorisierten Benutzer Ihres Unternehmens, Ihre Adresse, Telefonnummer, Faxnummer und E-Mail-Adresse. Derzeit benötigen wir Ihre Postanschrift.</p>
+              <p>Wenn Sie Informationen von DIE Container GmbH anfordern, benötigen wir häufig Informationen wie den Namen Ihres Unternehmens, die Namen der autorisierten Benutzer Ihres Unternehmens, Ihre Adresse, Telefonnummer, Faxnummer und E-Mail-Adresse. Derzeit benötigen wir Ihre Postanschrift.</p>
               <p className="mt-2">Wir sammeln diese Informationen auf der Ebene der Angebotsanfrage, damit wir Ihnen ein formelles Angebot unterbreiten können, das Sie für Ihre Kaufentscheidung nutzen können. In der Regel sind nicht alle diese Informationen erforderlich. Die einzigen erforderlichen Informationen sind in der Regel die E-Mail-Adresse und der Ort oder die Postleitzahl der Lieferung.</p>
             </Section>
 
             <Section number="2" title="Wie wir Informationen weitergeben">
               <p>Wir sind stets bemüht, Ihnen ein wertvolles Online-Erlebnis und die besten Preise und die beste Qualität beim Kauf, der Miete und dem Leasing von mobilen Lager- und Versandcontainern zu bieten.</p>
-              <p className="mt-2">Wir behalten uns das Recht vor, Informationen an die Mitglieder der Csav Container GmbH weiterzugeben. Wir haben diese Mitglieder ausgewählt, die sich alle verpflichten, den Csav Container Code of Ethics zu befolgen.</p>
+              <p className="mt-2">Wir behalten uns das Recht vor, Informationen innerhalb von DIE Container GmbH weiterzugeben, soweit dies für die Bearbeitung Ihrer Anfrage und die Erbringung unserer Leistungen erforderlich ist.</p>
               <p className="mt-2">Wir behalten uns das Recht vor, Informationen über jeden Besucher oder jedes Mitglied freizugeben, wenn dieser gegen die Nutzungsbedingungen verstößt oder an illegalen Aktivitäten teilnimmt, auch ohne eine Vorladung, einen Haftbefehl oder einen anderen Gerichtsbeschluss. Wir kooperieren mit den Strafverfolgungsbehörden bei der Identifizierung von Personen, die unsere Server oder Dienste für illegale Aktivitäten nutzen könnten.</p>
             </Section>
 
             <Section number="3" title="Empfangene E-Mail">
-              <p>Die Csav Container wird sich mit Ihnen per E-Mail in Verbindung setzen, wenn Sie sich registrieren und um auf Fragen zu antworten, die Sie uns per E-Mail schicken. Wenn Sie ein bestehender Kunde oder ein registrierter Benutzer sind, senden wir Ihnen auch E-Mail-Nachrichten mit Informationen, von denen wir glauben, dass sie für Sie nützlich sind, einschließlich Ankündigungen über neue Produkte und Dienstleistungen. Wir verwenden Ihre E-Mail-Adresse in der vorgenannten Weise, bis Sie sich ausdrücklich abmelden.</p>
+              <p>DIE Container GmbH wird sich mit Ihnen per E-Mail in Verbindung setzen, wenn Sie sich registrieren und um auf Fragen zu antworten, die Sie uns per E-Mail schicken. Wenn Sie ein bestehender Kunde oder ein registrierter Benutzer sind, senden wir Ihnen auch E-Mail-Nachrichten mit Informationen, von denen wir glauben, dass sie für Sie nützlich sind, einschließlich Ankündigungen über neue Produkte und Dienstleistungen. Wir verwenden Ihre E-Mail-Adresse in der vorgenannten Weise, bis Sie sich ausdrücklich abmelden.</p>
             </Section>
 
             <Section number="4" title="Vom System generierte E-Mail">
@@ -396,7 +396,7 @@ function DatenschutzPage() {
 
             <Section number="5" title="Ihr Einverständnis">
               <p>Durch die Nutzung dieser Website und der auf unserer Website verfügbaren Dienste erklären Sie sich mit der Erfassung und Verwendung Ihrer Daten wie oben beschrieben einverstanden. Wenn wir uns entscheiden, unsere Datenschutzpolitik zu ändern, werden wir die Änderungen auf dieser Seite veröffentlichen, damit Sie immer über unsere Politik informiert sind.</p>
-              <p className="mt-2">Vielen Dank für Ihren Besuch bei der Csav Container. Sollten Sie Fragen zu diesen Richtlinien haben, können Sie uns gerne kontaktieren.</p>
+              <p className="mt-2">Vielen Dank für Ihren Besuch bei der DIE Container GmbH. Sollten Sie Fragen zu diesen Richtlinien haben, können Sie uns gerne kontaktieren.</p>
             </Section>
 
             <Section number="6" title="Kontaktieren Sie uns">
@@ -615,7 +615,7 @@ function GeneralTermsPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen <strong className="text-foreground">Csav Containers, Ballindamm 27, 20095 Hamburg, Deutschland</strong> und seinen Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
+              Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen <strong className="text-foreground">DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland</strong> und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
             </p>
           </div>
           <div className="divide-y divide-border">
@@ -623,7 +623,7 @@ function GeneralTermsPage() {
               <BulletList items={[
                 "Alle Angebote auf unserer Website oder per E-Mail sind freibleibend und unverbindlich.",
                 "Ein verbindlicher Kaufvertrag kommt erst durch unsere schriftliche Auftragsbestätigung oder durch Lieferung der Ware zustande.",
-                "Änderungen oder Sonderwünsche bedürfen der schriftlichen Zustimmung der Csav Containers GmbH.",
+                "Änderungen oder Sonderwünsche bedürfen der schriftlichen Zustimmung von DIE Container GmbH.",
               ]} />
             </Section>
             <Section number="2" title="Preise & Zahlung">
@@ -645,7 +645,7 @@ function GeneralTermsPage() {
             </Section>
             <Section number="4" title="Eigentumsvorbehalt">
               <BulletList items={[
-                "Die gelieferte Ware bleibt bis zur vollständigen Zahlung Eigentum der Csav Containers GmbH.",
+                "Die gelieferte Ware bleibt bis zur vollständigen Zahlung Eigentum von DIE Container GmbH.",
                 "Bei Zahlungsverzug behalten wir uns das Recht vor, die Ware auf Kosten des Käufers zurückzufordern.",
               ]} />
             </Section>
@@ -714,16 +714,15 @@ function VatDutiesPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Mehrwertsteuer & Zölle</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Alle Preise beinhalten 19 % MwSt. und werden klar ausgewiesen. Csav Containers GmbH gewährleistet eine transparente Preisgestaltung und stellt jedem Kunden eine detaillierte Rechnung mit allen steuerlichen Informationen zur Verfügung.
+              Alle Preise beinhalten 19 % MwSt. und werden klar ausgewiesen. DIE Container GmbH gewährleistet eine transparente Preisgestaltung und stellt jedem Kunden eine detaillierte Rechnung mit allen steuerlichen Informationen zur Verfügung.
             </p>
           </div>
           <div className="divide-y divide-border">
             <Section number="1" title="Umsatzsteuerpflicht">
-              <p>Die Csav Container GmbH mit Sitz in Erfurt unterliegt der Umsatzsteuer gemäß § 1 UStG.</p>
+              <p>DIE Container GmbH mit Sitz in Putzbrunn unterliegt der Umsatzsteuer gemäß § 1 UStG.</p>
               <div className="mt-3 bg-muted/50 rounded-xl px-4 py-4 space-y-1 text-sm">
-                <p><strong className="text-foreground">Amtsgericht Braunschweig:</strong> HRB 131612</p>
-                <p><strong className="text-foreground">EU-ID:</strong> DEP1103.HRB 131612</p>
-                <p><strong className="text-foreground">USt-IdNr.:</strong> DE 302416471</p>
+                <p><strong className="text-foreground">Handelsregister / EUID:</strong> HRB256757</p>
+                <p><strong className="text-foreground">USt-IdNr.:</strong> DE 330443785</p>
               </div>
               <p className="mt-3">Alle Verkäufe unterliegen der gesetzlich vorgeschriebenen Mehrwertsteuer von <strong className="text-foreground">19 %</strong>.</p>
             </Section>
@@ -759,7 +758,7 @@ function VatDutiesPage() {
               </div>
             </Section>
             <Section number="5" title="Steuerfreie Exporte außerhalb der EU">
-              <p>Für Kunden außerhalb der EU (z. B. Schweiz, Großbritannien, Norwegen) kann die Lieferung ohne Mehrwertsteuer erfolgen, wenn der Export durch Csav Container GmbH selbst durchgeführt wird oder der Kunde einen gültigen Ausfuhrnachweis vorlegt.</p>
+              <p>Für Kunden außerhalb der EU (z. B. Schweiz, Großbritannien, Norwegen) kann die Lieferung ohne Mehrwertsteuer erfolgen, wenn der Export durch DIE Container GmbH selbst durchgeführt wird oder der Kunde einen gültigen Ausfuhrnachweis vorlegt.</p>
               <p className="mt-2 font-medium text-foreground">Erforderliche Dokumente:</p>
               <BulletList items={[
                 "Offizielle Ausfuhranmeldung",
@@ -804,7 +803,7 @@ function CookiePolicyPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Cookie-Richtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">Csav Containers GmbH</strong> (Ballindamm 27, 20095 Hamburg, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website csavcontainers.com besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemäß dieser Richtlinie zu.
+              Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website csavcontainer.de besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemäß dieser Richtlinie zu.
             </p>
           </div>
           <div className="divide-y divide-border">

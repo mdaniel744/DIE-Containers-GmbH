@@ -19,27 +19,26 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2.5 mb-5">
-              <img src="https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/1f0c99f16_csav-germany.png"
-                alt="CSAV Container Logo"
-                className="w-11 h-11 rounded-full object-cover" />
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-lg leading-none">CSAV</span>
-                <span className="font-heading text-[10px] font-semibold tracking-[0.25em] text-primary-foreground/60 uppercase">
-                  Container
-                </span>
+            <Link to="/" className="mb-4 block w-fit" aria-label="DIE Container GmbH – Startseite">
+              <div className="relative h-16 w-36 overflow-hidden">
+                <img
+                  src="/images/die-container-logo-white.png"
+                  alt="DIE Container GmbH Logo"
+                  className="absolute left-1/2 top-1/2 h-36 w-36 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+                />
               </div>
             </Link>
+            <p className="font-heading font-semibold text-white mb-3">DIE Container GmbH</p>
             <p className="text-sm text-primary-foreground/70 leading-relaxed mb-5">{t("footer.tagline")}</p>
             <div className="space-y-3 text-sm text-primary-foreground/70">
-              <a href="tel:+491512437142" className="flex items-center gap-2 hover:text-secondary transition-colors">
-                <Phone className="w-4 h-4" /> +49 151 243 71427
+              <a href="tel:+491635393159" className="flex items-center gap-2 hover:text-secondary transition-colors">
+                <Phone className="w-4 h-4" /> 0049 163 5393 159
               </a>
-              <a href="mailto:verkauf@csavcontainers.com" className="flex items-center gap-2 hover:text-secondary transition-colors">
-                <Mail className="w-4 h-4" /> verkauf@csavcontainers.com
+              <a href="mailto:contact@diecontainers.com" className="flex items-center gap-2 text-xs xl:text-sm hover:text-secondary transition-colors">
+                <Mail className="w-4 h-4" /> contact@diecontainers.com
               </a>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 shrink-0" /> Ballindamm 27, 20095 Hamburg
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland
               </div>
             </div>
           </div>
@@ -107,7 +106,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
             <p className="text-xs text-primary-foreground/50 font-mono">
-              © {new Date().getFullYear()} CSAV Container. {t("footer.copyright")}
+              © {new Date().getFullYear()} DIE Container GmbH. Alle Rechte vorbehalten.
             </p>
             <p className="text-xs text-primary-foreground/40 font-mono">
               {t("footer.disclaimer")}

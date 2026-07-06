@@ -147,15 +147,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <img
-              src="https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/1f0c99f16_csav-germany.png"
-              alt="CSAV Container Logo"
-              className="w-20 h-20 rounded-full object-cover transition-transform group-hover:scale-105"
-            />
-            <div className="flex flex-col">
-              <span className="font-heading font-bold text-lg leading-none tracking-tight">CSAV</span>
-              <span className="font-heading text-[10px] font-semibold tracking-[0.25em] text-muted-foreground uppercase">Container</span>
+          <Link to="/" className="group flex items-center" aria-label="DIE Container GmbH – Startseite">
+            <div className="relative h-12 w-28 overflow-hidden sm:w-32 lg:h-14 lg:w-36">
+              <img
+                src="/images/die-container-logo-blue.png"
+                alt="DIE Container GmbH Logo"
+                className="absolute left-1/2 top-1/2 h-28 w-28 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-200 group-hover:scale-105 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
+              />
             </div>
           </Link>
 
@@ -256,11 +254,11 @@ export default function Header() {
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:+491512437142"
+              href="tel:+491635393159"
               className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>+49 151 243 71427</span>
+              <span>0049 163 5393 159</span>
             </a>
             {/* Language switcher — uses NextLink directly to bypass locale-aware resolveHref */}
             <NextLink

@@ -92,7 +92,7 @@ export default function OpenSideContainerKaufen() {
           Die Öffnungsmechanismen variieren je nach Hersteller: Bei einigen Modellen lassen sich die Seitenwandpaneele nach oben klappen, bei anderen sind vollwertige Türflügel integriert, die sich zur Seite oder nach oben öffnen. Im geschlossenen Zustand bietet der Container dieselbe Stabilität, Dichtigkeit und Sicherheit wie ein konventioneller Standardcontainer.
         </p>
         <p>
-          CSAV Container führt Open Side Container in 20 Fuß und 40 Fuß, jeweils in Standard- und High-Cube-Höhe, in verschiedenen Zustandsklassen. Alle Einheiten sind CSC-zertifiziert und wurden auf Dichtigkeit geprüft.
+          DIE Container GmbH führt Open Side Container in 20 Fuß und 40 Fuß, jeweils in Standard- und High-Cube-Höhe, in verschiedenen Zustandsklassen. Alle Einheiten sind CSC-zertifiziert und wurden auf Dichtigkeit geprüft.
         </p>
       </SeoSection>
 
@@ -174,7 +174,7 @@ export default function OpenSideContainerKaufen() {
       {/* Lieferung */}
       <SeoSection title="Lieferung und Transport in Deutschland">
         <p>
-          CSAV Container liefert Open Side Container deutschlandweit per Kranwagen direkt an Ihren Wunschort. Da Open Side Container die gleichen Außenmaße wie Standardcontainer aufweisen, gelten auch die gleichen Transportanforderungen.
+          DIE Container GmbH liefert Open Side Container deutschlandweit per Kranwagen direkt an Ihren Wunschort. Da Open Side Container die gleichen Außenmaße wie Standardcontainer aufweisen, gelten auch die gleichen Transportanforderungen.
         </p>
         <p>
           Wichtige Voraussetzungen für eine reibungslose Lieferung:

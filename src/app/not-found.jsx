@@ -1,7 +1,7 @@
 import PageNotFound from "@/lib/PageNotFound";
 
 export const metadata = {
-  title: "404 - Seite nicht gefunden | CSAV Container",
+  title: "404 - Seite nicht gefunden | DIE Container GmbH",
   robots: {
     index: false,
     follow: false,

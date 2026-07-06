@@ -6,9 +6,9 @@ import { LocaleHtmlLang } from "./LocaleHtmlLang";
 export const metadata = {
   metadataBase: new URL(siteUrl),
   ...makeMetadata({
-    title: "Container Deutschland - Seecontainer kaufen | CSAV Container",
+    title: "DIE Container GmbH – Neue & gebrauchte Container kaufen",
     description:
-      "Seecontainer kaufen in Deutschland. Neue und gebrauchte 10ft, 20ft und 40ft Container zu attraktiven Preisen mit deutschlandweiter Lieferung.",
+      "Kaufen Sie neue und gebrauchte Container bei DIE Container GmbH. Wir bieten zuverlässige Containerlösungen für Unternehmen und Privatkunden in Deutschland und Europa.",
     path: "/",
     keywords: [
       "Seecontainer kaufen",
@@ -21,11 +21,11 @@ export const metadata = {
   }),
   // PWA manifest and app metadata
   manifest: "/manifest.json",
-  applicationName: "CSAV Container",
+  applicationName: "DIE Container GmbH",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "CSAV Container",
+    title: "DIE Container GmbH",
   },
   formatDetection: { telephone: false },
   other: {
@@ -40,20 +40,47 @@ export const viewport = {
   maximumScale: 5,
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  name: "DIE Container GmbH",
+  url: siteUrl,
+  logo: `${siteUrl}/images/die-container-logo-blue.png`,
+  email: "contact@diecontainers.com",
+  telephone: "0049 163 5393 159",
+  vatID: "DE 330443785",
+  identifier: {
+    "@type": "PropertyValue",
+    name: "Handelsregister / EUID",
+    value: "HRB256757",
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Hermann-Oberth-Str. 23",
+    postalCode: "85640",
+    addressLocality: "Putzbrunn",
+    addressCountry: "DE",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="de">
       <head>
         {/* PWA — Apple-specific tags (not covered by Next.js metadata API) */}
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
+        <link rel="apple-touch-icon" href="/images/die-container-logo-blue.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="CSAV Container" />
+        <meta name="apple-mobile-web-app-title" content="DIE Container GmbH" />
         {/* Prevent Chrome from suggesting phone number formatting */}
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <LocaleHtmlLang />
         <Providers>{children}</Providers>
       </body>

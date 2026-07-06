@@ -4,7 +4,7 @@ import ResetPassword from "@/views/ResetPassword";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Passwort zurücksetzen | CSAV Container",
+  title: "Passwort zurücksetzen | DIE Container GmbH",
   robots: { index: false, follow: false },
 };
 

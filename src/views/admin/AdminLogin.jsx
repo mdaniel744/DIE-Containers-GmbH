@@ -32,7 +32,7 @@ export default function AdminLogin() {
           <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#F28C28" }}>
             <Container className="w-5 h-5 text-white" />
           </div>
-          <span className="font-heading font-bold text-xl text-white">CSAV Admin</span>
+          <span className="font-heading font-bold text-xl text-white">DIE Container Admin</span>
         </div>
 
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -46,7 +46,7 @@ export default function AdminLogin() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@csav.de"
+                placeholder="admin@diecontainers.com"
                 required
                 className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-orange-500"
               />

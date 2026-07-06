@@ -2,9 +2,9 @@ import Home from "@/views/Home";
 import { makeMetadata } from "../seo";
 
 export const metadata = makeMetadata({
-  title: "Container Deutschland - Seecontainer kaufen | CSAV Container",
+  title: "DIE Container GmbH – Neue & gebrauchte Container kaufen",
   description:
-    "Neue und gebrauchte 10ft, 20ft und 40ft Seecontainer kaufen. CSAV Container liefert deutschlandweit und berät kostenlos.",
+    "Kaufen Sie neue und gebrauchte Container bei DIE Container GmbH. Wir bieten zuverlässige Containerlösungen für Unternehmen und Privatkunden in Deutschland und Europa.",
   path: "/",
   enPath: "/en",
 });

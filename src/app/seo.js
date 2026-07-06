@@ -55,7 +55,7 @@ export function makeMetadata({
       title,
       description,
       url: canonical,
-      siteName: "CSAV Container",
+      siteName: "DIE Container GmbH",
       locale: ogLocale,
       type: "website",
       images: [{ url: ogImage }],

@@ -108,20 +108,20 @@ export default function ProductDetail() {
     "name": product.title,
     "description": metaDescription,
     "image": product.image_url,
-    "brand": { "@type": "Brand", "name": "CSAV Container" },
+    "brand": { "@type": "Brand", "name": "DIE Container GmbH" },
     "offers": {
       "@type": "Offer",
       "priceCurrency": "EUR",
       "price": product.price_from,
       "availability": product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      "seller": { "@type": "Organization", "name": "CSAV Container" }
+      "seller": { "@type": "Organization", "name": "DIE Container GmbH" }
     }
   };
 
   return (
     <>
       <Helmet>
-        <title>{product.title} {Tpd.titleAction} – Ab {product.price_from?.toLocaleString("de-DE")} € | CSAV Container</title>
+        <title>{product.title} {Tpd.titleAction} – Ab {product.price_from?.toLocaleString("de-DE")} € | DIE Container GmbH</title>
         <meta name="description" content={metaDescription} />
         <link rel="canonical" href={`https://csavcontainer.de/produkt/${product.slug || product.id}`} />
         <script type="application/ld+json">{JSON.stringify(productSchema)}</script>

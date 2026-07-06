@@ -1,7 +1,7 @@
 import Register from "@/views/Register";
 
 export const metadata = {
-  title: "Registrieren | CSAV Container",
+  title: "Registrieren | DIE Container GmbH",
   robots: { index: false, follow: false },
 };
 

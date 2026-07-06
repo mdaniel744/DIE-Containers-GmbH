@@ -93,7 +93,7 @@ export default function DoubleDoorContainerKaufen() {
           Beide Türseiten sind mit denselben massiven ISO-genormten Riegeln und Dichtungen ausgestattet wie die Haupttür eines Standardcontainers. Im vollständig verschlossenen Zustand bietet der Double Door Container dieselbe Wasser- und Winddichtheit sowie Einbruchsicherheit wie ein konventioneller ISO-Container.
         </p>
         <p>
-          CSAV Container führt Double Door Container in <Link to="/20-fuss-container-kaufen" className="text-orange-500 hover:underline">20 Fuß</Link> und <Link to="/40-fuss-container-kaufen" className="text-orange-500 hover:underline">40 Fuß</Link>, in Standard- und High-Cube-Höhe sowie in verschiedenen Zustandsklassen. Alle Einheiten sind CSC-zertifiziert und vollständig qualitätgeprüft.
+          DIE Container GmbH führt Double Door Container in <Link to="/20-fuss-container-kaufen" className="text-orange-500 hover:underline">20 Fuß</Link> und <Link to="/40-fuss-container-kaufen" className="text-orange-500 hover:underline">40 Fuß</Link>, in Standard- und High-Cube-Höhe sowie in verschiedenen Zustandsklassen. Alle Einheiten sind CSC-zertifiziert und vollständig qualitätgeprüft.
         </p>
       </SeoSection>
 
@@ -175,7 +175,7 @@ export default function DoubleDoorContainerKaufen() {
       {/* Lieferung */}
       <SeoSection title="Lieferung in Deutschland – Schnell und zuverlässig">
         <p>
-          CSAV Container liefert Double Door Container deutschlandweit per Kranwagen. Da die Außenmaße identisch mit denen von Standardcontainern sind, gelten dieselben Transportanforderungen. Alle Details zum Lieferprozess finden Sie in unserem <Link to="/container-lieferung" className="text-orange-500 hover:underline">Ratgeber zur Container Lieferung</Link>.
+          DIE Container GmbH liefert Double Door Container deutschlandweit per Kranwagen. Da die Außenmaße identisch mit denen von Standardcontainern sind, gelten dieselben Transportanforderungen. Alle Details zum Lieferprozess finden Sie in unserem <Link to="/container-lieferung" className="text-orange-500 hover:underline">Ratgeber zur Container Lieferung</Link>.
         </p>
         <p>
           Für eine reibungslose Aufstellung sollten Sie vorab den Aufstellort vorbereiten:

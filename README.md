@@ -1,4 +1,4 @@
-# CSAV Germany
+# DIE Containers
 
 This project has been migrated from Vite + React Router to Next.js App Router so the public pages can be statically pre-rendered for SEO.
 
