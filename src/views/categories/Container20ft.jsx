@@ -15,7 +15,7 @@ export default function Container20ftCategory() {
   return (
     <CategoryPageLayout
       filterKey="size"
-      filterValue="20ft"
+      filterValue={["20ft", "20ft HC"]}
       i18nSection="cat20ft"
       crossLinks={CROSS_LINKS}
       seoContent={<Container20Fuss />}

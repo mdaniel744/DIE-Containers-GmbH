@@ -13,11 +13,25 @@ const ORANGE = "#F28C28";
 // Condition codes (language-neutral) mapped to i18n condition labels
 const CONDITION_CODES = ["all", "new", "used", "refurbished"];
 
+const normalizeFilterValue = (value) =>
+  String(value || "")
+    .toLowerCase()
+    .replace(/high[\s-]*cube/g, "hc")
+    .replace(/fuß|fuss/g, "ft")
+    .replace(/\s+/g, "")
+    .trim();
+
+const matchesFilterValue = (productValue, filterValue) => {
+  const allowedValues = Array.isArray(filterValue) ? filterValue : [filterValue];
+  const normalizedProductValue = normalizeFilterValue(productValue);
+  return allowedValues.some((value) => normalizeFilterValue(value) === normalizedProductValue);
+};
+
 /**
  * Shared layout for all category pages (10ft, 20ft, 40ft, Kühl, Büro, OpenSide).
  *
  * @param {string}   filterKey   - product field to filter on: "size" or "container_type"
- * @param {string}   filterValue - value to match, e.g. "10ft" or "Kühlcontainer"
+ * @param {string|string[]} filterValue - value(s) to match, e.g. "10ft", ["10ft", "10ft HC"] or "Kühlcontainer"
  * @param {string}   i18nSection - key in i18n.js, e.g. "cat10ft"
  * @param {string[]} crossLinks  - array of cross-link i18n keys to show at bottom
  * @param {ReactNode} seoContent - SEO article component rendered below the grid
@@ -50,7 +64,7 @@ export default function CategoryPageLayout({ filterKey, filterValue, i18nSection
 
   const products = useMemo(() => {
     let result = allProducts.filter((p) => {
-      if (p[filterKey] !== filterValue) return false;
+      if (!matchesFilterValue(p[filterKey], filterValue)) return false;
       const matchLabel = conditionMatchMap[conditionFilter];
       if (matchLabel && p.condition !== matchLabel) return false;
       return true;
