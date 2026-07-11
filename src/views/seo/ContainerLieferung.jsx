@@ -9,6 +9,11 @@ import ContactBanner from "@/components/shared/ContactBanner";
 const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
+/* ── Image assets ── */
+const IMG_TILT_TRAILER = "/images/container-delivery-tilt-trailer.webp";
+const IMG_FLACHBETT_TRAILER = "/images/container-delivery-flachbett-trailer.jpg";
+const IMG_STEP_DECK_TIEFLADER = "/images/container-delivery-step-deck-tieflader.jpg";
+
 /* ── Delivery Steps ── */
 const STEPS = [
 {
@@ -57,7 +62,8 @@ const TRUCK_TYPES = [
   "Ideal für 10ft und 20ft Standard-Container"],
 
   note: "Der Container muss leer sein. Beladene Container können mit diesem Verfahren nicht transportiert werden.",
-  img: "/images/wohncontainer-transport.jpg"
+  img: IMG_TILT_TRAILER,
+  alt: "Kipper-Tieflader Tilt Trailer mit Container"
 },
 {
   title: "Flachbett-Trailer",
@@ -70,7 +76,8 @@ const TRUCK_TYPES = [
   "Geeignet für 20ft und 40ft Container"],
 
   note: "Zum Abladen wird ein Kran oder Gabelstapler mit ausreichender Tragkraft am Zielort benötigt.",
-  img: "/images/wohncontainer-transport.jpg"
+  img: IMG_FLACHBETT_TRAILER,
+  alt: "Flachbett-Trailer mit Container und Kranentladung"
 },
 {
   title: "Step-Deck / Tieflader",
@@ -83,7 +90,8 @@ const TRUCK_TYPES = [
   "Auch für lange Transportstrecken geeignet"],
 
   note: "Auch hier ist Hebetechnik am Zielort für das Abladen erforderlich.",
-  img: "/images/wohncontainer-transport.jpg"
+  img: IMG_STEP_DECK_TIEFLADER,
+  alt: "Step-Deck Tieflader für Containertransport"
 }];
 
 
@@ -331,7 +339,7 @@ export default function ContainerLieferung() {
               className="flex flex-col rounded-2xl bg-card border border-border hover:shadow-md transition-all overflow-hidden">
               
                 <div className="h-44 overflow-hidden bg-slate-100">
-                  <img src={truck.img} alt={truck.title} className="w-full h-full object-cover" />
+                  <img src={truck.img} alt={truck.alt} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                 <span className="text-xs font-heading font-bold px-2.5 py-1 rounded-full text-white mb-3 self-start"
