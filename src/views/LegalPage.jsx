@@ -803,7 +803,7 @@ function CookiePolicyPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Cookie-Richtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website csavcontainer.de besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemäß dieser Richtlinie zu.
+              Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website diecontainers.com besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemäß dieser Richtlinie zu.
             </p>
           </div>
           <div className="divide-y divide-border">

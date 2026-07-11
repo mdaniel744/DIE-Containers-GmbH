@@ -105,7 +105,7 @@ export default function ProductDetail() {
   return (
     <>
       <Helmet>
-        <title>{product.title} {Tpd.titleAction} – Ab {product.price_from?.toLocaleString("de-DE")} € | DIE Container GmbH</title>
+        <title>{product.title} {Tpd.titleAction} – {product.price_from?.toLocaleString("de-DE")} € | DIE Container GmbH</title>
         <meta name="description" content={metaDescription} />
       </Helmet>
     <div className="pt-20 lg:pt-24 pb-28 lg:pb-20 bg-background">
@@ -126,7 +126,7 @@ export default function ProductDetail() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <ProductGallery images={images} title={product.title} />
+            <ProductGallery images={images} title={product.title} imageAlts={product.image_alts || []} />
           </motion.div>
 
           {/* Info panel */}
@@ -158,7 +158,7 @@ export default function ProductDetail() {
             <div className="border-t border-b border-border py-4">
               <div className="flex items-baseline gap-2">
                 <span className="font-heading font-bold text-3xl text-foreground">
-                  {T.from} {product.price_from?.toLocaleString("de-DE")} €
+                  {product.price_from?.toLocaleString("de-DE")} €
                 </span>
               </div>
               <p className="text-xs text-muted-foreground mt-1">{T.priceNote}</p>
@@ -496,7 +496,7 @@ export default function ProductDetail() {
             style={{ backgroundColor: ORANGE }}
           >
             <FileText className="w-4 h-4 mr-2" />
-            Angebot anfordern – Ab {product.price_from?.toLocaleString("de-DE")} €
+            Angebot anfordern – {product.price_from?.toLocaleString("de-DE")} €
           </Button>
         </Link>
       </div>

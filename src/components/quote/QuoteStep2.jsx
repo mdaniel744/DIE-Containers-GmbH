@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Truck, PackageCheck, Warehouse, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSection } from "@/lib/i18n";
+import { useAttributeOptions } from "@/hooks/useAttributeOptions";
 
 const ORANGE = "#F28C28";
 
@@ -18,6 +19,15 @@ const TRANSPORT_ICONS = {
 export default function QuoteStep2({ data, setData }) {
   const T = useSection("quote");
   const update = (key, value) => setData((prev) => ({ ...prev, [key]: value }));
+
+  const { options: sizeOptions } = useAttributeOptions("Size");
+  const { options: colorOptions } = useAttributeOptions("Color");
+
+  // Fall back to i18n values in local dev or when Supabase has no data yet
+  const sizes = sizeOptions.length > 0 ? sizeOptions : T.sizes;
+  const colors = colorOptions.length > 0
+    ? colorOptions
+    : T.colors.map((c) => ({ value: c, label: c }));
   const updateQuantity = (value) => {
     if (value === "" || /^[1-9]\d*$/.test(value)) update("quantity", value);
   };
@@ -36,7 +46,7 @@ export default function QuoteStep2({ data, setData }) {
           <Select value={data.container_size || ""} onValueChange={(v) => update("container_size", v)}>
             <SelectTrigger><SelectValue placeholder={T.sizePlaceholder} /></SelectTrigger>
             <SelectContent>
-              {T.sizes.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
+              {sizes.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>
@@ -56,7 +66,7 @@ export default function QuoteStep2({ data, setData }) {
           <Select value={data.color || ""} onValueChange={(v) => update("color", v)}>
             <SelectTrigger><SelectValue placeholder={T.colorPlaceholder} /></SelectTrigger>
             <SelectContent>
-              {T.colors.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}
+              {colors.map(c => <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>)}
             </SelectContent>
           </Select>
         </div>

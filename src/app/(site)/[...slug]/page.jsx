@@ -40,6 +40,8 @@ import ContainerGroessen from "@/views/seo/faq/ContainerGroessen";
 import WieLangeHaelt from "@/views/seo/faq/WieLangeHaelt";
 import WieWirdGeliefert from "@/views/seo/faq/WieWirdGeliefert";
 
+export const revalidate = 300;
+
 const ROUTES = {
   shop: {
     component: Shop,

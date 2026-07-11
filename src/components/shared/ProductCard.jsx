@@ -36,7 +36,7 @@ export default function ProductCard({ product, index = 0 }) {
     >
       <Link to={`/produkt/${product.slug || product.id}`}>
         <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-          <img src={product.image_url} alt={product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          <img src={product.image_url} alt={product.image_alts?.[0] || product.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
           {product.badge && (
             <Badge className={`absolute top-3 left-3 text-xs font-semibold border ${badgeStyles[product.badge] || "bg-muted text-muted-foreground"}`}>
               {product.badge}

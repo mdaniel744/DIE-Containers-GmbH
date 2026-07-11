@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ProductGallery({ images, title }) {
+export default function ProductGallery({ images, title, imageAlts = [] }) {
   const allImages = images && images.length > 0 ? images : [];
   const [selected, setSelected] = useState(0);
   const [lightbox, setLightbox] = useState(false);
@@ -22,7 +22,7 @@ export default function ProductGallery({ images, title }) {
             <motion.img
               key={selected} src={allImages[selected]}
 
-              alt={title}
+              alt={imageAlts[selected] || title}
               className="w-full h-full object-cover"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -86,7 +86,7 @@ export default function ProductGallery({ images, title }) {
             "border-border hover:border-[#F28C28]/50"}`
             }>
             
-                <img src={img} alt={`${title} ${i + 1}`} className="w-full h-full object-cover" />
+                <img src={img} alt={imageAlts[i] || `${title} ${i + 1}`} className="w-full h-full object-cover" />
               </button>
           )}
           </div>
@@ -130,7 +130,7 @@ export default function ProductGallery({ images, title }) {
             <motion.img
             key={selected}
             src={allImages[selected]}
-            alt={title}
+            alt={imageAlts[selected] || title}
             className="max-w-full max-h-[90vh] object-contain rounded-lg"
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

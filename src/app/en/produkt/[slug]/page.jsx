@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
 
   if (product) {
     return makeMetadata({
-      title: `${product.name} — Buy from ${product.price?.toLocaleString("en-DE")} € | DIE Container GmbH`,
+      title: `${product.name} — Buy for ${product.price?.toLocaleString("en-DE")} € | DIE Container GmbH`,
       description:
         product.short_description ||
         product.description ||

@@ -83,6 +83,7 @@ function mapProductRow(row) {
     is_available: row.status === "active",
     image_url: images[0] || "",
     gallery_urls: images.slice(1),
+    image_alts: Array.isArray(row.image_alts) ? row.image_alts : [],
     brand: row.brand || null,
   };
 }
