@@ -10,9 +10,9 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Images ── */
-const IMG_20FT_STANDARD = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/7d8b11ed6_20FuContainerkaufen.jpg";
-const IMG_20FT_HC = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/0da1d666b_20FuHighCubeContainerkaufen.jpg";
-const IMG_20FT_BUERO = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/af1ff6035_20FuBrocontainerRAL7016.jpg";
+const IMG_20FT_STANDARD = "/images/gebrauchte-seecontainer.png";
+const IMG_20FT_HC = "/images/gebrauchte-seecontainer.png";
+const IMG_20FT_BUERO = "/images/mobiler-wohncontainer.jpg";
 
 /* ── Specs table ── */
 const SPECS = [

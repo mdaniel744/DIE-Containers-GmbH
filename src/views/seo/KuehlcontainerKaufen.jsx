@@ -10,11 +10,11 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Image assets ── */
-const IMG_HERO = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/71e5396af_20FuKhlcontainerKaufen.jpg";
-const IMG_GEBRAUCHT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/5a3e7332a_GebrauchteKhlcontainer.jpg";
-const IMG_40FT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d2ea3cd27_Thermoking40-Fu-Highcube-Khlcontainer.png";
-const IMG_SPLIT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90cf7c66a_KhlaggregatSplit.jpeg";
-const IMG_COMPRESSOR = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/56ed27879_thermokingKhlcontainercompressor.jpg";
+const IMG_HERO = "/images/shipping-container-logistics.jpeg";
+const IMG_GEBRAUCHT = "/images/shipping-container-logistics.jpeg";
+const IMG_40FT = "/images/shipping-container-logistics.jpeg";
+const IMG_SPLIT = "/images/shipping-container-logistics.jpeg";
+const IMG_COMPRESSOR = "/images/shipping-container-logistics.jpeg";
 
 /* ── Helpers ── */
 function IL({ to, children }) {

@@ -1,6 +1,12 @@
 "use client";
 import { supabase, isSupabaseConfigured, STORE_ID } from "@/lib/supabaseClient";
 import { PRODUCT_DATA } from "@/lib/productData";
+import {
+  getCategoryImage,
+  getProductFallbackImages,
+  safeImageList,
+  safeLocalImage,
+} from "@/lib/imageAssets";
 import { z } from "zod";
 
 // Zod schema for quote/inquiry submissions.
@@ -53,8 +59,14 @@ const ATTR_KEYS = {
 
 function mapProductRow(row) {
   const attrs = row.attributes || {};
-  const images = Array.isArray(row.images) ? row.images : [];
   const certifications = attrs[ATTR_KEYS.certifications] || "";
+  const fallbackImages = getProductFallbackImages({
+    title: row.name,
+    container_type: attrs[ATTR_KEYS.containerType],
+    size: attrs[ATTR_KEYS.size],
+    condition: CONDITION_LABELS[row.condition] || row.condition,
+  });
+  const images = safeImageList(Array.isArray(row.images) ? row.images : [], fallbackImages);
 
   return {
     id: row.id,
@@ -81,7 +93,7 @@ function mapProductRow(row) {
     badge: row.badge || null,
     is_featured: Boolean(row.is_featured),
     is_available: row.status === "active",
-    image_url: images[0] || "",
+    image_url: images[0] || fallbackImages[0],
     gallery_urls: images.slice(1),
     image_alts: Array.isArray(row.image_alts) ? row.image_alts : [],
     brand: row.brand || null,
@@ -89,12 +101,14 @@ function mapProductRow(row) {
 }
 
 function mapCategoryRow(row) {
+  const fallbackImage = getCategoryImage(row.name || row.slug);
+
   return {
     id: row.id,
     name: row.name,
     slug: row.slug,
     description: row.description || "",
-    image_url: row.image_url || "",
+    image_url: safeLocalImage(row.image_url, fallbackImage),
     is_featured: Boolean(row.is_featured),
     display_order: row.display_order ?? 0,
     meta_title: row.meta_title || "",
@@ -170,6 +184,8 @@ function mapAttributeRow(row) {
 }
 
 function mapAttributeValueRow(row) {
+  const fallbackImage = getCategoryImage(row.label || row.value);
+
   return {
     id: row.id,
     attribute_id: row.attribute_id,
@@ -177,7 +193,7 @@ function mapAttributeValueRow(row) {
     // Not yet columns on attribute_values — read through now so this lights
     // up automatically once the dashboard adds them, no further code change.
     label: row.label || "",
-    image_url: row.image_url || "",
+    image_url: safeLocalImage(row.image_url, fallbackImage),
     description: row.description || "",
   };
 }

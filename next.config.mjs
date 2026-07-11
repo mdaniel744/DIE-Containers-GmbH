@@ -38,7 +38,7 @@ const nextConfig = {
       process.env.VITE_BASE44_FUNCTIONS_VERSION ||
       "",
     NEXT_PUBLIC_SITE_URL:
-      process.env.NEXT_PUBLIC_SITE_URL || "https://csavcontainer.de",
+      process.env.NEXT_PUBLIC_SITE_URL || "https://diecontainers.com",
   },
   async rewrites() {
     if (!appBaseUrl) return [];

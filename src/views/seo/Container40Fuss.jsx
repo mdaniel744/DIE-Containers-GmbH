@@ -10,9 +10,9 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Images ── */
-const IMG_40FT_STANDARD = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/85509ebd4_40FuContainerkaufen.png";
-const IMG_40FT_HC = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/92c64a906_40FuHIghContainerMae.png";
-const IMG_40FT_OPENSIDE = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/1b955a25b_40FuOpenSideContainerkaufen.jpg";
+const IMG_40FT_STANDARD = "/images/die-container-yard.jpeg";
+const IMG_40FT_HC = "/images/die-container-yard.jpeg";
+const IMG_40FT_OPENSIDE = "/images/die-container-yard.jpeg";
 
 /* ── Specs table ── */
 const SPECS = [

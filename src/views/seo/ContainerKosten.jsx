@@ -14,7 +14,7 @@ const PRICING_GRID = [
   {
     size: "10 Fuß Container",
     length: "3,0 m",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d97452f56_Standard_10-Fuss-1024x668.png",
+    img: "/images/die-container-yard.jpeg",
     href: "/10-fuss-container-kaufen",
     cols: [
       { label: "One Trip (Neu)", price: "2.500 – 3.200 €", desc: "Erstmalig verwendet, wie neu", badge: "Beste Qualität" },
@@ -25,7 +25,7 @@ const PRICING_GRID = [
   {
     size: "20 Fuß Container",
     length: "6,06 m",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/87f1ec1e8_Standard_20-Fuss-1024x6681.png",
+    img: "/images/gebrauchte-seecontainer.png",
     href: "/20-fuss-container-kaufen",
     cols: [
       { label: "One Trip (Neu)", price: "3.200 – 4.200 €", desc: "Direktlieferung aus Produktion", badge: "Bestseller" },
@@ -36,7 +36,7 @@ const PRICING_GRID = [
   {
     size: "40 Fuß Container",
     length: "12,19 m",
-    img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/e840b5a6e_Pallet-Wide-Container-2-1024x668.png",
+    img: "/images/die-container-yard.jpeg",
     href: "/40-fuss-container-kaufen",
     cols: [
       { label: "One Trip (Neu)", price: "5.200 – 6.800 €", desc: "Fabrikneu, max. Nutzlast", badge: null },
@@ -67,9 +67,9 @@ const FAQS = [
 
 /* ── Related Articles ── */
 const RELATED = [
-  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Alles über den meistgekauften Seecontainer", img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/87f1ec1e8_Standard_20-Fuss-1024x6681.png" },
-  { href: "/container-lieferung", title: "Container Lieferung", desc: "Transportkosten & Logistik in Deutschland", img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/84fbb9147_TipperlowloaderTiltTrailer.webp" },
-  { href: "/container-fundament", title: "Container Fundament", desc: "Kosten & Arten für das perfekte Fundament", img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/e840b5a6e_Pallet-Wide-Container-2-1024x668.png" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Alles über den meistgekauften Seecontainer", img: "/images/gebrauchte-seecontainer.png" },
+  { href: "/container-lieferung", title: "Container Lieferung", desc: "Transportkosten & Logistik in Deutschland", img: "/images/wohncontainer-transport.jpg" },
+  { href: "/container-fundament", title: "Container Fundament", desc: "Kosten & Arten für das perfekte Fundament", img: "/images/die-container-yard.jpeg" },
 ];
 
 const internalLinks = [
@@ -91,7 +91,7 @@ export default function ContainerKosten() {
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600&q=80"
+            src="/images/crane-is-hoisting-containers.avif"
             alt="Gestapelte Seecontainer im Hafen"
             className="w-full h-full object-cover"
           />

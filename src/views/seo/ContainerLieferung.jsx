@@ -57,7 +57,7 @@ const TRUCK_TYPES = [
   "Ideal für 10ft und 20ft Standard-Container"],
 
   note: "Der Container muss leer sein. Beladene Container können mit diesem Verfahren nicht transportiert werden.",
-  img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/84fbb9147_TipperlowloaderTiltTrailer.webp"
+  img: "/images/wohncontainer-transport.jpg"
 },
 {
   title: "Flachbett-Trailer",
@@ -70,7 +70,7 @@ const TRUCK_TYPES = [
   "Geeignet für 20ft und 40ft Container"],
 
   note: "Zum Abladen wird ein Kran oder Gabelstapler mit ausreichender Tragkraft am Zielort benötigt.",
-  img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/ddc627611_Containerdeliverytruckwithtrailer.jpg"
+  img: "/images/wohncontainer-transport.jpg"
 },
 {
   title: "Step-Deck / Tieflader",
@@ -83,7 +83,7 @@ const TRUCK_TYPES = [
   "Auch für lange Transportstrecken geeignet"],
 
   note: "Auch hier ist Hebetechnik am Zielort für das Abladen erforderlich.",
-  img: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/8b24ed67b_Step-decklowloaderContainerdelivery.jpg"
+  img: "/images/wohncontainer-transport.jpg"
 }];
 
 

@@ -10,14 +10,14 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Image assets ── */
-const IMG_HERO = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/a9a28bef9_Wohncontainer.jpg";
-const IMG_PRODUCT_1 = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/b1ee6601c_wohncontainerkaufen.webp";
-const IMG_PRODUCT_2 = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/05022fb3b_mobilerwohncontainer.jpg";
-const IMG_WINTERFEST = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/50b6cdf74_wohncontainer.webp";
-const IMG_INTERIOR = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/ecc2f1c9e_240ftWohncontainer.webp";
-const IMG_SCHLUESSEL = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d0e6cc882_Wohncontainer20Fuss.webp";
-const IMG_GEBRAUCHT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/92e887412_Wohncontainers.jpg";
-const IMG_TRANSPORT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/93d15faf0_Wohncontainertransport.jpg";
+const IMG_HERO = "/images/mobiler-wohncontainer.jpg";
+const IMG_PRODUCT_1 = "/images/mobiler-wohncontainer.jpg";
+const IMG_PRODUCT_2 = "/images/mobiler-wohncontainer.jpg";
+const IMG_WINTERFEST = "/images/wohncontainers.jpg";
+const IMG_INTERIOR = "/images/mobiler-wohncontainer.jpg";
+const IMG_SCHLUESSEL = "/images/wohncontainers.jpg";
+const IMG_GEBRAUCHT = "/images/wohncontainers.jpg";
+const IMG_TRANSPORT = "/images/wohncontainer-transport.jpg";
 
 /* ── Helpers ── */
 function IL({ to, children }) {

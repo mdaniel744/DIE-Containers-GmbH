@@ -10,10 +10,10 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Image assets ── */
-const IMG_HERO = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/b0f963747_20FuBrocontainerRAL7016.jpg";
-const IMG_INTERIOR = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d051326b1_Brocontainerkaufen.jpg";
-const IMG_PRODUCT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/ecc128564_BrocontainerKaufen.png";
-const IMG_USED = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/e07d47fbb_GebrauchteBrocontainer.jpg";
+const IMG_HERO = "/images/mobiler-wohncontainer.jpg";
+const IMG_INTERIOR = "/images/mobiler-wohncontainer.jpg";
+const IMG_PRODUCT = "/images/mobiler-wohncontainer.jpg";
+const IMG_USED = "/images/mobiler-wohncontainer.jpg";
 
 /* ── Helpers ── */
 function IL({ to, children }) {

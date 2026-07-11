@@ -3,6 +3,7 @@ import { cache } from "react";
 import ProductDetail from "@/views/ProductDetail";
 import { makeMetadata, siteUrl } from "../../../seo";
 import { supabaseServer, STORE_ID } from "@/lib/supabaseServer";
+import { getProductFallbackImages, safeImageList } from "@/lib/imageAssets";
 
 export const dynamic = "force-dynamic";
 
@@ -58,13 +59,17 @@ export default async function Page({ params }) {
 
   let jsonLd = null;
   if (product) {
-    const images = Array.isArray(product.images) ? product.images : [];
+    const images = safeImageList(product.images, getProductFallbackImages({
+      title: product.name,
+      condition: product.condition,
+    }));
+    const primaryImage = images[0]?.startsWith("http") ? images[0] : `${siteUrl}${images[0]}`;
     jsonLd = {
       "@context": "https://schema.org/",
       "@type": "Product",
       name: product.name,
       description: product.short_description || product.description || "",
-      ...(images[0] ? { image: images[0] } : {}),
+      ...(primaryImage ? { image: primaryImage } : {}),
       brand: { "@type": "Brand", name: "DIE Container GmbH" },
       identifier_exists: "false",
       offers: {

@@ -6,14 +6,14 @@ import { useSection } from "@/lib/i18n";
 const ORANGE = "#F28C28";
 
 const IMG = {
-  seecontainer: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/03a8322fe_Seecontainer.png",
-  kuehlcontainer: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/77201763e_Khlcontainer.png",
-  modifiziert: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/e1abfe374_ModifizierterContainer.png",
-  garage: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/73ae67395_ContainerGarage.png",
-  buero: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/512bfca60_Brocontainer.png",
-  wohn: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/44c7a2f5e_Wohncontainer.png",
-  doppeltuer: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/6770529bd_ContainermitDoppeltr.png",
-  openside: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/f726750d8_OpenSideContainer.png",
+  seecontainer: "/images/gebrauchte-seecontainer.png",
+  kuehlcontainer: "/images/shipping-container-logistics.jpeg",
+  modifiziert: "/images/neue-versand-container-kaufen.jpg",
+  garage: "/images/neue-versand-container-kaufen.jpg",
+  buero: "/images/mobiler-wohncontainer.jpg",
+  wohn: "/images/mobiler-wohncontainer.jpg",
+  doppeltuer: "/images/gebrauchte-seecontainer.png",
+  openside: "/images/die-container-yard.jpeg",
 };
 
 // Map category value → image (value never changes, only label/desc translate)

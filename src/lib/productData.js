@@ -1,4 +1,10 @@
 "use client";
+import {
+  DIE_CONTAINER_IMAGES,
+  SIZE_IMAGES as LOCAL_SIZE_IMAGES,
+  TYPE_IMAGES as LOCAL_TYPE_IMAGES,
+} from "@/lib/imageAssets";
+
 // Static product data for initial display - will be synced with entity
 export const PRODUCT_DATA = [
   {
@@ -14,12 +20,12 @@ export const PRODUCT_DATA = [
     badge: "Bestseller",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/fd1fe3482_generated_ea60cc41.png",
+    image_url: DIE_CONTAINER_IMAGES.newShippingContainers,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/49c96258a_generated_f6239569.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/18d9891b6_generated_972f10e9.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d12505e8a_generated_1818882f.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
+      DIE_CONTAINER_IMAGES.yard,
+      DIE_CONTAINER_IMAGES.shippingLogistics,
+      DIE_CONTAINER_IMAGES.usedSeecontainers,
+      DIE_CONTAINER_IMAGES.crane,
     ],
     outer_length: "6.058 mm",
     outer_width: "2.438 mm",
@@ -46,12 +52,12 @@ export const PRODUCT_DATA = [
     badge: "Gebraucht",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/c0befc8b0_generated_40d916d6.png",
+    image_url: DIE_CONTAINER_IMAGES.usedSeecontainers,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/2640e60b5_generated_98b29345.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/49c96258a_generated_f6239569.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d12505e8a_generated_1818882f.png",
+      DIE_CONTAINER_IMAGES.yard,
+      DIE_CONTAINER_IMAGES.newShippingContainers,
+      DIE_CONTAINER_IMAGES.shippingLogistics,
+      DIE_CONTAINER_IMAGES.crane,
     ],
     outer_length: "12.192 mm",
     outer_width: "2.438 mm",
@@ -78,11 +84,11 @@ export const PRODUCT_DATA = [
     badge: "Neu",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/12a630995_generated_aa937548.png",
+    image_url: DIE_CONTAINER_IMAGES.yard,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/f10474f9c_generated_914f884a.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d12505e8a_generated_1818882f.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
+      DIE_CONTAINER_IMAGES.newShippingContainers,
+      DIE_CONTAINER_IMAGES.usedSeecontainers,
+      DIE_CONTAINER_IMAGES.shippingLogistics,
     ],
     outer_length: "2.991 mm",
     outer_width: "2.438 mm",
@@ -109,12 +115,12 @@ export const PRODUCT_DATA = [
     badge: "Gebraucht",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d12505e8a_generated_1818882f.png",
+    image_url: DIE_CONTAINER_IMAGES.usedSeecontainers,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/18d9891b6_generated_972f10e9.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/fd1fe3482_generated_ea60cc41.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/2d474c81f_generated_4bf051bb.png",
+      DIE_CONTAINER_IMAGES.newShippingContainers,
+      DIE_CONTAINER_IMAGES.shippingLogistics,
+      DIE_CONTAINER_IMAGES.yard,
+      DIE_CONTAINER_IMAGES.crane,
     ],
     outer_length: "6.058 mm",
     outer_width: "2.438 mm",
@@ -141,12 +147,12 @@ export const PRODUCT_DATA = [
     badge: "Neu",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/49c96258a_generated_f6239569.png",
+    image_url: DIE_CONTAINER_IMAGES.yard,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/c0befc8b0_generated_40d916d6.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/2640e60b5_generated_98b29345.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/fd1fe3482_generated_ea60cc41.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
+      DIE_CONTAINER_IMAGES.newShippingContainers,
+      DIE_CONTAINER_IMAGES.usedSeecontainers,
+      DIE_CONTAINER_IMAGES.shippingLogistics,
+      DIE_CONTAINER_IMAGES.crane,
     ],
     outer_length: "12.192 mm",
     outer_width: "2.438 mm",
@@ -173,11 +179,11 @@ export const PRODUCT_DATA = [
     badge: "Neu",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/9f2c3f281_generated_42416ef5.png",
+    image_url: DIE_CONTAINER_IMAGES.newShippingContainers,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d12505e8a_generated_1818882f.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/18d9891b6_generated_972f10e9.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
+      DIE_CONTAINER_IMAGES.shippingLogistics,
+      DIE_CONTAINER_IMAGES.yard,
+      DIE_CONTAINER_IMAGES.usedSeecontainers,
     ],
     outer_length: "6.058 mm",
     outer_width: "2.438 mm",
@@ -204,11 +210,11 @@ export const PRODUCT_DATA = [
     badge: "Angebot",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/6fb6ac584_generated_2143ba48.png",
+    image_url: DIE_CONTAINER_IMAGES.shippingLogistics,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d12505e8a_generated_1818882f.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/18d9891b6_generated_972f10e9.png",
+      DIE_CONTAINER_IMAGES.yard,
+      DIE_CONTAINER_IMAGES.newShippingContainers,
+      DIE_CONTAINER_IMAGES.usedSeecontainers,
     ],
     outer_length: "6.058 mm",
     outer_width: "2.438 mm",
@@ -235,12 +241,12 @@ export const PRODUCT_DATA = [
     badge: "Bestseller",
     is_available: true,
     is_featured: true,
-    image_url: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/0b773d552_generated_adaf25c6.png",
+    image_url: DIE_CONTAINER_IMAGES.mobileWohncontainer,
     gallery_urls: [
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/fd1fe3482_generated_ea60cc41.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d12505e8a_generated_1818882f.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png",
-      "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/18d9891b6_generated_972f10e9.png",
+      DIE_CONTAINER_IMAGES.wohncontainerTransport,
+      DIE_CONTAINER_IMAGES.yard,
+      DIE_CONTAINER_IMAGES.shippingLogistics,
+      DIE_CONTAINER_IMAGES.wohncontainers,
     ],
     outer_length: "6.058 mm",
     outer_width: "2.438 mm",
@@ -256,20 +262,8 @@ export const PRODUCT_DATA = [
   }
 ];
 
-export const SIZE_IMAGES = {
-  "10ft": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d97452f56_Standard_10-Fuss-1024x668.png",
-  "20ft": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/87f1ec1e8_Standard_20-Fuss-1024x6681.png",
-  "40ft": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/e840b5a6e_Pallet-Wide-Container-2-1024x668.png"
-};
+export const SIZE_IMAGES = LOCAL_SIZE_IMAGES;
+export const TYPE_IMAGES = LOCAL_TYPE_IMAGES;
 
-export const TYPE_IMAGES = {
-  "Standard": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/87f1ec1e8_Standard_20-Fuss-1024x6681.png",
-  "High Cube": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/e840b5a6e_Pallet-Wide-Container-2-1024x668.png",
-  "Open Side": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/21a6ae7d4_Open-Side-Container-2-1024x668.png",
-  "Kühlcontainer": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/2fca4821f_Kuehlcontainer-2-600x391.png",
-  "Doppeltür": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/facf2c883_Double-Door-Container-2-1024x668.png",
-  "Bürocontainer": "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/9cb0b31d1_Hard-Top-Container-2-1024x668.png"
-};
-
-export const HERO_IMAGE = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/2a6df15dc_generated_f01164c9.png";
-export const DELIVERY_IMAGE = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/90e5c2af8_generated_db32d4ca.png";
+export const HERO_IMAGE = DIE_CONTAINER_IMAGES.newShippingContainers;
+export const DELIVERY_IMAGE = DIE_CONTAINER_IMAGES.shippingLogistics;

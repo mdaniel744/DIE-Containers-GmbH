@@ -10,11 +10,11 @@ import { useSection } from "@/lib/i18n";
 // Image and dedicated SEO route for the three sizes that have them.
 // Label and description now come from i18n.js so they translate automatically.
 const KNOWN_SIZE_META = {
-  "10ft": { image: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/3b5b9ecc9_Neuer10FuHighCubeVersandcontainer.jpg", path: "/kategorien/10ft" },
-  "20ft": { image: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/4f2bd8d74_20FuSchiffscontainer.jpg", path: "/kategorien/20ft" },
-  "40ft": { image: "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/9750089f7_40Fuhighcubecontainerkaufen.jpg", path: "/kategorien/40ft" },
+  "10ft": { image: "/images/die-container-yard.jpeg", path: "/kategorien/10ft" },
+  "20ft": { image: "/images/gebrauchte-seecontainer.png", path: "/kategorien/20ft" },
+  "40ft": { image: "/images/die-container-yard.jpeg", path: "/kategorien/40ft" },
 };
-const FALLBACK_IMAGE = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/4f2bd8d74_20FuSchiffscontainer.jpg";
+const FALLBACK_IMAGE = "/images/gebrauchte-seecontainer.png";
 
 export default function ShopBySize() {
   const { values, loading } = useSizeOptions();

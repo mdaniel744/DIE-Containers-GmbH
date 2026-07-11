@@ -8,11 +8,11 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Image assets ── */
-const IMG_20FT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/0fe93914d_20FuContainerkaufen.jpg";
-const IMG_40FT = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/62e04b879_40FuContainerkaufen.jpg";
-const IMG_BUERO = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/96cbd012f_149.jpg";
-const IMG_KUEHL = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/cc450ea75_Khlcontainerkaufen.jpg";
-const IMG_WOHN = "https://media.base44.com/images/public/6a32167d7cec7a3300a2d0b9/d41a3b5b8_Wohncontainerkaufen.jpg";
+const IMG_20FT = "/images/gebrauchte-seecontainer.png";
+const IMG_40FT = "/images/die-container-yard.jpeg";
+const IMG_BUERO = "/images/mobiler-wohncontainer.jpg";
+const IMG_KUEHL = "/images/shipping-container-logistics.jpeg";
+const IMG_WOHN = "/images/mobiler-wohncontainer.jpg";
 
 /* ── Container type cards ── */
 const TYPE_CARDS = [
