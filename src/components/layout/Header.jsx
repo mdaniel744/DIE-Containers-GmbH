@@ -9,6 +9,7 @@ import { HERO_IMAGE } from "@/lib/productData";
 import { useT } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { isLocalizablePath, stripLocalePrefix } from "@/lib/locale";
+import { isCatalogPath, resolveCatalogCategoryHref } from "@/lib/catalogLinks";
 import NextLink from "next/link";
 
 const simpleNavItems = [
@@ -43,7 +44,7 @@ function useHoverDropdown(delay = 180) {
 }
 
 /* ─── Mega dropdown component ─── */
-function CatalogDropdown({ visible, categories }) {
+function CatalogDropdown({ visible, categories, locale }) {
   const t = useT();
   if (categories.length === 0) return null;
 
@@ -75,7 +76,7 @@ function CatalogDropdown({ visible, categories }) {
             {categories.map((cat) => (
               <Link
                 key={cat.slug}
-                to={`/shop?category=${encodeURIComponent(cat.slug)}`}
+                to={resolveCatalogCategoryHref(cat, locale)}
                 className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#F28C28]/70 hover:shadow-md transition-all overflow-hidden"
               >
                 {/* Image area */}
@@ -180,7 +181,7 @@ export default function Header() {
               <Link
                 to="/shop"
                 className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  location.pathname.startsWith("/kategorien") || location.pathname === "/shop"
+                  isCatalogPath(location.pathname)
                     ? "text-secondary font-semibold"
                     : "text-foreground/80 hover:text-foreground hover:bg-muted"
                 }`}
@@ -190,7 +191,7 @@ export default function Header() {
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${catalog.open ? "rotate-180" : ""}`}
                 />
               </Link>
-              <CatalogDropdown visible={catalog.open} categories={categories} />
+              <CatalogDropdown visible={catalog.open} categories={categories} locale={locale} />
             </div>
 
             {/* Container Service dropdown */}
@@ -330,7 +331,7 @@ export default function Header() {
                         {categories.map((cat) => (
                           <Link
                             key={cat.slug}
-                            to={`/shop?category=${encodeURIComponent(cat.slug)}`}
+                            to={resolveCatalogCategoryHref(cat, locale)}
                             className="flex flex-col items-center p-2 rounded-xl border border-border bg-card text-center overflow-hidden"
                           >
                             <div className="w-full h-16 bg-[#fdf8f0] rounded-lg mb-1.5 flex items-center justify-center p-1">

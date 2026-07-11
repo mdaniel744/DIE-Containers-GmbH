@@ -7,10 +7,13 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import { HERO_IMAGE } from "@/lib/productData";
 import { useFeaturedCategories } from "@/hooks/useCategories";
 import { useSection } from "@/lib/i18n";
+import { useLocale } from "@/hooks/useLocale";
+import { resolveCatalogCategoryHref } from "@/lib/catalogLinks";
 
 export default function ContainerTypes() {
   const { categories, loading } = useFeaturedCategories();
   const T = useSection("containerTypes");
+  const locale = useLocale();
 
   if (loading || categories.length === 0) return null;
 
@@ -19,7 +22,7 @@ export default function ContainerTypes() {
     label: cat.name,
     desc: cat.description || T.description,
     image: cat.image_url || HERO_IMAGE,
-    path: `/shop?category=${encodeURIComponent(cat.slug)}`,
+    path: resolveCatalogCategoryHref(cat, locale),
   }));
 
   return (
