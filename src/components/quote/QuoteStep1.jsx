@@ -38,9 +38,9 @@ function CategoryCard({ item, active, onClick, compact }) {
         active ? "border-[#F28C28] bg-[#F28C28]/5" : "border-border hover:border-[#F28C28]/40 bg-card"
       }`}
     >
-      <div className={`w-full ${compact ? "h-24" : "h-32 sm:h-36"} mb-3 rounded-xl overflow-hidden bg-[#0f4d80] border border-border flex items-center justify-center`}>
+      <div className={`w-full ${compact ? "h-24" : "h-32 sm:h-36"} mb-3 rounded-xl overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 border border-border flex items-center justify-center`}>
         {item.img ? (
-          <img src={item.img} alt={item.label} className="w-full h-full object-contain p-1" loading="lazy" />
+          <img src={item.img} alt={item.label} className="w-full h-full object-contain p-1 drop-shadow-sm" loading="lazy" />
         ) : (
           <div className="flex flex-col items-center justify-center h-full gap-1">
             <div className="w-8 h-8 rounded border-2 border-dashed border-muted-foreground/30" />
