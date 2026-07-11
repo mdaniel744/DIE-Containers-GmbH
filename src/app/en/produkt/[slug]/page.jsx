@@ -68,7 +68,7 @@ export default async function EnProductPage({ params }) {
       "@type": "Product",
       name: product.name,
       description: product.short_description || product.description || "",
-      image: images[0] || "",
+      ...(images[0] ? { image: images[0] } : {}),
       brand: { "@type": "Brand", name: "DIE Container GmbH" },
       identifier_exists: "false",
       offers: {
