@@ -7,6 +7,9 @@ export const DIE_CONTAINER_IMAGES = {
   newShippingContainers: "/images/neue-versand-container-kaufen.jpg",
   usedSeecontainers: "/images/gebrauchte-seecontainer.png",
   shippingLogistics: "/images/shipping-container-logistics.jpeg",
+  category10ft: "/images/container-category-10ft.png",
+  category20ft: "/images/container-category-20ft.png",
+  category40ft: "/images/container-category-40ft.png",
 };
 
 export const DEFAULT_CONTAINER_GALLERY = [
@@ -29,9 +32,9 @@ export const CATEGORY_IMAGES = {
 };
 
 export const SIZE_IMAGES = {
-  "10ft": DIE_CONTAINER_IMAGES.yard,
-  "20ft": DIE_CONTAINER_IMAGES.newShippingContainers,
-  "40ft": DIE_CONTAINER_IMAGES.usedSeecontainers,
+  "10ft": DIE_CONTAINER_IMAGES.category10ft,
+  "20ft": DIE_CONTAINER_IMAGES.category20ft,
+  "40ft": DIE_CONTAINER_IMAGES.category40ft,
 };
 
 export const TYPE_IMAGES = {
