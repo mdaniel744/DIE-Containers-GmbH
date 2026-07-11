@@ -102,29 +102,11 @@ export default function ProductDetail() {
   const metaDescription = product.short_description ||
     Tpd.metaFallback(product.title, product.price_from?.toLocaleString("de-DE"));
 
-  const productSchema = {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": product.title,
-    "description": metaDescription,
-    "image": product.image_url,
-    "brand": { "@type": "Brand", "name": "DIE Container GmbH" },
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "EUR",
-      "price": product.price_from,
-      "availability": product.is_available ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      "seller": { "@type": "Organization", "name": "DIE Container GmbH" }
-    }
-  };
-
   return (
     <>
       <Helmet>
         <title>{product.title} {Tpd.titleAction} – Ab {product.price_from?.toLocaleString("de-DE")} € | DIE Container GmbH</title>
         <meta name="description" content={metaDescription} />
-        <link rel="canonical" href={`https://csavcontainer.de/produkt/${product.slug || product.id}`} />
-        <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
       </Helmet>
     <div className="pt-20 lg:pt-24 pb-28 lg:pb-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

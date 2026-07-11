@@ -1,4 +1,4 @@
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://csavcontainer.de";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://diecontainers.com";
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();
