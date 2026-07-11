@@ -10,11 +10,11 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Image assets ── */
-const IMG_HERO = "/images/shipping-container-logistics.jpeg";
-const IMG_GEBRAUCHT = "/images/shipping-container-logistics.jpeg";
-const IMG_40FT = "/images/shipping-container-logistics.jpeg";
-const IMG_SPLIT = "/images/shipping-container-logistics.jpeg";
-const IMG_COMPRESSOR = "/images/shipping-container-logistics.jpeg";
+const IMG_HERO = "/images/refrigerated-container-10ft.webp";
+const IMG_GEBRAUCHT = "/images/reefer-used-container.jpg";
+const IMG_40FT = "/images/reefer-containers.jpg";
+const IMG_SPLIT = "/images/reefer-split-unit.jpeg";
+const IMG_COMPRESSOR = "/images/reefer-thermoking-compressor.jpg";
 
 /* ── Helpers ── */
 function IL({ to, children }) {
@@ -132,7 +132,7 @@ export default function KuehlcontainerKaufen() {
       {/* ── Hero ── */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_HERO} alt="20 Fuß Kühlcontainer mit Daikin Kühlaggregat" className="w-full h-full object-cover" />
+          <img src={IMG_HERO} alt="Weißer Kühlcontainer mit Kühlaggregat im Depot" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.90) 0%, rgba(15,37,64,0.82) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -447,7 +447,7 @@ export default function KuehlcontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_40FT} alt="40 Fuß Thermo King High Cube Kühlcontainer" className="w-full h-full object-cover" />
+                <img src={IMG_40FT} alt="Kühlcontainer mit Thermo-King-Kühlaggregat" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">

@@ -10,6 +10,11 @@ export const DIE_CONTAINER_IMAGES = {
   category10ft: "/images/container-category-10ft.png",
   category20ft: "/images/container-category-20ft.png",
   category40ft: "/images/container-category-40ft.png",
+  reeferContainers: "/images/reefer-containers.jpg",
+  reeferUsedContainer: "/images/reefer-used-container.jpg",
+  reeferSplitUnit: "/images/reefer-split-unit.jpeg",
+  reeferThermoKingCompressor: "/images/reefer-thermoking-compressor.jpg",
+  refrigerated10ft: "/images/refrigerated-container-10ft.webp",
 };
 
 export const DEFAULT_CONTAINER_GALLERY = [
@@ -21,7 +26,7 @@ export const DEFAULT_CONTAINER_GALLERY = [
 
 export const CATEGORY_IMAGES = {
   Seecontainer: DIE_CONTAINER_IMAGES.usedSeecontainers,
-  "Kühlcontainer": DIE_CONTAINER_IMAGES.shippingLogistics,
+  "Kühlcontainer": DIE_CONTAINER_IMAGES.reeferContainers,
   "Modifizierter Container": DIE_CONTAINER_IMAGES.mobileWohncontainer,
   "Container Garage": DIE_CONTAINER_IMAGES.newShippingContainers,
   "Bürocontainer": DIE_CONTAINER_IMAGES.mobileWohncontainer,
@@ -41,7 +46,7 @@ export const TYPE_IMAGES = {
   Standard: DIE_CONTAINER_IMAGES.newShippingContainers,
   "High Cube": DIE_CONTAINER_IMAGES.yard,
   "Open Side": DIE_CONTAINER_IMAGES.newShippingContainers,
-  "Kühlcontainer": DIE_CONTAINER_IMAGES.shippingLogistics,
+  "Kühlcontainer": DIE_CONTAINER_IMAGES.reeferContainers,
   "Doppeltür": DIE_CONTAINER_IMAGES.usedSeecontainers,
   "Bürocontainer": DIE_CONTAINER_IMAGES.mobileWohncontainer,
 };
@@ -97,10 +102,10 @@ export function getProductFallbackImages(product = {}) {
 
   if (text.includes("kühl") || text.includes("kuehl")) {
     return [
-      DIE_CONTAINER_IMAGES.shippingLogistics,
-      DIE_CONTAINER_IMAGES.yard,
-      DIE_CONTAINER_IMAGES.newShippingContainers,
-      DIE_CONTAINER_IMAGES.usedSeecontainers,
+      DIE_CONTAINER_IMAGES.reeferContainers,
+      DIE_CONTAINER_IMAGES.reeferUsedContainer,
+      DIE_CONTAINER_IMAGES.refrigerated10ft,
+      DIE_CONTAINER_IMAGES.reeferThermoKingCompressor,
     ];
   }
 
