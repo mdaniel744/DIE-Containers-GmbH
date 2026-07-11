@@ -246,6 +246,7 @@ const supabaseQuoteRequests = {
     const parsed = QuoteSchema.parse({
       ...quote,
       quantity: Number(quote.quantity),
+      product_id: quote.product_id || null,
     });
 
     const customerName = [parsed.first_name, parsed.last_name].filter(Boolean).join(" ");

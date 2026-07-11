@@ -27,6 +27,7 @@ export default function QuoteRequest() {
   const [step, setStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
   const [data, setData] = useState({
     container_size: "",
     container_type: "",
@@ -112,13 +113,16 @@ export default function QuoteRequest() {
 
   const handleSubmit = async () => {
     setSubmitting(true);
-    const quoteData = {
-      ...data,
-      quantity: Number(data.quantity),
-    };
-    await base44.entities.QuoteRequest.create(quoteData);
-    setSubmitting(false);
-    setSubmitted(true);
+    setSubmitError(null);
+    try {
+      await base44.entities.QuoteRequest.create({ ...data, quantity: Number(data.quantity) });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("[quote] submit failed:", err);
+      setSubmitError("Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -265,6 +269,18 @@ export default function QuoteRequest() {
             </Button>
           )}
         </div>
+
+        {submitError && (
+          <div className="mt-4 p-4 rounded-xl border border-rose-500/30 bg-rose-500/10 text-sm text-rose-700 dark:text-rose-400">
+            {submitError}{" "}
+            <button
+              className="underline font-medium hover:no-underline"
+              onClick={() => setSubmitError(null)}
+            >
+              Erneut versuchen
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
