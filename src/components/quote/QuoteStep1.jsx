@@ -6,14 +6,13 @@ import { useSection } from "@/lib/i18n";
 const ORANGE = "#F28C28";
 
 const IMG = {
-  seecontainer: "/images/gebrauchte-seecontainer.png",
-  kuehlcontainer: "/images/shipping-container-logistics.jpeg",
-  modifiziert: "/images/neue-versand-container-kaufen.jpg",
-  garage: "/images/neue-versand-container-kaufen.jpg",
-  buero: "/images/mobiler-wohncontainer.jpg",
-  wohn: "/images/mobiler-wohncontainer.jpg",
-  doppeltuer: "/images/gebrauchte-seecontainer.png",
-  openside: "/images/die-container-yard.jpeg",
+  seecontainer: "/images/quote-category-seecontainer.png",
+  kuehlcontainer: "/images/quote-category-kuehlcontainer.png",
+  modifiziert: "/images/quote-category-modifizierter-container.png",
+  garage: "/images/quote-category-container-garage.png",
+  buero: "/images/quote-category-buerocontainer.png",
+  wohn: "/images/quote-category-wohncontainer.png",
+  werkstatt: "/images/quote-category-werkstattcontainer.png",
 };
 
 // Map category value → image (value never changes, only label/desc translate)
@@ -24,8 +23,9 @@ const CATEGORY_IMAGES = {
   "Container Garage": IMG.garage,
   "Bürocontainer": IMG.buero,
   "Wohncontainer": IMG.wohn,
-  "Doppeltür": IMG.doppeltuer,
-  "Open Side": IMG.openside,
+  "Doppeltür": IMG.modifiziert,
+  "Open Side": IMG.modifiziert,
+  "Werkstattcontainer": IMG.werkstatt,
 };
 
 function CategoryCard({ item, active, onClick, compact }) {
@@ -34,21 +34,21 @@ function CategoryCard({ item, active, onClick, compact }) {
       type="button"
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className={`flex flex-col items-center ${compact ? "p-2.5" : "p-3"} rounded-xl border-2 text-center transition-all ${
+      className={`flex flex-col items-center ${compact ? "p-3" : "p-4"} rounded-2xl border-2 text-center transition-all ${
         active ? "border-[#F28C28] bg-[#F28C28]/5" : "border-border hover:border-[#F28C28]/40 bg-card"
       }`}
     >
-      <div className={`w-full ${compact ? "h-16" : "h-24"} mb-2 rounded-lg overflow-hidden bg-white border border-border flex items-center justify-center`}>
+      <div className={`w-full ${compact ? "h-24" : "h-32 sm:h-36"} mb-3 rounded-xl overflow-hidden bg-[#0f4d80] border border-border flex items-center justify-center`}>
         {item.img ? (
-          <img src={item.img} alt={item.label} className="w-full h-full object-contain" loading="lazy" />
+          <img src={item.img} alt={item.label} className="w-full h-full object-contain p-1" loading="lazy" />
         ) : (
           <div className="flex flex-col items-center justify-center h-full gap-1">
             <div className="w-8 h-8 rounded border-2 border-dashed border-muted-foreground/30" />
-            <span className="text-[9px] text-muted-foreground/50 font-mono">Open Top</span>
+            <span className="text-[9px] text-muted-foreground/50 font-mono">{item.label}</span>
           </div>
         )}
       </div>
-      <p className={`font-heading font-semibold ${compact ? "text-[11px]" : "text-sm"} leading-tight ${active ? "text-foreground" : "text-foreground/80"}`}>
+      <p className={`font-heading font-semibold ${compact ? "text-xs" : "text-sm"} leading-tight ${active ? "text-foreground" : "text-foreground/80"}`}>
         {item.label}
       </p>
     </motion.button>
@@ -82,7 +82,7 @@ export default function QuoteStep1({ data, setData }) {
         <p className="text-sm text-muted-foreground">{T.step1Sub}</p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {mainCategories.map((item) => (
           <CategoryCard
             key={item.value}
@@ -96,7 +96,7 @@ export default function QuoteStep1({ data, setData }) {
       {selectedMain === "Modifizierter Container" && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
           <p className="text-sm font-medium text-foreground">{T.step1SubtypePrompt}</p>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {subTypes.map((item) => (
               <CategoryCard
                 key={item.value}

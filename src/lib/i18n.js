@@ -232,7 +232,7 @@ const strings = {
       categories: [
         { value: "Seecontainer", label: "Seecontainer", desc: "Standard ISO – 10ft, 20ft, 40ft" },
         { value: "Kühlcontainer", label: "Kühlcontainer", desc: "Reefer mit Kühlaggregat" },
-        { value: "Modifizierter Container", label: "Modifizierter Container", desc: "Doppeltür, Open Side & Open Top" },
+        { value: "Modifizierter Container", label: "Modifizierter Container", desc: "Doppeltür, Open Side & Werkstattcontainer" },
         { value: "Container Garage", label: "Container Garage", desc: "Sichere Fahrzeug- & Lagergarage" },
         { value: "Bürocontainer", label: "Bürocontainer", desc: "Mobiler Arbeits- & Büroraum" },
         { value: "Wohncontainer", label: "Wohncontainer", desc: "Flexible Wohnlösung" },
@@ -240,7 +240,7 @@ const strings = {
       subtypes: [
         { value: "Doppeltür", label: "Doppeltür", desc: "Türen an beiden Stirnseiten" },
         { value: "Open Side", label: "Open Side", desc: "Öffenbare Seitenwand" },
-        { value: "Open Top", label: "Open Top", desc: "Offenes Dach für Übermaßgut" },
+        { value: "Werkstattcontainer", label: "Werkstattcontainer", desc: "Ausgebauter Arbeits- und Werkstattcontainer" },
       ],
       // Step 2
       step2Title: "Container-Details & Transport",
@@ -789,7 +789,7 @@ const strings = {
       categories: [
         { value: "Seecontainer", label: "Shipping container", desc: "Standard ISO – 10ft, 20ft, 40ft" },
         { value: "Kühlcontainer", label: "Refrigerated container", desc: "Reefer with cooling unit" },
-        { value: "Modifizierter Container", label: "Modified container", desc: "Double door, open side & open top" },
+        { value: "Modifizierter Container", label: "Modified container", desc: "Double door, open side & workshop container" },
         { value: "Container Garage", label: "Container garage", desc: "Secure vehicle & storage garage" },
         { value: "Bürocontainer", label: "Office container", desc: "Mobile workspace & office" },
         { value: "Wohncontainer", label: "Living container", desc: "Flexible living solution" },
@@ -797,7 +797,7 @@ const strings = {
       subtypes: [
         { value: "Doppeltür", label: "Double door", desc: "Doors on both end faces" },
         { value: "Open Side", label: "Open side", desc: "Openable side wall" },
-        { value: "Open Top", label: "Open top", desc: "Open roof for oversized goods" },
+        { value: "Werkstattcontainer", label: "Workshop container", desc: "Fitted workshop and work container" },
       ],
       // Step 2
       step2Title: "Container details & transport",

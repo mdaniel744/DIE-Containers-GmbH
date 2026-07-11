@@ -71,6 +71,7 @@ export default function QuoteRequest() {
           "High Cube": "Seecontainer",
           "Open Side": "Modifizierter Container",
           "Doppeltür": "Modifizierter Container",
+          Werkstattcontainer: "Modifizierter Container",
           Kühlcontainer: "Kühlcontainer",
           Bürocontainer: "Bürocontainer",
         };
@@ -152,7 +153,7 @@ export default function QuoteRequest() {
 
   return (
     <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-background">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
           <h1 className="font-heading font-bold text-3xl tracking-tight mb-2">{T.title}</h1>
