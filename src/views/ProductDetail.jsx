@@ -7,6 +7,7 @@ import ProductGallery from "@/components/product/ProductGallery";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import RichTextContent from "@/components/shared/RichTextContent";
 import {
   FileText, Minus, Plus, ArrowLeft, Truck, ShieldCheck,
   Ruler, Weight, Package, Layers, DoorOpen, Award,
@@ -21,6 +22,8 @@ import { useLocale } from "@/hooks/useLocale";
 import { useAttributeValueTranslations } from "@/hooks/useAttributeValueTranslations";
 
 const ORANGE = "#F28C28";
+const DEFAULT_PRODUCT_DESCRIPTION = (title) =>
+  `${title} – wind- und wasserdichter ISO-Norm-Stahlcontainer aus wetterfestem Corten-Stahl. Sofort einsatzbereit, stapelbar und individuell umbaubar.`;
 
 // Maps raw DB condition codes to locale-correct display labels.
 const CONDITION_DISPLAY = {
@@ -264,10 +267,10 @@ export default function ProductDetail() {
             {/* DESCRIPTION TAB */}
             <TabsContent value="description" className="mt-10">
               <div className="max-w-4xl">
-                {/* Short punchy intro */}
-                <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-                  {product.description || `${product.title} – wind- und wasserdichter ISO-Norm-Stahlcontainer aus wetterfestem Corten-Stahl. Sofort einsatzbereit, stapelbar und individuell umbaubar.`}
-                </p>
+                <RichTextContent
+                  content={product.description || DEFAULT_PRODUCT_DESCRIPTION(product.title)}
+                  className="mb-8"
+                />
 
                 {/* Visual dimension strip — inspired by mtcontainer.com */}
                 {(product.outer_length || product.outer_height || product.outer_width) && (

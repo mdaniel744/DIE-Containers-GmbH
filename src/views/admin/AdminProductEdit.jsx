@@ -153,11 +153,16 @@ export default function AdminProductEdit() {
                 placeholder="Kurze Beschreibung für Produktkarten"
                 className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500" />
             </Field>
-            <Field label="Beschreibung">
+            <Field label="Beschreibung / Long Description (Markdown)">
               <Textarea value={form.description} onChange={e => set("description", e.target.value)}
-                placeholder="Vollständige Produktbeschreibung..."
-                rows={5}
-                className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 resize-none" />
+                placeholder={`## Produktbeschreibung\n\nHier steht der normale Beschreibungstext.\n\n- Vorteil eins\n- Vorteil zwei\n\n[Mehr über Lieferung erfahren](/container-lieferung)`}
+                rows={10}
+                className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 resize-y" />
+              <p className="mt-2 text-xs leading-relaxed text-slate-400">
+                Unterstützt Formatierungen wie <span className="text-slate-200">## Überschriften</span>, Absätze,
+                Listen und Links im Format <span className="text-slate-200">[Linktext](/ziel-url)</span>.
+                Interne Links können direkt auf Shop-, Kategorie- oder Ratgeberseiten zeigen.
+              </p>
             </Field>
           </Section>
 
