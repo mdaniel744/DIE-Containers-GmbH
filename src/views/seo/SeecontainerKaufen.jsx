@@ -10,9 +10,12 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Images ── */
-const IMG_SEECONTAINER = "/images/gebrauchte-seecontainer.png";
-const IMG_20FT = "/images/gebrauchte-seecontainer.png";
-const IMG_40FT = "/images/die-container-yard.jpeg";
+const IMG_HERO = "/images/seecontainer-kaufen-hero.png";
+const IMG_NEW_20FT = "/images/seecontainer-20ft-grau.jpg";
+const IMG_USED = "/images/seecontainer-gebraucht-40ft-stapel.jpg";
+const IMG_20FT = "/images/seecontainer-20ft-blau.jpg";
+const IMG_40FT = "/images/seecontainer-40ft-crane.jpg";
+const IMG_OPEN_SIDE = "/images/seecontainer-40ft-open-side.svg";
 
 /* ── Advantages ── */
 const ADVANTAGES = [
@@ -93,7 +96,7 @@ export default function SeecontainerKaufen() {
       {/* ── Hero ── */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_SEECONTAINER} alt="Gebrauchte Seecontainer kaufen – Containeryard" className="w-full h-full object-cover" />
+          <img src={IMG_HERO} alt="Seecontainer kaufen – Containerverladung per Reach Stacker" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(15,37,64,0.87) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -143,16 +146,32 @@ export default function SeecontainerKaufen() {
         {/* ── Was ist ein Seecontainer? ── */}
         <section className="mb-14">
           <SH>Was ist ein Seecontainer?</SH>
-          <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
-            <p>
-              Ein Seecontainer ist ein genormter Stahlcontainer, der für den sicheren Transport von Waren per Schiff, Bahn und LKW entwickelt wurde. Die stabile Konstruktion aus widerstandsfähigem Stahl macht ihn besonders langlebig und belastbar. Durch seine standardisierten Maße kann ein Seecontainer einfach transportiert, gestapelt und an verschiedenen Standorten eingesetzt werden.
-            </p>
-            <p>
-              Im Alltag werden Seecontainer heute nicht nur für Fracht und Logistik genutzt. Viele Kunden kaufen Seecontainer als dauerhafte Lagerlösung, als mobile Werkstatt, als Materiallager auf Baustellen oder als sichere Unterbringung für Maschinen, Werkzeuge und Waren. Durch die robuste Bauweise sind sie eine praktische Alternative zu festen Lagerräumen oder teuren Mietflächen.
-            </p>
-            <p>
-              Wer sich noch nicht sicher ist, welcher Containertyp der richtige ist, kann zunächst einen Blick auf unsere Übersicht <IL to="/container-kaufen">Container kaufen</IL> werfen. Dort finden Sie verschiedene Containerarten wie Lagercontainer, <IL to="/buerocontainer-kaufen">Bürocontainer</IL>, <IL to="/wohncontainer-kaufen">Wohncontainer</IL> und <IL to="/kuehlcontainer-kaufen">Kühlcontainer</IL> im Vergleich.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start">
+            <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
+              <p>
+                Ein Seecontainer ist ein genormter Stahlcontainer, der für den sicheren Transport von Waren per Schiff, Bahn und LKW entwickelt wurde. Die stabile Konstruktion aus widerstandsfähigem Stahl macht ihn besonders langlebig und belastbar. Durch seine standardisierten Maße kann ein Seecontainer einfach transportiert, gestapelt und an verschiedenen Standorten eingesetzt werden.
+              </p>
+              <p>
+                Im Alltag werden Seecontainer heute nicht nur für Fracht und Logistik genutzt. Viele Kunden kaufen Seecontainer als dauerhafte Lagerlösung, als mobile Werkstatt, als Materiallager auf Baustellen oder als sichere Unterbringung für Maschinen, Werkzeuge und Waren. Durch die robuste Bauweise sind sie eine praktische Alternative zu festen Lagerräumen oder teuren Mietflächen.
+              </p>
+              <p>
+                Wer sich noch nicht sicher ist, welcher Containertyp der richtige ist, kann zunächst einen Blick auf unsere Übersicht <IL to="/container-kaufen">Container kaufen</IL> werfen. Dort finden Sie verschiedene Containerarten wie Lagercontainer, <IL to="/buerocontainer-kaufen">Bürocontainer</IL>, <IL to="/wohncontainer-kaufen">Wohncontainer</IL> und <IL to="/kuehlcontainer-kaufen">Kühlcontainer</IL> im Vergleich.
+              </p>
+            </div>
+            <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
+              <div className="h-64 bg-muted/30 flex items-center justify-center">
+                <img src={IMG_OPEN_SIDE} alt="40 Fuß High Cube Open Side Seecontainer" className="w-full h-full object-contain p-5" />
+              </div>
+              <div className="p-4">
+                <p className="font-heading font-bold text-sm text-foreground mb-1">Auch als Open-Side-Variante</p>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                  Seitlich öffnende Seecontainer bieten besonders einfachen Zugriff auf sperrige Waren.
+                </p>
+                <Link to="/open-side-container-kaufen" className="inline-flex items-center gap-1 text-xs font-semibold font-heading" style={{ color: ORANGE }}>
+                  Open Side ansehen <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -165,7 +184,7 @@ export default function SeecontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src={IMG_20FT} alt="Neuer 20 Fuß Seecontainer" className="w-full h-full object-cover" />
+                <img src={IMG_NEW_20FT} alt="Neuer grauer 20 Fuß Seecontainer" className="w-full h-full object-cover" />
               </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Neue Seecontainer (One Trip)</h3>
@@ -181,7 +200,7 @@ export default function SeecontainerKaufen() {
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src={IMG_SEECONTAINER} alt="Gebrauchte Seecontainer kaufen" className="w-full h-full object-cover" />
+                <img src={IMG_USED} alt="Gebrauchte gestapelte 40 Fuß Seecontainer" className="w-full h-full object-cover" />
               </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${ORANGE}15, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Gebrauchte Seecontainer (Cargo-Worthy)</h3>
