@@ -10,10 +10,12 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Image assets ── */
-const IMG_HERO = "/images/mobiler-wohncontainer.jpg";
-const IMG_INTERIOR = "/images/mobiler-wohncontainer.jpg";
-const IMG_PRODUCT = "/images/mobiler-wohncontainer.jpg";
-const IMG_USED = "/images/mobiler-wohncontainer.jpg";
+const IMG_HERO = "/images/buerocontainer-20ft-ral7016-hero.jpg";
+const IMG_PRODUCT = "/images/buerocontainer-20ft-ral7016-side.jpg";
+const IMG_INTERIOR = "/images/buerocontainer-interior-empty.jpg";
+const IMG_USED = "/images/buerocontainer-white-exterior.jpg";
+const IMG_MODULAR = "/images/buerocontainer-modulare-20ft-anlage.webp";
+const IMG_DELIVERY = "/images/buerocontainer-lieferung-kran.jpg";
 
 /* ── Helpers ── */
 function IL({ to, children }) {
@@ -166,8 +168,8 @@ export default function BuerocontainerKaufen() {
         <section className="mb-14">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
-              <div className="h-64 bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center p-6">
-                <img src={IMG_PRODUCT} alt="Bürocontainer in Dunkelblau – Außenansicht" className="w-full h-full object-contain" />
+              <div className="h-64 overflow-hidden">
+                <img src={IMG_PRODUCT} alt="20 Fuß Bürocontainer RAL 7016 – Außenansicht" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Neue Bürocontainer</h3>
@@ -176,7 +178,7 @@ export default function BuerocontainerKaufen() {
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_INTERIOR} alt="Bürocontainer Innenraum mit Fenster, Tür und Elektrik" className="w-full h-full object-cover" />
+                <img src={IMG_INTERIOR} alt="Bürocontainer Innenraum mit Fenster, Boden und Beleuchtung" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Voll ausgebauter Innenraum</h3>
@@ -284,6 +286,11 @@ export default function BuerocontainerKaufen() {
             <p>
               Die genaue nutzbare Innenfläche hängt von Dämmung, Wandaufbau und Ausstattung ab. Wenn Sie Containergrößen vergleichen möchten, finden Sie weitere technische Informationen auf unserer Seite <IL to="/container-masse">Container Maße</IL>. Für reine Lagerzwecke kann alternativ ein <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL> sinnvoll sein.
             </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-card overflow-hidden mb-6">
+            <div className="h-72 bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center">
+              <img src={IMG_MODULAR} alt="Modulare 20 Fuß Containeranlage mit Fenster und Treppe" className="w-full h-full object-contain" />
+            </div>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
@@ -397,13 +404,18 @@ export default function BuerocontainerKaufen() {
               Für eine reibungslose Lieferung sind folgende Angaben hilfreich. Je besser diese Punkte vorab geklärt sind, desto einfacher lässt sich die Lieferung planen. Mehr dazu auf der Seite <IL to="/container-lieferung">Container Lieferung</IL>.
             </p>
           </div>
-          <div className="rounded-2xl border border-border bg-card p-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {DELIVERY_CHECKLIST.map((item, i) => (
-                <div key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                  <Truck className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /><span>{item}</span>
-                </div>
-              ))}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            <div className="lg:col-span-3 rounded-2xl border border-border bg-card p-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {DELIVERY_CHECKLIST.map((item, i) => (
+                  <div key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <Truck className="w-4 h-4 text-green-500 shrink-0 mt-0.5" /><span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden min-h-64">
+              <img src={IMG_DELIVERY} alt="Bürocontainer Lieferung per Kran" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
