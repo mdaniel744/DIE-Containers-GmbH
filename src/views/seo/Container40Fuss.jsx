@@ -10,9 +10,11 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Images ── */
-const IMG_40FT_STANDARD = "/images/die-container-yard.jpeg";
-const IMG_40FT_HC = "/images/die-container-yard.jpeg";
-const IMG_40FT_OPENSIDE = "/images/die-container-yard.jpeg";
+const IMG_40FT_STANDARD = "/images/40ft-container-blue-stack.jpg";
+const IMG_40FT_HC = "/images/40ft-hc-white-modified.jpg";
+const IMG_40FT_OPENSIDE = "/images/40ft-hc-open-side-blue.jpg";
+const IMG_40FT_NEW = "/images/40ft-hc-open-side-render.webp";
+const IMG_40FT_USED = "/images/40ft-open-side-ral1015.jpg";
 
 /* ── Specs table ── */
 const SPECS = [
@@ -207,6 +209,9 @@ export default function Container40Fuss() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
+              <div className="h-48 overflow-hidden bg-muted/30">
+                <img src={IMG_40FT_NEW} alt="Neuer 40 Fuß High Cube Open Side Container" className="w-full h-full object-contain p-4" />
+              </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Neue 40 Fuß Container (One Trip)</h3>
               </div>
@@ -220,6 +225,9 @@ export default function Container40Fuss() {
               </div>
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
+              <div className="h-48 overflow-hidden">
+                <img src={IMG_40FT_USED} alt="Gebrauchter 40 Fuß Open Side Container RAL 1015" className="w-full h-full object-cover" />
+              </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${ORANGE}15, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Gebrauchte 40 Fuß Container (Cargo-Worthy)</h3>
               </div>
