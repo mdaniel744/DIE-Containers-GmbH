@@ -10,9 +10,12 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Images ── */
-const IMG_20FT_STANDARD = "/images/gebrauchte-seecontainer.png";
-const IMG_20FT_HC = "/images/gebrauchte-seecontainer.png";
-const IMG_20FT_BUERO = "/images/mobiler-wohncontainer.jpg";
+const IMG_20FT_HERO = "/images/20ft-used-red-rear.jpg";
+const IMG_20FT_STANDARD = "/images/20ft-used-red-side.jpg";
+const IMG_20FT_HC = "/images/20ft-hc-blue-ral5013.jpg";
+const IMG_20FT_OPEN_SIDE_CLOSED = "/images/20ft-hc-open-side-blue-closed.jpg";
+const IMG_20FT_OPEN_SIDE_OPEN = "/images/20ft-hc-open-side-blue-open.jpg";
+const IMG_20FT_BUERO = "/images/20ft-mobiler-wohncontainer.jpg";
 
 /* ── Specs table ── */
 const SPECS = [
@@ -110,7 +113,7 @@ export default function Container20Fuss() {
       {/* ── Hero ── */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_20FT_STANDARD} alt="20 Fuß Container kaufen" className="w-full h-full object-cover" />
+          <img src={IMG_20FT_HERO} alt="Gebrauchter 20 Fuß Seecontainer kaufen" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(15,37,64,0.87) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -223,13 +226,24 @@ export default function Container20Fuss() {
         {/* ── 20 Fuß Seecontainer ── */}
         <section className="mb-14">
           <SH>20 Fuß Seecontainer kaufen</SH>
-          <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
-            <p>
-              Der klassische 20 Fuß Seecontainer ist für viele Kunden die erste Wahl, wenn es um Lagerung und Transport geht. Er besteht aus widerstandsfähigem Stahl, ist für hohe Belastungen ausgelegt und kann dauerhaft im Außenbereich eingesetzt werden.
-            </p>
-            <p>
-              Wenn Sie gezielt klassische Transport und Lagercontainer suchen, finden Sie weitere Informationen auf der Seite <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>. Dort wird erklärt, wann ein Seecontainer die richtige Wahl ist und worin der Unterschied zu <IL to="/buerocontainer-kaufen">Bürocontainern</IL>, <IL to="/wohncontainer-kaufen">Wohncontainern</IL> oder <IL to="/kuehlcontainer-kaufen">Kühlcontainern</IL> besteht.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
+            <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
+              <p>
+                Der klassische 20 Fuß Seecontainer ist für viele Kunden die erste Wahl, wenn es um Lagerung und Transport geht. Er besteht aus widerstandsfähigem Stahl, ist für hohe Belastungen ausgelegt und kann dauerhaft im Außenbereich eingesetzt werden.
+              </p>
+              <p>
+                Wenn Sie gezielt klassische Transport und Lagercontainer suchen, finden Sie weitere Informationen auf der Seite <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>. Dort wird erklärt, wann ein Seecontainer die richtige Wahl ist und worin der Unterschied zu <IL to="/buerocontainer-kaufen">Bürocontainern</IL>, <IL to="/wohncontainer-kaufen">Wohncontainern</IL> oder <IL to="/kuehlcontainer-kaufen">Kühlcontainern</IL> besteht.
+              </p>
+            </div>
+            <div className="lg:col-span-2">
+              <div className="rounded-2xl overflow-hidden border border-border">
+                <img src={IMG_20FT_OPEN_SIDE_CLOSED} alt="20 Fuß High Cube Open Side Container geschlossen" className="w-full h-56 object-cover" />
+                <div className="p-4 bg-card">
+                  <p className="font-heading font-bold text-sm text-foreground mb-1">20 Fuß Open Side Container</p>
+                  <p className="text-xs text-muted-foreground">Seitliche Türen für komfortables Beladen sperriger Waren.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
@@ -249,9 +263,14 @@ export default function Container20Fuss() {
         {/* ── Technische Daten ── */}
         <section className="mb-14">
           <SH>Technische Daten und Maße eines 20 Fuß Containers</SH>
-          <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-6">
-            Die genauen Maße können je nach Hersteller und Bauart leicht variieren. Ein klassischer 20 Fuß Container hat jedoch standardisierte Richtwerte, die für die Planung sehr hilfreich sind.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-start mb-6">
+            <p className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed">
+              Die genauen Maße können je nach Hersteller und Bauart leicht variieren. Ein klassischer 20 Fuß Container hat jedoch standardisierte Richtwerte, die für die Planung sehr hilfreich sind.
+            </p>
+            <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border">
+              <img src={IMG_20FT_OPEN_SIDE_OPEN} alt="20 Fuß High Cube Open Side Container geöffnet" className="w-full h-56 object-cover" />
+            </div>
+          </div>
           <div className="overflow-x-auto rounded-2xl border border-border mb-6">
             <table className="w-full text-sm">
               <thead>
