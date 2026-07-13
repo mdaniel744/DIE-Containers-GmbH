@@ -141,9 +141,9 @@ const ROUTES = {
   },
   "lagercontainer-kaufen": {
     component: LagercontainerKaufen,
-    title: "Lagercontainer kaufen | DIE Container GmbH",
+    title: "Lagercontainer kaufen | Neu, gebraucht & mit Lieferung",
     description:
-      "Lagercontainer kaufen: sichere und flexible Lagerfläche für Gewerbe, Baustelle, Garten und Industrie.",
+      "Lagercontainer kaufen in Deutschland – neue und gebrauchte Lagercontainer für Baustelle, Gewerbe, Landwirtschaft und private Nutzung. Robuste Container mit Lieferung.",
   },
   "kuehlcontainer-kaufen": {
     component: KuehlcontainerKaufen,
