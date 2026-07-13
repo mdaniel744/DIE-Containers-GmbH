@@ -8,11 +8,11 @@ const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
 /* ── Image assets ── */
-const IMG_20FT = "/images/gebrauchte-seecontainer.png";
-const IMG_40FT = "/images/die-container-yard.jpeg";
-const IMG_BUERO = "/images/mobiler-wohncontainer.jpg";
-const IMG_KUEHL = "/images/shipping-container-logistics.jpeg";
-const IMG_WOHN = "/images/mobiler-wohncontainer.jpg";
+const IMG_20FT = "/images/seecontainer-20ft-grau.jpg";
+const IMG_40FT = "/images/seecontainer-40ft-crane.jpg";
+const IMG_BUERO = "/images/buerocontainer-20ft-ral7016-hero.jpg";
+const IMG_KUEHL = "/images/refrigerated-container-10ft.webp";
+const IMG_WOHN = "/images/wohncontainer-modern-front.webp";
 
 /* ── Container type cards ── */
 const TYPE_CARDS = [
