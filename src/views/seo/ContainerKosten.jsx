@@ -14,7 +14,7 @@ const PRICING_GRID = [
   {
     size: "10 Fuß Container",
     length: "3,0 m",
-    img: "/images/die-container-yard.jpeg",
+    img: "/images/container-category-10ft.png",
     href: "/10-fuss-container-kaufen",
     cols: [
       { label: "One Trip (Neu)", price: "2.500 – 3.200 €", desc: "Erstmalig verwendet, wie neu", badge: "Beste Qualität" },
@@ -25,7 +25,7 @@ const PRICING_GRID = [
   {
     size: "20 Fuß Container",
     length: "6,06 m",
-    img: "/images/gebrauchte-seecontainer.png",
+    img: "/images/container-category-20ft.png",
     href: "/20-fuss-container-kaufen",
     cols: [
       { label: "One Trip (Neu)", price: "3.200 – 4.200 €", desc: "Direktlieferung aus Produktion", badge: "Bestseller" },
@@ -36,7 +36,7 @@ const PRICING_GRID = [
   {
     size: "40 Fuß Container",
     length: "12,19 m",
-    img: "/images/die-container-yard.jpeg",
+    img: "/images/container-category-40ft.png",
     href: "/40-fuss-container-kaufen",
     cols: [
       { label: "One Trip (Neu)", price: "5.200 – 6.800 €", desc: "Fabrikneu, max. Nutzlast", badge: null },
