@@ -2,209 +2,354 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  SeoPageLayout, SeoSection, SeoTable, InternalLinkGrid, FaqAccordion, CtaBanner
+  SeoPageLayout, SeoSection, InternalLinkGrid, FaqAccordion, CtaBanner
 } from "@/components/seo/SeoPageLayout";
 
-const preisTable = {
-  headers: ["Größe", "Zustand", "Preis (netto)"],
-  rows: [
-    ["20 Fuß Double Door", "Gebraucht", "ab 2.290 €"],
-    ["20 Fuß Double Door", "Generalüberholt", "ab 2.790 €"],
-    ["20 Fuß Double Door", "Neu", "ab 3.290 €"],
-    ["40 Fuß Double Door", "Gebraucht", "ab 3.490 €"],
-    ["40 Fuß Double Door", "Generalüberholt", "ab 4.190 €"],
-    ["40 Fuß Double Door", "Neu", "ab 4.990 €"],
-  ],
-};
+const IMG_HERO = "/images/double-door-40hc-ral5013-open.jpg";
+const IMG_OPEN_GREY = "/images/double-door-40hc-ral7005-open.jpg";
+const IMG_CLOSED_BLUE = "/images/double-door-40hc-ral5010-closed.jpg";
+const IMG_OPEN_BLUE = "/images/double-door-40hc-ral5010-open.jpg";
 
-const techTable = {
-  headers: ["Merkmal", "20 Fuß Double Door", "40 Fuß Double Door"],
-  rows: [
-    ["Außenlänge", "6.058 mm", "12.192 mm"],
-    ["Außenbreite", "2.438 mm", "2.438 mm"],
-    ["Außenhöhe (Standard)", "2.591 mm", "2.591 mm"],
-    ["Türöffnungen", "2 × Stirnseite", "2 × Stirnseite"],
-    ["Türöffnungsbreite", "je ca. 2.286 mm", "je ca. 2.286 mm"],
-    ["Türöffnungshöhe", "je ca. 2.261 mm", "je ca. 2.261 mm"],
-    ["Ladevolumen", "ca. 33 m³", "ca. 67 m³"],
-  ],
-};
+function IL({ to, children }) {
+  return <Link to={to} className="text-orange-500 hover:underline font-semibold">{children}</Link>;
+}
 
-const faqs = [
+function BulletList({ items }) {
+  return (
+    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-4">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2 text-sm text-muted-foreground">
+          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-orange-500 shrink-0" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ImageCard({ src, alt, title, text, className = "" }) {
+  return (
+    <div className={`rounded-2xl border border-border bg-card overflow-hidden ${className}`}>
+      <div className="h-64 overflow-hidden">
+        <img src={src} alt={alt} className="w-full h-full object-cover" />
+      </div>
+      {(title || text) && (
+        <div className="p-5">
+          {title && <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">{title}</h3>}
+          {text && <p className="text-xs text-muted-foreground leading-relaxed">{text}</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const STANDARD_USES = [
+  "einfache Lagerung",
+  "seltenes Öffnen",
+  "langfristige Aufbewahrung",
+  "günstige Standardlösung",
+];
+
+const DOUBLE_DOOR_USES = [
+  "häufiges Be- und Entladen",
+  "Zugriff von beiden Seiten",
+  "sortierte Lagerung",
+  "Baustellen und Gewerbe",
+  "Materialfluss durch den Container",
+  "schnelle Entnahme von Werkzeugen oder Waren",
+];
+
+const USED_CHECKS = [
+  "Zustand der Türen an beiden Seiten",
+  "Funktion der Verschlüsse",
+  "Dichtungen und Türrahmen",
+  "Dach und Seitenwände",
+  "Bodenstabilität",
+  "Roststellen und Undichtigkeiten",
+  "Wind- und Wasserdichtigkeit",
+];
+
+const USE_CASES = [
+  "Baustellenlager",
+  "Werkzeuglager",
+  "Materialcontainer",
+  "Gewerbliche Lagerung",
+  "Maschinen und Ersatzteile",
+  "Landwirtschaftliche Geräte",
+  "Palettenware",
+  "Event- und Messelogistik",
+  "Durchgangslager",
+  "Sortierte Warenlagerung",
+];
+
+const DELIVERY_CHECKS = [
+  "genaue Lieferadresse",
+  "gewünschte Containergröße",
+  "Zufahrtsbreite",
+  "Untergrund am Aufstellort",
+  "Platz zum Öffnen beider Türseiten",
+  "mögliche Hindernisse",
+  "gewünschter Lieferzeitraum",
+];
+
+const ADVANTAGES = [
+  "Türen an beiden Stirnseiten",
+  "schneller Zugriff von zwei Seiten",
+  "ideal für Baustellen und Gewerbe",
+  "bessere Organisation im Innenraum",
+  "leichteres Be- und Entladen",
+  "als 20 Fuß oder 40 Fuß Variante möglich",
+  "neu oder gebraucht erhältlich",
+  "robuste Stahlkonstruktion",
+  "wind- und wasserdicht bei gutem Zustand",
+];
+
+const FAQS = [
   {
-    q: "Was ist ein Double Door Container?",
-    a: "Ein Double Door Container (auch: Tunnelcontainer oder Doppeltürcontainer) ist ein ISO-Seecontainer mit Türen an beiden Stirnseiten. Dadurch kann der Container von beiden Enden be- und entladen werden, was eine durchgängige Zugänglichkeit von vorne nach hinten ermöglicht."
+    q: "Was ist ein Doppeltüren Container?",
+    a: "Ein Doppeltüren Container ist ein Container mit Türen an beiden Stirnseiten. Dadurch kann er von zwei Seiten geöffnet werden. Diese Bauweise wird auch als Double Door Container oder Tunnelcontainer bezeichnet.",
   },
   {
-    q: "Was ist der Unterschied zwischen Double Door und Open Side Container?",
-    a: "Beim Double Door Container sind beide Stirnseiten mit Türen ausgestattet, der Zugang erfolgt also von vorne und hinten. Ein Open Side Container hat stattdessen eine oder beide Längsseiten geöffnet. Welcher Typ besser passt, hängt von der Belade-Situation und dem verfügbaren Platz ab."
+    q: "Was ist der Vorteil eines Doppeltüren Containers?",
+    a: "Der größte Vorteil ist der flexible Zugang. Waren, Werkzeuge oder Materialien können von beiden Seiten erreicht werden. Das erleichtert das Be- und Entladen und spart Zeit im täglichen Einsatz.",
   },
   {
-    q: "Was kostet ein Double Door Container?",
-    a: "Gebrauchte 20 Fuß Double Door Container starten ab ca. 2.290 € netto, 40 Fuß Varianten ab ca. 3.490 €. Neue Einheiten sind für ca. 3.290 € (20 Fuß) bzw. 4.990 € (40 Fuß) erhältlich."
+    q: "Gibt es Doppeltüren Container gebraucht?",
+    a: "Ja, Doppeltüren Container sind auch gebraucht erhältlich. Beim Kauf sollte besonders auf Türen, Verschlüsse, Dichtungen, Boden, Dach und Wasserdichtigkeit geachtet werden.",
   },
   {
-    q: "Wozu nutzt man einen Tunnelcontainer?",
-    a: "Tunnelcontainer werden überall dort eingesetzt, wo ein durchgängiger Ladungsfluss wichtig ist: im Einzelhandel als Durchreiche, in der Logistik für First-In-First-Out-Lagerung, auf Baustellen als begehbarer Lagergang oder als Verbindungsmodul zwischen zwei Gebäudeteilen."
+    q: "Welche Größen gibt es bei Doppeltüren Containern?",
+    a: "Häufige Größen sind 20 Fuß und 40 Fuß. Ein 20 Fuß Doppeltüren Container ist kompakt und vielseitig. Ein 40 Fuß Doppeltüren Container bietet deutlich mehr Stauraum.",
   },
   {
-    q: "Ist ein Double Door Container auch als Kühlcontainer erhältlich?",
-    a: "Spezielle Doppeltür-Kühlcontainer (Reefer) sind auf Anfrage erhältlich. Für Standardanwendungen stehen unsere regulären Kühlcontainer zur Verfügung. Sprechen Sie uns für individuelle Anforderungen direkt an."
+    q: "Ist ein Doppeltüren Container wasserdicht?",
+    a: "Ein technisch intakter Doppeltüren Container ist in der Regel wind- und wasserdicht. Bei gebrauchten Containern sollten besonders die Dichtungen an beiden Türseiten geprüft werden.",
   },
   {
-    q: "Wie lange dauert die Lieferung eines Double Door Containers?",
-    a: "Standard-Lieferzeit ist 3–7 Werktage ab Auftragsbestätigung. Express-Lieferung innerhalb von 72 Stunden ist auf Anfrage möglich. Wir liefern deutschlandweit per Kranwagen."
+    q: "Wofür eignet sich ein Doppeltüren Container?",
+    a: "Er eignet sich besonders für Baustellen, Lagerflächen, Werkzeuge, Maschinen, Landwirtschaft, Gewerbe und alle Anwendungen, bei denen schneller Zugriff von beiden Seiten wichtig ist.",
+  },
+  {
+    q: "Wird ein Doppeltüren Container geliefert?",
+    a: "Ja, Doppeltüren Container können direkt zum gewünschten Standort geliefert werden. Wichtig sind eine geeignete Zufahrt, ausreichend Platz und ein tragfähiger Untergrund.",
+  },
+  {
+    q: "Was ist der Unterschied zwischen Doppeltüren Container und Seecontainer?",
+    a: "Ein klassischer Seecontainer hat meist Türen an einer Stirnseite. Ein Doppeltüren Container basiert häufig ebenfalls auf einer robusten Seecontainer-Bauweise, besitzt aber Türen an beiden Stirnseiten.",
   },
 ];
 
-const relatedLinks = [
-  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Der meistverkaufte Standardcontainer" },
-  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen", desc: "Maximaler Stauraum – ab 2.990 €" },
-  { href: "/open-side-container-kaufen", title: "Open Side Container", desc: "Vollständige Seitenöffnung" },
-  { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen", desc: "Alle Lagercontainer im Überblick" },
-  { href: "/seecontainer-kaufen", title: "Alle Seecontainer", desc: "Übersicht aller Typen & Preise" },
-  { href: "/container-kosten", title: "Container Kosten", desc: "Aktuelle Preisübersicht 2024" },
-];
-
-const ratgeberLinks = [
-  { href: "/container-masse", title: "Container Maße", desc: "Alle Abmessungen auf einen Blick" },
-  { href: "/container-gewicht", title: "Container Gewicht", desc: "Eigengewicht & Nutzlast erklärt" },
-  { href: "/container-lieferung", title: "Container Lieferung", desc: "Transport & Aufstellung erklärt" },
-  { href: "/container-fundament", title: "Container Fundament", desc: "Den richtigen Untergrund wählen" },
+const RELATED_LINKS = [
+  { href: "/container-kaufen", title: "Container kaufen", desc: "Alle Containerarten vergleichen" },
+  { href: "/seecontainer-kaufen", title: "Seecontainer kaufen", desc: "Klassische robuste ISO-Container" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Kompakte Containerlösung" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen", desc: "Viel Stauraum und High Cube Varianten" },
+  { href: "/lagercontainer-kaufen", title: "Lagercontainer", desc: "Sichere Lagerfläche direkt vor Ort" },
+  { href: "/container-masse", title: "Container Maße", desc: "Maße, Türöffnungen und Volumen" },
 ];
 
 export default function DoubleDoorContainerKaufen() {
   return (
     <SeoPageLayout
       breadcrumb={[
-        { label: "Seecontainer kaufen", href: "/seecontainer-kaufen" },
-        { label: "Double Door Container kaufen" }
+        { label: "Container kaufen", href: "/container-kaufen" },
+        { label: "Doppeltüren Container kaufen" }
       ]}
       label="Produkt-Ratgeber"
-      title="Double Door Container kaufen – Flexible Beladung von beiden Stirnseiten"
-      intro="Der Double Door Container – auch Tunnelcontainer oder Doppeltürcontainer genannt – ermöglicht den Zugang von beiden Stirnseiten. Ideal für Durchladelogistik, First-In-First-Out-Lager und kreative Umbauprojekte. Hier erfahren Sie alles über Typen, Maße, Preise und Einsatzbereiche."
+      title="Doppeltüren Container kaufen"
+      intro="Doppeltüren Container kaufen – Double Door Container mit Türen an beiden Stirnseiten für Lagerung, Baustelle, Gewerbe und schnellen Zugriff. Neu, gebraucht und mit Lieferung."
     >
-      {/* Was ist ein Double Door Container */}
-      <SeoSection title="Was ist ein Double Door Container?">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": FAQS.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a },
+        })),
+      })}} />
+
+      <section className="mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <ImageCard
+            src={IMG_HERO}
+            alt="40 Fuß High Cube Doppeltüren Container mit geöffneten Türen"
+            title="Zugang von beiden Stirnseiten"
+            text="Double Door Container lassen sich von vorne und hinten öffnen – ideal für schnellen Zugriff und sortierte Lagerung."
+          />
+          <ImageCard
+            src={IMG_CLOSED_BLUE}
+            alt="Blauer 40 Fuß High Cube Double Door Container geschlossen"
+            title="Robuste High Cube Ausführung"
+            text="Geeignet für Gewerbe, Baustelle, Industrie und Logistik – neu oder gebraucht mit Lieferung."
+          />
+        </div>
+      </section>
+
+      <SeoSection title="Doppeltüren Container als flexible Lösung mit Zugang von beiden Seiten">
         <p>
-          Der Double Door Container, im Deutschen auch als Tunnelcontainer oder Doppeltürcontainer bekannt, unterscheidet sich von einem herkömmlichen <Link to="/seecontainer-kaufen" className="text-orange-500 hover:underline">Seecontainer</Link> durch eine wesentliche Eigenschaft: Er verfügt an beiden Stirnseiten über vollwertige Türen. Das ermöglicht eine durchgängige Zugänglichkeit von einem Ende zum anderen – wie ein begehbarer Tunnel.
+          Ein Doppeltüren Container ist eine besonders praktische Lösung, wenn ein Container von beiden Seiten zugänglich sein soll. Im Gegensatz zu einem Standardcontainer, der meist nur an einer Stirnseite Türen besitzt, verfügt ein Doppeltüren Container über Türen an beiden Enden. Deshalb wird er auch häufig als Double Door Container oder Tunnelcontainer bezeichnet.
         </p>
         <p>
-          Beide Türseiten sind mit denselben massiven ISO-genormten Riegeln und Dichtungen ausgestattet wie die Haupttür eines Standardcontainers. Im vollständig verschlossenen Zustand bietet der Double Door Container dieselbe Wasser- und Winddichtheit sowie Einbruchsicherheit wie ein konventioneller ISO-Container.
+          Diese Bauweise erleichtert das Be- und Entladen deutlich, besonders wenn Waren, Werkzeuge, Maschinen oder Materialien schnell erreichbar sein müssen. Doppeltüren Container eignen sich ideal für Baustellen, Lagerflächen, Gewerbe, Industrie, Landwirtschaft und Projekte, bei denen ein schneller Zugriff von beiden Seiten wichtig ist.
         </p>
         <p>
-          DIE Container GmbH führt Double Door Container in <Link to="/20-fuss-container-kaufen" className="text-orange-500 hover:underline">20 Fuß</Link> und <Link to="/40-fuss-container-kaufen" className="text-orange-500 hover:underline">40 Fuß</Link>, in Standard- und High-Cube-Höhe sowie in verschiedenen Zustandsklassen. Alle Einheiten sind CSC-zertifiziert und vollständig qualitätgeprüft.
+          Wenn Sie zunächst verschiedene Containerarten vergleichen möchten, finden Sie auf unserer Seite <IL to="/container-kaufen">Container kaufen</IL> einen Überblick über Lagercontainer, Seecontainer, Bürocontainer, Wohncontainer und Kühlcontainer.
         </p>
       </SeoSection>
 
-      {/* Vorteile */}
-      <SeoSection title="Vorteile eines Tunnelcontainers – Warum Double Door?">
+      <SeoSection title="Warum einen Doppeltüren Container kaufen?">
         <p>
-          Der Doppeltürcontainer bietet gegenüber einem klassischen Einzel-Türcontainer entscheidende logistische und praktische Vorteile:
+          Ein Doppeltüren Container bietet mehr Flexibilität beim Zugang. Waren müssen nicht immer von einer Seite aus ein- oder ausgeladen werden. Das spart Zeit und macht die Nutzung deutlich komfortabler, besonders wenn der Container häufig geöffnet oder von mehreren Personen genutzt wird.
         </p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            <strong className="text-foreground">Durchgängiger Ladungsfluss:</strong> Waren können auf einer Seite eingebracht und auf der anderen wieder entnommen werden – ideal für First-In-First-Out-Lagerung (FIFO). Besonders relevant für verderbliche Güter oder Materialien mit Haltbarkeitsdaten.
-          </li>
-          <li>
-            <strong className="text-foreground">Verbesserte Belüftung:</strong> Bei geöffneten Türen auf beiden Seiten entsteht ein natürlicher Luftzug durch den Container. Das reduziert Kondenswasserbildung und schützt feuchtigkeitsempfindliche Güter. Ergänzend empfehlen sich unsere <Link to="/lagercontainer-kaufen" className="text-orange-500 hover:underline">Lagercontainer mit Belüftungsschlitzen</Link>.
-          </li>
-          <li>
-            <strong className="text-foreground">Effiziente Nutzung beengter Stellflächen:</strong> Wenn der Container mit einer Seite an einer Wand oder einem Zaun steht, kann der Zugang problemlos über die entgegengesetzte Seite erfolgen. Die <Link to="/container-masse" className="text-orange-500 hover:underline">Außenmaße</Link> bleiben dabei identisch mit denen eines Standardcontainers.
-          </li>
-          <li>
-            <strong className="text-foreground">Verbindungsmodul für Containergebäude:</strong> In modularen Containerbauprojekten dient der Tunnelcontainer als Verbindungsgang zwischen zwei Containereinheiten. Besonders gefragt beim Bau von <Link to="/buerocontainer-kaufen" className="text-orange-500 hover:underline">Bürocontainer-Komplexen</Link> und Wohnprojekten.
-          </li>
-          <li>
-            <strong className="text-foreground">Durchreichfunktion im Einzelhandel:</strong> Als mobiler Verkaufsstand, Kiosk oder Ausgabestation kann der Tunnelcontainer Kunden auf einer Seite empfangen und Waren von der Rückseite nachfüllen – ohne Betriebsunterbrechung.
-          </li>
-          <li>
-            <strong className="text-foreground">Identisches Gewicht und gleiche Abmessungen:</strong> Double Door Container entsprechen in Eigengewicht, Nutzlast und Außenmaßen exakt den Standardcontainern. Für alle Details lesen Sie unseren Ratgeber zu <Link to="/container-gewicht" className="text-orange-500 hover:underline">Container Gewicht</Link>.
-          </li>
-        </ul>
-      </SeoSection>
-
-      {/* Technische Daten */}
-      <SeoSection title="Technische Eigenschaften des Double Door Containers">
         <p>
-          Alle technischen Daten des Doppeltürcontainers entsprechen den ISO-Normen für Seecontainer. Die Besonderheit liegt ausschließlich in der zweiten Türseite:
+          Auf Baustellen können Werkzeuge und Materialien von beiden Seiten entnommen werden. In der Industrie oder im Gewerbe lassen sich Waren besser sortieren und schneller erreichen. Auch als Lagercontainer ist diese Ausführung sehr praktisch, weil der Innenraum einfacher organisiert werden kann.
         </p>
-        <SeoTable headers={techTable.headers} rows={techTable.rows} />
         <p>
-          Wie bei allen ISO-Containern sind auch beim Double Door Container die Eckbeschläge nach ISO 1161 genormt, was Stapelbarkeit und Krantransport gewährleistet. Das Eigengewicht eines 20 Fuß Double Door Containers liegt bei ca. 2.300 kg, ein 40 Fuß Container wiegt ca. 3.900 kg leer. Ausführliche Angaben finden Sie im <Link to="/container-gewicht" className="text-orange-500 hover:underline">Ratgeber zu Container Gewicht und Nutzlast</Link>.
+          Für klassische Lagerzwecke kann auch die Seite <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL> sinnvoll sein. Wenn jedoch schneller Zugriff von beiden Enden benötigt wird, ist ein Doppeltüren Container die bessere Wahl.
         </p>
       </SeoSection>
 
-      {/* Beladungsmöglichkeiten */}
-      <SeoSection title="Beladungsmöglichkeiten und praktische Anwendung">
+      <SeoSection title="Doppeltüren Container oder Standardcontainer?">
         <p>
-          Die zweite Tür des Tunnelcontainers eröffnet völlig neue Belade- und Nutzungsszenarien. Hier die wichtigsten Praxisbeispiele:
+          Der wichtigste Unterschied liegt im Zugang. Ein Standardcontainer hat in der Regel Türen an einer Stirnseite. Ein Doppeltüren Container besitzt dagegen Türen an beiden Stirnseiten. Dadurch kann der Container wie ein Durchgang genutzt werden und wird deshalb auch Tunnelcontainer genannt.
         </p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            <strong className="text-foreground">FIFO-Lager (First In, First Out):</strong> Materialien werden auf einer Seite eingebracht und auf der anderen wieder entnommen. Keine Umschichtung erforderlich, was Zeit und Arbeit spart.
-          </li>
-          <li>
-            <strong className="text-foreground">Durchfahrt-Lager:</strong> Bei ausreichender Grundstückstiefe kann der Container als befahrbarer Lagergang genutzt werden – Gabelstapler kann durchfahren und direkt abladen.
-          </li>
-          <li>
-            <strong className="text-foreground">Mehrseitige Zugänglichkeit bei eingeschränktem Platz:</strong> Steht der Container mit einer Seite an einer Wand, bleibt die andere Seite voll zugänglich. Im Vergleich dazu muss beim <Link to="/open-side-container-kaufen" className="text-orange-500 hover:underline">Open Side Container</Link> immer ausreichend Seitenraum vorhanden sein.
-          </li>
-          <li>
-            <strong className="text-foreground">Eventlocation und Gastronomie:</strong> Besucher oder Kunden treten auf einer Seite ein und verlassen den Container auf der anderen – kein Rückwärtsgehen, kein Engpass.
-          </li>
-          <li>
-            <strong className="text-foreground">Ausgabe- und Empfangsstelle:</strong> Als Pförtner- oder Empfangshäuschen, Ausgabestation für Arbeitskleidung oder Schlüsselausgabe in Industriebetrieben.
-          </li>
-        </ul>
-      </SeoSection>
-
-      {/* Preise */}
-      <SeoSection title="Preisübersicht Double Door Container 2024">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 my-6">
+          <div className="rounded-2xl border border-border bg-card p-5">
+            <h3 className="font-heading font-bold text-sm text-foreground mb-3">Ein Standardcontainer eignet sich gut für:</h3>
+            <BulletList items={STANDARD_USES} />
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-5">
+            <h3 className="font-heading font-bold text-sm text-foreground mb-3">Ein Doppeltüren Container eignet sich besser für:</h3>
+            <BulletList items={DOUBLE_DOOR_USES} />
+          </div>
+        </div>
         <p>
-          Die Preise für Double Door Container liegen geringfügig über denen vergleichbarer <Link to="/seecontainer-kaufen" className="text-orange-500 hover:underline">Standardseecontainer</Link>, da die zweite vollwertige Tür mit Riegeln und Dichtungen in der Produktion aufwendiger ist. Aktuelle Richtpreise netto:
-        </p>
-        <SeoTable headers={preisTable.headers} rows={preisTable.rows} />
-        <p>
-          Alle Preise verstehen sich netto ab Lager Hamburg, zuzüglich Transportkosten. Eine vollständige Übersicht aller Container-Kaufpreise und Transportkosten bietet unser <Link to="/container-kosten" className="text-orange-500 hover:underline">Container Kosten Ratgeber</Link>.
+          Wenn der Container nur als einfacher Lagerraum genutzt wird, reicht oft ein klassischer <IL to="/lagercontainer-kaufen">Lagercontainer</IL>. Wenn der Zugang eine wichtige Rolle spielt, bietet der Doppeltüren Container klare Vorteile.
         </p>
       </SeoSection>
 
-      <CtaBanner text="Double Door Container anfragen – persönliche Beratung inklusive" btnHref="/angebot" />
-
-      {/* Lieferung */}
-      <SeoSection title="Lieferung in Deutschland – Schnell und zuverlässig">
+      <SeoSection title="20 Fuß Doppeltüren Container">
         <p>
-          DIE Container GmbH liefert Double Door Container deutschlandweit per Kranwagen. Da die Außenmaße identisch mit denen von Standardcontainern sind, gelten dieselben Transportanforderungen. Alle Details zum Lieferprozess finden Sie in unserem <Link to="/container-lieferung" className="text-orange-500 hover:underline">Ratgeber zur Container Lieferung</Link>.
+          Ein 20 Fuß Doppeltüren Container ist eine beliebte Größe, weil er kompakt bleibt und trotzdem ausreichend Stauraum bietet. Er eignet sich besonders für Baustellen, Handwerksbetriebe, kleine Unternehmen, Landwirtschaft und private Lagerung.
         </p>
         <p>
-          Für eine reibungslose Aufstellung sollten Sie vorab den Aufstellort vorbereiten:
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Ebener, tragfähiger Untergrund (Beton, Pflaster oder verdichteter Schotter)</li>
-          <li>Freiraum auf beiden Stirnseiten – mindestens 1–2 m für Türöffnung und Betrieb</li>
-          <li>Zufahrtsbreite mind. 3,5 m, Höhenfreiheit mind. 4,5 m für den Kranwagen</li>
-        </ul>
-        <p>
-          Für weiche oder unebene Untergründe empfehlen wir eine geeignete Fundamentlösung. Unser <Link to="/container-fundament" className="text-orange-500 hover:underline">Ratgeber zu Container-Fundamenten</Link> zeigt alle Varianten von einfachen Punktfundamenten bis zum Streifenfundament aus Beton – mit Kosten- und Aufwandsschätzungen.
+          Der große Vorteil liegt darin, dass der Container von beiden Seiten geöffnet werden kann. So können Materialien besser getrennt gelagert oder schneller erreicht werden. Zum Beispiel können häufig benötigte Werkzeuge auf einer Seite und größere Materialien auf der anderen Seite gelagert werden.
         </p>
         <p>
-          Bei dauerhafter Aufstellung und Nutzung als Aufenthaltsraum oder Büro empfehlen wir die Klärung der Genehmigungspflicht. Unser <Link to="/container-genehmigung" className="text-orange-500 hover:underline">Genehmigungsratgeber</Link> gibt eine Übersicht nach Nutzungsart und Bundesland.
+          Wenn Sie eine klassische 20 Fuß Lösung suchen, finden Sie weitere Informationen auf unserer Seite <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL>.
         </p>
       </SeoSection>
 
-      <SeoSection title="Weitere Spezialcontainer und Standardgrößen">
-        <p>Nicht das Richtige gefunden? Entdecken Sie alle verfügbaren Containertypen:</p>
+      <SeoSection title="40 Fuß Doppeltüren Container">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          <div className="lg:col-span-3 space-y-3">
+            <p>
+              Ein 40 Fuß Doppeltüren Container bietet besonders viel Stauraum und ist ideal für große Warenmengen, sperrige Güter, Maschinen, Paletten oder umfangreiche Materiallager. Durch die Türen an beiden Enden bleibt der Zugriff auch bei voller Beladung deutlich einfacher.
+            </p>
+            <p>
+              Diese Variante eignet sich besonders für Industrie, Logistik, Bauunternehmen, Landwirtschaft und größere Gewerbebetriebe. Bei einem langen Container ist der Zugang von beiden Seiten ein großer Vorteil, weil Waren nicht durch den gesamten Container bewegt werden müssen.
+            </p>
+            <p>
+              Für maximale Lagerfläche können Sie auch unsere Seite <IL to="/40-fuss-container-kaufen">40 Fuß Container kaufen</IL> besuchen.
+            </p>
+          </div>
+          <div className="lg:col-span-2">
+            <ImageCard
+              src={IMG_OPEN_BLUE}
+              alt="40 Fuß High Cube Double Door Container geöffnet"
+              title="40 Fuß High Cube Double Door"
+              text="Viel Stauraum mit Zugang an beiden Stirnseiten."
+              className="h-full"
+            />
+          </div>
+        </div>
       </SeoSection>
-      <InternalLinkGrid links={relatedLinks} />
 
-      <SeoSection title="Ratgeber: Wichtige Informationen vor dem Kauf">
-        <p>Alles, was Sie für Planung, Transport und Aufstellung benötigen:</p>
+      <SeoSection title="Doppeltüren Container gebraucht kaufen">
+        <p>
+          Ein gebrauchter Doppeltüren Container kann eine wirtschaftliche Lösung sein, wenn Sie eine robuste und flexible Lagerlösung zu einem günstigeren Preis suchen. Gebrauchsspuren wie Kratzer, Dellen oder leichte Roststellen sind bei gebrauchten Containern normal. Wichtig ist jedoch, dass der Container technisch in gutem Zustand ist.
+        </p>
+        <p>Beim gebrauchten Doppeltüren Container sollten Sie prüfen:</p>
+        <BulletList items={USED_CHECKS} />
+        <p>
+          Ein gebrauchter Container lohnt sich besonders, wenn Funktion und Preis wichtiger sind als ein neuwertiges Erscheinungsbild.
+        </p>
       </SeoSection>
-      <InternalLinkGrid links={ratgeberLinks} />
 
-      <SeoSection title="Häufig gestellte Fragen zum Double Door Container">
-        <FaqAccordion items={faqs} />
+      <SeoSection title="Einsatzbereiche für Doppeltüren Container">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-5">
+          <div className="lg:col-span-2">
+            <ImageCard
+              src={IMG_OPEN_GREY}
+              alt="Grauer Double Door Container geöffnet im Containerlager"
+              title="Schneller Zugriff im Alltag"
+              text="Besonders praktisch für sortierte Warenlagerung, Werkzeuglager und Materialfluss."
+              className="h-full"
+            />
+          </div>
+          <div className="lg:col-span-3 space-y-3">
+            <p>
+              Doppeltüren Container sind überall dort sinnvoll, wo ein schneller und flexibler Zugang wichtig ist. Besonders auf Baustellen, in Werkstätten, in der Landwirtschaft und in gewerblichen Lagern kann diese Containerart die tägliche Arbeit erleichtern.
+            </p>
+            <p>Typische Einsatzbereiche:</p>
+            <BulletList items={USE_CASES} />
+            <p>
+              Wenn zusätzlich ein Arbeitsraum benötigt wird, kann ein <IL to="/buerocontainer-kaufen">Bürocontainer</IL> eine passende Ergänzung sein. Für temperaturempfindliche Waren ist dagegen ein <IL to="/kuehlcontainer-kaufen">Kühlcontainer</IL> besser geeignet.
+            </p>
+          </div>
+        </div>
+      </SeoSection>
+
+      <SeoSection title="Doppeltüren Container Maße">
+        <p>
+          Doppeltüren Container sind häufig in gängigen Größen wie 20 Fuß und 40 Fuß erhältlich. Die Grundmaße ähneln klassischen Seecontainern, jedoch kann die genaue Ausführung je nach Modell leicht abweichen.
+        </p>
+        <p>
+          Für die Planung sind Außenmaße, Innenmaße, Türöffnungen, Eigengewicht und nutzbares Volumen wichtig. Besonders die Türöffnungen an beiden Enden sollten geprüft werden, wenn große Maschinen, Paletten oder sperrige Güter eingelagert werden sollen.
+        </p>
+        <p>
+          Eine vollständige Übersicht zu Containergrößen finden Sie auf unserer Seite <IL to="/container-masse">Container Maße</IL>.
+        </p>
+      </SeoSection>
+
+      <SeoSection title="Lieferung und Aufstellung">
+        <p>
+          Doppeltüren Container können direkt zum gewünschten Standort geliefert werden. Die Lieferung erfolgt in der Regel per LKW. Je nach Größe, Standort und Entladesituation kann ein LKW mit Kran erforderlich sein.
+        </p>
+        <p>
+          Vor der Lieferung sollten Zufahrt, Rangierfläche und Untergrund geprüft werden. Wichtig ist außerdem, dass an beiden Enden des Containers ausreichend Platz zum Öffnen der Türen vorhanden ist. Gerade bei Doppeltüren Containern sollte der Aufstellort so geplant werden, dass beide Zugänge sinnvoll genutzt werden können.
+        </p>
+        <p>Vor der Lieferung klären:</p>
+        <BulletList items={DELIVERY_CHECKS} />
+      </SeoSection>
+
+      <SeoSection title="Vorteile eines Doppeltüren Containers">
+        <p>
+          Ein Doppeltüren Container bietet mehr Komfort und Flexibilität als ein Standardcontainer. Der Zugriff von beiden Seiten spart Zeit, erleichtert die Organisation und verbessert den Materialfluss.
+        </p>
+        <p>Die wichtigsten Vorteile:</p>
+        <BulletList items={ADVANTAGES} />
+      </SeoSection>
+
+      <SeoSection title="Jetzt Doppeltüren Container anfragen">
+        <p>
+          Ob Sie einen neuen Doppeltüren Container kaufen möchten, einen gebrauchten Double Door Container suchen oder eine Lieferung direkt zum Standort benötigen – die passende Lösung hängt von Größe, Zustand, Nutzung und Lieferort ab.
+        </p>
+        <p>
+          Teilen Sie uns mit, welche Größe Sie benötigen, wofür der Container genutzt werden soll und wohin geliefert werden soll. Auf dieser Grundlage erhalten Sie ein passendes Angebot mit verfügbaren Modellen, Preisen und Liefermöglichkeiten.
+        </p>
+      </SeoSection>
+
+      <CtaBanner text="Doppeltüren Container kaufen – Angebot mit Lieferung erhalten" btnLabel="Jetzt anfragen" btnHref="/angebot" />
+
+      <SeoSection title="Weitere passende Seiten">
+        <p>Diese Seiten helfen beim Vergleich von Containerarten, Größen und Lagerlösungen:</p>
+      </SeoSection>
+      <InternalLinkGrid links={RELATED_LINKS} />
+
+      <SeoSection title="FAQ – Doppeltüren Container">
+        <FaqAccordion items={FAQS} />
       </SeoSection>
     </SeoPageLayout>
   );

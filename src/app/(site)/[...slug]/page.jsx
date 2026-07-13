@@ -177,9 +177,9 @@ const ROUTES = {
   },
   "double-door-container-kaufen": {
     component: DoubleDoorContainerKaufen,
-    title: "Double Door Container kaufen | DIE Container GmbH",
+    title: "Doppeltüren Container kaufen | Double Door Container mit Lieferung",
     description:
-      "Double Door Container kaufen: Tunnelcontainer mit Türen an beiden Stirnseiten für flexible Nutzung.",
+      "Doppeltüren Container kaufen – Double Door Container mit Türen an beiden Stirnseiten für Lagerung, Baustelle, Gewerbe und schnellen Zugriff. Neu, gebraucht und mit Lieferung.",
   },
   "container-masse": {
     component: ContainerMasse,
