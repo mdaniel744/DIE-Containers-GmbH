@@ -171,9 +171,9 @@ const ROUTES = {
   },
   "open-side-container-kaufen": {
     component: OpenSideContainerKaufen,
-    title: "Open Side Container kaufen | DIE Container GmbH",
+    title: "Container mit offener Seite kaufen | Open Side Container mit Lieferung",
     description:
-      "Open Side Container kaufen: seitlich zu öffnende Container für effizientes Be- und Entladen.",
+      "Container mit offener Seite kaufen – Open Side Container für Lagerung, Baustelle, Gewerbe und sperrige Güter. 20 Fuß und 40 Fuß Modelle, neu oder gebraucht mit Lieferung.",
   },
   "double-door-container-kaufen": {
     component: DoubleDoorContainerKaufen,

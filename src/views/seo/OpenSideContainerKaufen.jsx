@@ -2,208 +2,394 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  SeoPageLayout, SeoSection, SeoTable, InternalLinkGrid, FaqAccordion, CtaBanner
+  SeoPageLayout, SeoSection, InternalLinkGrid, FaqAccordion, CtaBanner
 } from "@/components/seo/SeoPageLayout";
 
-const preisTable = {
-  headers: ["Größe", "Zustand", "Preis (netto)"],
-  rows: [
-    ["20 Fuß Open Side", "Gebraucht", "ab 2.490 €"],
-    ["20 Fuß Open Side", "Generalüberholt", "ab 2.990 €"],
-    ["20 Fuß Open Side", "Neu", "ab 3.490 €"],
-    ["40 Fuß Open Side", "Gebraucht", "ab 3.990 €"],
-    ["40 Fuß Open Side", "Generalüberholt", "ab 4.690 €"],
-    ["40 Fuß Open Side", "Neu", "ab 5.490 €"],
-  ],
-};
+const IMG_SIDE_BLUE_1 = "/images/open-side-40hc-ral5010-side-door-1.jpg";
+const IMG_SIDE_BLUE_2 = "/images/open-side-40hc-ral5010-side-door-4.jpg";
+const IMG_SIDE_BLUE_OPEN = "/images/open-side-40hc-ral5010-side-door-5.jpg";
+const IMG_GREY_FRONT = "/images/open-side-40hc-ral7042-front.jpg";
+const IMG_20HC_OPEN = "/images/open-side-20hc-ral7016-open-3.jpg";
+const IMG_20HC_FRONT = "/images/open-side-20hc-ral7016-open-11.jpg";
 
-const vergleichTable = {
-  headers: ["Merkmal", "Standardcontainer", "Open Side Container"],
-  rows: [
-    ["Zugang", "Nur Stirnseite (Türen)", "Stirnseite + vollständige Seite"],
-    ["Öffnungsbreite", "Ca. 2,29 m", "Ca. 5,8 m (20 Fuß) / 11,5 m (40 Fuß)"],
-    ["Beladung mit Stapler", "Eingeschränkt", "Optimal – direkt von der Seite"],
-    ["Gabelstapler-Zugang", "Nein", "Ja, vollflächig"],
-    ["Paletten nebeneinander", "Einreihig", "Mehrreihig gleichzeitig"],
-    ["Preis", "Standard", "Ca. 300–600 € Aufschlag"],
-  ],
-};
+function IL({ to, children }) {
+  return <Link to={to} className="text-orange-500 hover:underline font-semibold">{children}</Link>;
+}
 
-const faqs = [
+function BulletList({ items }) {
+  return (
+    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-4">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2 text-sm text-muted-foreground">
+          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-orange-500 shrink-0" />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ImageCard({ src, alt, title, text, className = "" }) {
+  return (
+    <div className={`rounded-2xl border border-border bg-card overflow-hidden ${className}`}>
+      <div className="h-64 overflow-hidden">
+        <img src={src} alt={alt} className="w-full h-full object-cover" />
+      </div>
+      {(title || text) && (
+        <div className="p-5">
+          {title && <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">{title}</h3>}
+          {text && <p className="text-xs text-muted-foreground leading-relaxed">{text}</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const STANDARD_USES = [
+  "einfache Lagerung",
+  "langfristige Aufbewahrung",
+  "seltenes Be- und Entladen",
+  "günstige Standardlösung",
+];
+
+const OPEN_SIDE_USES = [
+  "sperrige Güter",
+  "Palettenware",
+  "Maschinen und Geräte",
+  "häufiges Be- und Entladen",
+  "Zugriff mit Stapler oder Hubwagen",
+  "Baustellen, Gewerbe und Events",
+];
+
+const USED_CHECKS = [
+  "Funktion der seitlichen Türen",
+  "Zustand der Scharniere",
+  "Dichtungen an Seitenwand und Stirntüren",
+  "Bodenstabilität",
+  "Dach und Seitenrahmen",
+  "Roststellen und Undichtigkeiten",
+  "sichere Verriegelung",
+  "wind- und wasserdichter Zustand",
+];
+
+const USE_CASES = [
+  "Baustellenlager",
+  "Maschinenlager",
+  "Palettenlager",
+  "Möbel und sperrige Güter",
+  "Messe- und Eventmaterial",
+  "landwirtschaftliche Geräte",
+  "Werkzeuge und Baumaterialien",
+  "mobile Verkaufs- oder Ausstellungsflächen",
+  "gewerbliche Zwischenlagerung",
+  "Lagerung mit Staplerzugang",
+];
+
+const DELIVERY_CHECKS = [
+  "genaue Lieferadresse",
+  "gewünschte Containergröße",
+  "Zufahrtsbreite",
+  "tragfähiger Untergrund",
+  "Platz zum Öffnen der Seitenwand",
+  "Platz zum Rangieren",
+  "mögliche Hindernisse",
+  "gewünschter Lieferzeitraum",
+];
+
+const ADVANTAGES = [
+  "komplette Seitenwand öffnbar",
+  "einfacher Zugriff auf den Innenraum",
+  "ideal für sperrige Waren",
+  "leichteres Be- und Entladen mit Stapler oder Hubwagen",
+  "als 20 Fuß oder 40 Fuß Variante möglich",
+  "für Baustelle, Gewerbe, Industrie und Events geeignet",
+  "neu oder gebraucht erhältlich",
+  "robuste Stahlkonstruktion",
+  "flexible Nutzung als Lager- oder Spezialcontainer",
+];
+
+const FAQS = [
+  {
+    q: "Was ist ein Container mit offener Seite?",
+    a: "Ein Container mit offener Seite ist ein Container, bei dem sich eine komplette Seitenwand öffnen lässt. Dadurch kann der Innenraum nicht nur über die Stirntüren, sondern auch seitlich beladen und genutzt werden.",
+  },
   {
     q: "Was ist ein Open Side Container?",
-    a: "Ein Open Side Container (auch: seitlich zu öffnender Container) ist ein ISO-Seecontainer, bei dem eine oder beide Längsseiten vollständig geöffnet werden können. Die Wandpaneele oder Türflügel lassen sich nach oben klappen oder herausschwenken, wodurch eine nahezu vollständige Seitenzugänglichkeit entsteht."
+    a: "Open Side Container ist die englische Bezeichnung für einen Container mit seitlich öffnender Wand. Diese Bauweise erleichtert das Be- und Entladen von sperrigen Gütern, Paletten, Maschinen und Materialien.",
   },
   {
-    q: "Welche Größen gibt es beim Open Side Container?",
-    a: "Open Side Container sind in 20 Fuß (6,06 m Länge) und 40 Fuß (12,19 m Länge) erhältlich, jeweils als Standard- und High-Cube-Variante. Die 40 Fuß High Cube Version bietet mit über 76 m³ das größte nutzbare Volumen."
+    q: "Welche Vorteile hat ein Container mit offener Seite?",
+    a: "Der wichtigste Vorteil ist der breite Zugang zum Innenraum. Waren können einfacher geladen, sortiert und entnommen werden. Besonders bei häufiger Nutzung, gewerblicher Lagerung oder Staplerbeladung ist das sehr praktisch.",
   },
   {
-    q: "Was kostet ein Open Side Container?",
-    a: "Gebrauchte 20 Fuß Open Side Container starten ab ca. 2.490 € netto, 40 Fuß Varianten ab ca. 3.990 €. Der Aufschlag gegenüber einem Standardcontainer beträgt typischerweise 300–600 €."
+    q: "Gibt es Container mit offener Seite gebraucht?",
+    a: "Ja, Open Side Container sind auch gebraucht erhältlich. Beim Kauf sollte besonders auf Türen, Scharniere, Dichtungen, Boden, Dach und Wasserdichtigkeit geachtet werden.",
   },
   {
-    q: "Ist ein Open Side Container wasserdicht?",
-    a: "Ja. Die Seitenwand-Türflügel oder Paneele sind mit Gummidichtungen ausgestattet und gewährleisten im geschlossenen Zustand die gleiche Wasserdichtheit wie ein Standardcontainer."
+    q: "Welche Größen gibt es bei Open Side Containern?",
+    a: "Häufige Größen sind 20 Fuß und 40 Fuß. Ein 20 Fuß Open Side Container ist kompakter, während ein 40 Fuß Open Side Container deutlich mehr Stauraum bietet.",
   },
   {
-    q: "Kann ich einen Open Side Container als Lager verwenden?",
-    a: "Absolut. Open Side Container eignen sich hervorragend als Außenlager für Baustellen, im Einzelhandel oder der Industrie – überall dort, wo häufiges und schnelles Be- und Entladen erforderlich ist."
+    q: "Ist ein Container mit offener Seite wasserdicht?",
+    a: "Ein technisch intakter Container mit offener Seite ist in der Regel wind- und wasserdicht. Bei gebrauchten Modellen sollten vor allem die Dichtungen an der seitlichen Öffnung geprüft werden.",
   },
   {
-    q: "Wie wird ein Open Side Container geliefert?",
-    a: "Die Lieferung erfolgt per Kranwagen deutschlandweit innerhalb von 3–7 Werktagen. Für die Aufstellung sind die gleichen Untergrundanforderungen wie für Standardcontainer zu beachten."
+    q: "Wofür eignet sich ein Container mit offener Seite?",
+    a: "Er eignet sich für Baustellen, Lagerflächen, Maschinen, Palettenware, Möbel, Landwirtschaft, Messebau, Events, Gewerbe und alle Anwendungen, bei denen seitlicher Zugriff wichtig ist.",
+  },
+  {
+    q: "Was ist besser: Doppeltüren Container oder Container mit offener Seite?",
+    a: "Ein Doppeltüren Container bietet Zugang von beiden Stirnseiten. Ein Container mit offener Seite bietet dagegen Zugang über die lange Seitenwand. Welche Variante besser ist, hängt davon ab, ob Sie den Container von vorne und hinten oder seitlich beladen möchten.",
+  },
+  {
+    q: "Wird ein Container mit offener Seite geliefert?",
+    a: "Ja, Open Side Container können direkt zum gewünschten Standort geliefert werden. Wichtig sind eine geeignete Zufahrt, ein tragfähiger Untergrund und ausreichend Platz zum Öffnen der Seitenwand.",
   },
 ];
 
-const relatedLinks = [
-  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Der meistverkaufte Standardcontainer" },
-  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen", desc: "Maximaler Stauraum für große Güter" },
-  { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen", desc: "Alle Lagercontainer im Überblick" },
-  { href: "/double-door-container-kaufen", title: "Double Door Container", desc: "Zugang von beiden Stirnseiten" },
-  { href: "/seecontainer-kaufen", title: "Alle Seecontainer", desc: "Übersicht aller Typen & Preise" },
-  { href: "/container-kosten", title: "Container Kosten", desc: "Aktuelle Preisübersicht 2024" },
-];
-
-const ratgeberLinks = [
-  { href: "/container-lieferung", title: "Container Lieferung", desc: "Transport & Aufstellung erklärt" },
-  { href: "/container-fundament", title: "Container Fundament", desc: "Den richtigen Untergrund wählen" },
-  { href: "/container-genehmigung", title: "Container Genehmigung", desc: "Wann ist eine Genehmigung nötig?" },
-  { href: "/container-masse", title: "Container Maße", desc: "Alle Abmessungen auf einen Blick" },
+const RELATED_LINKS = [
+  { href: "/container-kaufen", title: "Container kaufen", desc: "Alle Containerarten im Überblick" },
+  { href: "/lagercontainer-kaufen", title: "Lagercontainer", desc: "Robuste Lagerlösungen vergleichen" },
+  { href: "/seecontainer-kaufen", title: "Seecontainer kaufen", desc: "Klassische ISO-Container für Lagerung und Transport" },
+  { href: "/double-door-container-kaufen", title: "Doppeltüren Container", desc: "Zugang von beiden Stirnseiten" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Kompakte Standard- und High-Cube-Varianten" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen", desc: "Große Container mit viel Stauraum" },
+  { href: "/container-masse", title: "Container Maße", desc: "Außenmaße, Innenmaße und Türöffnungen" },
+  { href: "/kuehlcontainer-kaufen", title: "Kühlcontainer", desc: "Temperaturgeführte Lagerung" },
+  { href: "/buerocontainer-kaufen", title: "Bürocontainer", desc: "Mobile Arbeitsräume und Baustellenbüros" },
 ];
 
 export default function OpenSideContainerKaufen() {
   return (
     <SeoPageLayout
       breadcrumb={[
-        { label: "Seecontainer kaufen", href: "/seecontainer-kaufen" },
-        { label: "Open Side Container kaufen" }
+        { label: "Container kaufen", href: "/container-kaufen" },
+        { label: "Container mit offener Seite kaufen" }
       ]}
       label="Produkt-Ratgeber"
-      title="Open Side Container kaufen – Maximale Zugänglichkeit für sperrige Güter"
-      intro="Open Side Container bieten eine vollständige Seitenwandöffnung für direkten Gabelstapler- und Palettenzugang. Erfahren Sie alles über Größen, Preise, typische Einsatzgebiete und was Open Side Container von Standardcontainern unterscheidet."
+      title="Container mit offener Seite kaufen"
+      intro="Container mit offener Seite kaufen – Open Side Container für Lagerung, Baustelle, Gewerbe und sperrige Güter. 20 Fuß und 40 Fuß Modelle, neu oder gebraucht mit Lieferung."
     >
-      {/* Was ist ein Open Side Container */}
-      <SeoSection title="Was ist ein Open Side Container?">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": FAQS.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": { "@type": "Answer", "text": item.a },
+        })),
+      })}} />
+
+      <section className="mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <ImageCard
+            src={IMG_SIDE_BLUE_1}
+            alt="Blauer 40 Fuß High Cube Container mit offener Seite im Containerlager"
+            title="Breiter seitlicher Zugriff"
+            text="Open Side Container öffnen die lange Seitenwand und erleichtern das Beladen von Paletten, Maschinen und sperrigen Gütern."
+          />
+          <ImageCard
+            src={IMG_20HC_OPEN}
+            alt="20 Fuß High Cube Container mit offener Seite und vollständig geöffneter Seitenwand"
+            title="20 Fuß und 40 Fuß Varianten"
+            text="Kompakte und große Ausführungen sind je nach Stellfläche, Nutzung und benötigtem Stauraum möglich."
+          />
+        </div>
+      </section>
+
+      <SeoSection title="Open Side Container als flexible Lösung für breite Beladung">
         <p>
-          Ein Open Side Container – zu Deutsch „seitlich zu öffnender Container" – ist ein spezieller ISO-Seecontainer, bei dem eine Längsseite vollständig geöffnet werden kann. Im Gegensatz zum klassischen <Link to="/seecontainer-kaufen" className="text-orange-500 hover:underline">Seecontainer</Link>, der ausschließlich über Stirnseitentüren zugänglich ist, ermöglicht der Open Side Container einen direkten, breiten Zugang über die gesamte Containerseite.
+          Ein <strong className="text-foreground">Container mit offener Seite</strong> ist die ideale Lösung, wenn ein normaler Containerzugang über die Stirnseite nicht ausreicht. Bei dieser Containerart lässt sich eine komplette Seitenwand öffnen, sodass Waren, Maschinen, Paletten oder sperrige Güter deutlich einfacher be- und entladen werden können.
         </p>
         <p>
-          Die Öffnungsmechanismen variieren je nach Hersteller: Bei einigen Modellen lassen sich die Seitenwandpaneele nach oben klappen, bei anderen sind vollwertige Türflügel integriert, die sich zur Seite oder nach oben öffnen. Im geschlossenen Zustand bietet der Container dieselbe Stabilität, Dichtigkeit und Sicherheit wie ein konventioneller Standardcontainer.
+          Diese Bauweise wird auch als Open Side Container bezeichnet. Sie eignet sich besonders für Baustellen, Gewerbe, Industrie, Landwirtschaft, Eventlogistik und Lagerflächen, bei denen ein schneller und breiter Zugriff auf den Innenraum wichtig ist.
         </p>
         <p>
-          DIE Container GmbH führt Open Side Container in 20 Fuß und 40 Fuß, jeweils in Standard- und High-Cube-Höhe, in verschiedenen Zustandsklassen. Alle Einheiten sind CSC-zertifiziert und wurden auf Dichtigkeit geprüft.
+          Wenn Sie verschiedene Containerarten vergleichen möchten, finden Sie auf unserer Seite <IL to="/container-kaufen">Container kaufen</IL> einen Überblick über Lagercontainer, Seecontainer, Bürocontainer, Wohncontainer, Kühlcontainer und Spezialcontainer.
         </p>
       </SeoSection>
 
-      {/* Vorteile */}
-      <SeoSection title="Vorteile gegenüber Standardcontainern">
+      <SeoSection title="Warum einen Container mit offener Seite kaufen?">
         <p>
-          Warum entscheiden sich Logistiker, Händler und Handwerksbetriebe für den Open Side Container? Der direkte Vergleich zeigt die entscheidenden Unterschiede:
-        </p>
-        <SeoTable headers={vergleichTable.headers} rows={vergleichTable.rows} />
-        <p>
-          Der größte Vorteil liegt in der Effizienz beim Be- und Entladen: Wo ein <Link to="/20-fuss-container-kaufen" className="text-orange-500 hover:underline">20 Fuß Standardcontainer</Link> nur einreihiges Einfahren des Gabelstaplers erlaubt, können beim Open Side Container mehrere Paletten gleichzeitig quer eingebracht werden. Das reduziert Ladezeiten erheblich und verringert das Unfallrisiko beim engen Rangieren.
+          Der größte Vorteil eines Containers mit offener Seite ist der einfache Zugang. Statt Waren nur durch die Stirntüren ein- und auszuladen, kann die gesamte Seitenwand geöffnet werden. Das spart Zeit und erleichtert die Arbeit besonders bei breiten, schweren oder unhandlichen Gütern.
         </p>
         <p>
-          Die vollständige Öffnung ermöglicht außerdem den Einbau von Regalsystemen, Regalboden-Einlagen und anderen Einbauten, die bei konventionellen Containern kaum realisierbar sind. Für umfangreichere Umbauprojekte – etwa als mobiler <Link to="/buerocontainer-kaufen" className="text-orange-500 hover:underline">Bürocontainer</Link> oder Werkstatt – ist der Open Side besonders praktisch.
+          Ein Open Side Container ist besonders praktisch, wenn mit Gabelstapler, Hubwagen oder Kran gearbeitet wird. Auch bei häufigem Be- und Entladen ist die seitliche Öffnung ein großer Vorteil, weil der Innenraum besser erreichbar bleibt.
+        </p>
+        <p>
+          Für klassische Lagerzwecke reicht oft ein normaler <IL to="/lagercontainer-kaufen">Lagercontainer</IL> oder ein robuster <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>. Wenn jedoch die Beladung von der Seite wichtig ist, ist ein Container mit offener Seite die komfortablere Lösung.
         </p>
       </SeoSection>
 
-      {/* Verfügbare Größen */}
-      <SeoSection title="Verfügbare Größen und Varianten">
+      <SeoSection title="Container mit offener Seite oder Standardcontainer?">
         <p>
-          Open Side Container folgen den gleichen ISO-Normen wie Standardcontainer. Alle genauen <Link to="/container-masse" className="text-orange-500 hover:underline">Container Maße</Link> finden Sie in unserem Ratgeber. Im Überblick:
+          Ein Standardcontainer besitzt in der Regel Türen an einer Stirnseite. Das ist für viele Lagerzwecke ausreichend. Bei langen oder sperrigen Gütern kann das Beladen jedoch umständlich sein, weil alles von vorne in den Container geschoben werden muss.
         </p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            <strong className="text-foreground">20 Fuß Open Side Standard:</strong> Außenmaße 6.058 × 2.438 × 2.591 mm, Ladevolumen ca. 33 m³. Seitenöffnung ca. 5,8 m Breite. Ideal für mittelgroße Güter und begrenzte Stellfläche.
-          </li>
-          <li>
-            <strong className="text-foreground">20 Fuß Open Side High Cube:</strong> Wie Standard, jedoch 2.896 mm hoch – 30 cm mehr Innenhöhe für voluminöse Güter.
-          </li>
-          <li>
-            <strong className="text-foreground">40 Fuß Open Side Standard:</strong> Außenmaße 12.192 × 2.438 × 2.591 mm, Ladevolumen ca. 67 m³. Seitenöffnung ca. 11,5 m – entspricht in etwa der Länge eines LKW-Aufliegers.
-          </li>
-          <li>
-            <strong className="text-foreground">40 Fuß Open Side High Cube:</strong> Maximale Version mit ca. 76 m³ Ladevolumen. Empfehlenswert für große Einzelhandelslager, Ausstellungsflächen und Werkstätten. Vergleichen Sie auch mit dem <Link to="/40-fuss-container-kaufen" className="text-orange-500 hover:underline">40 Fuß Standardcontainer</Link>.
-          </li>
-        </ul>
-      </SeoSection>
-
-      {/* Einsatzgebiete */}
-      <SeoSection title="Typische Einsatzgebiete des Open Side Containers">
         <p>
-          Dank seiner einzigartigen Zugänglichkeit ist der Open Side Container in einer Vielzahl von Branchen und Anwendungen im Einsatz:
+          Ein Container mit offener Seite bietet deutlich mehr Flexibilität. Die seitliche Öffnung ermöglicht direkten Zugriff auf fast die gesamte Innenfläche. Dadurch können Waren besser organisiert, schneller entnommen und einfacher geladen werden.
         </p>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            <strong className="text-foreground">Logistik und Lager:</strong> Schnelles Be- und Entladen per Gabelstapler, ohne mühsames Rangieren durch enge Stirnseiten-Öffnungen. Besonders effizient in Verbindung mit Palettenregalen.
-          </li>
-          <li>
-            <strong className="text-foreground">Baustellen und Handwerk:</strong> Baumaterialien, Betonelemente, Rohre, Gerüstbauteile und andere sperrige Güter lassen sich problemlos von der Seite ein- und auslagern.
-          </li>
-          <li>
-            <strong className="text-foreground">Einzelhandel und Messebau:</strong> Als temporärer Pop-up-Store oder Messestand mit attraktiver, vollständig geöffneter Schaufläche zur Straßenseite.
-          </li>
-          <li>
-            <strong className="text-foreground">Landwirtschaft:</strong> Landmaschinen, Erntegut und Betriebsmittel effizient lagern und schützen – ohne die Flächenverluste konventioneller Schuppen.
-          </li>
-          <li>
-            <strong className="text-foreground">Fahrzeuge und Maschinen:</strong> Motorräder, Quads, Kleinmaschinen und Geräte können problemlos seitlich eingefahren werden – kein aufwendiges Rangieren erforderlich.
-          </li>
-          <li>
-            <strong className="text-foreground">Gastronomie & Events:</strong> Schneller Auf- und Abbau als Mobile Bar, Foodstand oder Eventküche – die Seitenwand als natürliche Theke oder Ausgabefläche nutzbar.
-          </li>
-        </ul>
-      </SeoSection>
-
-      {/* Preise */}
-      <SeoSection title="Open Side Container Preise – Aktuelle Übersicht">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 my-6">
+          <div className="rounded-2xl border border-border bg-card p-5">
+            <h3 className="font-heading font-bold text-sm text-foreground mb-3">Ein Standardcontainer eignet sich gut für:</h3>
+            <BulletList items={STANDARD_USES} />
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-5">
+            <h3 className="font-heading font-bold text-sm text-foreground mb-3">Ein Container mit offener Seite eignet sich besser für:</h3>
+            <BulletList items={OPEN_SIDE_USES} />
+          </div>
+        </div>
         <p>
-          Die Preise für Open Side Container liegen geringfügig über denen vergleichbarer Standardcontainer, da die zusätzliche Öffnungsmechanik aufwendiger in der Herstellung ist. Eine vollständige Übersicht aller <Link to="/container-kosten" className="text-orange-500 hover:underline">Container Kosten</Link> finden Sie in unserem Preisratgeber:
-        </p>
-        <SeoTable headers={preisTable.headers} rows={preisTable.rows} />
-        <p>
-          Alle Preise verstehen sich netto ab Lager, zuzüglich Transportkosten. Die Lieferkosten richten sich nach Entfernung und Abladeaufwand. Sie erhalten diese Angaben zusammen mit Ihrem individuellen Angebot.
+          Wenn Sie Zugang von beiden Stirnseiten benötigen, kann auch ein <IL to="/double-door-container-kaufen">Doppeltüren Container</IL> eine sinnvolle Alternative sein.
         </p>
       </SeoSection>
 
-      <CtaBanner text="Open Side Container anfragen – kostenlos & unverbindlich" btnHref="/angebot" />
+      <SeoSection title="20 Fuß Container mit offener Seite">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          <div className="lg:col-span-3 space-y-3">
+            <p>
+              Ein 20 Fuß Container mit offener Seite ist eine kompakte und flexible Lösung für Kunden, die viel Zugriff, aber nicht zu viel Stellfläche benötigen. Er eignet sich besonders für Baustellen, Handwerksbetriebe, Gewerbe, Eventlogistik und private Lagerung.
+            </p>
+            <p>
+              Durch die seitlich öffnende Wand können Werkzeuge, Maschinen, Möbel, Baumaterialien oder Paletten deutlich einfacher ein- und ausgeladen werden. Das macht diese Variante besonders praktisch, wenn der Container regelmäßig genutzt wird.
+            </p>
+            <p>
+              Wenn Sie eine klassische 20 Fuß Lösung vergleichen möchten, finden Sie weitere Informationen auf unserer Seite <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL>.
+            </p>
+          </div>
+          <div className="lg:col-span-2">
+            <ImageCard
+              src={IMG_20HC_FRONT}
+              alt="20 Fuß High Cube Open Side Container von vorne geöffnet"
+              title="20 Fuß Open Side"
+              text="Kompakte Stellfläche mit breiter seitlicher Öffnung."
+              className="h-full"
+            />
+          </div>
+        </div>
+      </SeoSection>
 
-      {/* Lieferung */}
-      <SeoSection title="Lieferung und Transport in Deutschland">
+      <SeoSection title="40 Fuß Container mit offener Seite">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          <div className="lg:col-span-2">
+            <ImageCard
+              src={IMG_SIDE_BLUE_OPEN}
+              alt="40 Fuß Open Side Container mit weit geöffneter Seitenwand"
+              title="40 Fuß Open Side"
+              text="Viel Stauraum und komfortabler Zugriff entlang der langen Seite."
+              className="h-full"
+            />
+          </div>
+          <div className="lg:col-span-3 space-y-3">
+            <p>
+              Ein 40 Fuß Container mit offener Seite bietet besonders viel Stauraum und gleichzeitig sehr komfortablen Zugang. Diese Variante eignet sich ideal für große Warenmengen, sperrige Produkte, Maschinen, Industriebedarf, Messebau, Eventmaterial oder umfangreiche Lagerflächen.
+            </p>
+            <p>
+              Bei einem langen Container ist der seitliche Zugang besonders wertvoll, weil Waren nicht durch den gesamten Container bewegt werden müssen. Stattdessen kann direkt an der passenden Stelle geladen oder entnommen werden.
+            </p>
+            <p>
+              Für größere Lagerprojekte lohnt sich auch ein Vergleich mit der Seite <IL to="/40-fuss-container-kaufen">40 Fuß Container kaufen</IL>. Wenn zusätzlich mehr Innenhöhe benötigt wird, kann ein 40 Fuß High Cube Open Side Container besonders interessant sein.
+            </p>
+          </div>
+        </div>
+      </SeoSection>
+
+      <SeoSection title="Container mit offener Seite gebraucht kaufen">
         <p>
-          DIE Container GmbH liefert Open Side Container deutschlandweit per Kranwagen direkt an Ihren Wunschort. Da Open Side Container die gleichen Außenmaße wie Standardcontainer aufweisen, gelten auch die gleichen Transportanforderungen.
+          Ein gebrauchter Container mit offener Seite kann eine wirtschaftliche Wahl sein, wenn Sie eine flexible Lagerlösung zu einem günstigeren Preis suchen. Gebrauchsspuren wie Kratzer, Dellen oder leichte Roststellen sind bei gebrauchten Containern normal. Entscheidend ist jedoch, dass die Türen, Scharniere und Dichtungen zuverlässig funktionieren.
         </p>
+        <p>Beim Kauf eines gebrauchten Open Side Containers sollten Sie prüfen:</p>
+        <BulletList items={USED_CHECKS} />
         <p>
-          Wichtige Voraussetzungen für eine reibungslose Lieferung:
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li>Zufahrtsbreite min. 3,5 m, Höhenfreiheit min. 4,5 m</li>
-          <li>Ebener, tragfähiger Unterstellplatz (Pflaster, Beton, Schotter)</li>
-          <li>Ausreichend Rangierraum für den Kranwagen</li>
-        </ul>
-        <p>
-          Unser <Link to="/container-lieferung" className="text-orange-500 hover:underline">Ratgeber zur Container Lieferung</Link> erklärt den gesamten Ablauf von der Auftragsbestätigung bis zur Aufstellung. Für Fragen zum optimalen Untergrund lesen Sie unseren <Link to="/container-fundament" className="text-orange-500 hover:underline">Leitfaden zu Container-Fundamenten</Link>.
-        </p>
-        <p>
-          Für eine dauerhafte Aufstellung empfehlen wir die vorherige Klärung der Genehmigungspflicht mit Ihrer Gemeindeverwaltung. Unser <Link to="/container-genehmigung" className="text-orange-500 hover:underline">Ratgeber zur Container Genehmigung</Link> gibt einen Überblick nach Nutzungsart und Bundesland.
+          Ein gebrauchter Container lohnt sich besonders, wenn Funktion, Zugänglichkeit und Preis wichtiger sind als ein neuwertiges Erscheinungsbild.
         </p>
       </SeoSection>
 
-      <SeoSection title="Weitere Container-Typen entdecken">
-        <p>Nicht das Richtige dabei? Hier weitere Spezialcontainer und Standardgrößen im Überblick:</p>
+      <SeoSection title="Einsatzbereiche für Open Side Container">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-5">
+          <div className="lg:col-span-3 space-y-3">
+            <p>
+              Container mit offener Seite sind überall dort sinnvoll, wo Waren schnell, breitflächig oder seitlich geladen werden müssen. Sie werden häufig von Bauunternehmen, Industrie, Handel, Messebau, Landwirtschaft und Eventbetrieben genutzt.
+            </p>
+            <p>Typische Einsatzbereiche:</p>
+            <BulletList items={USE_CASES} />
+            <p>
+              Wenn zusätzlich gekühlte Lagerung erforderlich ist, ist ein <IL to="/kuehlcontainer-kaufen">Kühlcontainer</IL> die bessere Lösung. Wenn Arbeitsräume benötigt werden, eignet sich ein <IL to="/buerocontainer-kaufen">Bürocontainer</IL> besser.
+            </p>
+          </div>
+          <div className="lg:col-span-2">
+            <ImageCard
+              src={IMG_SIDE_BLUE_2}
+              alt="Blauer High Cube Open Side Container mit geöffneter Seite"
+              title="Gewerbe, Logistik und Events"
+              text="Die seitliche Öffnung erleichtert schnelle Entnahme und übersichtliche Lagerorganisation."
+              className="h-full"
+            />
+          </div>
+        </div>
       </SeoSection>
-      <InternalLinkGrid links={relatedLinks} />
 
-      <SeoSection title="Ratgeber: Wichtige Informationen vor dem Kauf">
-        <p>Alles, was Sie für eine reibungslose Planung und Aufstellung wissen müssen:</p>
+      <SeoSection title="Maße und technische Daten">
+        <p>
+          Container mit offener Seite sind häufig als 20 Fuß und 40 Fuß Variante erhältlich. Die genauen Maße können je nach Hersteller, Baujahr und Ausführung leicht variieren. Besonders wichtig sind Außenmaße, Innenmaße, Türöffnungen, Eigengewicht und nutzbares Volumen.
+        </p>
+        <p>
+          Da die seitliche Öffnung ein zentrales Merkmal ist, sollte vor dem Kauf auch geprüft werden, wie viel Platz seitlich neben dem Container benötigt wird. Die Türen müssen vollständig geöffnet werden können, damit der Vorteil dieser Containerart wirklich genutzt werden kann.
+        </p>
+        <p>
+          Eine vollständige Übersicht zu Außenmaßen, Innenmaßen, Türöffnungen und Volumen finden Sie auf unserer Seite <IL to="/container-masse">Container Maße</IL>.
+        </p>
       </SeoSection>
-      <InternalLinkGrid links={ratgeberLinks} />
 
-      <SeoSection title="Häufig gestellte Fragen zum Open Side Container">
-        <FaqAccordion items={faqs} />
+      <SeoSection title="Lieferung und Aufstellung">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          <div className="lg:col-span-2">
+            <ImageCard
+              src={IMG_GREY_FRONT}
+              alt="Grauer 40 Fuß High Cube Open Side Container von vorne geöffnet"
+              title="Lieferung mit Standortplanung"
+              text="Neben Stellfläche und Zufahrt ist bei Open Side Containern auch Platz zum Öffnen der Seitenwand wichtig."
+              className="h-full"
+            />
+          </div>
+          <div className="lg:col-span-3 space-y-3">
+            <p>
+              Ein Container mit offener Seite kann direkt zum gewünschten Standort geliefert werden. Die Lieferung erfolgt in der Regel per LKW. Je nach Größe und Entladesituation kann ein Kranfahrzeug erforderlich sein.
+            </p>
+            <p>
+              Vor der Lieferung sollte nicht nur die Stellfläche für den Container selbst geprüft werden. Wichtig ist auch genügend Platz entlang der offenen Seite, damit die Türen vollständig geöffnet werden können. Besonders bei 40 Fuß Open Side Containern sollte der Aufstellort sorgfältig geplant werden.
+            </p>
+            <p>Vor der Lieferung klären:</p>
+            <BulletList items={DELIVERY_CHECKS} />
+          </div>
+        </div>
+      </SeoSection>
+
+      <SeoSection title="Vorteile eines Containers mit offener Seite">
+        <p>
+          Ein Container mit offener Seite bietet deutlich mehr Komfort beim Be- und Entladen als ein Standardcontainer. Besonders bei sperrigen Gütern, häufigem Zugriff oder gewerblicher Nutzung kann diese Bauweise den Arbeitsalltag erheblich erleichtern.
+        </p>
+        <p>Die wichtigsten Vorteile:</p>
+        <BulletList items={ADVANTAGES} />
+      </SeoSection>
+
+      <SeoSection title="Jetzt Container mit offener Seite anfragen">
+        <p>
+          Ob Sie einen neuen Open Side Container kaufen möchten, einen gebrauchten Container mit offener Seite suchen oder eine Lieferung direkt zum Standort benötigen – die passende Lösung hängt von Größe, Zustand, Nutzung und Lieferort ab.
+        </p>
+        <p>
+          Teilen Sie uns mit, welche Größe Sie benötigen, welche Waren gelagert werden sollen und wohin der Container geliefert werden soll. Auf dieser Grundlage erhalten Sie ein passendes Angebot mit verfügbaren Modellen, Preisen und Liefermöglichkeiten.
+        </p>
+      </SeoSection>
+
+      <CtaBanner text="Container mit offener Seite kaufen – Angebot mit Lieferung erhalten" btnLabel="Jetzt anfragen" btnHref="/angebot" />
+
+      <SeoSection title="Nützliche nächste Seiten">
+        <p>Diese Seiten helfen beim Vergleich von Containerarten, Größen, Einsatzbereichen und Speziallösungen:</p>
+      </SeoSection>
+      <InternalLinkGrid links={RELATED_LINKS} />
+
+      <SeoSection title="FAQ – Container mit offener Seite">
+        <FaqAccordion items={FAQS} />
       </SeoSection>
     </SeoPageLayout>
   );
