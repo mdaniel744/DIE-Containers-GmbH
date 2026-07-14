@@ -93,9 +93,9 @@ const ROUTES = {
   },
   "ueber-uns": {
     component: About,
-    title: "Über DIE Container GmbH | Container kaufen in Deutschland",
+    title: "Über DIE Container GmbH | Seecontainer Händler aus Putzbrunn",
     description:
-      "Erfahren Sie mehr über DIE Container GmbH, Lieferung, Beratung und Qualitätssicherung.",
+      "DIE Container GmbH ist Ihr Seecontainer Händler aus Putzbrunn: faire Preise, geprüfte Qualität, persönliche Beratung und zuverlässige Lieferung deutschlandweit.",
   },
   kontakt: {
     component: Contact,

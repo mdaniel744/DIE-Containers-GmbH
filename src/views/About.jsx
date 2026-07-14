@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, Award, Truck, Shield } from "lucide-react";
+import { Users, Truck, Shield, Wrench, Headphones, CheckCircle, MapPin, Phone, Mail } from "lucide-react";
 import SectionHeading from "@/components/shared/SectionHeading";
 import { DELIVERY_IMAGE } from "@/lib/productData";
 import ContactBanner from "@/components/shared/ContactBanner";
 import { useSection } from "@/lib/i18n";
 
-const VALUE_ICONS = [Shield, Users, Truck, Award];
+const VALUE_ICONS = [Users, Shield, Truck, Wrench, Headphones];
+const LOCATION_ICONS = [MapPin, Phone, Mail];
 
 export default function About() {
   const T = useSection("about");
@@ -67,20 +68,18 @@ export default function About() {
         </div>
       </section>
 
-      {/* Contact Banner */}
-      <section className="py-4 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ContactBanner />
-        </div>
-      </section>
-
       {/* Values */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading label={T.valuesLabel} title={T.valuesTitle} />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {T.valuesIntro && (
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center -mt-2 mb-10">
+              {T.valuesIntro}
+            </p>
+          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {T.values.map((v, i) => {
-              const Icon = VALUE_ICONS[i];
+              const Icon = VALUE_ICONS[i % VALUE_ICONS.length];
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-card rounded-xl border border-border p-6 text-center">
                   <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-secondary/10 flex items-center justify-center">
@@ -92,6 +91,83 @@ export default function About() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Why Us */}
+      {T.whyItems?.length > 0 && (
+        <section className="py-20 lg:py-28 bg-muted/40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeading label={T.whyLabel} title={T.whyTitle} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {T.whyItems.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className="bg-card rounded-xl border border-border p-6"
+                >
+                  <CheckCircle className="w-5 h-5 text-secondary mb-4" />
+                  <h3 className="font-heading font-semibold text-base mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Location */}
+      {T.locationTitle && (
+        <section className="py-20 lg:py-28 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <span className="font-mono text-xs text-secondary tracking-widest uppercase">{T.locationLabel}</span>
+                <h2 className="font-heading font-bold text-2xl lg:text-3xl tracking-tight mt-3 mb-4">{T.locationTitle}</h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">{T.locationBody}</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="bg-card rounded-2xl border border-border p-6 lg:p-8"
+              >
+                <div className="space-y-5">
+                  {T.locationDetails?.map((item, i) => {
+                    const Icon = LOCATION_ICONS[i % LOCATION_ICONS.length];
+                    const content = (
+                      <div className="flex items-start gap-4">
+                        <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+                          <Icon className="w-5 h-5 text-secondary" />
+                        </div>
+                        <div>
+                          <p className="font-heading font-semibold text-sm text-foreground">{item.label}</p>
+                          <p className="text-sm text-muted-foreground mt-1">{item.value}</p>
+                        </div>
+                      </div>
+                    );
+                    return item.href ? (
+                      <a key={i} href={item.href} className="block hover:opacity-80 transition-opacity">
+                        {content}
+                      </a>
+                    ) : (
+                      <div key={i}>{content}</div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Contact Banner */}
+      <section className="py-4 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ContactBanner />
         </div>
       </section>
     </div>
