@@ -7,17 +7,51 @@ import { Label } from "@/components/ui/label";
 import { Phone, Mail, MapPin, Clock, Send, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
+import { supabase, STORE_ID } from "@/lib/supabaseClient";
 
 const ICONS = [Phone, Mail, MapPin, Clock];
 
 export default function Contact() {
   const T = useSection("contact");
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSent(true);
+
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+
+    if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !message) return;
+
+    setSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const { error } = await supabase.from("inquiries").insert({
+        store_id: STORE_ID,
+        product_id: null,
+        customer_name: name,
+        customer_email: email,
+        customer_phone: form.phone.trim() || null,
+        message,
+        details: {
+          source: "kontakt-form",
+          subject: form.subject.trim() || null,
+        },
+      });
+      if (error) throw error;
+      setSent(true);
+      setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (err) {
+      console.error("[kontakt] submit failed:", err);
+      setSubmitError("Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -86,9 +120,24 @@ export default function Contact() {
                   <Label>{T.messageLabel} *</Label>
                   <Textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder={T.messagePlaceholder} className="min-h-[140px]" />
                 </div>
-                <Button type="submit" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-heading font-semibold">
-                  <Send className="w-4 h-4 mr-2" /> {T.submit}
+                <Button type="submit" disabled={submitting} className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-heading font-semibold">
+                  {submitting ? (
+                    <span className="flex items-center gap-2">
+                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Wird gesendet…
+                    </span>
+                  ) : (
+                    <><Send className="w-4 h-4 mr-2" /> {T.submit}</>
+                  )}
                 </Button>
+                {submitError && (
+                  <div className="mt-3 p-3 rounded-lg border border-rose-500/30 bg-rose-500/10 text-sm text-rose-700 dark:text-rose-400">
+                    {submitError}{" "}
+                    <button type="button" className="underline font-medium hover:no-underline" onClick={() => setSubmitError(null)}>
+                      Erneut versuchen
+                    </button>
+                  </div>
+                )}
               </form>
             )}
           </div>
