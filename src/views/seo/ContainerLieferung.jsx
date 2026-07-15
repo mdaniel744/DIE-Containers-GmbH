@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -9,151 +9,151 @@ import ContactBanner from "@/components/shared/ContactBanner";
 const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
 
-/* ── Image assets ── */
+/* â”€â”€ Image assets â”€â”€ */
 const IMG_TILT_TRAILER = "/images/container-delivery-tilt-trailer.webp";
 const IMG_FLACHBETT_TRAILER = "/images/container-delivery-flachbett-trailer.jpg";
 const IMG_STEP_DECK_TIEFLADER = "/images/container-delivery-step-deck-tieflader.jpg";
 
-/* ── Delivery Steps ── */
+/* â”€â”€ Delivery Steps â”€â”€ */
 const STEPS = [
 {
   num: "01",
   title: "Angebotsanfrage",
-  desc: "Unverbindlich anfragen – per Formular, Telefon oder E-Mail. Angabe von Containertyp, Lieferort und Wunschtermin.",
-  icon: "📋"
+  desc: "Unverbindlich anfragen â€“ per Formular, Telefon oder E-Mail. Angabe von Containertyp, Lieferort und Wunschtermin.",
+  icon: "ðŸ“‹"
 },
 {
   num: "02",
-  title: "Angebot & Bestätigung",
-  desc: "Sie erhalten ein verbindliches Angebot mit Endpreis inklusive Transport. Nach Auftragsbestätigung wird der Liefertermin koordiniert.",
-  icon: "✅"
+  title: "Angebot & BestÃ¤tigung",
+  desc: "Sie erhalten ein verbindliches Angebot mit Endpreis inklusive Transport. Nach AuftragsbestÃ¤tigung wird der Liefertermin koordiniert.",
+  icon: "âœ…"
 },
 {
   num: "03",
   title: "Aufstellplatz vorbereiten",
-  desc: "Untergrund vorbereiten und Zufahrt freihalten. Ausreichend Platz für LKW-Rangieren einplanen.",
-  icon: "🏗️"
+  desc: "Untergrund vorbereiten und Zufahrt freihalten. Ausreichend Platz fÃ¼r LKW-Rangieren einplanen.",
+  icon: "ðŸ—ï¸"
 },
 {
   num: "04",
   title: "Lieferung per LKW",
   desc: "Je nach Containertyp und Entfernung wird ein Kipper-Tieflader, Flachbett-Trailer oder LKW-Kran eingesetzt.",
-  icon: "🚛"
+  icon: "ðŸš›"
 },
 {
   num: "05",
-  title: "Abnahme & Übergabe",
-  desc: "Gemeinsame Sichtprüfung vor Ort. Bei Mängeln sofortige Dokumentation. Container ist sofort einsatzbereit.",
-  icon: "🔑"
+  title: "Abnahme & Ãœbergabe",
+  desc: "Gemeinsame SichtprÃ¼fung vor Ort. Bei MÃ¤ngeln sofortige Dokumentation. Container ist sofort einsatzbereit.",
+  icon: "ðŸ”‘"
 }];
 
 
-/* ── Truck Types ── */
+/* â”€â”€ Truck Types â”€â”€ */
 const TRUCK_TYPES = [
 {
   title: "Kipper-Tieflader (Tilt Trailer)",
-  badge: "Häufigste Methode",
+  badge: "HÃ¤ufigste Methode",
   badgeColor: ORANGE,
-  desc: "Der Kipper-Tieflader ist die gängigste Methode für Containerlieferungen. Das Fahrzeug fährt rückwärts an die Abstellposition, neigt die Ladefläche hydraulisch und lässt den Container langsam auf den Boden gleiten – ganz ohne Kran oder Maschinen vor Ort.",
+  desc: "Der Kipper-Tieflader ist die gÃ¤ngigste Methode fÃ¼r Containerlieferungen. Das Fahrzeug fÃ¤hrt rÃ¼ckwÃ¤rts an die Abstellposition, neigt die LadeflÃ¤che hydraulisch und lÃ¤sst den Container langsam auf den Boden gleiten â€“ ganz ohne Kran oder Maschinen vor Ort.",
   pros: [
-  "Kein Kran oder Gabelstapler vor Ort benötigt",
-  "Kosteneffizient für Entfernungen bis ca. 350 km",
-  "Schnell – Aufstellung in ca. 15–30 Minuten",
-  "Ideal für 10ft und 20ft Standard-Container"],
+  "Kein Kran oder Gabelstapler vor Ort benÃ¶tigt",
+  "Kosteneffizient fÃ¼r Entfernungen bis ca. 350 km",
+  "Schnell â€“ Aufstellung in ca. 15â€“30 Minuten",
+  "Ideal fÃ¼r 10ft und 20ft Standard-Container"],
 
-  note: "Der Container muss leer sein. Beladene Container können mit diesem Verfahren nicht transportiert werden.",
+  note: "Der Container muss leer sein. Beladene Container kÃ¶nnen mit diesem Verfahren nicht transportiert werden.",
   img: IMG_TILT_TRAILER,
   alt: "Kipper-Tieflader Tilt Trailer mit Container"
 },
 {
   title: "Flachbett-Trailer",
-  badge: "Für lange Strecken",
+  badge: "FÃ¼r lange Strecken",
   badgeColor: NAVY,
-  desc: "Für Lieferungen über längere Strecken oder in abgelegenere Regionen wird häufig ein Flachbett-Trailer eingesetzt. Diese Methode ist pro Kilometer wirtschaftlicher, erfordert jedoch Hebetechnik am Zielort.",
+  desc: "FÃ¼r Lieferungen Ã¼ber lÃ¤ngere Strecken oder in abgelegenere Regionen wird hÃ¤ufig ein Flachbett-Trailer eingesetzt. Diese Methode ist pro Kilometer wirtschaftlicher, erfordert jedoch Hebetechnik am Zielort.",
   pros: [
-  "Wirtschaftlicher für Entfernungen über 350 km",
-  "Stabiler Transport über lange Distanzen",
-  "Geeignet für 20ft und 40ft Container"],
+  "Wirtschaftlicher fÃ¼r Entfernungen Ã¼ber 350 km",
+  "Stabiler Transport Ã¼ber lange Distanzen",
+  "Geeignet fÃ¼r 20ft und 40ft Container"],
 
-  note: "Zum Abladen wird ein Kran oder Gabelstapler mit ausreichender Tragkraft am Zielort benötigt.",
+  note: "Zum Abladen wird ein Kran oder Gabelstapler mit ausreichender Tragkraft am Zielort benÃ¶tigt.",
   img: IMG_FLACHBETT_TRAILER,
   alt: "Flachbett-Trailer mit Container und Kranentladung"
 },
 {
   title: "Step-Deck / Tieflader",
-  badge: "Für High Cube Container",
+  badge: "FÃ¼r High Cube Container",
   badgeColor: "#4a5568",
-  desc: "High Cube Container (2,89 m Höhe) überschreiten auf einem Standardfahrzeug die gesetzlichen Straßenhöhen. Für deren Transport wird daher ein Step-Deck (abgesenkter Tieflader) verwendet.",
+  desc: "High Cube Container (2,89 m HÃ¶he) Ã¼berschreiten auf einem Standardfahrzeug die gesetzlichen StraÃŸenhÃ¶hen. FÃ¼r deren Transport wird daher ein Step-Deck (abgesenkter Tieflader) verwendet.",
   pros: [
-  "Pflichtfahrzeug für High Cube Container",
-  "Respektiert gesetzliche Höhenbeschränkungen im Straßenverkehr",
-  "Auch für lange Transportstrecken geeignet"],
+  "Pflichtfahrzeug fÃ¼r High Cube Container",
+  "Respektiert gesetzliche HÃ¶henbeschrÃ¤nkungen im StraÃŸenverkehr",
+  "Auch fÃ¼r lange Transportstrecken geeignet"],
 
-  note: "Auch hier ist Hebetechnik am Zielort für das Abladen erforderlich.",
+  note: "Auch hier ist Hebetechnik am Zielort fÃ¼r das Abladen erforderlich.",
   img: IMG_STEP_DECK_TIEFLADER,
-  alt: "Step-Deck Tieflader für Containertransport"
+  alt: "Step-Deck Tieflader fÃ¼r Containertransport"
 }];
 
 
-/* ── Site Requirements ── */
+/* â”€â”€ Site Requirements â”€â”€ */
 const REQUIREMENTS = [
 {
-  icon: "↔️",
+  icon: "â†”ï¸",
   title: "Zufahrtsbreite",
   value: "min. 3,5 m",
-  note: "Besser 4 m für komfortables Rangieren",
+  note: "Besser 4 m fÃ¼r komfortables Rangieren",
   ok: true
 },
 {
-  icon: "↕️",
-  title: "Durchfahrtshöhe",
+  icon: "â†•ï¸",
+  title: "DurchfahrtshÃ¶he",
   value: "min. 4,5 m",
-  note: "Container auf LKW benötigt volle Höhe",
+  note: "Container auf LKW benÃ¶tigt volle HÃ¶he",
   ok: true
 },
 {
-  icon: "📏",
+  icon: "ðŸ“",
   title: "Freie Geradeausfahrt",
   value: "min. 20 m (40ft: 35 m)",
-  note: "Kipper-Tieflader braucht gerade Ablauffläche",
+  note: "Kipper-Tieflader braucht gerade AblaufflÃ¤che",
   ok: true
 },
 {
-  icon: "🧱",
+  icon: "ðŸ§±",
   title: "Untergrund",
   value: "Fest & Eben",
-  note: "Beton, Schotter, Pflaster – kein aufgeweichter Boden",
+  note: "Beton, Schotter, Pflaster â€“ kein aufgeweichter Boden",
   ok: true
 },
 {
-  icon: "👤",
+  icon: "ðŸ‘¤",
   title: "Ansprechpartner",
   value: "Vor Ort",
-  note: "Für Abnahme und Einweisen des Fahrers anwesend sein",
+  note: "FÃ¼r Abnahme und Einweisen des Fahrers anwesend sein",
   ok: true
 },
 {
-  icon: "⚠️",
+  icon: "âš ï¸",
   title: "Besonderheiten melden",
   value: "Vorab",
-  note: "Engstellen, Brücken, Stromleitungen, Höhenbeschränkungen",
+  note: "Engstellen, BrÃ¼cken, Stromleitungen, HÃ¶henbeschrÃ¤nkungen",
   ok: false
 }];
 
 
-/* ── Cost Table Data ── */
+/* â”€â”€ Cost Table Data â”€â”€ */
 const costRows = [
-{ distance: "Bis 50 km", c20: "250–400 €", c40: "350–550 €" },
-{ distance: "50–150 km", c20: "400–650 €", c40: "550–850 €" },
-{ distance: "150–300 km", c20: "650–900 €", c40: "850–1.150 €" },
-{ distance: "Über 300 km", c20: "Auf Anfrage", c40: "Auf Anfrage" }];
+{ distance: "Bis 50 km", c20: "250â€“400 â‚¬", c40: "350â€“550 â‚¬" },
+{ distance: "50â€“150 km", c20: "400â€“650 â‚¬", c40: "550â€“850 â‚¬" },
+{ distance: "150â€“300 km", c20: "650â€“900 â‚¬", c40: "850â€“1.150 â‚¬" },
+{ distance: "Ãœber 300 km", c20: "Auf Anfrage", c40: "Auf Anfrage" }];
 
 
-/* ── Delivery Diagram SVG ── */
+/* â”€â”€ Delivery Diagram SVG â”€â”€ */
 function DeliveryDiagram() {
   return (
     <div className="bg-slate-50 rounded-2xl border border-border p-6 my-8">
-      <p className="font-heading font-bold text-sm text-foreground mb-4 text-center">Kipper-Tieflader – Draufsicht & Platzbedarf</p>
+      <p className="font-heading font-bold text-sm text-foreground mb-4 text-center">Kipper-Tieflader â€“ Draufsicht & Platzbedarf</p>
       <svg viewBox="0 0 500 220" className="w-full max-w-xl mx-auto block" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Road / ground */}
         <rect x="0" y="100" width="500" height="120" fill="#e8edf2" rx="4" />
@@ -202,33 +202,33 @@ function DeliveryDiagram() {
 
 }
 
-/* ── FAQs ── */
+/* â”€â”€ FAQs â”€â”€ */
 const faqs = [
-{ q: "Wie wird ein Container geliefert?", a: "Seecontainer werden per LKW transportiert. Die häufigste Methode in Deutschland ist der Kipper-Tieflader: Das Fahrzeug fährt rückwärts an die gewünschte Position, neigt die Ladefläche hydraulisch und lässt den Container ohne Kran auf den Boden gleiten. Bei langen Strecken oder High Cube Containern werden Flachbett- oder Step-Deck-Trailer eingesetzt." },
-{ q: "Benötige ich einen Kran für die Lieferung?", a: "Bei Lieferung per Kipper-Tieflader (Tilt Trailer) wird kein Kran benötigt. Der Container wird direkt vom Fahrzeug auf den Boden abgesetzt. Bei Flachbett- oder Step-Deck-Lieferungen muss am Zielort ein Kran oder ein geeigneter Gabelstapler vorhanden sein." },
-{ q: "Was kostet die Container-Lieferung?", a: "Transportkosten starten bei ca. 250 € für kurze Distanzen und steigen mit der Entfernung. Hinzu kommen mögliche Erschwernistarife bei engen Zufahrten, Nachtlieferungen oder Sondergenehmigungen. Die genauen Kosten werden individuell kalkuliert und im Angebot ausgewiesen." },
-{ q: "Was muss ich für die Anlieferung vorbereiten?", a: "Stellen Sie sicher, dass die Zufahrt mindestens 3,5 m breit und 4,5 m hoch ist. Für eine Kipper-Lieferung sind außerdem ca. 20 m (bei 40ft ca. 35 m) freie Geradeausfahrt nötig. Der Untergrund muss fest und eben sein – Schotter, Pflaster oder Beton sind ideal. Ein Ansprechpartner sollte vor Ort sein." },
-{ q: "Was passiert wenn die Zufahrt zu eng ist?", a: "Bei engen Zufahrten oder besonderen Hindernissen (Brücken, Stromleitungen, Steigungen) prüfen wir alternative Fahrzeuge oder Lösungen. Bitte informieren Sie uns unbedingt vorab, damit wir die passende Logistik planen können." },
-{ q: "Können beladene Container geliefert oder abgeholt werden?", a: "Nein – Kipper-Tieflader können ausschließlich leere Container transportieren. Soll ein beladener Container bewegt oder exportiert werden, ist Hebetechnik (Kran oder Schwerlast-Gabelstapler) am Standort erforderlich." },
-{ q: "Liefern Sie deutschlandweit?", a: "Ja, wir liefern in alle deutschen Bundesländer. Für Lieferungen in grenznahe Gebiete (Österreich, Schweiz, Benelux) sprechen Sie uns bitte direkt an." }];
+{ q: "Wie wird ein Container geliefert?", a: "Seecontainer werden per LKW transportiert. Die hÃ¤ufigste Methode in Deutschland ist der Kipper-Tieflader: Das Fahrzeug fÃ¤hrt rÃ¼ckwÃ¤rts an die gewÃ¼nschte Position, neigt die LadeflÃ¤che hydraulisch und lÃ¤sst den Container ohne Kran auf den Boden gleiten. Bei langen Strecken oder High Cube Containern werden Flachbett- oder Step-Deck-Trailer eingesetzt." },
+{ q: "BenÃ¶tige ich einen Kran fÃ¼r die Lieferung?", a: "Bei Lieferung per Kipper-Tieflader (Tilt Trailer) wird kein Kran benÃ¶tigt. Der Container wird direkt vom Fahrzeug auf den Boden abgesetzt. Bei Flachbett- oder Step-Deck-Lieferungen muss am Zielort ein Kran oder ein geeigneter Gabelstapler vorhanden sein." },
+{ q: "Was kostet die Container-Lieferung?", a: "Transportkosten starten bei ca. 250 â‚¬ fÃ¼r kurze Distanzen und steigen mit der Entfernung. Hinzu kommen mÃ¶gliche Erschwernistarife bei engen Zufahrten, Nachtlieferungen oder Sondergenehmigungen. Die genauen Kosten werden individuell kalkuliert und im Angebot ausgewiesen." },
+{ q: "Was muss ich fÃ¼r die Anlieferung vorbereiten?", a: "Stellen Sie sicher, dass die Zufahrt mindestens 3,5 m breit und 4,5 m hoch ist. FÃ¼r eine Kipper-Lieferung sind auÃŸerdem ca. 20 m (bei 40ft ca. 35 m) freie Geradeausfahrt nÃ¶tig. Der Untergrund muss fest und eben sein â€“ Schotter, Pflaster oder Beton sind ideal. Ein Ansprechpartner sollte vor Ort sein." },
+{ q: "Was passiert wenn die Zufahrt zu eng ist?", a: "Bei engen Zufahrten oder besonderen Hindernissen (BrÃ¼cken, Stromleitungen, Steigungen) prÃ¼fen wir alternative Fahrzeuge oder LÃ¶sungen. Bitte informieren Sie uns unbedingt vorab, damit wir die passende Logistik planen kÃ¶nnen." },
+{ q: "KÃ¶nnen beladene Container geliefert oder abgeholt werden?", a: "Nein â€“ Kipper-Tieflader kÃ¶nnen ausschlieÃŸlich leere Container transportieren. Soll ein beladener Container bewegt oder exportiert werden, ist Hebetechnik (Kran oder Schwerlast-Gabelstapler) am Standort erforderlich." },
+{ q: "Liefern Sie deutschlandweit?", a: "Ja, wir liefern in alle deutschen BundeslÃ¤nder. FÃ¼r Lieferungen in grenznahe Gebiete (Ã–sterreich, Schweiz, Benelux) sprechen Sie uns bitte direkt an." }];
 
 
 const relatedLinks = [
 { href: "/seecontainer-kaufen", title: "Seecontainer kaufen" },
-{ href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen" },
-{ href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen" },
+{ href: "/20-fuss-container-kaufen", title: "20 FuÃŸ Container kaufen" },
+{ href: "/40-fuss-container-kaufen", title: "40 FuÃŸ Container kaufen" },
 { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen" },
-{ href: "/buerocontainer-kaufen", title: "Bürocontainer kaufen" },
+{ href: "/buerocontainer-kaufen", title: "BÃ¼rocontainer kaufen" },
 { href: "/container-fundament", title: "Container Fundament" },
 { href: "/container-kosten", title: "Container Kosten" },
-{ href: "/container-masse", title: "Container Maße" }];
+{ href: "/container-masse", title: "Container MaÃŸe" }];
 
 
 export default function ContainerLieferung() {
   return (
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
 
-      {/* ── Hero Banner ── */}
+      {/* â”€â”€ Hero Banner â”€â”€ */}
       <div
         className="relative overflow-hidden mb-12"
         style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #0f2540 100%)` }}>
@@ -254,10 +254,10 @@ export default function ContainerLieferung() {
                 Container Lieferung<br />deutschlandweit
               </h1>
               <p className="text-white/70 text-base leading-relaxed max-w-xl">
-                Seecontainer werden per Spezialfahrzeug geliefert. Je nach Containertyp, Entfernung und Zugangssituation setzen wir unterschiedliche Transportmethoden ein. Wir liefern zuverlässig in alle Bundesländer.
+                Seecontainer werden per Spezialfahrzeug geliefert. Je nach Containertyp, Entfernung und Zugangssituation setzen wir unterschiedliche Transportmethoden ein. Wir liefern zuverlÃ¤ssig in alle BundeslÃ¤nder.
               </p>
               <div className="flex flex-wrap gap-4 mt-6">
-                <Link to="/angebot"
+                <Link to="/shop"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
                 style={{ backgroundColor: ORANGE }}>
                   
@@ -289,11 +289,11 @@ export default function ContainerLieferung() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ── 5-Step Process ── */}
+        {/* â”€â”€ 5-Step Process â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Schritt für Schritt</span>
-            <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">So läuft Ihre Container-Lieferung ab</h2>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Schritt fÃ¼r Schritt</span>
+            <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">So lÃ¤uft Ihre Container-Lieferung ab</h2>
           </div>
 
           <div className="relative">
@@ -321,12 +321,12 @@ export default function ContainerLieferung() {
           </div>
         </section>
 
-        {/* ── Truck Types ── */}
+        {/* â”€â”€ Truck Types â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Transportmethoden</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Welches Fahrzeug wird eingesetzt?</h2>
-            <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Die Wahl des Fahrzeugs hängt vom Containertyp, der Entfernung und den Zugangsbedingungen am Zielort ab.</p>
+            <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Die Wahl des Fahrzeugs hÃ¤ngt vom Containertyp, der Entfernung und den Zugangsbedingungen am Zielort ab.</p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {TRUCK_TYPES.map((truck, i) =>
@@ -366,7 +366,7 @@ export default function ContainerLieferung() {
           </div>
         </section>
 
-        {/* ── Delivery Diagram ── */}
+        {/* â”€â”€ Delivery Diagram â”€â”€ */}
         
 
 
@@ -375,12 +375,12 @@ export default function ContainerLieferung() {
 
         
 
-        {/* ── Site Requirements ── */}
+        {/* â”€â”€ Site Requirements â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Checkliste</span>
-            <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Was müssen Sie vorbereiten?</h2>
-            <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Bereiten Sie diese Punkte vor dem Liefertag vor, um einen reibungslosen Ablauf zu gewährleisten</p>
+            <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Was mÃ¼ssen Sie vorbereiten?</h2>
+            <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Bereiten Sie diese Punkte vor dem Liefertag vor, um einen reibungslosen Ablauf zu gewÃ¤hrleisten</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {REQUIREMENTS.map((req, i) =>
@@ -411,39 +411,39 @@ export default function ContainerLieferung() {
           </div>
         </section>
 
-        {/* ── Door Direction Info ── */}
+        {/* â”€â”€ Door Direction Info â”€â”€ */}
         <section className="mb-14">
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
             <div className="px-6 py-5 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}15, transparent)` }}>
-              <h2 className="font-heading font-bold text-lg text-foreground">Türausrichtung beim Transport</h2>
+              <h2 className="font-heading font-bold text-lg text-foreground">TÃ¼rausrichtung beim Transport</h2>
               <p className="text-sm text-muted-foreground mt-1">Ein wichtiges Detail, das Sie vor der Lieferung festlegen sollten</p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-border">
               <div className="p-6">
-                <div className="text-2xl mb-3">🔄</div>
-                <h3 className="font-heading font-bold text-sm text-foreground mb-2">Türen zeigen zur LKW-Kabine</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">Der Container liegt mit den Türen vorne auf dem Kipper. Beim Absetzen landet die Türseite zuletzt auf dem Boden – die Türen öffnen in Richtung der Anfahrt.</p>
+                <div className="text-2xl mb-3">ðŸ”„</div>
+                <h3 className="font-heading font-bold text-sm text-foreground mb-2">TÃ¼ren zeigen zur LKW-Kabine</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Der Container liegt mit den TÃ¼ren vorne auf dem Kipper. Beim Absetzen landet die TÃ¼rseite zuletzt auf dem Boden â€“ die TÃ¼ren Ã¶ffnen in Richtung der Anfahrt.</p>
               </div>
               <div className="p-6">
-                <div className="text-2xl mb-3">↩️</div>
-                <h3 className="font-heading font-bold text-sm text-foreground mb-2">Türen zeigen zur LKW-Rückseite</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">Der Container liegt mit den Türen hinten auf dem Kipper. Beim Absetzen landet die Türseite zuerst auf dem Boden – die Türen öffnen vom LKW weg.</p>
+                <div className="text-2xl mb-3">â†©ï¸</div>
+                <h3 className="font-heading font-bold text-sm text-foreground mb-2">TÃ¼ren zeigen zur LKW-RÃ¼ckseite</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Der Container liegt mit den TÃ¼ren hinten auf dem Kipper. Beim Absetzen landet die TÃ¼rseite zuerst auf dem Boden â€“ die TÃ¼ren Ã¶ffnen vom LKW weg.</p>
               </div>
             </div>
             <div className="px-6 py-4 bg-muted/30 border-t border-border flex items-start gap-2">
               <Info className="w-4 h-4 shrink-0 mt-0.5" style={{ color: ORANGE }} />
-              <p className="text-xs text-muted-foreground">Teilen Sie uns Ihre gewünschte Türausrichtung bei der Anfrage mit, damit wir den Container entsprechend beladen können.</p>
+              <p className="text-xs text-muted-foreground">Teilen Sie uns Ihre gewÃ¼nschte TÃ¼rausrichtung bei der Anfrage mit, damit wir den Container entsprechend beladen kÃ¶nnen.</p>
             </div>
           </div>
         </section>
 
-        {/* ── CTA ── */}
+        {/* â”€â”€ CTA â”€â”€ */}
         <CtaBanner text="Kostenloses Lieferangebot anfordern" btnHref="/angebot" />
 
-        {/* ── Cost Table ── */}
+        {/* â”€â”€ Cost Table â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-6">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Preisübersicht</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>PreisÃ¼bersicht</span>
             <h2 className="font-heading font-bold text-2xl text-foreground">Transportkosten nach Entfernung</h2>
             <p className="text-muted-foreground text-sm mt-2">Richtwerte ab unserem Standort. Endpreise individuell auf Anfrage.</p>
           </div>
@@ -451,7 +451,7 @@ export default function ContainerLieferung() {
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ backgroundColor: NAVY }}>
-                  {["Entfernung", "20 Fuß Container", "40 Fuß Container"].map((h, i) =>
+                  {["Entfernung", "20 FuÃŸ Container", "40 FuÃŸ Container"].map((h, i) =>
                   <th key={i} className="px-5 py-4 text-left font-heading font-semibold text-white text-xs uppercase tracking-wide">{h}</th>
                   )}
                 </tr>
@@ -469,19 +469,19 @@ export default function ContainerLieferung() {
           </div>
           <p className="text-xs text-muted-foreground mt-3 flex items-start gap-1.5">
             <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-            Erschwernistarife gelten bei: Nachtlieferung, enger Zufahrt (unter 3,5 m), Sondergenehmigungen für Schwertransporte.
+            Erschwernistarife gelten bei: Nachtlieferung, enger Zufahrt (unter 3,5 m), Sondergenehmigungen fÃ¼r Schwertransporte.
           </p>
         </section>
 
-        {/* ── Related Links ── */}
+        {/* â”€â”€ Related Links â”€â”€ */}
         <section className="mb-10">
-          <h2 className="font-heading font-bold text-xl text-foreground mb-4">Weiterführende Ratgeber</h2>
+          <h2 className="font-heading font-bold text-xl text-foreground mb-4">WeiterfÃ¼hrende Ratgeber</h2>
           <InternalLinkGrid links={relatedLinks} />
         </section>
 
-        {/* ── FAQ ── */}
+        {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-10">
-          <h2 className="font-heading font-bold text-xl text-foreground mb-5">Häufige Fragen zur Container-Lieferung</h2>
+          <h2 className="font-heading font-bold text-xl text-foreground mb-5">HÃ¤ufige Fragen zur Container-Lieferung</h2>
           <FaqAccordion items={faqs} />
         </section>
 
@@ -490,3 +490,4 @@ export default function ContainerLieferung() {
     </div>);
 
 }
+

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -78,7 +78,7 @@ export default function DeliveryProcess() {
             </div>
 
             <div className="shrink-0">
-              <Link to="/angebot" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-bold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity shadow-lg" style={{ backgroundColor: ORANGE }}>
+              <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-bold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity shadow-lg" style={{ backgroundColor: ORANGE }}>
                 <Truck className="w-4 h-4" />
                 {T.contactCta}
                 <ArrowRight className="w-4 h-4" />
@@ -90,3 +90,4 @@ export default function DeliveryProcess() {
     </>
   );
 }
+

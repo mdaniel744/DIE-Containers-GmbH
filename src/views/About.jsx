@@ -48,6 +48,18 @@ export default function About() {
         </div>
       </section>
 
+      {/* Business credentials */}
+      <section className="py-8 bg-muted/30 border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm text-muted-foreground">
+            <span className="flex items-center gap-2"><Shield className="w-4 h-4 text-secondary shrink-0" /><span>Eingetragen: DIE Container GmbH</span></span>
+            <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-secondary shrink-0" /><span>Handelsregister: HRB 256757</span></span>
+            <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-secondary shrink-0" /><span>USt-IdNr.: DE 330443785</span></span>
+            <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-secondary shrink-0" /><span>Putzbrunn, Bayern, Deutschland</span></span>
+          </div>
+        </div>
+      </section>
+
       {/* Why Trust */}
       <section className="py-20 lg:py-28 bg-muted/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

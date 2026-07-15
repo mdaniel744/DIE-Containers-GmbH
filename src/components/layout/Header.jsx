@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
@@ -14,17 +14,17 @@ import NextLink from "next/link";
 
 const simpleNavItems = [
   { label: "Home", path: "/" },
-  { label: "Über uns", path: "/ueber-uns" },
+  { label: "Ãœber uns", path: "/ueber-uns" },
   { label: "Kontakt", path: "/kontakt" },
 ];
 
 const SERVICE_ITEMS = [
   { label: "Container Lieferung", path: "/container-lieferung", desc: "Lieferoptionen & Logistik" },
-  { label: "Container Maße", path: "/container-masse", desc: "Alle Abmessungen & Gewichte" },
-  { label: "FAQ", path: "/faq", desc: "Häufig gestellte Fragen" },
+  { label: "Container MaÃŸe", path: "/container-masse", desc: "Alle Abmessungen & Gewichte" },
+  { label: "FAQ", path: "/faq", desc: "HÃ¤ufig gestellte Fragen" },
 ];
 
-/* ─── Reusable hover-dropdown hook ─── */
+/* â”€â”€â”€ Reusable hover-dropdown hook â”€â”€â”€ */
 function useHoverDropdown(delay = 180) {
   const [open, setOpen] = useState(false);
   const timerRef = useRef(null);
@@ -43,7 +43,7 @@ function useHoverDropdown(delay = 180) {
   return { open, setOpen, onEnter, onLeave };
 }
 
-/* ─── Mega dropdown component ─── */
+/* â”€â”€â”€ Mega dropdown component â”€â”€â”€ */
 function CatalogDropdown({ visible, categories, locale }) {
   const t = useT();
   if (categories.length === 0) return null;
@@ -100,7 +100,7 @@ function CatalogDropdown({ visible, categories, locale }) {
           {/* Footer CTA */}
           <div className="px-4 pb-4">
             <Link
-              to="/angebot"
+              to="/shop"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "#F28C28" }}
             >
@@ -131,10 +131,10 @@ export default function Header() {
     const raw = location.pathname;
     if (locale === "de") {
       // If an EN version of this page exists, link to it.
-      // Otherwise stay on the same German page — never bounce to homepage.
+      // Otherwise stay on the same German page â€” never bounce to homepage.
       return isLocalizablePath(raw) ? `/en${raw === "/" ? "" : raw}` : raw;
     }
-    // English → German: strip /en prefix
+    // English â†’ German: strip /en prefix
     const stripped = stripLocalePrefix(raw);
     return stripped || "/";
   })();
@@ -148,7 +148,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="group flex items-center" aria-label="DIE Container GmbH – Startseite">
+          <Link to="/" className="group flex items-center" aria-label="DIE Container GmbH â€“ Startseite">
             <div className="relative h-12 w-28 overflow-hidden sm:w-32 lg:h-14 lg:w-36">
               <img
                 src="/images/die-container-logo-blue.png"
@@ -236,7 +236,7 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Über uns & Kontakt */}
+            {/* Ãœber uns & Kontakt */}
             {[{ label: t("nav.about"), path: "/ueber-uns" }, { label: t("nav.contact"), path: "/kontakt" }].map((item) => (
               <Link
                 key={item.path}
@@ -261,15 +261,7 @@ export default function Header() {
               <Phone className="w-4 h-4" />
               <span>0049 163 5393 159</span>
             </a>
-            {/* Language switcher — uses NextLink directly to bypass locale-aware resolveHref */}
-            <NextLink
-              href={alternatePath}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-border text-xs font-semibold font-mono hover:bg-muted transition-colors"
-              title={locale === "de" ? "Switch to English" : "Zur deutschen Version wechseln"}
-            >
-              {locale === "de" ? "EN" : "DE"}
-            </NextLink>
-            <Link to="/angebot">
+            <Link to="/shop">
               <Button className="font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
                 {t("nav.cta")}
               </Button>
@@ -380,17 +372,11 @@ export default function Header() {
               </div>
 
               <div className="pt-3 border-t border-border mt-3 space-y-2">
-                <Link to="/angebot" className="block">
+                <Link to="/shop" className="block">
                   <Button className="w-full font-heading font-semibold text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
                     {t("nav.cta")}
                   </Button>
                 </Link>
-                <NextLink
-                  href={alternatePath}
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg border border-border text-sm font-semibold font-mono hover:bg-muted transition-colors"
-                >
-                  {locale === "de" ? "🌐 Switch to English (EN)" : "🌐 Zur deutschen Version (DE)"}
-                </NextLink>
               </div>
             </nav>
           </motion.div>
@@ -399,3 +385,5 @@ export default function Header() {
     </header>
   );
 }
+
+

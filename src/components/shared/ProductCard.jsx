@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { FileText } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
@@ -60,21 +60,16 @@ export default function ProductCard({ product, index = 0 }) {
 
         <div className="mb-4">
           <span className="font-heading font-bold text-xl text-foreground">
-            {T.from} {product.price_from?.toLocaleString("de-DE")} €
+            {product.price_from?.toLocaleString("de-DE")} €
           </span>
-          <p className="text-xs text-muted-foreground mt-0.5">{T.transport}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">inkl. 19% MwSt. · zzgl. Versandkosten</p>
         </div>
 
         <div className="flex gap-2">
           <Link to={`/produkt/${product.slug || product.id}`} className="flex-1">
-            <Button variant="outline" size="sm" className="w-full text-xs font-medium border-[#1B3A5C]/30 text-[#1B3A5C] hover:bg-[#1B3A5C]/5">
-              {T.details}
-            </Button>
-          </Link>
-          <Link to={`/angebot?product=${product.id}`} className="flex-1">
             <Button size="sm" className="w-full text-xs font-medium text-[#1a1a1a] hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
-              <FileText className="w-3.5 h-3.5 mr-1.5" />
-              {T.quote}
+              <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
+              {T.cart}
             </Button>
           </Link>
         </div>

@@ -62,6 +62,7 @@ const organizationSchema = {
     addressLocality: "Putzbrunn",
     addressCountry: "DE",
   },
+  sameAs: [],
 };
 
 export default function RootLayout({ children }) {

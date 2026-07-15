@@ -27,7 +27,7 @@ const strings = {
       legal: "Rechtliches",
       tagline: "DIE Container GmbH bietet neue und gebrauchte Container für Lagerung, Transport, Gewerbe, Bau und private Nutzung. Wir stehen für zuverlässige Containerlösungen, klare Kommunikation und professionelle Abwicklung.",
       copyright: "Alle Rechte vorbehalten.",
-      disclaimer: "Preise zzgl. Transport · Alle Angaben ohne Gewähr",
+      disclaimer: "Alle Angaben ohne Gewähr",
     },
 
     // ─── HERO ─────────────────────────────────────────────────────────────────
@@ -139,10 +139,8 @@ const strings = {
 
     // ─── PRODUCT CARD ────────────────────────────────────────────────────────
     productCard: {
-      from: "Ab",
-      transport: "zzgl. Transportkosten",
       details: "Details ansehen",
-      quote: "Angebot",
+      cart: "In Den Warenkorb",
     },
 
     // ─── SHOP PAGE ───────────────────────────────────────────────────────────
@@ -182,7 +180,7 @@ const strings = {
       backToShop: "Zurück zum Shop",
       inStock: "Auf Lager",
       from: "Ab",
-      priceNote: "zzgl. Transportkosten · Preise netto · inkl. Beratung",
+      priceNote: "Preis inkl. 19% MwSt. · zzgl. individuell berechneter Versandkosten",
       quantityLabel: "Anzahl Container",
       ctaSingle: "Unverbindliches Angebot anfordern",
       ctaMulti: (n) => `${n} × Container – Angebot anfordern`,
@@ -616,7 +614,7 @@ const strings = {
       legal: "Legal",
       tagline: "DIE Container GmbH offers new and used containers for storage, transport, trade, construction and private use, backed by clear communication and professional handling.",
       copyright: "All rights reserved.",
-      disclaimer: "Prices excl. transport · All information without guarantee",
+      disclaimer: "All information without guarantee",
     },
 
     hero: {
@@ -719,10 +717,9 @@ const strings = {
     },
 
     productCard: {
-      from: "From",
-      transport: "excl. transport costs",
+      transport: "",
       details: "View details",
-      quote: "Quote",
+      cart: "Add to Cart",
     },
 
     shop: {
@@ -759,7 +756,7 @@ const strings = {
       backToShop: "Back to shop",
       inStock: "In stock",
       from: "From",
-      priceNote: "excl. transport costs · net prices · incl. consultation",
+      priceNote: "Price incl. 19% VAT",
       quantityLabel: "Number of containers",
       ctaSingle: "Request a non-binding quote",
       ctaMulti: (n) => `${n} × containers – Request a quote`,

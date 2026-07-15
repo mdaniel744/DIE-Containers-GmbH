@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -11,15 +11,15 @@ const NAVY = "#1B3A5C";
 const legalContent = {
   impressum: {
     title: "Impressum",
-    content: "**Angaben gemäß § 5 TMG:**\n\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland\n\n**Kontakt:**\nTelefon: 0049 163 5393 159\nE-Mail: contact@diecontainers.com\n\n**Handelsregister / EUID:**\nHRB256757\n\n**Umsatzsteuer-ID:**\nUmsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:\nDE 330443785\n\n**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland",
+    content: "**Angaben gemÃ¤ÃŸ Â§ 5 TMG:**\n\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland\n\n**Kontakt:**\nTelefon: 0049 163 5393 159\nE-Mail: contact@diecontainers.com\n\n**Handelsregister / EUID:**\nHRB256757\n\n**Umsatzsteuer-ID:**\nUmsatzsteuer-Identifikationsnummer gemÃ¤ÃŸ Â§ 27a Umsatzsteuergesetz:\nDE 330443785\n\n**Verantwortlich fÃ¼r den Inhalt nach Â§ 55 Abs. 2 RStV:**\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland",
   },
   "cookie-policy": {
     title: "Cookie Policy",
-    content: "**Cookie-Richtlinie**\n\nDiese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten.\n\n**Was sind Cookies?**\nCookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden.\n\n**Welche Cookies verwenden wir?**\n- Notwendige Cookies: Für die grundlegende Funktion der Website\n- Funktionale Cookies: Für erweiterte Funktionen und Personalisierung\n- Analytische Cookies: Zur Analyse der Websitenutzung\n\n**Ihre Einstellungen**\nSie können Cookies jederzeit in Ihren Browser-Einstellungen deaktivieren.",
+    content: "**Cookie-Richtlinie**\n\nDiese Website verwendet Cookies, um Ihnen die bestmÃ¶gliche Erfahrung zu bieten.\n\n**Was sind Cookies?**\nCookies sind kleine Textdateien, die auf Ihrem EndgerÃ¤t gespeichert werden.\n\n**Welche Cookies verwenden wir?**\n- Notwendige Cookies: FÃ¼r die grundlegende Funktion der Website\n- Funktionale Cookies: FÃ¼r erweiterte Funktionen und Personalisierung\n- Analytische Cookies: Zur Analyse der Websitenutzung\n\n**Ihre Einstellungen**\nSie kÃ¶nnen Cookies jederzeit in Ihren Browser-Einstellungen deaktivieren.",
   },
   widerrufsrecht: {
     title: "Widerrufsrecht",
-    content: "**Widerrufsbelehrung**\n\n**Widerrufsrecht**\nSie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.\n\n**Folgen des Widerrufs**\nWenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen zurückzuzahlen.\n\nBitte beachten Sie, dass das Widerrufsrecht bei individuell angefertigten oder maßgeschneiderten Containern ausgeschlossen sein kann.",
+    content: "**Widerrufsbelehrung**\n\n**Widerrufsrecht**\nSie haben das Recht, binnen vierzehn Tagen ohne Angabe von GrÃ¼nden diesen Vertrag zu widerrufen. Die Widerrufsfrist betrÃ¤gt vierzehn Tage ab dem Tag des Vertragsabschlusses.\n\n**Folgen des Widerrufs**\nWenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzÃ¼glich und spÃ¤testens binnen vierzehn Tagen zurÃ¼ckzuzahlen.\n\nBitte beachten Sie, dass das Widerrufsrecht bei individuell angefertigten oder maÃŸgeschneiderten Containern ausgeschlossen sein kann.",
   },
   rueckgabe: null,
   zahlungsbedingungen: null,
@@ -135,19 +135,19 @@ function ContactBlock() {
 
 function TransportTable() {
   const rows = [
-    ["See- & Binnenschifffahrt (Barge)", "Containertransport per Binnenschiff oder Flussbarke", "20 ft, 40 ft", "Über schiffbare Binnenwasserstraßen"],
-    ["Schienentransport (Bahn)", "Containertransport per Güterzug, Depot-zu-Depot", "20 ft, 40 ft", "Abhängig von Bahnterminals"],
-    ["Straßentransport (LKW)", "Lieferung per Flatbed- oder Sattelzug", "2 × 20 ft oder 1 × 40 ft", "Europaweite Lieferung"],
-    ["Kran-LKW", "LKW mit integriertem Kran für Be- und Entladung", "2 × 20 ft oder 1 × 40 ft", "Transport & Entladung europaweit"],
-    ["Mobiler Kran", "Separater Mobilkran zur Containerentladung", "Alle Containergrößen", "Für schwierige Stellplätze"],
-    ["Gabelstapler (inkl. Fahrer)", "Entladung vom Flatbed per Gabelstapler", "Alle geeigneten Container", "Europaweit verfügbar"],
+    ["See- & Binnenschifffahrt (Barge)", "Containertransport per Binnenschiff oder Flussbarke", "20 ft, 40 ft", "Ãœber schiffbare BinnenwasserstraÃŸen"],
+    ["Schienentransport (Bahn)", "Containertransport per GÃ¼terzug, Depot-zu-Depot", "20 ft, 40 ft", "AbhÃ¤ngig von Bahnterminals"],
+    ["StraÃŸentransport (LKW)", "Lieferung per Flatbed- oder Sattelzug", "2 Ã— 20 ft oder 1 Ã— 40 ft", "Europaweite Lieferung"],
+    ["Kran-LKW", "LKW mit integriertem Kran fÃ¼r Be- und Entladung", "2 Ã— 20 ft oder 1 Ã— 40 ft", "Transport & Entladung europaweit"],
+    ["Mobiler Kran", "Separater Mobilkran zur Containerentladung", "Alle ContainergrÃ¶ÃŸen", "FÃ¼r schwierige StellplÃ¤tze"],
+    ["Gabelstapler (inkl. Fahrer)", "Entladung vom Flatbed per Gabelstapler", "Alle geeigneten Container", "Europaweit verfÃ¼gbar"],
   ];
   return (
     <div className="overflow-x-auto rounded-xl border border-border mt-3">
       <table className="w-full text-xs">
         <thead>
           <tr className="border-b border-border" style={{ backgroundColor: NAVY }}>
-            {["Transport- / Umschlagsart", "Beschreibung", "Containergrößen", "Einsatzgebiet"].map(h => (
+            {["Transport- / Umschlagsart", "Beschreibung", "ContainergrÃ¶ÃŸen", "Einsatzgebiet"].map(h => (
               <th key={h} className="px-4 py-3 text-left font-heading font-semibold text-white">{h}</th>
             ))}
           </tr>
@@ -176,63 +176,63 @@ function ZahlungsbedingungenPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Zahlungsbedingungen & Zahlungsrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Bei DIE Container GmbH legen wir großen Wert auf transparente, sichere und nachvollziehbare Zahlungsprozesse – ohne versteckte Gebühren oder zwischengeschaltete Zahlungsdienstleister.
+              Bei DIE Container GmbH legen wir groÃŸen Wert auf transparente, sichere und nachvollziehbare Zahlungsprozesse â€“ ohne versteckte GebÃ¼hren oder zwischengeschaltete Zahlungsdienstleister.
             </p>
           </div>
 
           <div className="divide-y divide-border">
-            <Section number="1" title="Verfügbare Zahlungsmethoden">
+            <Section number="1" title="VerfÃ¼gbare Zahlungsmethoden">
               <div className="bg-muted/50 rounded-xl px-4 py-4 flex items-start gap-3">
                 <Building className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
                 <div>
-                  <p className="font-heading font-semibold text-foreground text-sm mb-1">Banküberweisung (SEPA – Vorkasse)</p>
-                  <p>Die Zahlung erfolgt per SEPA-Banküberweisung auf unser offizielles Geschäftskonto.</p>
+                  <p className="font-heading font-semibold text-foreground text-sm mb-1">BankÃ¼berweisung (SEPA â€“ Vorkasse)</p>
+                  <p>Die Zahlung erfolgt per SEPA-BankÃ¼berweisung auf unser offizielles GeschÃ¤ftskonto.</p>
                 </div>
               </div>
               <p className="mt-3 font-medium text-foreground">So funktioniert der Zahlungsablauf:</p>
               <NumberedList items={[
                 "Sie erhalten von uns ein detailliertes Angebot oder eine Proforma-Rechnung",
-                "Nach Ihrer Bestätigung zur Fortsetzung der Bestellung erhalten Sie die Rechnung mit unseren Bankdaten",
-                "Die Zahlung ist sofort und ohne Abzug fällig",
-                "Nach Zahlungseingang wird der Container für die Lieferung freigegeben",
+                "Nach Ihrer BestÃ¤tigung zur Fortsetzung der Bestellung erhalten Sie die Rechnung mit unseren Bankdaten",
+                "Die Zahlung ist sofort und ohne Abzug fÃ¤llig",
+                "Nach Zahlungseingang wird der Container fÃ¼r die Lieferung freigegeben",
               ]} />
               <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                <p className="text-xs text-amber-800"><strong>⚠️ Wichtiger Hinweis:</strong> Zahlungen sind ausschließlich auf das offizielle Firmenkonto von DIE Container GmbH zu leisten, das Ihnen im Rechnungsdokument mitgeteilt wird.</p>
+                <p className="text-xs text-amber-800"><strong>âš ï¸ Wichtiger Hinweis:</strong> Zahlungen sind ausschlieÃŸlich auf das offizielle Firmenkonto von DIE Container GmbH zu leisten, das Ihnen im Rechnungsdokument mitgeteilt wird.</p>
               </div>
             </Section>
 
             <Section number="2" title="Zahlungsprozess">
               <p>Der Zahlungsprozess ist klar strukturiert und erfolgt in folgenden Schritten:</p>
               <NumberedList items={[
-                "Bestellung oder Anfrage über unsere Website",
+                "Bestellung oder Anfrage Ã¼ber unsere Website",
                 "Zusendung eines detaillierten Angebots inklusive aller relevanten Informationen",
-                "Bestätigung des Angebots durch den Kunden",
+                "BestÃ¤tigung des Angebots durch den Kunden",
                 "Ausstellung der Rechnung mit Bankverbindung",
-                "Zahlung per SEPA-Überweisung",
+                "Zahlung per SEPA-Ãœberweisung",
                 "Versand bzw. Disposition des Containers erst nach Zahlungseingang",
                 "Organisation der Lieferung",
               ]} />
               <div className="mt-3 bg-muted/50 rounded-xl px-4 py-3">
-                <p className="text-xs text-muted-foreground"><strong className="text-foreground">📄 Rechnung & Beleg:</strong> Nach Zahlungseingang erhalten Sie die Rechnung im Originalformat per E-Mail. Auf Wunsch stellen wir Ihnen zusätzlich einen Zahlungsbeleg als PDF mit Stempel und Unterschrift für Ihre Buchhaltung zur Verfügung.</p>
+                <p className="text-xs text-muted-foreground"><strong className="text-foreground">ðŸ“„ Rechnung & Beleg:</strong> Nach Zahlungseingang erhalten Sie die Rechnung im Originalformat per E-Mail. Auf Wunsch stellen wir Ihnen zusÃ¤tzlich einen Zahlungsbeleg als PDF mit Stempel und Unterschrift fÃ¼r Ihre Buchhaltung zur VerfÃ¼gung.</p>
               </div>
             </Section>
 
             <Section number="3" title="Zahlungsfreigabe & Versand">
               <BulletList items={[
-                "Container werden ausschließlich nach vollständigem Zahlungseingang versendet",
+                "Container werden ausschlieÃŸlich nach vollstÃ¤ndigem Zahlungseingang versendet",
                 "Der Zahlungseingang muss auf unserem Firmenkonto gutgeschrieben sein",
                 "Eine Reservierung oder Lieferung vor Zahlungseingang ist ausgeschlossen",
               ]} />
-              <p className="mt-2">Dies dient der Absicherung beider Parteien und gewährleistet eine reibungslose Abwicklung.</p>
+              <p className="mt-2">Dies dient der Absicherung beider Parteien und gewÃ¤hrleistet eine reibungslose Abwicklung.</p>
             </Section>
 
             <Section number="4" title="Sicherheit & Vertraulichkeit">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                 {[
                   { icon: Lock, text: "Wir arbeiten ohne externe Zahlungsdienstleister" },
-                  { icon: Shield, text: "Ihre Bankdaten verbleiben vollständig bei Ihnen" },
-                  { icon: CreditCard, text: "Zahlungen erfolgen auf unser intern verwaltetes Geschäftskonto" },
-                  { icon: FileText, text: "Alle Daten werden gemäß Datenschutzbestimmungen verarbeitet" },
+                  { icon: Shield, text: "Ihre Bankdaten verbleiben vollstÃ¤ndig bei Ihnen" },
+                  { icon: CreditCard, text: "Zahlungen erfolgen auf unser intern verwaltetes GeschÃ¤ftskonto" },
+                  { icon: FileText, text: "Alle Daten werden gemÃ¤ÃŸ Datenschutzbestimmungen verarbeitet" },
                 ].map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-start gap-3 bg-muted/50 rounded-xl px-4 py-3">
                     <Icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
@@ -242,8 +242,8 @@ function ZahlungsbedingungenPage() {
               </div>
             </Section>
 
-            <Section number="5" title="Unterstützung & Kontakt">
-              <p>Bei Fragen zu Zahlungen, Rechnungen oder Zahlungsbestätigungen erreichen Sie uns jederzeit:</p>
+            <Section number="5" title="UnterstÃ¼tzung & Kontakt">
+              <p>Bei Fragen zu Zahlungen, Rechnungen oder ZahlungsbestÃ¤tigungen erreichen Sie uns jederzeit:</p>
               <ContactBlock />
             </Section>
           </div>
@@ -261,9 +261,9 @@ function AgbPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
-            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
+            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine GeschÃ¤ftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
+              Diese Allgemeinen GeschÃ¤ftsbedingungen gelten fÃ¼r alle VertrÃ¤ge zwischen DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland und ihren Kunden fÃ¼r den Verkauf von neuen und gebrauchten Containern einschlieÃŸlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklÃ¤rt der Kunde sein EinverstÃ¤ndnis mit diesen Bedingungen.
             </p>
           </div>
 
@@ -271,52 +271,52 @@ function AgbPage() {
             <Section number="1" title="Vertragsabschluss">
               <BulletList items={[
                 "Alle Angebote auf unserer Website oder per E-Mail sind freibleibend und unverbindlich.",
-                "Ein verbindlicher Kaufvertrag kommt erst durch unsere schriftliche Auftragsbestätigung oder durch Lieferung der Ware zustande.",
-                "Änderungen oder Sonderwünsche bedürfen der schriftlichen Zustimmung von DIE Container GmbH.",
+                "Ein verbindlicher Kaufvertrag kommt erst durch unsere schriftliche AuftragsbestÃ¤tigung oder durch Lieferung der Ware zustande.",
+                "Ã„nderungen oder SonderwÃ¼nsche bedÃ¼rfen der schriftlichen Zustimmung von DIE Container GmbH.",
               ]} />
             </Section>
 
             <Section number="2" title="Preise & Zahlung">
               <BulletList items={[
-                "Alle Preise sind in Euro (€) angegeben und beinhalten – sofern nicht anders angegeben – die gesetzliche Mehrwertsteuer (derzeit 19 %).",
+                "Alle Preise sind in Euro (â‚¬) angegeben und beinhalten â€“ sofern nicht anders angegeben â€“ die gesetzliche Mehrwertsteuer (derzeit 19 %).",
                 "Lieferkosten variieren je nach Bestellmenge und Lieferadresse innerhalb Deutschlands.",
-                "Die Zahlung erfolgt ausschließlich per Vorkasse (100 %) via Banküberweisung.",
-                "Die Lieferung erfolgt erst nach vollständigem Zahlungseingang.",
+                "Die Zahlung erfolgt ausschlieÃŸlich per Vorkasse (100 %) via BankÃ¼berweisung.",
+                "Die Lieferung erfolgt erst nach vollstÃ¤ndigem Zahlungseingang.",
               ]} />
             </Section>
 
             <Section number="3" title="Lieferung & Versand">
               <BulletList items={[
                 "Die Lieferung erfolgt an die vom Kunden angegebene Adresse innerhalb Deutschlands.",
-                "Lieferzeit: in der Regel 7–14 Werktage nach Zahlungseingang.",
+                "Lieferzeit: in der Regel 7â€“14 Werktage nach Zahlungseingang.",
                 "Die Entladung per Kran oder Gabelstapler ist im Lieferpreis enthalten.",
-                "Der Kunde muss sicherstellen, dass die Lieferadresse ebenerdig zugänglich ist und ausreichend Platz zum Entladen vorhanden ist.",
-                "Bei Annahmeverweigerung oder gescheiterter Lieferung behalten wir uns vor, Kosten für Rücktransport und Wiedereinlagerung in Rechnung zu stellen.",
+                "Der Kunde muss sicherstellen, dass die Lieferadresse ebenerdig zugÃ¤nglich ist und ausreichend Platz zum Entladen vorhanden ist.",
+                "Bei Annahmeverweigerung oder gescheiterter Lieferung behalten wir uns vor, Kosten fÃ¼r RÃ¼cktransport und Wiedereinlagerung in Rechnung zu stellen.",
               ]} />
             </Section>
 
             <Section number="4" title="Eigentumsvorbehalt">
               <BulletList items={[
-                "Die gelieferte Ware bleibt bis zur vollständigen Zahlung Eigentum von DIE Container GmbH.",
-                "Bei Zahlungsverzug behalten wir uns das Recht vor, die Ware auf Kosten des Käufers zurückzufordern.",
+                "Die gelieferte Ware bleibt bis zur vollstÃ¤ndigen Zahlung Eigentum von DIE Container GmbH.",
+                "Bei Zahlungsverzug behalten wir uns das Recht vor, die Ware auf Kosten des KÃ¤ufers zurÃ¼ckzufordern.",
               ]} />
             </Section>
 
-            <Section number="5" title="Widerrufsrecht & Rückgabe">
+            <Section number="5" title="Widerrufsrecht & RÃ¼ckgabe">
               <BulletList items={[
-                "Privatkunden (Verbraucher) haben ein gesetzliches Widerrufsrecht von 30 Tagen.",
-                "Zusätzlich bieten wir eine freiwillige 30-tägige Rückgabegarantie für neue Container (siehe unsere Rückgabe- und Erstattungsrichtlinie).",
-                "Gebrauchte Container sind vom Rückgaberecht ausgenommen, sofern kein nachweisbarer Mangel vorliegt.",
-                "Rückgaben müssen vorab mit uns abgestimmt werden. Wir organisieren die Abholung – der Käufer trägt die Rücksendekosten (außer bei mangelhafter Ware).",
+                "Privatkunden (Verbraucher) haben ein gesetzliches Widerrufsrecht von 14 Tagen ab Erhalt der Ware.",
+                "ZusÃ¤tzlich bieten wir freiwillig eine verlÃ¤ngerte RÃ¼ckgabemÃ¶glichkeit von 30 Tagen fÃ¼r neue Container an (siehe unsere RÃ¼ckgabe- und Erstattungsrichtlinie).",
+                "Gebrauchte Container sind vom RÃ¼ckgaberecht ausgenommen, sofern kein nachweisbarer Mangel vorliegt.",
+                "RÃ¼ckgaben mÃ¼ssen vorab mit uns abgestimmt werden. Wir organisieren die Abholung â€“ der KÃ¤ufer trÃ¤gt die RÃ¼cksendekosten (auÃŸer bei mangelhafter Ware).",
               ]} />
             </Section>
 
-            <Section number="6" title="Gewährleistung & Garantie">
-              <p>Es gelten die gesetzlichen Gewährleistungsrechte für Verbraucher. Zusätzlich bieten wir:</p>
+            <Section number="6" title="GewÃ¤hrleistung & Garantie">
+              <p>Es gelten die gesetzlichen GewÃ¤hrleistungsrechte fÃ¼r Verbraucher. ZusÃ¤tzlich bieten wir:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
                 {[
                   { label: "Neue Container", desc: "24 Monate Garantie" },
-                  { label: "Gebrauchte Container", desc: "90 Tage Garantie (geprüft)" },
+                  { label: "Gebrauchte Container", desc: "90 Tage Garantie (geprÃ¼ft)" },
                 ].map((item, i) => (
                   <div key={i} className="bg-muted/50 rounded-xl px-4 py-3">
                     <p className="font-heading font-semibold text-sm text-foreground mb-1">{item.label}</p>
@@ -325,32 +325,32 @@ function AgbPage() {
                 ))}
               </div>
               <BulletList items={[
-                "Mängel müssen bei Erhalt unverzüglich schriftlich gemeldet werden.",
-                "Schäden durch unsachgemäßen Gebrauch oder unerlaubte Umbauten sind von der Garantie ausgeschlossen.",
+                "MÃ¤ngel mÃ¼ssen bei Erhalt unverzÃ¼glich schriftlich gemeldet werden.",
+                "SchÃ¤den durch unsachgemÃ¤ÃŸen Gebrauch oder unerlaubte Umbauten sind von der Garantie ausgeschlossen.",
               ]} />
             </Section>
 
             <Section number="7" title="Haftung">
               <BulletList items={[
-                "Wir haften nur bei Vorsatz oder grober Fahrlässigkeit.",
-                "Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten.",
-                "Haftung für entgangenen Gewinn, Produktionsausfall oder mittelbare Schäden ist ausgeschlossen.",
+                "Wir haften nur bei Vorsatz oder grober FahrlÃ¤ssigkeit.",
+                "Bei leichter FahrlÃ¤ssigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten.",
+                "Haftung fÃ¼r entgangenen Gewinn, Produktionsausfall oder mittelbare SchÃ¤den ist ausgeschlossen.",
               ]} />
             </Section>
 
             <Section number="8" title="Datenschutz">
-              <p>Es gilt unsere Datenschutzerklärung. Kundendaten werden ausschließlich zur Vertragsabwicklung verwendet und nicht an Dritte weitergegeben – es sei denn, dies ist für die Lieferung erforderlich oder gesetzlich vorgeschrieben.</p>
+              <p>Es gilt unsere DatenschutzerklÃ¤rung. Kundendaten werden ausschlieÃŸlich zur Vertragsabwicklung verwendet und nicht an Dritte weitergegeben â€“ es sei denn, dies ist fÃ¼r die Lieferung erforderlich oder gesetzlich vorgeschrieben.</p>
             </Section>
 
             <Section number="9" title="Urheberrecht & geistiges Eigentum">
-              <p>Alle Inhalte dieser Website (Texte, Bilder, Logos, Dokumente) sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist untersagt.</p>
+              <p>Alle Inhalte dieser Website (Texte, Bilder, Logos, Dokumente) sind urheberrechtlich geschÃ¼tzt. Eine Nutzung ohne ausdrÃ¼ckliche schriftliche Genehmigung ist untersagt.</p>
             </Section>
 
             <Section number="10" title="Schlussbestimmungen">
               <BulletList items={[
                 "Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts.",
-                "Gerichtsstand ist Mönchengladbach, sofern der Kunde Kaufmann im Sinne des HGB ist.",
-                "Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.",
+                "Gerichtsstand ist MÃ¶nchengladbach, sofern der Kunde Kaufmann im Sinne des HGB ist.",
+                "Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Wirksamkeit der Ã¼brigen Bestimmungen unberÃ¼hrt.",
               ]} />
             </Section>
           </div>
@@ -368,39 +368,39 @@ function DatenschutzPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
-            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Datenschutzerklärung</h1>
+            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">DatenschutzerklÃ¤rung</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Wir bei DIE Container GmbH verstehen, dass einige Ihrer persönlichen Daten sensibler Natur sind und Sie vielleicht Bedenken haben, diese persönlichen Daten mit uns zu teilen. Wenn Sie sich jedoch dafür entscheiden, mit uns zu interagieren oder uns Ihre Daten mitzuteilen, werden wir Ihre Privatsphäre auf die in dieser Richtlinie aufgeführte Weise schützen. Diese Richtlinie kann sich von Zeit zu Zeit ändern, daher sollten Sie sich über Änderungen informieren.
+              Wir bei DIE Container GmbH verstehen, dass einige Ihrer persÃ¶nlichen Daten sensibler Natur sind und Sie vielleicht Bedenken haben, diese persÃ¶nlichen Daten mit uns zu teilen. Wenn Sie sich jedoch dafÃ¼r entscheiden, mit uns zu interagieren oder uns Ihre Daten mitzuteilen, werden wir Ihre PrivatsphÃ¤re auf die in dieser Richtlinie aufgefÃ¼hrte Weise schÃ¼tzen. Diese Richtlinie kann sich von Zeit zu Zeit Ã¤ndern, daher sollten Sie sich Ã¼ber Ã„nderungen informieren.
             </p>
           </div>
 
           <div className="divide-y divide-border">
             <Section number="1" title="Die von uns gesammelten Informationen">
-              <p>Wenn Sie Informationen von DIE Container GmbH anfordern, benötigen wir häufig Informationen wie den Namen Ihres Unternehmens, die Namen der autorisierten Benutzer Ihres Unternehmens, Ihre Adresse, Telefonnummer, Faxnummer und E-Mail-Adresse. Derzeit benötigen wir Ihre Postanschrift.</p>
-              <p className="mt-2">Wir sammeln diese Informationen auf der Ebene der Angebotsanfrage, damit wir Ihnen ein formelles Angebot unterbreiten können, das Sie für Ihre Kaufentscheidung nutzen können. In der Regel sind nicht alle diese Informationen erforderlich. Die einzigen erforderlichen Informationen sind in der Regel die E-Mail-Adresse und der Ort oder die Postleitzahl der Lieferung.</p>
+              <p>Wenn Sie Informationen von DIE Container GmbH anfordern, benÃ¶tigen wir hÃ¤ufig Informationen wie den Namen Ihres Unternehmens, die Namen der autorisierten Benutzer Ihres Unternehmens, Ihre Adresse, Telefonnummer, Faxnummer und E-Mail-Adresse. Derzeit benÃ¶tigen wir Ihre Postanschrift.</p>
+              <p className="mt-2">Wir sammeln diese Informationen auf der Ebene der Angebotsanfrage, damit wir Ihnen ein formelles Angebot unterbreiten kÃ¶nnen, das Sie fÃ¼r Ihre Kaufentscheidung nutzen kÃ¶nnen. In der Regel sind nicht alle diese Informationen erforderlich. Die einzigen erforderlichen Informationen sind in der Regel die E-Mail-Adresse und der Ort oder die Postleitzahl der Lieferung.</p>
             </Section>
 
             <Section number="2" title="Wie wir Informationen weitergeben">
-              <p>Wir sind stets bemüht, Ihnen ein wertvolles Online-Erlebnis und die besten Preise und die beste Qualität beim Kauf, der Miete und dem Leasing von mobilen Lager- und Versandcontainern zu bieten.</p>
-              <p className="mt-2">Wir behalten uns das Recht vor, Informationen innerhalb von DIE Container GmbH weiterzugeben, soweit dies für die Bearbeitung Ihrer Anfrage und die Erbringung unserer Leistungen erforderlich ist.</p>
-              <p className="mt-2">Wir behalten uns das Recht vor, Informationen über jeden Besucher oder jedes Mitglied freizugeben, wenn dieser gegen die Nutzungsbedingungen verstößt oder an illegalen Aktivitäten teilnimmt, auch ohne eine Vorladung, einen Haftbefehl oder einen anderen Gerichtsbeschluss. Wir kooperieren mit den Strafverfolgungsbehörden bei der Identifizierung von Personen, die unsere Server oder Dienste für illegale Aktivitäten nutzen könnten.</p>
+              <p>Wir sind stets bemÃ¼ht, Ihnen ein wertvolles Online-Erlebnis und die besten Preise und die beste QualitÃ¤t beim Kauf, der Miete und dem Leasing von mobilen Lager- und Versandcontainern zu bieten.</p>
+              <p className="mt-2">Wir behalten uns das Recht vor, Informationen innerhalb von DIE Container GmbH weiterzugeben, soweit dies fÃ¼r die Bearbeitung Ihrer Anfrage und die Erbringung unserer Leistungen erforderlich ist.</p>
+              <p className="mt-2">Wir behalten uns das Recht vor, Informationen Ã¼ber jeden Besucher oder jedes Mitglied freizugeben, wenn dieser gegen die Nutzungsbedingungen verstÃ¶ÃŸt oder an illegalen AktivitÃ¤ten teilnimmt, auch ohne eine Vorladung, einen Haftbefehl oder einen anderen Gerichtsbeschluss. Wir kooperieren mit den StrafverfolgungsbehÃ¶rden bei der Identifizierung von Personen, die unsere Server oder Dienste fÃ¼r illegale AktivitÃ¤ten nutzen kÃ¶nnten.</p>
             </Section>
 
             <Section number="3" title="Empfangene E-Mail">
-              <p>DIE Container GmbH wird sich mit Ihnen per E-Mail in Verbindung setzen, wenn Sie sich registrieren und um auf Fragen zu antworten, die Sie uns per E-Mail schicken. Wenn Sie ein bestehender Kunde oder ein registrierter Benutzer sind, senden wir Ihnen auch E-Mail-Nachrichten mit Informationen, von denen wir glauben, dass sie für Sie nützlich sind, einschließlich Ankündigungen über neue Produkte und Dienstleistungen. Wir verwenden Ihre E-Mail-Adresse in der vorgenannten Weise, bis Sie sich ausdrücklich abmelden.</p>
+              <p>DIE Container GmbH wird sich mit Ihnen per E-Mail in Verbindung setzen, wenn Sie sich registrieren und um auf Fragen zu antworten, die Sie uns per E-Mail schicken. Wenn Sie ein bestehender Kunde oder ein registrierter Benutzer sind, senden wir Ihnen auch E-Mail-Nachrichten mit Informationen, von denen wir glauben, dass sie fÃ¼r Sie nÃ¼tzlich sind, einschlieÃŸlich AnkÃ¼ndigungen Ã¼ber neue Produkte und Dienstleistungen. Wir verwenden Ihre E-Mail-Adresse in der vorgenannten Weise, bis Sie sich ausdrÃ¼cklich abmelden.</p>
             </Section>
 
             <Section number="4" title="Vom System generierte E-Mail">
-              <p>Wenn Sie sich entscheiden, unsere Website zu nutzen, um ein Angebot oder andere Informationen anzufordern, erhalten Sie von uns Bestätigungs-E-Mails. Systemgenerierte E-Mails wie diese betrachten wir als angefordert und fallen nicht unter unsere Opt-out-Option.</p>
+              <p>Wenn Sie sich entscheiden, unsere Website zu nutzen, um ein Angebot oder andere Informationen anzufordern, erhalten Sie von uns BestÃ¤tigungs-E-Mails. Systemgenerierte E-Mails wie diese betrachten wir als angefordert und fallen nicht unter unsere Opt-out-Option.</p>
             </Section>
 
-            <Section number="5" title="Ihr Einverständnis">
-              <p>Durch die Nutzung dieser Website und der auf unserer Website verfügbaren Dienste erklären Sie sich mit der Erfassung und Verwendung Ihrer Daten wie oben beschrieben einverstanden. Wenn wir uns entscheiden, unsere Datenschutzpolitik zu ändern, werden wir die Änderungen auf dieser Seite veröffentlichen, damit Sie immer über unsere Politik informiert sind.</p>
-              <p className="mt-2">Vielen Dank für Ihren Besuch bei der DIE Container GmbH. Sollten Sie Fragen zu diesen Richtlinien haben, können Sie uns gerne kontaktieren.</p>
+            <Section number="5" title="Ihr EinverstÃ¤ndnis">
+              <p>Durch die Nutzung dieser Website und der auf unserer Website verfÃ¼gbaren Dienste erklÃ¤ren Sie sich mit der Erfassung und Verwendung Ihrer Daten wie oben beschrieben einverstanden. Wenn wir uns entscheiden, unsere Datenschutzpolitik zu Ã¤ndern, werden wir die Ã„nderungen auf dieser Seite verÃ¶ffentlichen, damit Sie immer Ã¼ber unsere Politik informiert sind.</p>
+              <p className="mt-2">Vielen Dank fÃ¼r Ihren Besuch bei der DIE Container GmbH. Sollten Sie Fragen zu diesen Richtlinien haben, kÃ¶nnen Sie uns gerne kontaktieren.</p>
             </Section>
 
             <Section number="6" title="Kontaktieren Sie uns">
-              <p>Haben Sie Fragen dazu, wie wir Ihrem Unternehmen helfen können? Senden Sie uns eine E-Mail, und wir melden uns in Kürze bei Ihnen.</p>
+              <p>Haben Sie Fragen dazu, wie wir Ihrem Unternehmen helfen kÃ¶nnen? Senden Sie uns eine E-Mail, und wir melden uns in KÃ¼rze bei Ihnen.</p>
               <ContactBlock />
             </Section>
           </div>
@@ -417,68 +417,68 @@ function RueckgabePage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rückgabe & Erstattung</span>
-            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Rückgabe- und Erstattungsrichtlinie</h1>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>RÃ¼ckgabe & Erstattung</span>
+            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">RÃ¼ckgabe- und Erstattungsrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Alle Informationen zu Rückgaberecht, Reklamationen, Erstattungsverfahren und Ausnahmen beim Kauf von Containern über unseren Online-Shop.
+              Alle Informationen zu RÃ¼ckgaberecht, Reklamationen, Erstattungsverfahren und Ausnahmen beim Kauf von Containern Ã¼ber unseren Online-Shop.
             </p>
           </div>
 
           <div className="divide-y divide-border">
-            <Section number="1" title="Rückgaberecht für Verbraucher">
-              <p>Verbraucher haben gemäß den gesetzlichen Bestimmungen grundsätzlich das Recht, innerhalb von <strong className="text-foreground">14 Tagen nach Erhalt der Ware</strong> den Vertrag zu widerrufen.</p>
+            <Section number="1" title="RÃ¼ckgaberecht fÃ¼r Verbraucher">
+              <p>Verbraucher haben gemÃ¤ÃŸ den gesetzlichen Bestimmungen grundsÃ¤tzlich das Recht, innerhalb von <strong className="text-foreground">14 Tagen nach Erhalt der Ware</strong> den Vertrag zu widerrufen.</p>
               <p className="mt-2">Weitere Informationen hierzu finden Sie in unserer <strong className="text-foreground">Widerrufsbelehrung</strong>.</p>
             </Section>
 
-            <Section number="2" title="Bedingungen für Rückgaben">
-              <p>Damit eine Rückgabe akzeptiert werden kann, müssen folgende Voraussetzungen erfüllt sein:</p>
+            <Section number="2" title="Bedingungen fÃ¼r RÃ¼ckgaben">
+              <p>Damit eine RÃ¼ckgabe akzeptiert werden kann, mÃ¼ssen folgende Voraussetzungen erfÃ¼llt sein:</p>
               <BulletList items={[
-                "Der Container darf nicht dauerhaft genutzt oder verändert worden sein",
+                "Der Container darf nicht dauerhaft genutzt oder verÃ¤ndert worden sein",
                 "Der Container muss sich im gleichen Zustand befinden, in dem er geliefert wurde",
-                "Alle zugehörigen Dokumente müssen vorhanden sein",
+                "Alle zugehÃ¶rigen Dokumente mÃ¼ssen vorhanden sein",
               ]} />
-              <p className="mt-3">Der Käufer trägt grundsätzlich die Kosten der Rücksendung, sofern nichts anderes vereinbart wurde. Aufgrund der Größe und des Gewichts von Containern erfolgt eine Rücksendung in der Regel über eine <strong className="text-foreground">individuell organisierte Transportlösung</strong>.</p>
+              <p className="mt-3">Der KÃ¤ufer trÃ¤gt grundsÃ¤tzlich die Kosten der RÃ¼cksendung, sofern nichts anderes vereinbart wurde. Aufgrund der GrÃ¶ÃŸe und des Gewichts von Containern erfolgt eine RÃ¼cksendung in der Regel Ã¼ber eine <strong className="text-foreground">individuell organisierte TransportlÃ¶sung</strong>.</p>
             </Section>
 
-            <Section number="3" title="Ausschluss der Rückgabe">
-              <p>Das Rückgaberecht besteht <strong className="text-foreground">nicht</strong> bei:</p>
+            <Section number="3" title="Ausschluss der RÃ¼ckgabe">
+              <p>Das RÃ¼ckgaberecht besteht <strong className="text-foreground">nicht</strong> bei:</p>
               <BulletList items={[
                 "Individuell angefertigten Containern",
                 "Containern, die nach Kundenspezifikation modifiziert wurden",
-                "Bereits genutzten oder veränderten Containern",
-                "Containern mit beschädigten oder fehlenden Dokumenten",
+                "Bereits genutzten oder verÃ¤nderten Containern",
+                "Containern mit beschÃ¤digten oder fehlenden Dokumenten",
               ]} />
             </Section>
 
-            <Section number="4" title="Reklamationen & Mängel">
-              <p>Sollte der gelieferte Container nicht der vereinbarten Beschreibung entsprechen oder Mängel aufweisen, gehen Sie bitte wie folgt vor:</p>
+            <Section number="4" title="Reklamationen & MÃ¤ngel">
+              <p>Sollte der gelieferte Container nicht der vereinbarten Beschreibung entsprechen oder MÃ¤ngel aufweisen, gehen Sie bitte wie folgt vor:</p>
               <NumberedList items={[
-                "Mängel innerhalb von 7 Tagen nach Lieferung schriftlich melden",
-                "Mängel mit Fotos und einer detaillierten Beschreibung dokumentieren",
+                "MÃ¤ngel innerhalb von 7 Tagen nach Lieferung schriftlich melden",
+                "MÃ¤ngel mit Fotos und einer detaillierten Beschreibung dokumentieren",
                 "Reklamation per E-Mail oder WhatsApp an uns senden",
-                "Wir prüfen die Reklamation und melden uns innerhalb von 5 Werktagen",
+                "Wir prÃ¼fen die Reklamation und melden uns innerhalb von 5 Werktagen",
               ]} />
             </Section>
 
             <Section number="5" title="Erstattungsverfahren">
-              <p>Nach Genehmigung einer Rückgabe oder Reklamation erfolgt die Erstattung wie folgt:</p>
+              <p>Nach Genehmigung einer RÃ¼ckgabe oder Reklamation erfolgt die Erstattung wie folgt:</p>
               <BulletList items={[
-                "Erstattung innerhalb von 14 Tagen nach bestätigter Rücknahme",
-                "Rückzahlung auf das ursprünglich verwendete Zahlungsmittel",
+                "Erstattung innerhalb von 14 Tagen nach bestÃ¤tigter RÃ¼cknahme",
+                "RÃ¼ckzahlung auf das ursprÃ¼nglich verwendete Zahlungsmittel",
                 "Bei Teilerstattungen wird der vereinbarte Betrag separat kommuniziert",
               ]} />
               <div className="mt-3 bg-muted/50 rounded-xl px-4 py-3">
-                <p className="text-xs text-muted-foreground"><strong className="text-foreground">Hinweis:</strong> Transportkosten für die Rücksendung werden in der Regel nicht erstattet, es sei denn, der Mangel ist auf einen Fehler unsererseits zurückzuführen.</p>
+                <p className="text-xs text-muted-foreground"><strong className="text-foreground">Hinweis:</strong> Transportkosten fÃ¼r die RÃ¼cksendung werden in der Regel nicht erstattet, es sei denn, der Mangel ist auf einen Fehler unsererseits zurÃ¼ckzufÃ¼hren.</p>
               </div>
             </Section>
 
-            <Section number="6" title="Gewährleistung">
+            <Section number="6" title="GewÃ¤hrleistung">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                 {[
-                  { label: "Neue Container", desc: "Gesetzliche Gewährleistungsfrist von 2 Jahren gemäß § 437 BGB" },
-                  { label: "Gebrauchte Container", desc: "Verkauf im beschriebenen Zustand; Gewährleistung auf 1 Jahr verkürzt" },
-                  { label: "Generalüberholte Container", desc: "12 Monate Gewährleistung auf überholte Komponenten" },
-                  { label: "Individuelle Umbauten", desc: "Gewährleistung gemäß individueller Vereinbarung im Angebot" },
+                  { label: "Neue Container", desc: "Gesetzliche GewÃ¤hrleistungsfrist von 2 Jahren gemÃ¤ÃŸ Â§ 437 BGB" },
+                  { label: "Gebrauchte Container", desc: "Verkauf im beschriebenen Zustand; GewÃ¤hrleistung auf 1 Jahr verkÃ¼rzt" },
+                  { label: "GeneralÃ¼berholte Container", desc: "12 Monate GewÃ¤hrleistung auf Ã¼berholte Komponenten" },
+                  { label: "Individuelle Umbauten", desc: "GewÃ¤hrleistung gemÃ¤ÃŸ individueller Vereinbarung im Angebot" },
                 ].map((item, i) => (
                   <div key={i} className="bg-muted/50 rounded-xl px-4 py-3">
                     <p className="font-heading font-semibold text-sm text-foreground mb-1">{item.label}</p>
@@ -488,14 +488,14 @@ function RueckgabePage() {
               </div>
             </Section>
 
-            <Section number="7" title="Kontakt für Rückgaben & Reklamationen">
-              <p>Für Rückgaben, Reklamationen oder Fragen zur Erstattung kontaktieren Sie uns direkt:</p>
+            <Section number="7" title="Kontakt fÃ¼r RÃ¼ckgaben & Reklamationen">
+              <p>FÃ¼r RÃ¼ckgaben, Reklamationen oder Fragen zur Erstattung kontaktieren Sie uns direkt:</p>
               <ContactBlock />
               <div className="mt-4">
                 <Link to="/kontakt"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
                   style={{ backgroundColor: ORANGE }}>
-                  Reklamation einreichen →
+                  Reklamation einreichen â†’
                 </Link>
               </div>
             </Section>
@@ -511,7 +511,7 @@ function VersandPage() {
     { icon: Shield, text: "Transparente Lieferzeiten" },
     { icon: Truck, text: "Professionelle Logistikplanung" },
     { icon: CheckCircle, text: "Klar kommunizierte Versandkosten" },
-    { icon: CheckCircle, text: "Sichere, zuverlässige Containerlieferung" },
+    { icon: CheckCircle, text: "Sichere, zuverlÃ¤ssige Containerlieferung" },
   ];
 
   return (
@@ -528,52 +528,52 @@ function VersandPage() {
 
           <div className="divide-y divide-border">
             <Section number="1" title="Liefergebiet">
-              <p>Wir liefern ausschließlich innerhalb Deutschlands. Ein Versand auf deutsche Inseln ist leider nicht möglich.</p>
+              <p>Wir liefern ausschlieÃŸlich innerhalb Deutschlands. Ein Versand auf deutsche Inseln ist leider nicht mÃ¶glich.</p>
               <p>Die Lieferung erfolgt <strong className="text-foreground">bis zur Bordsteinkante</strong> an der angegebenen Lieferadresse.</p>
             </Section>
 
             <Section number="2" title="Lieferzeiten">
               <div className="bg-muted/50 rounded-xl px-4 py-3 flex items-center gap-3">
                 <Truck className="w-5 h-5 flex-shrink-0" style={{ color: ORANGE }} />
-                <span><strong className="text-foreground">Standardlieferzeit:</strong> 3–9 Werktage nach Auftragsannahme</span>
+                <span><strong className="text-foreground">Standardlieferzeit:</strong> 3â€“9 Werktage nach Auftragsannahme</span>
               </div>
-              <p className="mt-2">Lieferzeiten können abhängig von folgenden Faktoren variieren:</p>
-              <BulletList items={["Lieferadresse und Region", "Containertyp und -größe", "Gewählter Transportweg", "Geografische, logistische oder klimatische Bedingungen"]} />
+              <p className="mt-2">Lieferzeiten kÃ¶nnen abhÃ¤ngig von folgenden Faktoren variieren:</p>
+              <BulletList items={["Lieferadresse und Region", "Containertyp und -grÃ¶ÃŸe", "GewÃ¤hlter Transportweg", "Geografische, logistische oder klimatische Bedingungen"]} />
             </Section>
 
             <Section number="3" title="Versand- und Transportkosten">
               <BulletList items={[
                 "Versandkosten sind nicht pauschal im Produktpreis enthalten",
                 "Alle Transportkosten werden individuell berechnet",
-                "Die endgültigen Versandkosten werden im Angebot / auf der Rechnung mitgeteilt",
-                "Der Versand erfolgt erst nach Bestätigung der Transportkosten durch den Kunden",
+                "Die endgÃ¼ltigen Versandkosten werden im Angebot / auf der Rechnung mitgeteilt",
+                "Der Versand erfolgt erst nach BestÃ¤tigung der Transportkosten durch den Kunden",
               ]} />
             </Section>
 
             <Section number="4" title="Ablauf der Lieferung">
               <NumberedList items={[
-                "Prüfung der Lieferadresse und individuellen Anforderungen",
-                "Auswahl der schnellsten und wirtschaftlichsten Transportlösung",
+                "PrÃ¼fung der Lieferadresse und individuellen Anforderungen",
+                "Auswahl der schnellsten und wirtschaftlichsten TransportlÃ¶sung",
                 "Terminabstimmung mit dem Kunden",
                 "Lieferung des Containers an den vereinbarten Standort",
               ]} />
             </Section>
 
             <Section number="5" title="Transport- und Umschlagsarten">
-              <p>Abhängig vom Lieferort und Containertyp wählt unser Logistikteam den optimalen Transportweg:</p>
+              <p>AbhÃ¤ngig vom Lieferort und Containertyp wÃ¤hlt unser Logistikteam den optimalen Transportweg:</p>
               <TransportTable />
             </Section>
 
-            <Section number="6" title="Kombinierte Transportlösungen">
-              <p>Bei komplexeren Routen können kombinierte Transportarten eingesetzt werden:</p>
+            <Section number="6" title="Kombinierte TransportlÃ¶sungen">
+              <p>Bei komplexeren Routen kÃ¶nnen kombinierte Transportarten eingesetzt werden:</p>
               <BulletList items={["Bahn + LKW", "Binnenschiff + LKW"]} />
             </Section>
 
             <Section number="7" title="Pflichten des Kunden">
               <BulletList items={[
-                "Eine korrekte und vollständige Lieferadresse anzugeben",
-                "Für ausreichende Zugänglichkeit des Lieferortes zu sorgen",
-                "Uns vorab über Zufahrtsbeschränkungen, Bodenverhältnisse oder besondere Gegebenheiten zu informieren",
+                "Eine korrekte und vollstÃ¤ndige Lieferadresse anzugeben",
+                "FÃ¼r ausreichende ZugÃ¤nglichkeit des Lieferortes zu sorgen",
+                "Uns vorab Ã¼ber ZufahrtsbeschrÃ¤nkungen, BodenverhÃ¤ltnisse oder besondere Gegebenheiten zu informieren",
               ]} />
             </Section>
 
@@ -589,13 +589,13 @@ function VersandPage() {
             </Section>
 
             <Section number="9" title="Kontakt & Support">
-              <p>Bei Fragen zur Lieferung oder für ein individuelles Transportangebot kontaktieren Sie uns:</p>
+              <p>Bei Fragen zur Lieferung oder fÃ¼r ein individuelles Transportangebot kontaktieren Sie uns:</p>
               <ContactBlock />
               <div className="mt-4">
-                <Link to="/angebot"
+                <Link to="/shop"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
                   style={{ backgroundColor: ORANGE }}>
-                  Transportangebot anfordern →
+                  Transportangebot anfordern â†’
                 </Link>
               </div>
             </Section>
@@ -613,56 +613,56 @@ function GeneralTermsPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
-            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
+            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine GeschÃ¤ftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen <strong className="text-foreground">DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland</strong> und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
+              Diese Allgemeinen GeschÃ¤ftsbedingungen gelten fÃ¼r alle VertrÃ¤ge zwischen <strong className="text-foreground">DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland</strong> und ihren Kunden fÃ¼r den Verkauf von neuen und gebrauchten Containern einschlieÃŸlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklÃ¤rt der Kunde sein EinverstÃ¤ndnis mit diesen Bedingungen.
             </p>
           </div>
           <div className="divide-y divide-border">
             <Section number="1" title="Vertragsabschluss">
               <BulletList items={[
                 "Alle Angebote auf unserer Website oder per E-Mail sind freibleibend und unverbindlich.",
-                "Ein verbindlicher Kaufvertrag kommt erst durch unsere schriftliche Auftragsbestätigung oder durch Lieferung der Ware zustande.",
-                "Änderungen oder Sonderwünsche bedürfen der schriftlichen Zustimmung von DIE Container GmbH.",
+                "Ein verbindlicher Kaufvertrag kommt erst durch unsere schriftliche AuftragsbestÃ¤tigung oder durch Lieferung der Ware zustande.",
+                "Ã„nderungen oder SonderwÃ¼nsche bedÃ¼rfen der schriftlichen Zustimmung von DIE Container GmbH.",
               ]} />
             </Section>
             <Section number="2" title="Preise & Zahlung">
               <BulletList items={[
-                "Alle Preise sind in Euro (€) angegeben und beinhalten – sofern nicht anders angegeben – die gesetzliche Mehrwertsteuer (derzeit 19 %).",
+                "Alle Preise sind in Euro (â‚¬) angegeben und beinhalten â€“ sofern nicht anders angegeben â€“ die gesetzliche Mehrwertsteuer (derzeit 19 %).",
                 "Lieferkosten variieren je nach Bestellmenge und Lieferadresse innerhalb Deutschlands.",
-                "Die Zahlung erfolgt ausschließlich per Vorkasse (100 %) via Banküberweisung.",
-                "Die Lieferung erfolgt erst nach vollständigem Zahlungseingang.",
+                "Die Zahlung erfolgt ausschlieÃŸlich per Vorkasse (100 %) via BankÃ¼berweisung.",
+                "Die Lieferung erfolgt erst nach vollstÃ¤ndigem Zahlungseingang.",
               ]} />
             </Section>
             <Section number="3" title="Lieferung & Versand">
               <BulletList items={[
                 "Die Lieferung erfolgt an die vom Kunden angegebene Adresse innerhalb Deutschlands.",
-                "Lieferzeit: in der Regel 7–14 Werktage nach Zahlungseingang.",
+                "Lieferzeit: in der Regel 7â€“14 Werktage nach Zahlungseingang.",
                 "Die Entladung per Kran oder Gabelstapler ist im Lieferpreis enthalten.",
-                "Der Kunde muss sicherstellen, dass die Lieferadresse ebenerdig zugänglich ist und ausreichend Platz zum Entladen vorhanden ist.",
-                "Bei Annahmeverweigerung oder gescheiterter Lieferung behalten wir uns vor, Kosten für Rücktransport und Wiedereinlagerung in Rechnung zu stellen.",
+                "Der Kunde muss sicherstellen, dass die Lieferadresse ebenerdig zugÃ¤nglich ist und ausreichend Platz zum Entladen vorhanden ist.",
+                "Bei Annahmeverweigerung oder gescheiterter Lieferung behalten wir uns vor, Kosten fÃ¼r RÃ¼cktransport und Wiedereinlagerung in Rechnung zu stellen.",
               ]} />
             </Section>
             <Section number="4" title="Eigentumsvorbehalt">
               <BulletList items={[
-                "Die gelieferte Ware bleibt bis zur vollständigen Zahlung Eigentum von DIE Container GmbH.",
-                "Bei Zahlungsverzug behalten wir uns das Recht vor, die Ware auf Kosten des Käufers zurückzufordern.",
+                "Die gelieferte Ware bleibt bis zur vollstÃ¤ndigen Zahlung Eigentum von DIE Container GmbH.",
+                "Bei Zahlungsverzug behalten wir uns das Recht vor, die Ware auf Kosten des KÃ¤ufers zurÃ¼ckzufordern.",
               ]} />
             </Section>
-            <Section number="5" title="Widerrufsrecht & Rückgabe">
+            <Section number="5" title="Widerrufsrecht & RÃ¼ckgabe">
               <BulletList items={[
-                "Privatkunden (Verbraucher) haben ein gesetzliches Widerrufsrecht von 30 Tagen.",
-                "Zusätzlich bieten wir eine freiwillige 30-tägige Rückgabegarantie für neue Container.",
-                "Gebrauchte Container sind vom Rückgaberecht ausgenommen, sofern kein nachweisbarer Mangel vorliegt.",
-                "Rückgaben müssen vorab mit uns abgestimmt werden. Wir organisieren die Abholung – der Käufer trägt die Rücksendekosten (außer bei mangelhafter Ware).",
+                "Privatkunden (Verbraucher) haben ein gesetzliches Widerrufsrecht von 14 Tagen ab Erhalt der Ware.",
+                "ZusÃ¤tzlich bieten wir freiwillig eine verlÃ¤ngerte RÃ¼ckgabemÃ¶glichkeit von 30 Tagen fÃ¼r neue Container an.",
+                "Gebrauchte Container sind vom RÃ¼ckgaberecht ausgenommen, sofern kein nachweisbarer Mangel vorliegt.",
+                "RÃ¼ckgaben mÃ¼ssen vorab mit uns abgestimmt werden. Wir organisieren die Abholung â€“ der KÃ¤ufer trÃ¤gt die RÃ¼cksendekosten (auÃŸer bei mangelhafter Ware).",
               ]} />
             </Section>
-            <Section number="6" title="Gewährleistung & Garantie">
-              <p>Es gelten die gesetzlichen Gewährleistungsrechte für Verbraucher. Zusätzlich bieten wir:</p>
+            <Section number="6" title="GewÃ¤hrleistung & Garantie">
+              <p>Es gelten die gesetzlichen GewÃ¤hrleistungsrechte fÃ¼r Verbraucher. ZusÃ¤tzlich bieten wir:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
                 {[
                   { label: "Neue Container", desc: "24 Monate Garantie" },
-                  { label: "Geprüfte Gebrauchtcontainer", desc: "90 Tage Garantie" },
+                  { label: "GeprÃ¼fte Gebrauchtcontainer", desc: "90 Tage Garantie" },
                 ].map((item, i) => (
                   <div key={i} className="bg-muted/50 rounded-xl px-4 py-3">
                     <p className="font-heading font-semibold text-sm text-foreground mb-1">{item.label}</p>
@@ -671,28 +671,28 @@ function GeneralTermsPage() {
                 ))}
               </div>
               <BulletList items={[
-                "Mängel müssen bei Erhalt unverzüglich schriftlich gemeldet werden.",
-                "Schäden durch unsachgemäßen Gebrauch oder unerlaubte Umbauten sind von der Garantie ausgeschlossen.",
+                "MÃ¤ngel mÃ¼ssen bei Erhalt unverzÃ¼glich schriftlich gemeldet werden.",
+                "SchÃ¤den durch unsachgemÃ¤ÃŸen Gebrauch oder unerlaubte Umbauten sind von der Garantie ausgeschlossen.",
               ]} />
             </Section>
             <Section number="7" title="Haftung">
               <BulletList items={[
-                "Wir haften nur bei Vorsatz oder grober Fahrlässigkeit.",
-                "Bei leichter Fahrlässigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten.",
-                "Haftung für entgangenen Gewinn, Produktionsausfall oder mittelbare Schäden ist ausgeschlossen.",
+                "Wir haften nur bei Vorsatz oder grober FahrlÃ¤ssigkeit.",
+                "Bei leichter FahrlÃ¤ssigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten.",
+                "Haftung fÃ¼r entgangenen Gewinn, Produktionsausfall oder mittelbare SchÃ¤den ist ausgeschlossen.",
               ]} />
             </Section>
             <Section number="8" title="Datenschutz">
-              <p>Es gilt unsere Datenschutzerklärung. Kundendaten werden ausschließlich zur Vertragsabwicklung verwendet und nicht an Dritte weitergegeben – es sei denn, dies ist für die Lieferung erforderlich oder gesetzlich vorgeschrieben.</p>
+              <p>Es gilt unsere DatenschutzerklÃ¤rung. Kundendaten werden ausschlieÃŸlich zur Vertragsabwicklung verwendet und nicht an Dritte weitergegeben â€“ es sei denn, dies ist fÃ¼r die Lieferung erforderlich oder gesetzlich vorgeschrieben.</p>
             </Section>
             <Section number="9" title="Urheberrecht & geistiges Eigentum">
-              <p>Alle Inhalte dieser Website (Texte, Bilder, Logos, Dokumente) sind urheberrechtlich geschützt. Eine Nutzung ohne ausdrückliche schriftliche Genehmigung ist untersagt.</p>
+              <p>Alle Inhalte dieser Website (Texte, Bilder, Logos, Dokumente) sind urheberrechtlich geschÃ¼tzt. Eine Nutzung ohne ausdrÃ¼ckliche schriftliche Genehmigung ist untersagt.</p>
             </Section>
             <Section number="10" title="Schlussbestimmungen">
               <BulletList items={[
                 "Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts.",
-                "Gerichtsstand ist Mönchengladbach, sofern der Kunde Kaufmann im Sinne des HGB ist.",
-                "Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.",
+                "Gerichtsstand ist MÃ¶nchengladbach, sofern der Kunde Kaufmann im Sinne des HGB ist.",
+                "Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Wirksamkeit der Ã¼brigen Bestimmungen unberÃ¼hrt.",
               ]} />
             </Section>
           </div>
@@ -712,32 +712,32 @@ function VatDutiesPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
-            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Mehrwertsteuer & Zölle</h1>
+            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Mehrwertsteuer & ZÃ¶lle</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Alle Preise beinhalten 19 % MwSt. und werden klar ausgewiesen. DIE Container GmbH gewährleistet eine transparente Preisgestaltung und stellt jedem Kunden eine detaillierte Rechnung mit allen steuerlichen Informationen zur Verfügung.
+              Alle Preise beinhalten 19 % MwSt. und werden klar ausgewiesen. DIE Container GmbH gewÃ¤hrleistet eine transparente Preisgestaltung und stellt jedem Kunden eine detaillierte Rechnung mit allen steuerlichen Informationen zur VerfÃ¼gung.
             </p>
           </div>
           <div className="divide-y divide-border">
             <Section number="1" title="Umsatzsteuerpflicht">
-              <p>DIE Container GmbH mit Sitz in Putzbrunn unterliegt der Umsatzsteuer gemäß § 1 UStG.</p>
+              <p>DIE Container GmbH mit Sitz in Putzbrunn unterliegt der Umsatzsteuer gemÃ¤ÃŸ Â§ 1 UStG.</p>
               <div className="mt-3 bg-muted/50 rounded-xl px-4 py-4 space-y-1 text-sm">
                 <p><strong className="text-foreground">Handelsregister / EUID:</strong> HRB256757</p>
                 <p><strong className="text-foreground">USt-IdNr.:</strong> DE 330443785</p>
               </div>
-              <p className="mt-3">Alle Verkäufe unterliegen der gesetzlich vorgeschriebenen Mehrwertsteuer von <strong className="text-foreground">19 %</strong>.</p>
+              <p className="mt-3">Alle VerkÃ¤ufe unterliegen der gesetzlich vorgeschriebenen Mehrwertsteuer von <strong className="text-foreground">19 %</strong>.</p>
             </Section>
             <Section number="2" title="Preise & Steuerliche Transparenz">
               <BulletList items={[
                 "Alle auf unserer Website ausgewiesenen Preise enthalten 19 % MwSt., sofern nicht anders angegeben.",
-                "In unseren Angeboten und Rechnungen wird die Mehrwertsteuer separat ausgewiesen, um volle Transparenz zu gewährleisten.",
-                "Geschäftskunden mit einer gültigen Steuernummer können die Mehrwertsteuer als Vorsteuer geltend machen.",
+                "In unseren Angeboten und Rechnungen wird die Mehrwertsteuer separat ausgewiesen, um volle Transparenz zu gewÃ¤hrleisten.",
+                "GeschÃ¤ftskunden mit einer gÃ¼ltigen Steuernummer kÃ¶nnen die Mehrwertsteuer als Vorsteuer geltend machen.",
               ]} />
             </Section>
             <Section number="3" title="Rechnungen & Steuerdokumente">
               <p>Nach jedem Kauf erhalten Sie eine rechtskonforme Rechnung mit folgenden Angaben:</p>
               <BulletList items={[
-                "Namen und Adressen von Käufer und Verkäufer",
-                "Netto- & Bruttobeträge",
+                "Namen und Adressen von KÃ¤ufer und VerkÃ¤ufer",
+                "Netto- & BruttobetrÃ¤ge",
                 "Mehrwertsteuerbetrag",
                 "Zahlungsart & Transaktionsdatum",
                 "USt-IdNr. (sofern angegeben)",
@@ -747,31 +747,31 @@ function VatDutiesPage() {
               </div>
             </Section>
             <Section number="4" title="Steuerfreie innergemeinschaftliche Lieferung (EU)">
-              <p>Unter bestimmten Voraussetzungen können EU-Unternehmen bei uns steuerfrei einkaufen:</p>
+              <p>Unter bestimmten Voraussetzungen kÃ¶nnen EU-Unternehmen bei uns steuerfrei einkaufen:</p>
               <BulletList items={[
-                "Der Käufer verfügt über eine gültige USt-IdNr.",
-                "Die Ware wird physisch in andere EU-Länder geliefert.",
-                "Der Käufer hat seinen Sitz außerhalb Deutschlands.",
+                "Der KÃ¤ufer verfÃ¼gt Ã¼ber eine gÃ¼ltige USt-IdNr.",
+                "Die Ware wird physisch in andere EU-LÃ¤nder geliefert.",
+                "Der KÃ¤ufer hat seinen Sitz auÃŸerhalb Deutschlands.",
               ]} />
               <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                <p className="text-xs text-amber-800"><strong>Hinweis:</strong> Bitte kontaktieren Sie uns vor der Bestellung, damit wir die Voraussetzungen prüfen und die steuerfreie Lieferung korrekt dokumentieren können.</p>
+                <p className="text-xs text-amber-800"><strong>Hinweis:</strong> Bitte kontaktieren Sie uns vor der Bestellung, damit wir die Voraussetzungen prÃ¼fen und die steuerfreie Lieferung korrekt dokumentieren kÃ¶nnen.</p>
               </div>
             </Section>
-            <Section number="5" title="Steuerfreie Exporte außerhalb der EU">
-              <p>Für Kunden außerhalb der EU (z. B. Schweiz, Großbritannien, Norwegen) kann die Lieferung ohne Mehrwertsteuer erfolgen, wenn der Export durch DIE Container GmbH selbst durchgeführt wird oder der Kunde einen gültigen Ausfuhrnachweis vorlegt.</p>
+            <Section number="5" title="Steuerfreie Exporte auÃŸerhalb der EU">
+              <p>FÃ¼r Kunden auÃŸerhalb der EU (z. B. Schweiz, GroÃŸbritannien, Norwegen) kann die Lieferung ohne Mehrwertsteuer erfolgen, wenn der Export durch DIE Container GmbH selbst durchgefÃ¼hrt wird oder der Kunde einen gÃ¼ltigen Ausfuhrnachweis vorlegt.</p>
               <p className="mt-2 font-medium text-foreground">Erforderliche Dokumente:</p>
               <BulletList items={[
                 "Offizielle Ausfuhranmeldung",
-                "Versanddokumente mit Zollstempel oder Bestätigung der Zollabfertigung",
+                "Versanddokumente mit Zollstempel oder BestÃ¤tigung der Zollabfertigung",
               ]} />
             </Section>
-            <Section number="6" title="Häufig gestellte Fragen (FAQ)">
+            <Section number="6" title="HÃ¤ufig gestellte Fragen (FAQ)">
               <div className="space-y-4">
                 {[
                   { q: "Sind die Preise auf Ihrer Website inklusive Mehrwertsteuer?", a: "Ja, alle Preise beinhalten 19 % MwSt., sofern nicht anders angegeben." },
-                  { q: "Erhalte ich eine Rechnung mit separat ausgewiesener Mehrwertsteuer?", a: "Ja, selbstverständlich. Jede Rechnung enthält alle gesetzlich vorgeschriebenen Angaben – ideal für Ihre Buchhaltung." },
-                  { q: "Kann ich als EU-Unternehmen steuerfrei einkaufen?", a: "Ja, mit einer gültigen USt-IdNr. und Lieferung in ein anderes EU-Land erhalten Sie eine Nettorechnung ohne Mehrwertsteuer." },
-                  { q: "Wie funktioniert steuerfreie Lieferung außerhalb der EU?", a: "Bitte kontaktieren Sie uns im Voraus. Wir benötigen die entsprechenden Ausfuhrdokumente, bevor wir steuerfrei liefern können." },
+                  { q: "Erhalte ich eine Rechnung mit separat ausgewiesener Mehrwertsteuer?", a: "Ja, selbstverstÃ¤ndlich. Jede Rechnung enthÃ¤lt alle gesetzlich vorgeschriebenen Angaben â€“ ideal fÃ¼r Ihre Buchhaltung." },
+                  { q: "Kann ich als EU-Unternehmen steuerfrei einkaufen?", a: "Ja, mit einer gÃ¼ltigen USt-IdNr. und Lieferung in ein anderes EU-Land erhalten Sie eine Nettorechnung ohne Mehrwertsteuer." },
+                  { q: "Wie funktioniert steuerfreie Lieferung auÃŸerhalb der EU?", a: "Bitte kontaktieren Sie uns im Voraus. Wir benÃ¶tigen die entsprechenden Ausfuhrdokumente, bevor wir steuerfrei liefern kÃ¶nnen." },
                 ].map((item, i) => (
                   <div key={i} className="bg-muted/50 rounded-xl px-4 py-4">
                     <p className="font-heading font-semibold text-sm text-foreground mb-1">{item.q}</p>
@@ -803,20 +803,20 @@ function CookiePolicyPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Cookie-Richtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website diecontainers.com besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemäß dieser Richtlinie zu.
+              Diese Cookie-Richtlinie erlÃ¤utert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und Ã¤hnliche Tracking-Technologien einsetzt, wenn Sie unsere Website diecontainers.com besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemÃ¤ÃŸ dieser Richtlinie zu.
             </p>
           </div>
           <div className="divide-y divide-border">
             <Section number="1" title="Was sind Cookies?">
-              <p>Cookies sind kleine Textdateien, die beim Besuch einer Website auf Ihrem Endgerät (Computer, Smartphone oder Tablet) gespeichert werden. Sie helfen der Website dabei, Ihre Einstellungen zu speichern, Sie eingeloggt zu halten und Analysedaten zur Verbesserung der Nutzererfahrung zu erheben.</p>
+              <p>Cookies sind kleine Textdateien, die beim Besuch einer Website auf Ihrem EndgerÃ¤t (Computer, Smartphone oder Tablet) gespeichert werden. Sie helfen der Website dabei, Ihre Einstellungen zu speichern, Sie eingeloggt zu halten und Analysedaten zur Verbesserung der Nutzererfahrung zu erheben.</p>
             </Section>
             <Section number="2" title="Arten der von uns verwendeten Cookies">
               <div className="space-y-3 mt-2">
                 {[
-                  { type: "Notwendige Cookies", desc: "Diese Cookies sind für den ordnungsgemäßen Betrieb der Website unerlässlich. Sie ermöglichen grundlegende Funktionen wie Seitennavigation, Sicherheit und Formularübermittlungen. Sie können diese Cookies nicht ablehnen.", color: "bg-blue-50 border-blue-200", text: "text-blue-800" },
-                  { type: "Funktionale Cookies", desc: "Diese Cookies ermöglichen es der Website, Ihre Einstellungen (z. B. Sprachpräferenzen) zu speichern und erweiterte, personalisierte Funktionen bereitzustellen. Sie können von uns oder von Drittanbietern gesetzt werden.", color: "bg-green-50 border-green-200", text: "text-green-800" },
-                  { type: "Analyse- / Performance-Cookies", desc: "Diese Cookies erfassen anonyme Informationen darüber, wie Besucher unsere Website nutzen, z. B. welche Seiten am häufigsten aufgerufen werden. So können wir die Leistung und Benutzerfreundlichkeit der Website verbessern.", color: "bg-amber-50 border-amber-200", text: "text-amber-800" },
-                  { type: "Marketing-Cookies", desc: "Diese Cookies verfolgen Ihre Surfaktivitäten, um relevante Werbung auszuspielen. Wir verwenden derzeit keine Marketing-Cookies von Drittanbietern. Sollte sich dies ändern, werden wir diese Richtlinie aktualisieren und Ihre Einwilligung einholen.", color: "bg-rose-50 border-rose-200", text: "text-rose-800" },
+                  { type: "Notwendige Cookies", desc: "Diese Cookies sind fÃ¼r den ordnungsgemÃ¤ÃŸen Betrieb der Website unerlÃ¤sslich. Sie ermÃ¶glichen grundlegende Funktionen wie Seitennavigation, Sicherheit und FormularÃ¼bermittlungen. Sie kÃ¶nnen diese Cookies nicht ablehnen.", color: "bg-blue-50 border-blue-200", text: "text-blue-800" },
+                  { type: "Funktionale Cookies", desc: "Diese Cookies ermÃ¶glichen es der Website, Ihre Einstellungen (z. B. SprachprÃ¤ferenzen) zu speichern und erweiterte, personalisierte Funktionen bereitzustellen. Sie kÃ¶nnen von uns oder von Drittanbietern gesetzt werden.", color: "bg-green-50 border-green-200", text: "text-green-800" },
+                  { type: "Analyse- / Performance-Cookies", desc: "Diese Cookies erfassen anonyme Informationen darÃ¼ber, wie Besucher unsere Website nutzen, z. B. welche Seiten am hÃ¤ufigsten aufgerufen werden. So kÃ¶nnen wir die Leistung und Benutzerfreundlichkeit der Website verbessern.", color: "bg-amber-50 border-amber-200", text: "text-amber-800" },
+                  { type: "Marketing-Cookies", desc: "Diese Cookies verfolgen Ihre SurfaktivitÃ¤ten, um relevante Werbung auszuspielen. Wir verwenden derzeit keine Marketing-Cookies von Drittanbietern. Sollte sich dies Ã¤ndern, werden wir diese Richtlinie aktualisieren und Ihre Einwilligung einholen.", color: "bg-rose-50 border-rose-200", text: "text-rose-800" },
                 ].map((item, i) => (
                   <div key={i} className={`rounded-xl border px-4 py-4 ${item.color}`}>
                     <p className={`font-heading font-semibold text-sm mb-1 ${item.text}`}>{item.type}</p>
@@ -826,34 +826,34 @@ function CookiePolicyPage() {
               </div>
             </Section>
             <Section number="3" title="Cookies von Drittanbietern">
-              <p>Unsere Website kann Inhalte oder Funktionen von Drittanbietern enthalten (z. B. eingebettete Karten oder Analyse-Tools). Diese Drittanbieter können eigene Cookies auf Ihrem Gerät setzen, die deren eigenen Datenschutz- und Cookie-Richtlinien unterliegen. Wir haben keinen Einfluss auf Cookies von Drittanbietern.</p>
+              <p>Unsere Website kann Inhalte oder Funktionen von Drittanbietern enthalten (z. B. eingebettete Karten oder Analyse-Tools). Diese Drittanbieter kÃ¶nnen eigene Cookies auf Ihrem GerÃ¤t setzen, die deren eigenen Datenschutz- und Cookie-Richtlinien unterliegen. Wir haben keinen Einfluss auf Cookies von Drittanbietern.</p>
             </Section>
             <Section number="4" title="Wie lange werden Cookies gespeichert?">
               <BulletList items={[
-                "Sitzungscookies: werden automatisch gelöscht, wenn Sie Ihren Browser schließen.",
-                "Persistente Cookies: werden für einen bestimmten Zeitraum (von Tagen bis Jahren) auf Ihrem Gerät gespeichert oder bis Sie diese manuell löschen.",
+                "Sitzungscookies: werden automatisch gelÃ¶scht, wenn Sie Ihren Browser schlieÃŸen.",
+                "Persistente Cookies: werden fÃ¼r einen bestimmten Zeitraum (von Tagen bis Jahren) auf Ihrem GerÃ¤t gespeichert oder bis Sie diese manuell lÃ¶schen.",
               ]} />
             </Section>
             <Section number="5" title="Ihre Cookie-Einstellungen">
-              <p>Sie haben das Recht, die Verwendung von Cookies auf Ihrem Gerät zu steuern:</p>
+              <p>Sie haben das Recht, die Verwendung von Cookies auf Ihrem GerÃ¤t zu steuern:</p>
               <BulletList items={[
-                "Browser-Einstellungen: Die meisten Browser ermöglichen es Ihnen, Cookies einzusehen, zu verwalten, zu blockieren oder zu löschen. Weitere Informationen finden Sie im Hilfebereich Ihres Browsers.",
-                "Einwilligung: Beim ersten Besuch unserer Website kann Ihnen ein Cookie-Einwilligungsbanner angezeigt werden. Sie können Ihre Einstellungen jederzeit ändern.",
-                "Opt-out-Tools: Für Analyse-Dienste können Sie verfügbare Opt-out-Tools nutzen (z. B. Google Analytics Opt-out-Browser-Add-on).",
+                "Browser-Einstellungen: Die meisten Browser ermÃ¶glichen es Ihnen, Cookies einzusehen, zu verwalten, zu blockieren oder zu lÃ¶schen. Weitere Informationen finden Sie im Hilfebereich Ihres Browsers.",
+                "Einwilligung: Beim ersten Besuch unserer Website kann Ihnen ein Cookie-Einwilligungsbanner angezeigt werden. Sie kÃ¶nnen Ihre Einstellungen jederzeit Ã¤ndern.",
+                "Opt-out-Tools: FÃ¼r Analyse-Dienste kÃ¶nnen Sie verfÃ¼gbare Opt-out-Tools nutzen (z. B. Google Analytics Opt-out-Browser-Add-on).",
               ]} />
               <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                <p className="text-xs text-amber-800"><strong>Bitte beachten:</strong> Das Deaktivieren bestimmter Cookies kann die Funktionalität unserer Website beeinträchtigen und den Zugang zu einigen Funktionen einschränken.</p>
+                <p className="text-xs text-amber-800"><strong>Bitte beachten:</strong> Das Deaktivieren bestimmter Cookies kann die FunktionalitÃ¤t unserer Website beeintrÃ¤chtigen und den Zugang zu einigen Funktionen einschrÃ¤nken.</p>
               </div>
             </Section>
             <Section number="6" title="Rechtsgrundlage">
               <p>Die Verwendung von Cookies auf unserer Website basiert auf:</p>
               <BulletList items={[
-                "Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) für nicht notwendige Cookies.",
-                "Unserem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO) für technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind.",
+                "Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) fÃ¼r nicht notwendige Cookies.",
+                "Unserem berechtigten Interesse (Art. 6 Abs. 1 lit. f DSGVO) fÃ¼r technisch notwendige Cookies, die fÃ¼r den Betrieb der Website erforderlich sind.",
               ]} />
             </Section>
-            <Section number="7" title="Änderungen dieser Cookie-Richtlinie">
-              <p>Wir behalten uns das Recht vor, diese Cookie-Richtlinie jederzeit zu aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht. Wir empfehlen Ihnen, diese Richtlinie regelmäßig zu prüfen.</p>
+            <Section number="7" title="Ã„nderungen dieser Cookie-Richtlinie">
+              <p>Wir behalten uns das Recht vor, diese Cookie-Richtlinie jederzeit zu aktualisieren. Ã„nderungen werden auf dieser Seite mit einem aktualisierten Datum verÃ¶ffentlicht. Wir empfehlen Ihnen, diese Richtlinie regelmÃ¤ÃŸig zu prÃ¼fen.</p>
               <p className="mt-2 text-xs text-muted-foreground">Zuletzt aktualisiert: Juni 2026</p>
             </Section>
             <Section number="8" title="Kontakt">
@@ -907,3 +907,4 @@ export default function LegalPage() {
     </div>
   );
 }
+

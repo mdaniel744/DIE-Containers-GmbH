@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { makeMetadata } from "../../seo";
 
 import Shop from "@/views/Shop";
@@ -15,6 +15,9 @@ import Contact from "@/views/Contact";
 import FAQ from "@/views/FAQ";
 import Kaufberater from "@/views/Kaufberater";
 import LegalPage from "@/views/LegalPage";
+import Warenkorb from "@/views/Warenkorb";
+import Kasse from "@/views/Kasse";
+import BestellungBestaetigt from "@/views/BestellungBestaetigt";
 
 import ContainerKaufen from "@/views/seo/ContainerKaufen";
 import SeecontainerKaufen from "@/views/seo/SeecontainerKaufen";
@@ -43,6 +46,21 @@ import WieWirdGeliefert from "@/views/seo/faq/WieWirdGeliefert";
 export const revalidate = 300;
 
 const ROUTES = {
+  warenkorb: {
+    component: Warenkorb,
+    title: "Warenkorb | DIE Container GmbH",
+    description: "Ihr Warenkorb bei DIE Container GmbH.",
+  },
+  kasse: {
+    component: Kasse,
+    title: "Kasse | DIE Container GmbH",
+    description: "Bestellung abschließen bei DIE Container GmbH.",
+  },
+  "bestellung-bestaetigt": {
+    component: BestellungBestaetigt,
+    title: "Bestellung abgeschlossen | DIE Container GmbH",
+    description: "Ihre Bestellung wurde erfolgreich aufgegeben.",
+  },
   shop: {
     component: Shop,
     title: "Container Shop - Alle Container kaufen | DIE Container GmbH",
@@ -319,12 +337,14 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const route = ROUTES[getKey(await params)];
+  const key = getKey(await params);
+  if (key === "angebot") redirect("/shop");
+
+  const route = ROUTES[key];
 
   if (!route) notFound();
 
   const Component = route.component;
-
   return (
     <Suspense fallback={null}>
       <Component />

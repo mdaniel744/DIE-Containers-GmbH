@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import RichTextContent from "@/components/shared/RichTextContent";
+import { useCart } from "@/lib/CartContext";
+import { useNavigate } from "react-router-dom";
 import {
-  FileText, Minus, Plus, ArrowLeft, Truck, ShieldCheck,
+  ShoppingCart, Minus, Plus, ArrowLeft, Truck, ShieldCheck,
   Ruler, Weight, Package, Layers, DoorOpen, Award,
   CheckCircle2, Box, Maximize2, Zap, Thermometer, Wind,
   Lock, BarChart3, Clock, MapPin, PhoneCall, Star,
@@ -61,6 +63,13 @@ export default function ProductDetail() {
   const T = useSection("product");
   const Tpd = useSection("productDetail");
   const locale = useLocale();
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    navigate("/warenkorb?added=1");
+  };
 
   // Locale-aware condition label using the raw condition_code from DB
   const conditionDisplay = product
@@ -181,17 +190,16 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* CTA — big quote button only */}
-            <Link to={`/angebot?product=${product.id}&qty=${quantity}`} className="block">
-              <Button
-                size="lg"
-                className="w-full font-heading font-bold text-base h-14 text-[#1a1a1a] shadow-lg hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: ORANGE }}
-              >
-                <FileText className="w-5 h-5 mr-2" />
-                {quantity > 1 ? T.ctaMulti(quantity) : T.ctaSingle}
-              </Button>
-            </Link>
+            {/* CTA */}
+            <Button
+              onClick={handleAddToCart}
+              size="lg"
+              className="w-full font-heading font-bold text-base h-14 text-[#1a1a1a] shadow-lg hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: ORANGE }}
+            >
+              <ShoppingCart className="w-5 h-5 mr-2" />
+              Jetzt Kaufen{quantity > 1 ? ` (${quantity}×)` : ""}
+            </Button>
 
             {/* Dimensions quick-view */}
             <div>
@@ -463,7 +471,7 @@ export default function ProductDetail() {
                 {/* Steps – compact list */}
                 <div className="rounded-xl border border-border overflow-hidden mb-6">
                   {[
-                    { n: "01", title: "Angebot anfordern", desc: "Kostenlos & unverbindlich – Angebot inkl. Transportkosten innerhalb 24 h." },
+                    { n: "01", title: "Jetzt bestellen", desc: "Container auswählen, Anzahl festlegen und einfach online bestellen." },
                     { n: "02", title: "Terminvereinbarung", desc: "Unser Team klärt Zufahrt, Untergrund und Wunschtermin mit Ihnen." },
                     { n: "03", title: "Lieferung per Kranwagen", desc: "Direktlieferung an Ihren Aufstellort, fachmännisch abgesetzt." },
                     { n: "04", title: "Abnahme vor Ort", desc: "Gemeinsame Prüfung bei Übergabe – kein Aufwand für Sie." },
@@ -493,15 +501,14 @@ export default function ProductDetail() {
 
       {/* Mobile fixed CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-xl border-t border-border lg:hidden z-40">
-        <Link to={`/angebot?product=${product.id}&qty=${quantity}`}>
-          <Button
-            className="w-full font-heading font-semibold h-12 text-[#1a1a1a]"
-            style={{ backgroundColor: ORANGE }}
-          >
-            <FileText className="w-4 h-4 mr-2" />
-            Angebot anfordern – {product.price_from?.toLocaleString("de-DE")} €
-          </Button>
-        </Link>
+        <Button
+          onClick={handleAddToCart}
+          className="w-full font-heading font-semibold h-12 text-[#1a1a1a]"
+          style={{ backgroundColor: ORANGE }}
+        >
+          <ShoppingCart className="w-4 h-4 mr-2" />
+          Jetzt Kaufen – {product.price_from?.toLocaleString("de-DE")} €
+        </Button>
       </div>
     </div>
     </>
