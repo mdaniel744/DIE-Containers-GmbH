@@ -20,12 +20,6 @@ export default function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 w-full">
         <div className="max-w-2xl">
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
-            <span className="inline-block font-mono text-xs font-medium tracking-widest uppercase mb-6 border px-3 py-1.5 rounded-full" style={{ color: '#F28C28', borderColor: 'rgba(242,140,40,0.3)' }}>
-              {T.badge}
-            </span>
-          </motion.div>
-
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-display text-white leading-[1.08] tracking-tight">
             {T.title1}<span style={{ color: '#F28C28' }}>{T.titleColored}</span>{T.title2}
           </motion.h1>
