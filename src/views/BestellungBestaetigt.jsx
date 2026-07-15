@@ -146,22 +146,6 @@ export default function BestellungBestaetigt() {
           </div>
         )}
 
-        {/* Review request */}
-        <div className="border border-border rounded-xl px-6 py-5 bg-muted/20 text-center space-y-2">
-          <p className="font-heading font-semibold text-sm">Zufrieden mit Ihrem Kauf?</p>
-          <p className="text-sm text-muted-foreground">
-            Helfen Sie anderen Kunden mit einer ehrlichen Bewertung bei Google.
-          </p>
-          <a
-            href="https://g.page/r/GOOGLE_PLACE_ID/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-1 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm border border-border hover:bg-muted transition-colors"
-          >
-            Jetzt bei Google bewerten <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
-
         {/* CTA */}
         <div className="flex justify-center pt-2">
           <Link to="/shop">
