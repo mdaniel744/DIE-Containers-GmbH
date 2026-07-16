@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/CartContext";
 import { supabase, STORE_ID } from "@/lib/supabaseClient";
 
+const VAT_RATE = 0.19;
+const DELIVERY_FEE = 420;
+
 function generateOrderNumber() {
   const now = new Date();
   const date = now.toISOString().slice(0, 10).replace(/-/g, "");
@@ -57,15 +60,15 @@ export default function Kasse() {
   const navigate = useNavigate();
 
   const [billing, setBilling] = useState({ ...EMPTY_ADDRESS, email: "" });
-  const [diffDelivery, setDiffDelivery] = useState(false);
+  const [deliverySameAsBilling, setDeliverySameAsBilling] = useState(true);
   const [delivery, setDelivery] = useState({ ...EMPTY_ADDRESS });
   const [notes, setNotes] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
-  const subtotal = cart.reduce((sum, item) => sum + (item.product.price_from || 0) * item.quantity, 0);
-  const vat = subtotal * 19 / 119;
-  const netto = subtotal / 1.19;
+  const netSubtotal = cart.reduce((sum, item) => sum + (item.product.price_from || 0) * item.quantity, 0);
+  const vat = netSubtotal * VAT_RATE;
+  const total = netSubtotal + vat + DELIVERY_FEE;
   const fmt = (n) => n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   const updateBilling = (name, value) => setBilling((p) => ({ ...p, [name]: value }));
@@ -78,7 +81,7 @@ export default function Kasse() {
     setError(null);
 
     const orderNumber = generateOrderNumber();
-    const deliveryAddress = diffDelivery ? delivery : null;
+    const deliveryAddress = deliverySameAsBilling ? null : delivery;
 
     try {
       const { error: dbError } = await supabase.from("inquiries").insert({
@@ -98,8 +101,11 @@ export default function Kasse() {
             quantity: i.quantity,
             line_total: (i.product.price_from || 0) * i.quantity,
           })),
-          subtotal,
+          subtotal: netSubtotal,
           vat,
+          delivery_fee: DELIVERY_FEE,
+          total,
+          payment_method: "sepa_bank_transfer",
           billing: {
             firma: billing.firma || null,
             strasse: billing.strasse,
@@ -116,11 +122,14 @@ export default function Kasse() {
       sessionStorage.setItem("last-order", JSON.stringify({
         orderNumber,
         date: new Date().toLocaleDateString("de-DE", { year: "numeric", month: "long", day: "numeric" }),
-        subtotal,
+        subtotal: netSubtotal,
         vat,
+        deliveryFee: DELIVERY_FEE,
+        total,
+        paymentMethod: "SEPA-Banküberweisung",
         items: cart.map((i) => ({ title: i.product.title, price: i.product.price_from, quantity: i.quantity })),
         billing: { ...billing },
-        delivery: diffDelivery ? { ...delivery } : null,
+        delivery: deliverySameAsBilling ? null : { ...delivery },
         notes: notes || null,
       }));
 
@@ -176,19 +185,30 @@ export default function Kasse() {
                 <label className="flex items-center gap-3 cursor-pointer select-none">
                   <input
                     type="checkbox"
-                    checked={diffDelivery}
-                    onChange={(e) => setDiffDelivery(e.target.checked)}
+                    checked={deliverySameAsBilling}
+                    onChange={(e) => setDeliverySameAsBilling(e.target.checked)}
                     className="w-4 h-4 rounded accent-[#F28C28]"
                   />
-                  <span className="text-sm font-medium">Lieferadresse weicht von Rechnungsadresse ab?</span>
+                  <span className="text-sm font-medium">Lieferadresse entspricht der Rechnungsadresse</span>
                 </label>
 
-                {diffDelivery && (
+                {!deliverySameAsBilling && (
                   <div className="mt-5 pl-4 border-l-2 border-[#F28C28]/40 space-y-4">
                     <h3 className="font-heading font-semibold text-base">Lieferadresse</h3>
                     <AddressBlock values={delivery} onChange={updateDelivery} prefix="del" showPhone={true} />
                   </div>
                 )}
+              </div>
+
+              <div className="border border-border rounded-xl p-5 bg-muted/30">
+                <h2 className="font-heading font-bold text-lg uppercase tracking-wide mb-3">Zahlungsart</h2>
+                <label className="flex items-start gap-3 cursor-default">
+                  <input type="radio" checked readOnly aria-label="SEPA-Banküberweisung" className="mt-1 accent-[#F28C28]" />
+                  <span>
+                    <span className="block font-heading font-semibold text-sm">SEPA-Banküberweisung</span>
+                    <span className="block mt-1 text-sm text-muted-foreground leading-relaxed">Nach Ihrer Bestellung erhalten Sie die Auftragsbestätigung mit Bankverbindung und Verwendungszweck für die SEPA-Überweisung.</span>
+                  </span>
+                </label>
               </div>
 
               {/* Notes */}
@@ -236,23 +256,20 @@ export default function Kasse() {
               <div className="px-6 py-4 border-b border-border space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Warenwert (netto)</span>
-                  <span>{fmt(netto)} €</span>
+                  <span>{fmt(netSubtotal)} €</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">19% MwSt. auf Warenwert</span>
                   <span>{fmt(vat)} €</span>
                 </div>
-                <div className="flex justify-between items-start pb-2 border-b border-border">
+                <div className="flex justify-between items-center pb-2 border-b border-border">
                   <span className="text-muted-foreground">Lieferpauschale</span>
-                  <span className="text-xs text-muted-foreground text-right max-w-[130px]">
-                    Wird individuell nach Lieferort berechnet
-                  </span>
+                  <span>{fmt(DELIVERY_FEE)} €</span>
                 </div>
                 <div className="flex justify-between items-start pt-1">
                   <span className="font-heading font-bold">Gesamtsumme</span>
                   <div className="text-right">
-                    <div className="font-heading font-bold text-lg" style={{ color: "#1B3A5C" }}>{fmt(subtotal)} €</div>
-                    <div className="text-xs text-muted-foreground">zzgl. Lieferpauschale</div>
+                    <div className="font-heading font-bold text-lg" style={{ color: "#1B3A5C" }}>{fmt(total)} €</div>
                   </div>
                 </div>
               </div>
@@ -260,10 +277,10 @@ export default function Kasse() {
               {/* Payment note */}
               <div className="px-6 py-4 border-b border-border bg-muted/40 space-y-2">
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Die 19&nbsp;% Mehrwertsteuer wird auf den Netto-Warenwert berechnet. Die Lieferpauschale wird individuell nach Lieferort ermittelt und Ihnen separat mitgeteilt.
+                  Die 19&nbsp;% Mehrwertsteuer wird auf den Netto-Warenwert berechnet. Die Lieferpauschale beträgt einmalig {fmt(DELIVERY_FEE)}&nbsp;€.
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Zahlung per Banküberweisung:</strong> Nach Eingang Ihrer Bestellung erhalten Sie per E-Mail eine Auftragsbestätigung mit unseren Bankdaten (IBAN/BIC) sowie den finalen Gesamtkosten inkl. Lieferpauschale.
+                  <strong className="text-foreground">SEPA-Banküberweisung:</strong> Nach Eingang Ihrer Bestellung erhalten Sie per E-Mail eine Auftragsbestätigung mit unseren Bankdaten (IBAN/BIC) und Ihrem Verwendungszweck.
                 </p>
               </div>
 

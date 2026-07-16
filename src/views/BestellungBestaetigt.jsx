@@ -30,6 +30,9 @@ export default function BestellungBestaetigt() {
 
   const subtotal = order?.subtotal ?? 0;
   const vat = order?.vat ?? 0;
+  const deliveryFee = order?.deliveryFee ?? 420;
+  const total = order?.total ?? subtotal + vat + deliveryFee;
+  const paymentMethod = order?.paymentMethod ?? "SEPA-Banküberweisung";
 
   return (
     <div className="min-h-screen bg-background">
@@ -59,8 +62,8 @@ export default function BestellungBestaetigt() {
           {[
             { label: "Bestellnummer", value: orderNumber },
             { label: "Datum", value: order?.date ?? new Date().toLocaleDateString("de-DE", { year: "numeric", month: "long", day: "numeric" }) },
-            { label: "Gesamt", value: `${fmt(subtotal)} €` },
-            { label: "Zahlungsart", value: "Direkte Banküberweisung" },
+            { label: "Gesamt", value: `${fmt(total)} €` },
+            { label: "Zahlungsart", value: paymentMethod },
           ].map(({ label, value }) => (
             <div key={label} className="px-4 py-5">
               <p className="text-xs text-muted-foreground mb-1">{label}</p>
@@ -104,10 +107,11 @@ export default function BestellungBestaetigt() {
 
               {/* Totals */}
               {[
-                { label: "Zwischensumme", value: `${fmt(subtotal)} €`, colored: true },
-                { label: "Versand", value: "Wird individuell berechnet" },
-                { label: "Zahlungsart", value: "Direkte Banküberweisung" },
-                { label: "Gesamt", value: `${fmt(subtotal)} € (inkl. ${fmt(vat)} € 19% MwSt.)`, colored: true, bold: true },
+                { label: "Warenwert (netto)", value: `${fmt(subtotal)} €`, colored: true },
+                { label: "19 % MwSt.", value: `${fmt(vat)} €` },
+                { label: "Lieferpauschale", value: `${fmt(deliveryFee)} €` },
+                { label: "Zahlungsart", value: paymentMethod },
+                { label: "Gesamt", value: `${fmt(total)} €`, colored: true, bold: true },
                 ...(order.notes ? [{ label: "Anmerkung", value: order.notes }] : []),
               ].map(({ label, value, colored, bold }) => (
                 <div key={label} className="flex justify-between items-start py-3 border-b border-border text-sm last:border-0">

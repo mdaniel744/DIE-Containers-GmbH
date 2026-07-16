@@ -5,15 +5,18 @@ import { X, Minus, Plus, ShoppingCart, CheckCircle, ArrowRight } from "lucide-re
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/CartContext";
 
+const VAT_RATE = 0.19;
+const DELIVERY_FEE = 420;
+
 export default function Warenkorb() {
   const { cart, removeFromCart, updateQuantity } = useCart();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const justAdded = searchParams.get("added") === "1";
 
-  const subtotal = cart.reduce((sum, item) => sum + (item.product.price_from || 0) * item.quantity, 0);
-  const vat = subtotal * 19 / 119;
-  const netto = subtotal / 1.19;
+  const netSubtotal = cart.reduce((sum, item) => sum + (item.product.price_from || 0) * item.quantity, 0);
+  const vat = netSubtotal * VAT_RATE;
+  const total = netSubtotal + vat + DELIVERY_FEE;
 
   const fmt = (n) => n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -137,25 +140,22 @@ export default function Warenkorb() {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between py-1.5">
                 <span className="text-muted-foreground">Warenwert (netto)</span>
-                <span>{fmt(netto)} €</span>
+                <span>{fmt(netSubtotal)} €</span>
               </div>
               <div className="flex justify-between py-1.5">
                 <span className="text-muted-foreground">19% MwSt. auf Warenwert</span>
                 <span>{fmt(vat)} €</span>
               </div>
-              <div className="flex justify-between items-start py-1.5 pb-3 border-b border-border">
-                <span className="text-muted-foreground">Lieferpauschale</span>
-                <div className="text-right text-muted-foreground text-xs max-w-[150px]">
-                  Wird individuell nach Lieferort berechnet
-                </div>
+                <div className="flex justify-between items-center py-1.5 pb-3 border-b border-border">
+                  <span className="text-muted-foreground">Lieferpauschale</span>
+                  <span>{fmt(DELIVERY_FEE)} €</span>
               </div>
               <div className="flex justify-between items-start pt-2">
                 <span className="font-heading font-bold text-base">Gesamtsumme</span>
                 <div className="text-right">
                   <div className="font-heading font-bold text-xl" style={{ color: "#1B3A5C" }}>
-                    {fmt(subtotal)} €
+                    {fmt(total)} €
                   </div>
-                  <div className="text-xs text-muted-foreground mt-0.5">zzgl. Lieferpauschale</div>
                 </div>
               </div>
             </div>

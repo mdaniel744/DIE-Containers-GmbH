@@ -21,6 +21,7 @@ import ContactBanner from "@/components/shared/ContactBanner";
 import { useSection } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { useAttributeValueTranslations } from "@/hooks/useAttributeValueTranslations";
+import { useCart } from "@/lib/CartContext";
 
 const ORANGE = "#F28C28";
 const DEFAULT_PRODUCT_DESCRIPTION = (title) =>
@@ -63,9 +64,22 @@ export default function ProductDetail() {
   const Tpd = useSection("productDetail");
   const locale = useLocale();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const handleInquiry = () => {
-    navigate(`/angebot?product=${product.id}&qty=${quantity}`);
+    const params = new URLSearchParams({
+      product: product.id,
+      qty: String(quantity),
+    });
+
+    if (product.size) params.set("size", product.size);
+
+    navigate(`/angebot?${params.toString()}`);
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    navigate("/warenkorb?added=1");
   };
 
   // Locale-aware condition label using the raw condition_code from DB
@@ -170,7 +184,6 @@ export default function ProductDetail() {
                   {product.price_from?.toLocaleString("de-DE")} €
                 </span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">{T.priceNote}</p>
             </div>
 
             {/* Quantity */}
@@ -196,6 +209,15 @@ export default function ProductDetail() {
             >
               <ChevronRight className="w-5 h-5 mr-2" />
               Unverbindliches Angebot anfordern
+            </Button>
+            <Button
+              onClick={handleAddToCart}
+              size="lg"
+              variant="outline"
+              className="w-full font-heading font-bold text-base h-14 border-[#1B3A5C] text-[#1B3A5C] hover:bg-[#1B3A5C] hover:text-white"
+            >
+              <ShoppingCart className="w-5 h-5 mr-2" />
+              {T.cart}
             </Button>
 
             {/* Dimensions quick-view */}
@@ -497,7 +519,7 @@ export default function ProductDetail() {
       </div>
 
       {/* Mobile fixed CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-xl border-t border-border lg:hidden z-40">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-xl border-t border-border lg:hidden z-40 space-y-2">
         <Button
           onClick={handleInquiry}
           className="w-full font-heading font-semibold h-12 text-[#1a1a1a]"
@@ -505,6 +527,14 @@ export default function ProductDetail() {
         >
           <ChevronRight className="w-4 h-4 mr-2" />
           Angebot anfordern – {product.price_from?.toLocaleString("de-DE")} €
+        </Button>
+        <Button
+          onClick={handleAddToCart}
+          variant="outline"
+          className="w-full font-heading font-semibold h-11 border-[#1B3A5C] text-[#1B3A5C] hover:bg-[#1B3A5C] hover:text-white"
+        >
+          <ShoppingCart className="w-4 h-4 mr-2" />
+          {T.cart}
         </Button>
       </div>
     </div>

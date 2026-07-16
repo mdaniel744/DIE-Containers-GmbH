@@ -35,7 +35,7 @@ export default function HeroSection() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
-            <Link to="/shop">
+            <Link to="/angebot">
               <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-heading font-semibold text-lg px-10 h-14 w-full sm:w-auto">
                 <FileText className="w-4 h-4 mr-2" />
                 {T.ctaQuote}

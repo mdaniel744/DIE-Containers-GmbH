@@ -140,7 +140,7 @@ const strings = {
     // ─── PRODUCT CARD ────────────────────────────────────────────────────────
     productCard: {
       details: "Details ansehen",
-      cart: "In Den Warenkorb",
+      cart: "In den Warenkorb",
     },
 
     // ─── SHOP PAGE ───────────────────────────────────────────────────────────
@@ -180,10 +180,10 @@ const strings = {
       backToShop: "Zurück zum Shop",
       inStock: "Auf Lager",
       from: "Ab",
-      priceNote: "Preis inkl. 19% MwSt. · zzgl. individuell berechneter Versandkosten",
       quantityLabel: "Anzahl Container",
       ctaSingle: "Unverbindliches Angebot anfordern",
       ctaMulti: (n) => `${n} × Container – Angebot anfordern`,
+      cart: "In den Warenkorb",
       externalDimensions: "Außenmaße",
       cscLabel: "CSC-Zertifiziert",
       weatherLabel: "Wasser- & Winddicht",
@@ -756,10 +756,10 @@ const strings = {
       backToShop: "Back to shop",
       inStock: "In stock",
       from: "From",
-      priceNote: "Price incl. 19% VAT",
       quantityLabel: "Number of containers",
       ctaSingle: "Request a non-binding quote",
       ctaMulti: (n) => `${n} × containers – Request a quote`,
+      cart: "Add to cart",
       externalDimensions: "External dimensions",
       cscLabel: "CSC Certified",
       weatherLabel: "Water & wind tight",

@@ -41,7 +41,7 @@ export default function Home() {
               Fordern Sie jetzt Ihr kostenloses und unverbindliches Angebot an.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/shop">
+              <Link to="/angebot">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold px-8 h-13">
                   Kostenloses Angebot anfordern
                   <ArrowRight className="w-4 h-4 ml-2" />

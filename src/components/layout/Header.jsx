@@ -11,7 +11,6 @@ import { useT } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { isLocalizablePath, stripLocalePrefix } from "@/lib/locale";
 import { isCatalogPath, resolveCatalogCategoryHref } from "@/lib/catalogLinks";
-import NextLink from "next/link";
 
 const simpleNavItems = [
   { label: "Home", path: "/" },
@@ -65,7 +64,7 @@ function CatalogDropdown({ visible, categories, locale }) {
           <div className="px-5 py-3 border-b border-border bg-muted/50 flex items-center justify-between">
             <span className="font-heading font-bold text-sm text-foreground">{t("nav.catalog")}</span>
             <Link
-              to="/shop"
+              to="/angebot"
               className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {t("nav.showAll")}
@@ -101,7 +100,7 @@ function CatalogDropdown({ visible, categories, locale }) {
           {/* Footer CTA */}
           <div className="px-4 pb-4">
             <Link
-              to="/shop"
+              to="/angebot"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "#F28C28" }}
             >
@@ -274,7 +273,7 @@ export default function Header() {
                 </span>
               )}
             </Link>
-            <Link to="/shop">
+            <Link to="/angebot">
               <Button className="font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
                 {t("nav.cta")}
               </Button>
@@ -398,7 +397,7 @@ export default function Header() {
               </div>
 
               <div className="pt-3 border-t border-border mt-3 space-y-2">
-                <Link to="/shop" className="block">
+                <Link to="/angebot" className="block">
                   <Button className="w-full font-heading font-semibold text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
                     {t("nav.cta")}
                   </Button>

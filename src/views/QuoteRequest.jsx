@@ -23,13 +23,14 @@ export default function QuoteRequest() {
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("product");
   const qty = parseInt(searchParams.get("qty"), 10) || 1;
+  const productSize = searchParams.get("size") || "";
 
   const [step, setStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [data, setData] = useState({
-    container_size: "",
+    container_size: productSize,
     container_type: "",
     main_category: "",
     modified_subtype: "",
@@ -55,8 +56,10 @@ export default function QuoteRequest() {
       ...prev,
       quantity: qty,
       product_id: productId || "",
+      container_size: productSize || prev.container_size,
     }));
-  }, [productId, qty]);
+    if (productId) setStep(1);
+  }, [productId, productSize, qty]);
 
   // Auto-continue: when arriving from a product page, fetch & pre-select it
   useEffect(() => {
@@ -84,7 +87,7 @@ export default function QuoteRequest() {
           main_category: mainCat,
           container_type: isModified ? subtype : mainCat,
           modified_subtype: subtype,
-          container_size: product.size || prev.container_size,
+          container_size: product.size || productSize || prev.container_size,
           condition: product.condition || prev.condition,
           quantity: qty,
         }));
@@ -95,7 +98,7 @@ export default function QuoteRequest() {
       }
     })();
     return () => { cancelled = true; };
-  }, [productId, qty]);
+  }, [productId, productSize, qty]);
 
   const canAdvance = () => {
     if (step === 0) {
