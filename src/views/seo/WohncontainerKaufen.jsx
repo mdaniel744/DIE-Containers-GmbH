@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -30,77 +30,77 @@ function SH({ children }) {
 
 /* â”€â”€ Winterfest checklist â”€â”€ */
 const WINTERFEST_CHECK = [
-  { icon: ShieldCheck, text: "Gute Wand-, Boden- und DachdÃ¤mmung" },
-  { icon: Wrench, text: "Heizung fÃ¼r ganzjÃ¤hrige Nutzung" },
-  { icon: ShieldCheck, text: "Dichte Fenster und TÃ¼ren" },
-  { icon: Snowflake, text: "Frostschutz fÃ¼r Wasserleitungen" },
-  { icon: Plug, text: "Geeignete Strom-, Wasser- und AbwasseranschlÃ¼sse" },
+  { icon: ShieldCheck, text: "Gute Wand-, Boden- und Dachdämmung" },
+  { icon: Wrench, text: "Heizung für ganzjährige Nutzung" },
+  { icon: ShieldCheck, text: "Dichte Fenster und Türen" },
+  { icon: Snowflake, text: "Frostschutz für Wasserleitungen" },
+  { icon: Plug, text: "Geeignete Strom-, Wasser- und Abwasseranschlüsse" },
 ];
 
 /* â”€â”€ Price factors â”€â”€ */
 const PRICE_FACTORS = [
-  "Neu oder gebraucht", "GrÃ¶ÃŸe und Grundriss", "Mit oder ohne KÃ¼che und Bad",
-  "Winterfest oder einfache AusfÃ¼hrung", "SchlÃ¼sselfertig oder individuell ausbaubar",
-  "Transport, Kranentladung und Montage", "AnschlÃ¼sse fÃ¼r Strom, Wasser und Abwasser",
+  "Neu oder gebraucht", "Größe und Grundriss", "Mit oder ohne Küche und Bad",
+  "Winterfest oder einfache Ausführung", "Schlüsselfertig oder individuell ausbaubar",
+  "Transport, Kranentladung und Montage", "Anschlüsse für Strom, Wasser und Abwasser",
 ];
 
 /* â”€â”€ Kitchen & bath equipment â”€â”€ */
 const KITCHEN_BATH = [
-  "Badezimmer mit Dusche, WC und Waschbecken", "KÃ¼chenzeile", "Warmwasserbereitung",
+  "Badezimmer mit Dusche, WC und Waschbecken", "Küchenzeile", "Warmwasserbereitung",
   "Elektroinstallation", "Beleuchtung", "Heizung", "Fenster", "Bodenbelag", "Innenverkleidung",
 ];
 
 /* â”€â”€ Gebraucht checklist â”€â”€ */
 const GEBRAUCHT_CHECK = [
-  "Ist der Container trocken und dicht?", "Sind Fenster und TÃ¼ren funktionsfÃ¤hig?",
-  "Ist die Elektrik sicher nutzbar?", "Funktionieren Bad, KÃ¼che und WasseranschlÃ¼sse?",
-  "Ist die DÃ¤mmung ausreichend?", "Gibt es Rost, Schimmel oder FeuchtigkeitsschÃ¤den?",
+  "Ist der Container trocken und dicht?", "Sind Fenster und Türen funktionsfähig?",
+  "Ist die Elektrik sicher nutzbar?", "Funktionieren Bad, Küche und Wasseranschlüsse?",
+  "Ist die Dämmung ausreichend?", "Gibt es Rost, Schimmel oder Feuchtigkeitsschäden?",
   "Sind Transport und Aufstellung wirtschaftlich sinnvoll?",
 ];
 
 /* â”€â”€ Steps â”€â”€ */
 const STEPS = [
-  { num: "01", title: "Nutzung festlegen", desc: "VorÃ¼bergehend, dauerhaft, als Unterkunft, GÃ¤stehaus oder Mitarbeiterwohnung." },
-  { num: "02", title: "GrÃ¶ÃŸe & Grundriss", desc: "Passende ContainergrÃ¶ÃŸe und Raumaufteilung wÃ¤hlen." },
-  { num: "03", title: "Ausstattung", desc: "DÃ¤mmung, Heizung, KÃ¼che, Bad und Elektrik bestimmen." },
-  { num: "04", title: "Lieferort prÃ¼fen", desc: "Zufahrt, Untergrund und AufstellflÃ¤che kontrollieren." },
-  { num: "05", title: "Genehmigung klÃ¤ren", desc: "BaubehÃ¶rde kontaktieren bei dauerhafter Nutzung." },
+  { num: "01", title: "Nutzung festlegen", desc: "Vorübergehend, dauerhaft, als Unterkunft, Gästehaus oder Mitarbeiterwohnung." },
+  { num: "02", title: "Größe & Grundriss", desc: "Passende Containergröße und Raumaufteilung wählen." },
+  { num: "03", title: "Ausstattung", desc: "Dämmung, Heizung, Küche, Bad und Elektrik bestimmen." },
+  { num: "04", title: "Lieferort prüfen", desc: "Zufahrt, Untergrund und Aufstellfläche kontrollieren." },
+  { num: "05", title: "Genehmigung klären", desc: "Baubehörde kontaktieren bei dauerhafter Nutzung." },
   { num: "06", title: "Angebot anfragen", desc: "Unverbindliches Angebot mit Ausstattung einholen." },
   { num: "07", title: "Lieferung planen", desc: "Transport, Kran und Anschluss rechtzeitig organisieren." },
 ];
 
 /* â”€â”€ Mistakes to avoid â”€â”€ */
 const MISTAKES = [
-  "Nur nach dem gÃ¼nstigsten Preis entscheiden",
-  "Winterfestigkeit nicht prÃ¼fen",
+  "Nur nach dem günstigsten Preis entscheiden",
+  "Winterfestigkeit nicht prüfen",
   "Transport und Kranentladung vergessen",
-  "Genehmigung zu spÃ¤t klÃ¤ren",
-  "AnschlÃ¼sse fÃ¼r Strom, Wasser und Abwasser unterschÃ¤tzen",
+  "Genehmigung zu spät klären",
+  "Anschlüsse für Strom, Wasser und Abwasser unterschätzen",
 ];
 
 /* â”€â”€ Advantages â”€â”€ */
 const ADVANTAGES = [
-  { icon: Truck, title: "Schnelle VerfÃ¼gbarkeit", desc: "Schneller planbar und einsatzbereit als klassische Bauprojekte." },
-  { icon: Building2, title: "Modular erweiterbar", desc: "Einzelmodule oder kombinierte Wohnanlagen â€“ flexibel anpassbar." },
+  { icon: Truck, title: "Schnelle Verfügbarkeit", desc: "Schneller planbar und einsatzbereit als klassische Bauprojekte." },
+  { icon: Building2, title: "Modular erweiterbar", desc: "Einzelmodule oder kombinierte Wohnanlagen – flexibel anpassbar." },
   { icon: Star, title: "Wirtschaftlich", desc: "Planbare Alternative zum klassischen Bau mit guter Kostenkontrolle." },
   { icon: Home, title: "Mobil & wiederverwendbar", desc: "Bei Bedarf transportierbar und an anderem Standort erneut nutzbar." },
 ];
 
 /* â”€â”€ FAQ â”€â”€ */
 const FAQS = [
-  { q: "Was kostet ein Wohncontainer?", a: "Ein Wohncontainer kostet je nach GrÃ¶ÃŸe, Zustand und Ausstattung unterschiedlich viel. Einfache gebrauchte Modelle sind gÃ¼nstiger, wÃ¤hrend winterfeste und schlÃ¼sselfertige Wohncontainer mit KÃ¼che und Bad deutlich mehr kosten kÃ¶nnen. Transport, Kran, Fundament und AnschlÃ¼sse sollten zusÃ¤tzlich eingeplant werden." },
-  { q: "Kann man einen Wohncontainer gebraucht kaufen?", a: "Ja, gebrauchte Wohncontainer sind eine beliebte LÃ¶sung fÃ¼r Kunden, die Kosten sparen mÃ¶chten. Wichtig ist, dass der Container trocken, stabil und technisch funktionsfÃ¤hig ist. Besonders DÃ¤mmung, Elektrik, Fenster, TÃ¼ren, Bad und KÃ¼che sollten geprÃ¼ft werden." },
-  { q: "Gibt es Wohncontainer mit KÃ¼che und Bad?", a: "Ja, Wohncontainer kÃ¶nnen mit KÃ¼che und Bad ausgestattet sein. Diese Variante eignet sich besonders fÃ¼r lÃ¤ngere Nutzung, MitarbeiterunterkÃ¼nfte, FerienunterkÃ¼nfte oder eigenstÃ¤ndige Wohneinheiten." },
-  { q: "Ist ein Wohncontainer winterfest?", a: "Ein Wohncontainer ist winterfest, wenn er gut gedÃ¤mmt ist und Ã¼ber geeignete Heizung, dichte Fenster und geschÃ¼tzte Leitungen verfÃ¼gt. Nicht jeder gebrauchte Wohncontainer ist automatisch winterfest." },
-  { q: "Was bedeutet schlÃ¼sselfertiger Wohncontainer?", a: "Ein schlÃ¼sselfertiger Wohncontainer ist bereits weitgehend ausgestattet und kann nach Lieferung, Aufstellung und Anschluss direkt genutzt werden. Je nach Modell sind KÃ¼che, Bad, Heizung, Elektroinstallation und Innenausbau enthalten." },
-  { q: "Braucht man eine Genehmigung fÃ¼r einen Wohncontainer?", a: "Das hÃ¤ngt vom Standort, der Nutzungsdauer und der Nutzung ab. Bei dauerhafter Wohnnutzung oder fester Aufstellung sollte immer die zustÃ¤ndige BaubehÃ¶rde kontaktiert werden." },
+  { q: "Was kostet ein Wohncontainer?", a: "Ein Wohncontainer kostet je nach Größe, Zustand und Ausstattung unterschiedlich viel. Einfache gebrauchte Modelle sind günstiger, während winterfeste und schlüsselfertige Wohncontainer mit Küche und Bad deutlich mehr kosten können. Transport, Kran, Fundament und Anschlüsse sollten zusätzlich eingeplant werden." },
+  { q: "Kann man einen Wohncontainer gebraucht kaufen?", a: "Ja, gebrauchte Wohncontainer sind eine beliebte Lösung für Kunden, die Kosten sparen möchten. Wichtig ist, dass der Container trocken, stabil und technisch funktionsfähig ist. Besonders Dämmung, Elektrik, Fenster, Türen, Bad und Küche sollten geprüft werden." },
+  { q: "Gibt es Wohncontainer mit Küche und Bad?", a: "Ja, Wohncontainer können mit Küche und Bad ausgestattet sein. Diese Variante eignet sich besonders für längere Nutzung, Mitarbeiterunterkünfte, Ferienunterkünfte oder eigenständige Wohneinheiten." },
+  { q: "Ist ein Wohncontainer winterfest?", a: "Ein Wohncontainer ist winterfest, wenn er gut gedämmt ist und über geeignete Heizung, dichte Fenster und geschützte Leitungen verfügt. Nicht jeder gebrauchte Wohncontainer ist automatisch winterfest." },
+  { q: "Was bedeutet schlüsselfertiger Wohncontainer?", a: "Ein schlüsselfertiger Wohncontainer ist bereits weitgehend ausgestattet und kann nach Lieferung, Aufstellung und Anschluss direkt genutzt werden. Je nach Modell sind Küche, Bad, Heizung, Elektroinstallation und Innenausbau enthalten." },
+  { q: "Braucht man eine Genehmigung für einen Wohncontainer?", a: "Das hängt vom Standort, der Nutzungsdauer und der Nutzung ab. Bei dauerhafter Wohnnutzung oder fester Aufstellung sollte immer die zuständige Baubehörde kontaktiert werden." },
 ];
 
 /* â”€â”€ Ratgeber links â”€â”€ */
 const RATGEBER = [
-  { href: "/container-kaufen", title: "Container kaufen", desc: "Ãœbersicht aller Containertypen" },
-  { href: "/container-masse", title: "Container MaÃŸe", desc: "GrundmaÃŸe & InnenflÃ¤che" },
-  { href: "/container-genehmigung", title: "Container Genehmigung", desc: "Baugenehmigung klÃ¤ren" },
+  { href: "/container-kaufen", title: "Container kaufen", desc: "Übersicht aller Containertypen" },
+  { href: "/container-masse", title: "Container Maße", desc: "Grundmaße & Innenfläche" },
+  { href: "/container-genehmigung", title: "Container Genehmigung", desc: "Baugenehmigung klären" },
   { href: "/container-fundament", title: "Container Fundament", desc: "Untergrund & Aufstellung" },
   { href: "/container-lieferung", title: "Container Lieferung", desc: "Ablauf & Transportkosten" },
   { href: "/container-kosten", title: "Container Kosten", desc: "Gesamtkosten berechnen" },
@@ -108,12 +108,12 @@ const RATGEBER = [
 
 /* â”€â”€ Other container types â”€â”€ */
 const OTHER_TYPES = [
-  { href: "/buerocontainer-kaufen", title: "BÃ¼rocontainer kaufen", desc: "Arbeitsraum statt Wohnraum" },
+  { href: "/buerocontainer-kaufen", title: "Bürocontainer kaufen", desc: "Arbeitsraum statt Wohnraum" },
   { href: "/seecontainer-kaufen", title: "Seecontainer kaufen", desc: "Klassische ISO Container" },
-  { href: "/kuehlcontainer-kaufen", title: "KÃ¼hlcontainer kaufen", desc: "SpeziallÃ¶sung fÃ¼r KÃ¼hlung" },
-  { href: "/20-fuss-container-kaufen", title: "20 FuÃŸ Container kaufen", desc: "Basis fÃ¼r Wohnmodule" },
-  { href: "/40-fuss-container-kaufen", title: "40 FuÃŸ Container kaufen", desc: "Mehr Platz fÃ¼r Wohnen" },
-  { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen", desc: "LagerflÃ¤che auf dem GrundstÃ¼ck" },
+  { href: "/kuehlcontainer-kaufen", title: "Kühlcontainer kaufen", desc: "Speziallösung für Kühlung" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Basis für Wohnmodule" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen", desc: "Mehr Platz für Wohnen" },
+  { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen", desc: "Lagerfläche auf dem Grundstück" },
 ];
 
 export default function WohncontainerKaufen() {
@@ -150,7 +150,7 @@ export default function WohncontainerKaufen() {
             Wohncontainer kaufen
           </h1>
           <p className="text-white/75 text-base leading-relaxed max-w-2xl mb-8">
-            Wohncontainer kaufen in Deutschland â€“ winterfeste Wohncontainer, gebrauchte Modelle, schlÃ¼sselfertige LÃ¶sungen sowie Container mit KÃ¼che und Bad. Jetzt passende WohnlÃ¶sung finden.
+            Wohncontainer kaufen in Deutschland – winterfeste Wohncontainer, gebrauchte Modelle, schlüsselfertige Lösungen sowie Container mit Küche und Bad. Jetzt passende Wohnlösung finden.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
@@ -167,16 +167,16 @@ export default function WohncontainerKaufen() {
 
         {/* â”€â”€ Intro â”€â”€ */}
         <section className="mb-14">
-          <SH>Wohncontainer als flexible WohnlÃ¶sung</SH>
+          <SH>Wohncontainer als flexible Wohnlösung</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Ein Wohncontainer ist eine flexible LÃ¶sung, wenn schnell zusÃ¤tzlicher Wohnraum benÃ¶tigt wird. Ob als Mitarbeiterunterkunft, ÃœbergangslÃ¶sung, Ferienunterkunft, GÃ¤stehaus oder temporÃ¤rer Wohnraum wÃ¤hrend Bau- oder Sanierungsarbeiten â€“ Wohncontainer lassen sich vielseitig einsetzen und individuell ausstatten.
+              Ein Wohncontainer ist eine flexible Lösung, wenn schnell zusätzlicher Wohnraum benötigt wird. Ob als Mitarbeiterunterkunft, Übergangslösung, Ferienunterkunft, Gästehaus oder temporärer Wohnraum während Bau- oder Sanierungsarbeiten – Wohncontainer lassen sich vielseitig einsetzen und individuell ausstatten.
             </p>
             <p>
-              Wer einen <strong className="text-foreground">Wohncontainer kaufen</strong> mÃ¶chte, sollte nicht nur auf den Preis achten. Wichtige Punkte sind DÃ¤mmung, Heizung, KÃ¼che, Bad, AnschlÃ¼sse, Transport, Genehmigung und der Zustand des Containers. Je besser diese Faktoren vor dem Kauf geprÃ¼ft werden, desto sicherer ist die Entscheidung.
+              Wer einen <strong className="text-foreground">Wohncontainer kaufen</strong> möchte, sollte nicht nur auf den Preis achten. Wichtige Punkte sind Dämmung, Heizung, Küche, Bad, Anschlüsse, Transport, Genehmigung und der Zustand des Containers. Je besser diese Faktoren vor dem Kauf geprüft werden, desto sicherer ist die Entscheidung.
             </p>
             <p>
-              Wenn Sie verschiedene Containerarten vergleichen mÃ¶chten, finden Sie auf unserer Seite <IL to="/container-kaufen">Container kaufen</IL> einen Ãœberblick Ã¼ber Wohncontainer, BÃ¼rocontainer, Seecontainer und KÃ¼hlcontainer.
+              Wenn Sie verschiedene Containerarten vergleichen möchten, finden Sie auf unserer Seite <IL to="/container-kaufen">Container kaufen</IL> einen Überblick über Wohncontainer, Bürocontainer, Seecontainer und Kühlcontainer.
             </p>
           </div>
         </section>
@@ -186,20 +186,20 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_PRODUCT_1} alt="Moderner Wohncontainer mit groÃŸer Glasfront" className="w-full h-full object-cover" />
+                <img src={IMG_PRODUCT_1} alt="Moderner Wohncontainer mit großer Glasfront" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Moderne Wohncontainer</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">ZeitgemÃ¤ÃŸes Design mit Glasfront, Holzverkleidung und durchdachtem Grundriss fÃ¼r komfortables Wohnen.</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Zeitgemäßes Design mit Glasfront, Holzverkleidung und durchdachtem Grundriss für komfortables Wohnen.</p>
               </div>
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_PRODUCT_2} alt="Zweigeschossiger 20 FuÃŸ Wohncontainer mit AuÃŸentreppe" className="w-full h-full object-cover" />
+                <img src={IMG_PRODUCT_2} alt="Zweigeschossiger 20 Fuß Wohncontainer mit Außentreppe" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Mobile Wohneinheiten</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">Flexible, transportable WohnlÃ¶sungen fÃ¼r temporÃ¤re oder dauerhafte Nutzung an jedem Standort.</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Flexible, transportable Wohnlösungen für temporäre oder dauerhafte Nutzung an jedem Standort.</p>
               </div>
             </div>
           </div>
@@ -211,15 +211,15 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_WINTERFEST} alt="Zweigeschossige Wohncontaineranlage mit AuÃŸentreppe" className="w-full h-full object-cover" />
+                <img src={IMG_WINTERFEST} alt="Zweigeschossige Wohncontaineranlage mit Außentreppe" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Ein <strong className="text-foreground">Wohncontainer winterfest</strong> ist sinnvoll, wenn der Container ganzjÃ¤hrig genutzt werden soll. Achten Sie besonders auf eine gute DÃ¤mmung von WÃ¤nden, Boden und Dach. Ohne ausreichende Isolierung entstehen schnell WÃ¤rmeverluste, Kondenswasser und hohe Heizkosten.
+                Ein <strong className="text-foreground">Wohncontainer winterfest</strong> ist sinnvoll, wenn der Container ganzjährig genutzt werden soll. Achten Sie besonders auf eine gute Dämmung von Wänden, Boden und Dach. Ohne ausreichende Isolierung entstehen schnell Wärmeverluste, Kondenswasser und hohe Heizkosten.
               </p>
               <p>
-                Wichtig sind auÃŸerdem dichte Fenster und TÃ¼ren, eine passende Heizung sowie frostgeschÃ¼tzte Wasser- und Abwasserleitungen. Gerade bei gebrauchten Wohncontainern sollte geprÃ¼ft werden, ob sie wirklich winterfest sind oder nur fÃ¼r einfache saisonale Nutzung geeignet sind.
+                Wichtig sind außerdem dichte Fenster und Türen, eine passende Heizung sowie frostgeschützte Wasser- und Abwasserleitungen. Gerade bei gebrauchten Wohncontainern sollte geprüft werden, ob sie wirklich winterfest sind oder nur für einfache saisonale Nutzung geeignet sind.
               </p>
             </div>
           </div>
@@ -243,13 +243,13 @@ export default function WohncontainerKaufen() {
           <SH>Was kostet ein Wohncontainer? Preise 2026</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              Die Frage <strong className="text-foreground">was kostet ein Wohncontainer</strong> lÃ¤sst sich nicht pauschal beantworten. Die Preise hÃ¤ngen stark von GrÃ¶ÃŸe, Zustand, Ausstattung, DÃ¤mmung, KÃ¼che, Bad, Lieferung und Montage ab.
+              Die Frage <strong className="text-foreground">was kostet ein Wohncontainer</strong> lässt sich nicht pauschal beantworten. Die Preise hängen stark von Größe, Zustand, Ausstattung, Dämmung, Küche, Bad, Lieferung und Montage ab.
             </p>
             <p>
-              Einfache gebrauchte Wohncontainer sind in der Regel gÃ¼nstiger als neue oder schlÃ¼sselfertige Modelle. Ein Wohncontainer mit KÃ¼che, Bad, Heizung und winterfester Ausstattung kostet deutlich mehr als eine einfache Unterkunft ohne SanitÃ¤rbereich.
+              Einfache gebrauchte Wohncontainer sind in der Regel günstiger als neue oder schlüsselfertige Modelle. Ein Wohncontainer mit Küche, Bad, Heizung und winterfester Ausstattung kostet deutlich mehr als eine einfache Unterkunft ohne Sanitärbereich.
             </p>
             <p>
-              FÃ¼r ein genaues Angebot sollten Sie immer den gewÃ¼nschten Einsatzort, die geplante Nutzung und die benÃ¶tigte Ausstattung angeben.
+              Für ein genaues Angebot sollten Sie immer den gewünschten Einsatzort, die geplante Nutzung und die benötigte Ausstattung angeben.
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
@@ -269,31 +269,31 @@ export default function WohncontainerKaufen() {
 
         <CtaBanner text="Wohncontainer unverbindlich anfragen" btnLabel="Angebot anfordern" btnHref="/angebot" />
 
-        {/* â”€â”€ Wohncontainer mit Bad & KÃ¼che â”€â”€ */}
+        {/* â”€â”€ Wohncontainer mit Bad & Küche â”€â”€ */}
         <section className="mb-14">
-          <SH>Wohncontainer mit Bad & KÃ¼che: Alles im Blick</SH>
+          <SH>Wohncontainer mit Bad & Küche: Alles im Blick</SH>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Ein <strong className="text-foreground">Wohncontainer mit KÃ¼che und Bad</strong> ist besonders praktisch, wenn eine eigenstÃ¤ndige Wohneinheit benÃ¶tigt wird. Diese Variante eignet sich fÃ¼r MitarbeiterunterkÃ¼nfte, FerienlÃ¶sungen, Ãœbergangswohnungen oder lÃ¤ngere private Nutzung.
+                Ein <strong className="text-foreground">Wohncontainer mit Küche und Bad</strong> ist besonders praktisch, wenn eine eigenständige Wohneinheit benötigt wird. Diese Variante eignet sich für Mitarbeiterunterkünfte, Ferienlösungen, Übergangswohnungen oder längere private Nutzung.
               </p>
               <p>
-                Zur typischen Ausstattung gehÃ¶ren Badezimmer mit Dusche, WC und Waschbecken, eine KÃ¼chenzeile, Warmwasser, Elektroinstallation, Beleuchtung, Heizung, Fenster, Bodenbelag und Innenverkleidung.
+                Zur typischen Ausstattung gehören Badezimmer mit Dusche, WC und Waschbecken, eine Küchenzeile, Warmwasser, Elektroinstallation, Beleuchtung, Heizung, Fenster, Bodenbelag und Innenverkleidung.
               </p>
               <p>
-                Ein Wohncontainer mit KÃ¼che und Bad bietet deutlich mehr Komfort als eine einfache Unterkunft. Gleichzeitig sollten AnschlÃ¼sse, EntwÃ¤sserung, Stromversorgung und Frostschutz sorgfÃ¤ltig geplant werden.
+                Ein Wohncontainer mit Küche und Bad bietet deutlich mehr Komfort als eine einfache Unterkunft. Gleichzeitig sollten Anschlüsse, Entwässerung, Stromversorgung und Frostschutz sorgfältig geplant werden.
               </p>
             </div>
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 bg-gradient-to-br from-slate-100 to-white flex items-center justify-center">
-                <img src={IMG_INTERIOR} alt="3D-Grundriss eines 40 FuÃŸ Wohncontainers mit KÃ¼che, Bad und Terrasse" className="w-full h-full object-contain" />
+                <img src={IMG_INTERIOR} alt="3D-Grundriss eines 40 Fuß Wohncontainers mit Küche, Bad und Terrasse" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
               <Wrench className="w-4 h-4" style={{ color: ORANGE }} />
-              Typische Ausstattung mit KÃ¼che und Bad:
+              Typische Ausstattung mit Küche und Bad:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {KITCHEN_BATH.map((item, i) => (
@@ -305,24 +305,24 @@ export default function WohncontainerKaufen() {
           </div>
         </section>
 
-        {/* â”€â”€ SchlÃ¼sselfertig â”€â”€ */}
+        {/* â”€â”€ Schlüsselfertig â”€â”€ */}
         <section className="mb-14">
-          <SH>Einzugsbereit: SchlÃ¼sselfertige Wohncontainer</SH>
+          <SH>Einzugsbereit: Schlüsselfertige Wohncontainer</SH>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_SCHLUESSEL} alt="SchlÃ¼sselfertiger zweistÃ¶ckiger Wohncontainer mit Treppe" className="w-full h-full object-cover" />
+                <img src={IMG_SCHLUESSEL} alt="Schlüsselfertiger zweistöckiger Wohncontainer mit Treppe" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Ein schlÃ¼sselfertiger Wohncontainer ist so vorbereitet, dass er nach Lieferung, Aufstellung und Anschluss direkt genutzt werden kann. Das ist ideal fÃ¼r Kunden, die eine schnelle und komplette LÃ¶sung suchen, ohne den Innenausbau selbst organisieren zu mÃ¼ssen.
+                Ein schlüsselfertiger Wohncontainer ist so vorbereitet, dass er nach Lieferung, Aufstellung und Anschluss direkt genutzt werden kann. Das ist ideal für Kunden, die eine schnelle und komplette Lösung suchen, ohne den Innenausbau selbst organisieren zu müssen.
               </p>
               <p>
-                SchlÃ¼sselfertige Wohncontainer kÃ¶nnen je nach AusfÃ¼hrung KÃ¼che, Bad, Heizung, DÃ¤mmung, Elektroinstallation, Bodenbelag und Innenausbau enthalten. Dadurch sind sie besonders interessant fÃ¼r MitarbeiterunterkÃ¼nfte, GÃ¤stehÃ¤user, Ferienprojekte oder temporÃ¤ren Wohnraum.
+                Schlüsselfertige Wohncontainer können je nach Ausführung Küche, Bad, Heizung, Dämmung, Elektroinstallation, Bodenbelag und Innenausbau enthalten. Dadurch sind sie besonders interessant für Mitarbeiterunterkünfte, Gästehäuser, Ferienprojekte oder temporären Wohnraum.
               </p>
               <p>
-                Wer nach <strong className="text-foreground">Wohncontainer schlÃ¼sselfertig Preis</strong> sucht, sollte immer prÃ¼fen, was im Preis enthalten ist. Transport, Kran, Fundament, AnschlÃ¼sse und Genehmigung sind nicht immer automatisch eingeschlossen.
+                Wer nach <strong className="text-foreground">Wohncontainer schlüsselfertig Preis</strong> sucht, sollte immer prüfen, was im Preis enthalten ist. Transport, Kran, Fundament, Anschlüsse und Genehmigung sind nicht immer automatisch eingeschlossen.
               </p>
             </div>
           </div>
@@ -334,22 +334,22 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_GEBRAUCHT} alt="Gebrauchte rote Wohncontaineranlage mit AuÃŸentreppe" className="w-full h-full object-cover" />
+                <img src={IMG_GEBRAUCHT} alt="Gebrauchte rote Wohncontaineranlage mit Außentreppe" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Ein <strong className="text-foreground">Wohncontainer gebraucht</strong> kann eine gute Wahl sein, wenn Sie Kosten sparen mÃ¶chten. Wichtig ist aber, den Zustand sorgfÃ¤ltig zu prÃ¼fen. Ein gÃ¼nstiger Preis lohnt sich nur, wenn der Container trocken, stabil und technisch nutzbar ist.
+                Ein <strong className="text-foreground">Wohncontainer gebraucht</strong> kann eine gute Wahl sein, wenn Sie Kosten sparen möchten. Wichtig ist aber, den Zustand sorgfältig zu prüfen. Ein günstiger Preis lohnt sich nur, wenn der Container trocken, stabil und technisch nutzbar ist.
               </p>
               <p>
-                Achten Sie vor allem auf Feuchtigkeit, beschÃ¤digte BÃ¶den, undichte Fenster, defekte Elektrik und alte SanitÃ¤rinstallationen. Auch DÃ¤mmung und Heizung sind entscheidend, wenn der Container lÃ¤nger oder im Winter genutzt werden soll.
+                Achten Sie vor allem auf Feuchtigkeit, beschädigte Böden, undichte Fenster, defekte Elektrik und alte Sanitärinstallationen. Auch Dämmung und Heizung sind entscheidend, wenn der Container länger oder im Winter genutzt werden soll.
               </p>
             </div>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4" style={{ color: ORANGE }} />
-              Checkliste fÃ¼r gebrauchte Wohncontainer:
+              Checkliste für gebrauchte Wohncontainer:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {GEBRAUCHT_CHECK.map((item, i) => (
@@ -366,10 +366,10 @@ export default function WohncontainerKaufen() {
           <SH>Der einfachste Weg zum eigenen Wohncontainer</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              Der einfachste Weg zum passenden Wohncontainer beginnt mit einer klaren Planung. Ãœberlegen Sie zuerst, wie der Container genutzt werden soll: nur vorÃ¼bergehend, dauerhaft, als Unterkunft, GÃ¤stehaus oder Mitarbeiterwohnung.
+              Der einfachste Weg zum passenden Wohncontainer beginnt mit einer klaren Planung. Überlegen Sie zuerst, wie der Container genutzt werden soll: nur vorübergehend, dauerhaft, als Unterkunft, Gästehaus oder Mitarbeiterwohnung.
             </p>
             <p>
-              Danach sollten GrÃ¶ÃŸe, Ausstattung und Standort geklÃ¤rt werden. Besonders wichtig sind Zufahrt, Untergrund, Stromanschluss, Wasseranschluss, Abwasser und mÃ¶gliche Genehmigungen. FÃ¼r die technische Planung hilft auch ein Blick auf unsere Seite <IL to="/container-masse">Container MaÃŸe</IL>.
+              Danach sollten Größe, Ausstattung und Standort geklärt werden. Besonders wichtig sind Zufahrt, Untergrund, Stromanschluss, Wasseranschluss, Abwasser und mögliche Genehmigungen. Für die technische Planung hilft auch ein Blick auf unsere Seite <IL to="/container-masse">Container Maße</IL>.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -391,10 +391,10 @@ export default function WohncontainerKaufen() {
           <SH>Wohncontainer kaufen: 5 fatale Fehler vermeiden</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              Beim Kauf eines Wohncontainers passieren hÃ¤ufig Fehler, die spÃ¤ter teuer werden kÃ¶nnen. Viele KÃ¤ufer achten nur auf den Anschaffungspreis und vergessen Transport, Fundament, AnschlÃ¼sse oder Genehmigung.
+              Beim Kauf eines Wohncontainers passieren häufig Fehler, die später teuer werden können. Viele Käufer achten nur auf den Anschaffungspreis und vergessen Transport, Fundament, Anschlüsse oder Genehmigung.
             </p>
             <p>
-              Auch ein zu gÃ¼nstiger gebrauchter Wohncontainer kann problematisch sein, wenn nachtrÃ¤glich DÃ¤mmung, Elektrik, Bad oder Heizung erneuert werden mÃ¼ssen.
+              Auch ein zu günstiger gebrauchter Wohncontainer kann problematisch sein, wenn nachträglich Dämmung, Elektrik, Bad oder Heizung erneuert werden müssen.
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
@@ -412,18 +412,18 @@ export default function WohncontainerKaufen() {
           </div>
         </section>
 
-        {/* â”€â”€ Preise, PlÃ¤ne & Profi-Tipps â”€â”€ */}
+        {/* â”€â”€ Preise, Pläne & Profi-Tipps â”€â”€ */}
         <section className="mb-14">
-          <SH>Wohncontainer kaufen: Preise, PlÃ¤ne & Profi-Tipps</SH>
+          <SH>Wohncontainer kaufen: Preise, Pläne & Profi-Tipps</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Ein guter Wohncontainer passt nicht nur zum Budget, sondern auch zur geplanten Nutzung. FÃ¼r kurze EinsÃ¤tze reicht oft eine einfache LÃ¶sung. FÃ¼r lÃ¤ngeres Wohnen sind DÃ¤mmung, Heizung, Bad, KÃ¼che und ein durchdachter Grundriss deutlich wichtiger.
+              Ein guter Wohncontainer passt nicht nur zum Budget, sondern auch zur geplanten Nutzung. Für kurze Einsätze reicht oft eine einfache Lösung. Für längeres Wohnen sind Dämmung, Heizung, Bad, Küche und ein durchdachter Grundriss deutlich wichtiger.
             </p>
             <p>
-              Wenn der Container dauerhaft genutzt werden soll, sollten auch Genehmigung, Brandschutz, WÃ¤rmeschutz und AnschlÃ¼sse frÃ¼hzeitig geprÃ¼ft werden. Bei grÃ¶ÃŸeren Projekten kÃ¶nnen mehrere Wohncontainer miteinander kombiniert werden, um mehr WohnflÃ¤che, separate RÃ¤ume oder zusÃ¤tzliche SanitÃ¤rbereiche zu schaffen.
+              Wenn der Container dauerhaft genutzt werden soll, sollten auch Genehmigung, Brandschutz, Wärmeschutz und Anschlüsse frühzeitig geprüft werden. Bei größeren Projekten können mehrere Wohncontainer miteinander kombiniert werden, um mehr Wohnfläche, separate Räume oder zusätzliche Sanitärbereiche zu schaffen.
             </p>
             <p>
-              FÃ¼r reine ArbeitsrÃ¤ume ist ein <IL to="/buerocontainer-kaufen">BÃ¼rocontainer</IL> meist besser geeignet. FÃ¼r Lagerzwecke sind <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>, <IL to="/20-fuss-container-kaufen">20 FuÃŸ Container kaufen</IL> oder <IL to="/40-fuss-container-kaufen">40 FuÃŸ Container kaufen</IL> die passendere Wahl.
+              Für reine Arbeitsräume ist ein <IL to="/buerocontainer-kaufen">Bürocontainer</IL> meist besser geeignet. Für Lagerzwecke sind <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>, <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL> oder <IL to="/40-fuss-container-kaufen">40 Fuß Container kaufen</IL> die passendere Wahl.
             </p>
           </div>
         </section>
@@ -439,10 +439,10 @@ export default function WohncontainerKaufen() {
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Wohncontainer werden in der Regel per LKW geliefert und je nach Standort mit Kran abgesetzt. Vor der Lieferung mÃ¼ssen Zufahrt, RangierflÃ¤che, Untergrund und mÃ¶gliche Hindernisse geprÃ¼ft werden. Der Aufstellort sollte eben, tragfÃ¤hig und gut vorbereitet sein.
+                Wohncontainer werden in der Regel per LKW geliefert und je nach Standort mit Kran abgesetzt. Vor der Lieferung müssen Zufahrt, Rangierfläche, Untergrund und mögliche Hindernisse geprüft werden. Der Aufstellort sollte eben, tragfähig und gut vorbereitet sein.
               </p>
               <p>
-                FÃ¼r die Aufstellung kÃ¶nnen je nach Nutzung Punktfundamente, Streifenfundamente, Betonplatten oder ein vorbereiteter Schotteruntergrund sinnvoll sein. Bei Wohncontainern sind auÃŸerdem AnschlÃ¼sse fÃ¼r Strom, Wasser und Abwasser zu berÃ¼cksichtigen. Mehr dazu auf der Seite <IL to="/container-lieferung">Container Lieferung</IL>.
+                Für die Aufstellung können je nach Nutzung Punktfundamente, Streifenfundamente, Betonplatten oder ein vorbereiteter Schotteruntergrund sinnvoll sein. Bei Wohncontainern sind außerdem Anschlüsse für Strom, Wasser und Abwasser zu berücksichtigen. Mehr dazu auf der Seite <IL to="/container-lieferung">Container Lieferung</IL>.
               </p>
             </div>
           </div>
@@ -470,13 +470,13 @@ export default function WohncontainerKaufen() {
           <SH>So finden Sie den perfekten Wohncontainer</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Der perfekte Wohncontainer hÃ¤ngt von Ihrem Bedarf ab. FÃ¼r eine einfache ÃœbergangslÃ¶sung reicht oft ein gebrauchter Wohncontainer. FÃ¼r ganzjÃ¤hrige Nutzung sollten Sie auf winterfeste Ausstattung achten. Wenn der Container sofort nutzbar sein soll, ist eine schlÃ¼sselfertige LÃ¶sung mit KÃ¼che und Bad besonders komfortabel.
+              Der perfekte Wohncontainer hängt von Ihrem Bedarf ab. Für eine einfache Übergangslösung reicht oft ein gebrauchter Wohncontainer. Für ganzjährige Nutzung sollten Sie auf winterfeste Ausstattung achten. Wenn der Container sofort nutzbar sein soll, ist eine schlüsselfertige Lösung mit Küche und Bad besonders komfortabel.
             </p>
             <p>
               Am besten starten Sie mit drei Fragen: Wie lange soll der Wohncontainer genutzt werden? Welche Ausstattung ist notwendig? Wo soll er aufgestellt werden?
             </p>
             <p>
-              Wenn diese Punkte klar sind, lÃ¤sst sich schnell einschÃ¤tzen, ob ein neuer, gebrauchter, winterfester oder schlÃ¼sselfertiger Wohncontainer die richtige Wahl ist.
+              Wenn diese Punkte klar sind, lässt sich schnell einschätzen, ob ein neuer, gebrauchter, winterfester oder schlüsselfertiger Wohncontainer die richtige Wahl ist.
             </p>
           </div>
         </section>
@@ -485,7 +485,7 @@ export default function WohncontainerKaufen() {
         <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }}>
           <div>
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt Wohncontainer anfragen</h2>
-            <p className="text-white/60 text-sm">Teilen Sie uns Nutzung, Ausstattung und Lieferort mit â€“ Sie erhalten ein passendes Angebot.</p>
+            <p className="text-white/60 text-sm">Teilen Sie uns Nutzung, Ausstattung und Lieferort mit – Sie erhalten ein passendes Angebot.</p>
           </div>
           <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
@@ -495,7 +495,7 @@ export default function WohncontainerKaufen() {
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
           <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
-          <h2 className="font-heading font-bold text-2xl text-foreground mb-5">HÃ¤ufige Fragen zu Wohncontainern</h2>
+          <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Wohncontainern</h2>
           <FaqAccordion items={FAQS} />
         </section>
 

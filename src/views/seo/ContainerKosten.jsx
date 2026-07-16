@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -12,75 +12,75 @@ const NAVY = "#1B3A5C";
 /* â”€â”€ Pricing Grid Data â”€â”€ */
 const PRICING_GRID = [
   {
-    size: "10 FuÃŸ Container",
+    size: "10 Fuß Container",
     length: "3,0 m",
     img: "/images/container-category-10ft.png",
     href: "/10-fuss-container-kaufen",
     cols: [
-      { label: "One Trip (Neu)", price: "2.500 â€“ 3.200 â‚¬", desc: "Erstmalig verwendet, wie neu", badge: "Beste QualitÃ¤t" },
-      { label: "Multi Trip (Leicht gebraucht)", price: "2.000 â€“ 2.600 â‚¬", desc: "Wenige EinsÃ¤tze, guter Zustand", badge: null },
-      { label: "Gebraucht", price: "1.500 â€“ 2.100 â‚¬", desc: "Mehrfach eingesetzt, voll funktionsfÃ¤hig", badge: "GÃ¼nstigste Option" },
+      { label: "One Trip (Neu)", price: "2.500 – 3.200 â‚¬", desc: "Erstmalig verwendet, wie neu", badge: "Beste Qualität" },
+      { label: "Multi Trip (Leicht gebraucht)", price: "2.000 – 2.600 â‚¬", desc: "Wenige Einsätze, guter Zustand", badge: null },
+      { label: "Gebraucht", price: "1.500 – 2.100 â‚¬", desc: "Mehrfach eingesetzt, voll funktionsfähig", badge: "Günstigste Option" },
     ],
   },
   {
-    size: "20 FuÃŸ Container",
+    size: "20 Fuß Container",
     length: "6,06 m",
     img: "/images/container-category-20ft.png",
     href: "/20-fuss-container-kaufen",
     cols: [
-      { label: "One Trip (Neu)", price: "3.200 â€“ 4.200 â‚¬", desc: "Direktlieferung aus Produktion", badge: "Bestseller" },
-      { label: "Multi Trip (Leicht gebraucht)", price: "2.400 â€“ 3.200 â‚¬", desc: "1â€“3 Seereisen, guter Zustand", badge: null },
-      { label: "Gebraucht", price: "1.990 â€“ 2.900 â‚¬", desc: "Meistgekauft, geprÃ¼fte QualitÃ¤t", badge: "Beliebt" },
+      { label: "One Trip (Neu)", price: "3.200 – 4.200 â‚¬", desc: "Direktlieferung aus Produktion", badge: "Bestseller" },
+      { label: "Multi Trip (Leicht gebraucht)", price: "2.400 – 3.200 â‚¬", desc: "1–3 Seereisen, guter Zustand", badge: null },
+      { label: "Gebraucht", price: "1.990 – 2.900 â‚¬", desc: "Meistgekauft, geprüfte Qualität", badge: "Beliebt" },
     ],
   },
   {
-    size: "40 FuÃŸ Container",
+    size: "40 Fuß Container",
     length: "12,19 m",
     img: "/images/container-category-40ft.png",
     href: "/40-fuss-container-kaufen",
     cols: [
-      { label: "One Trip (Neu)", price: "5.200 â€“ 6.800 â‚¬", desc: "Fabrikneu, max. Nutzlast", badge: null },
-      { label: "Multi Trip (Leicht gebraucht)", price: "3.800 â€“ 5.000 â‚¬", desc: "Sehr guter Zustand", badge: null },
-      { label: "Gebraucht", price: "2.990 â€“ 4.200 â‚¬", desc: "BewÃ¤hrt & wetterfest", badge: "GÃ¼nstigste Option" },
+      { label: "One Trip (Neu)", price: "5.200 – 6.800 â‚¬", desc: "Fabrikneu, max. Nutzlast", badge: null },
+      { label: "Multi Trip (Leicht gebraucht)", price: "3.800 – 5.000 â‚¬", desc: "Sehr guter Zustand", badge: null },
+      { label: "Gebraucht", price: "2.990 – 4.200 â‚¬", desc: "Bewährt & wetterfest", badge: "Günstigste Option" },
     ],
   },
 ];
 
 /* â”€â”€ Price Factors â”€â”€ */
 const FACTORS = [
-  { icon: Package, title: "ContainergrÃ¶ÃŸe", desc: "10ft, 20ft und 40ft unterscheiden sich erheblich im Preis. GrÃ¶ÃŸere Container kosten mehr, bieten aber auch mehr Volumen pro Euro." },
-  { icon: Star, title: "Zustand (Neu / Gebraucht)", desc: "One Trip Container (nahezu neu) kosten mehr als gebrauchte Container. Der Preisunterschied betrÃ¤gt typisch 30â€“50 %." },
-  { icon: Wrench, title: "Container-Typ", desc: "Standard-Container sind am gÃ¼nstigsten. Spezialtypen wie High Cube, KÃ¼hlcontainer oder BÃ¼rocontainer kosten entsprechend mehr." },
-  { icon: MapPin, title: "Standort & VerfÃ¼gbarkeit", desc: "ContainerverfÃ¼gbarkeit variiert regional. Knappe BestÃ¤nde in Ihrem Bundesland bedeuten hÃ¶here Preise als in HafenstÃ¤dten." },
-  { icon: Truck, title: "Transportkosten", desc: "Lieferkosten starten ab ca. 250 â‚¬ und steigen mit der Entfernung. Engstellen oder besondere Zufahrten erhÃ¶hen den Preis." },
-  { icon: TrendingUp, title: "Marktlage & SaisonalitÃ¤t", desc: "Containerpreise folgen globalen HandelsstrÃ¶men. EngpÃ¤sse in der Schifffahrt kÃ¶nnen die Preise kurzfristig erhÃ¶hen." },
+  { icon: Package, title: "Containergröße", desc: "10ft, 20ft und 40ft unterscheiden sich erheblich im Preis. Größere Container kosten mehr, bieten aber auch mehr Volumen pro Euro." },
+  { icon: Star, title: "Zustand (Neu / Gebraucht)", desc: "One Trip Container (nahezu neu) kosten mehr als gebrauchte Container. Der Preisunterschied beträgt typisch 30–50 %." },
+  { icon: Wrench, title: "Container-Typ", desc: "Standard-Container sind am günstigsten. Spezialtypen wie High Cube, Kühlcontainer oder Bürocontainer kosten entsprechend mehr." },
+  { icon: MapPin, title: "Standort & Verfügbarkeit", desc: "Containerverfügbarkeit variiert regional. Knappe Bestände in Ihrem Bundesland bedeuten höhere Preise als in Hafenstädten." },
+  { icon: Truck, title: "Transportkosten", desc: "Lieferkosten starten ab ca. 250 â‚¬ und steigen mit der Entfernung. Engstellen oder besondere Zufahrten erhöhen den Preis." },
+  { icon: TrendingUp, title: "Marktlage & Saisonalität", desc: "Containerpreise folgen globalen Handelsströmen. Engpässe in der Schifffahrt können die Preise kurzfristig erhöhen." },
 ];
 
 /* â”€â”€ FAQ â”€â”€ */
 const FAQS = [
-  { q: "Was kostet ein 20 FuÃŸ Container?", a: "Ein gebrauchter 20 FuÃŸ Seecontainer kostet ab ca. 1.990 â‚¬. Ein One Trip Container (nahezu neu) beginnt bei ca. 3.200 â‚¬. Hinzu kommen Transportkosten von ca. 300â€“600 â‚¬ je nach Entfernung. Der Gesamtpreis liegt somit meist zwischen 2.300 â‚¬ und 4.800 â‚¬." },
-  { q: "Wie viel kostet ein gebrauchter Seecontainer?", a: "Gebrauchte Seecontainer beginnen bei 1.500 â‚¬ fÃ¼r 10ft-Modelle, ca. 1.990 â‚¬ fÃ¼r 20ft und ab 2.990 â‚¬ fÃ¼r 40ft Container. Entscheidend fÃ¼r den Preis sind Zustand, Alter und regionale VerfÃ¼gbarkeit." },
-  { q: "Warum Ã¤ndern sich Containerpreise regelmÃ¤ÃŸig?", a: "Containerpreise sind stark von globalen HandelsstrÃ¶men abhÃ¤ngig. Nach COVID-19 stiegen die Preise dramatisch, normalisierten sich aber wieder. Auch saisonale Nachfrage, Wechselkurse und Treibstoffpreise beeinflussen die Kosten." },
-  { q: "Sind Transportkosten im Preis enthalten?", a: "Nein, in der Regel werden Container-Kaufpreis und Lieferkosten separat ausgewiesen. Die Transportkosten richten sich nach Entfernung und Zugangssituation und starten ab ca. 250 â‚¬ fÃ¼r kurze Strecken." },
-  { q: "Kann ich einen Container finanzieren?", a: "Ja, fÃ¼r gewerbliche Kunden sind in der Regel Finanzierungsoptionen verfÃ¼gbar. Sprechen Sie uns direkt an â€“ wir beraten Sie zu individuellen ZahlungslÃ¶sungen und Ratenzahlungsoptionen." },
+  { q: "Was kostet ein 20 Fuß Container?", a: "Ein gebrauchter 20 Fuß Seecontainer kostet ab ca. 1.990 â‚¬. Ein One Trip Container (nahezu neu) beginnt bei ca. 3.200 â‚¬. Hinzu kommen Transportkosten von ca. 300–600 â‚¬ je nach Entfernung. Der Gesamtpreis liegt somit meist zwischen 2.300 â‚¬ und 4.800 â‚¬." },
+  { q: "Wie viel kostet ein gebrauchter Seecontainer?", a: "Gebrauchte Seecontainer beginnen bei 1.500 â‚¬ für 10ft-Modelle, ca. 1.990 â‚¬ für 20ft und ab 2.990 â‚¬ für 40ft Container. Entscheidend für den Preis sind Zustand, Alter und regionale Verfügbarkeit." },
+  { q: "Warum ändern sich Containerpreise regelmäßig?", a: "Containerpreise sind stark von globalen Handelsströmen abhängig. Nach COVID-19 stiegen die Preise dramatisch, normalisierten sich aber wieder. Auch saisonale Nachfrage, Wechselkurse und Treibstoffpreise beeinflussen die Kosten." },
+  { q: "Sind Transportkosten im Preis enthalten?", a: "Nein, in der Regel werden Container-Kaufpreis und Lieferkosten separat ausgewiesen. Die Transportkosten richten sich nach Entfernung und Zugangssituation und starten ab ca. 250 â‚¬ für kurze Strecken." },
+  { q: "Kann ich einen Container finanzieren?", a: "Ja, für gewerbliche Kunden sind in der Regel Finanzierungsoptionen verfügbar. Sprechen Sie uns direkt an – wir beraten Sie zu individuellen Zahlungslösungen und Ratenzahlungsoptionen." },
 ];
 
 /* â”€â”€ Related Articles â”€â”€ */
 const RELATED = [
-  { href: "/20-fuss-container-kaufen", title: "20 FuÃŸ Container kaufen", desc: "Alles Ã¼ber den meistgekauften Seecontainer", img: "/images/gebrauchte-seecontainer.png" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Alles über den meistgekauften Seecontainer", img: "/images/gebrauchte-seecontainer.png" },
   { href: "/container-lieferung", title: "Container Lieferung", desc: "Transportkosten & Logistik in Deutschland", img: "/images/wohncontainer-transport.jpg" },
-  { href: "/container-fundament", title: "Container Fundament", desc: "Kosten & Arten fÃ¼r das perfekte Fundament", img: "/images/die-container-yard.jpeg" },
+  { href: "/container-fundament", title: "Container Fundament", desc: "Kosten & Arten für das perfekte Fundament", img: "/images/die-container-yard.jpeg" },
 ];
 
 const internalLinks = [
-  { href: "/10-fuss-container-kaufen", title: "10 FuÃŸ Container kaufen" },
-  { href: "/20-fuss-container-kaufen", title: "20 FuÃŸ Container kaufen" },
-  { href: "/40-fuss-container-kaufen", title: "40 FuÃŸ Container kaufen" },
+  { href: "/10-fuss-container-kaufen", title: "10 Fuß Container kaufen" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen" },
   { href: "/open-side-container-kaufen", title: "Open Side Container kaufen" },
   { href: "/double-door-container-kaufen", title: "Double Door Container kaufen" },
   { href: "/container-lieferung", title: "Container Lieferung" },
   { href: "/container-fundament", title: "Container Fundament" },
-  { href: "/container-masse", title: "Container MaÃŸe" },
+  { href: "/container-masse", title: "Container Maße" },
 ];
 
 export default function ContainerKosten() {
@@ -105,12 +105,12 @@ export default function ContainerKosten() {
             <ChevronRight className="w-3 h-3" />
             <span className="text-white/70">Container Kosten</span>
           </nav>
-          <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: ORANGE }}>PreisÃ¼bersicht 2025</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: ORANGE }}>Preisübersicht 2025</span>
           <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-5 max-w-3xl leading-tight">
-            Seecontainer Preise in Deutschland â€“ Aktuelle Kosten fÃ¼r neue und gebrauchte Container
+            Seecontainer Preise in Deutschland – Aktuelle Kosten für neue und gebrauchte Container
           </h1>
           <p className="text-white/75 text-base leading-relaxed max-w-2xl mb-8">
-            Containerpreise variieren je nach GrÃ¶ÃŸe, Zustand, regionaler VerfÃ¼gbarkeit und Transportkosten. Diese PreisÃ¼bersicht gibt Ihnen einen realistischen Ãœberblick Ã¼ber aktuelle Marktpreise fÃ¼r Seecontainer in Deutschland â€“ damit Sie sicher kalkulieren und vergleichen kÃ¶nnen.
+            Containerpreise variieren je nach Größe, Zustand, regionaler Verfügbarkeit und Transportkosten. Diese Preisübersicht gibt Ihnen einen realistischen Überblick über aktuelle Marktpreise für Seecontainer in Deutschland – damit Sie sicher kalkulieren und vergleichen können.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
@@ -135,8 +135,8 @@ export default function ContainerKosten() {
         {/* â”€â”€ Pricing Grid Section â”€â”€ */}
         <section className="mb-16">
           <div className="text-center mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>MarktpreisÃ¼bersicht</span>
-            <h2 className="font-heading font-bold text-2xl lg:text-4xl text-foreground tracking-tight mb-3">Container Preise nach GrÃ¶ÃŸe & Zustand</h2>
+            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Marktpreisübersicht</span>
+            <h2 className="font-heading font-bold text-2xl lg:text-4xl text-foreground tracking-tight mb-3">Container Preise nach Größe & Zustand</h2>
             <p className="text-muted-foreground text-sm max-w-xl mx-auto">Vergleichen Sie aktuelle Seecontainer-Kaufpreise ab Lager Deutschland. Alle Preise netto, exklusive Transport.</p>
           </div>
 
@@ -157,7 +157,7 @@ export default function ContainerKosten() {
                   </div>
                   <div>
                     <Link to={row.href} className="font-heading font-bold text-base text-foreground hover:underline">{row.size}</Link>
-                    <p className="text-xs text-muted-foreground">AuÃŸenlÃ¤nge: {row.length}</p>
+                    <p className="text-xs text-muted-foreground">Außenlänge: {row.length}</p>
                   </div>
                 </div>
                 {/* Columns */}
@@ -186,13 +186,13 @@ export default function ContainerKosten() {
           <div className="mt-5 flex items-start gap-2 p-4 rounded-xl bg-amber-50 border border-amber-200">
             <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
             <p className="text-xs text-amber-800 italic leading-relaxed">
-              <strong>Preishinweis:</strong> Die angegebenen Preise dienen nur zur Orientierung. Die endgÃ¼ltigen Kosten hÃ¤ngen von VerfÃ¼gbarkeit, Lieferort und aktuellen Marktbedingungen ab. Fordern Sie ein individuelles Angebot fÃ¼r verbindliche Preise an.
+              <strong>Preishinweis:</strong> Die angegebenen Preise dienen nur zur Orientierung. Die endgültigen Kosten hängen von Verfügbarkeit, Lieferort und aktuellen Marktbedingungen ab. Fordern Sie ein individuelles Angebot für verbindliche Preise an.
             </p>
           </div>
         </section>
 
         {/* â”€â”€ CTA â”€â”€ */}
-        <CtaBanner text="Jetzt Preis anfragen â€“ kostenlos & unverbindlich" btnHref="/angebot" />
+        <CtaBanner text="Jetzt Preis anfragen – kostenlos & unverbindlich" btnHref="/angebot" />
 
         {/* â”€â”€ Price Factors â”€â”€ */}
         <section className="mb-16">
@@ -228,65 +228,65 @@ export default function ContainerKosten() {
             <div>
               <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground mb-4">Was kostet ein Seecontainer?</h2>
               <p>
-                Die Frage â€žWas kostet ein Seecontainer?" lÃ¤sst sich nicht pauschal beantworten â€“ aber dieser Ratgeber gibt Ihnen einen konkreten Ãœberblick Ã¼ber die aktuellen Marktpreise in Deutschland. Der <strong className="text-foreground">Seecontainer Preis</strong> hÃ¤ngt von mehreren Faktoren ab: GrÃ¶ÃŸe, Zustand, Containertyp und Transportentfernung spielen alle eine entscheidende Rolle.
+                Die Frage â€žWas kostet ein Seecontainer?" lässt sich nicht pauschal beantworten – aber dieser Ratgeber gibt Ihnen einen konkreten Überblick über die aktuellen Marktpreise in Deutschland. Der <strong className="text-foreground">Seecontainer Preis</strong> hängt von mehreren Faktoren ab: Größe, Zustand, Containertyp und Transportentfernung spielen alle eine entscheidende Rolle.
               </p>
               <p className="mt-3">
-                GrundsÃ¤tzlich unterscheidet man zwischen drei Zustandsklassen: <em>One Trip Container</em> (nahezu neu, einmalig verwendet), <em>Multi Trip Container</em> (leicht gebraucht, wenige EinsÃ¤tze) und <em>gebrauchten Seecontainern</em> (mehrfach eingesetzt, voll funktionsfÃ¤hig). Die <strong className="text-foreground">Seecontainer Kosten</strong> variieren zwischen diesen Klassen um 30â€“50 %.
+                Grundsätzlich unterscheidet man zwischen drei Zustandsklassen: <em>One Trip Container</em> (nahezu neu, einmalig verwendet), <em>Multi Trip Container</em> (leicht gebraucht, wenige Einsätze) und <em>gebrauchten Seecontainern</em> (mehrfach eingesetzt, voll funktionsfähig). Die <strong className="text-foreground">Seecontainer Kosten</strong> variieren zwischen diesen Klassen um 30–50 %.
               </p>
               <p className="mt-3">
-                Als Richtwert: Ein gebrauchter <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>20 FuÃŸ Container</Link> kostet ab ca. 1.990 â‚¬, ein neuer One Trip Container ab ca. 3.200 â‚¬. Der <strong className="text-foreground">20 FuÃŸ Container Preis</strong> macht ihn zum beliebtesten Modell â€“ er bietet das beste Preis-LeistungsverhÃ¤ltnis fÃ¼r Lager, Baustellen und gewerbliche Anwendungen.
+                Als Richtwert: Ein gebrauchter <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>20 Fuß Container</Link> kostet ab ca. 1.990 â‚¬, ein neuer One Trip Container ab ca. 3.200 â‚¬. Der <strong className="text-foreground">20 Fuß Container Preis</strong> macht ihn zum beliebtesten Modell – er bietet das beste Preis-Leistungsverhältnis für Lager, Baustellen und gewerbliche Anwendungen.
               </p>
             </div>
 
             <div>
               <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground mb-4">Preisunterschied zwischen neuen und gebrauchten Containern</h2>
               <p>
-                Beim Kauf eines Seecontainers stehen Sie vor der grundlegenden Entscheidung: neu oder gebraucht? <strong className="text-foreground">Neue Seecontainer kaufen</strong> bedeutet: keine Roststellen, keine Beulen, maximale Nutzlast und typischerweise eine Herstellergarantie. Der Aufpreis gegenÃ¼ber gebrauchten Modellen betrÃ¤gt je nach GrÃ¶ÃŸe 500 bis 2.500 â‚¬.
+                Beim Kauf eines Seecontainers stehen Sie vor der grundlegenden Entscheidung: neu oder gebraucht? <strong className="text-foreground">Neue Seecontainer kaufen</strong> bedeutet: keine Roststellen, keine Beulen, maximale Nutzlast und typischerweise eine Herstellergarantie. Der Aufpreis gegenüber gebrauchten Modellen beträgt je nach Größe 500 bis 2.500 â‚¬.
               </p>
               <p className="mt-3">
-                <strong className="text-foreground">Gebrauchte Seecontainer kaufen</strong> hingegen lohnt sich fÃ¼r die meisten AnwendungsfÃ¤lle â€“ vor allem wenn der Container als Lager, Werkstatt oder BaubÃ¼ro genutzt wird. Gebrauchte Container haben zwar Ã¤uÃŸerliche Spuren, sind aber strukturell einwandfrei und wasserdicht. Die Lebensdauer eines Seecontainers betrÃ¤gt auch gebraucht noch 10â€“25 Jahre.
+                <strong className="text-foreground">Gebrauchte Seecontainer kaufen</strong> hingegen lohnt sich für die meisten Anwendungsfälle – vor allem wenn der Container als Lager, Werkstatt oder Baubüro genutzt wird. Gebrauchte Container haben zwar äußerliche Spuren, sind aber strukturell einwandfrei und wasserdicht. Die Lebensdauer eines Seecontainers beträgt auch gebraucht noch 10–25 Jahre.
               </p>
               <p className="mt-3">
-                FÃ¼r hochwertige Nutzungen (z.B. Wohnraum, Showroom, Gastronomie) empfehlen wir One Trip oder Multi Trip Container â€“ hier zahlt sich der Aufpreis langfristig aus.
+                Für hochwertige Nutzungen (z.B. Wohnraum, Showroom, Gastronomie) empfehlen wir One Trip oder Multi Trip Container – hier zahlt sich der Aufpreis langfristig aus.
               </p>
             </div>
 
             <div>
               <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground mb-4">Warum schwanken Containerpreise?</h2>
               <p>
-                Containerpreise sind Teil eines globalen Marktes und daher Schwankungen ausgesetzt. WÃ¤hrend der COVID-19-Pandemie stiegen die Preise fÃ¼r Seecontainer um bis zu 400 % â€“ ein Extrembeispiel fÃ¼r die VolatilitÃ¤t des Marktes. Heute haben sich die Preise weitgehend normalisiert, liegen aber immer noch Ã¼ber dem Vor-Pandemisniveau.
+                Containerpreise sind Teil eines globalen Marktes und daher Schwankungen ausgesetzt. Während der COVID-19-Pandemie stiegen die Preise für Seecontainer um bis zu 400 % – ein Extrembeispiel für die Volatilität des Marktes. Heute haben sich die Preise weitgehend normalisiert, liegen aber immer noch über dem Vor-Pandemisniveau.
               </p>
               <p className="mt-3">
-                Zu den wichtigsten Preistreibern gehÃ¶ren:
+                Zu den wichtigsten Preistreibern gehören:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1.5">
-                <li><strong className="text-foreground">Globale Handelsungleichgewichte:</strong> LÃ¤nder, die mehr importieren als exportieren, akkumulieren Container â€“ was das lokale Angebot beeinflusst.</li>
-                <li><strong className="text-foreground">Rohstoffpreise:</strong> Cortenstahl ist der Hauptrohstoff. Steigende Stahlpreise erhÃ¶hen die Herstellungskosten neuer Container direkt.</li>
+                <li><strong className="text-foreground">Globale Handelsungleichgewichte:</strong> Länder, die mehr importieren als exportieren, akkumulieren Container – was das lokale Angebot beeinflusst.</li>
+                <li><strong className="text-foreground">Rohstoffpreise:</strong> Cortenstahl ist der Hauptrohstoff. Steigende Stahlpreise erhöhen die Herstellungskosten neuer Container direkt.</li>
                 <li><strong className="text-foreground">Frachtraten:</strong> Hohe Nachfrage im globalen Seehandel treibt die Containerpreise.</li>
-                <li><strong className="text-foreground">SaisonalitÃ¤t:</strong> Im FrÃ¼hjahr/Sommer ist die Nachfrage hÃ¶her â€“ Bauprojekte starten, was die Preise leicht anhebt.</li>
+                <li><strong className="text-foreground">Saisonalität:</strong> Im Frühjahr/Sommer ist die Nachfrage höher – Bauprojekte starten, was die Preise leicht anhebt.</li>
               </ul>
             </div>
 
             <div>
               <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground mb-4">Transport- und Lieferkosten in Deutschland</h2>
               <p>
-                Beim Kauf eines Seecontainers werden Kaufpreis und <Link to="/container-lieferung" className="font-semibold underline" style={{ color: ORANGE }}>Transportkosten</Link> meist separat ausgewiesen. Die Lieferkosten richten sich nach der Entfernung vom Depot zum Aufstellort und starten ab ca. 250 â‚¬ fÃ¼r kurze Strecken bis 50 km.
+                Beim Kauf eines Seecontainers werden Kaufpreis und <Link to="/container-lieferung" className="font-semibold underline" style={{ color: ORANGE }}>Transportkosten</Link> meist separat ausgewiesen. Die Lieferkosten richten sich nach der Entfernung vom Depot zum Aufstellort und starten ab ca. 250 â‚¬ für kurze Strecken bis 50 km.
               </p>
               <div className="overflow-x-auto rounded-xl border border-border my-4">
                 <table className="w-full text-xs">
                   <thead>
                     <tr style={{ backgroundColor: NAVY }}>
-                      {["Entfernung", "20 FuÃŸ Container", "40 FuÃŸ Container"].map((h, i) => (
+                      {["Entfernung", "20 Fuß Container", "40 Fuß Container"].map((h, i) => (
                         <th key={i} className="px-4 py-3 text-left font-heading font-semibold text-white uppercase tracking-wide">{h}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {[
-                      ["Bis 50 km", "250â€“400 â‚¬", "350â€“550 â‚¬"],
-                      ["50â€“150 km", "400â€“650 â‚¬", "550â€“850 â‚¬"],
-                      ["150â€“300 km", "650â€“900 â‚¬", "850â€“1.150 â‚¬"],
-                      ["Ãœber 300 km", "Auf Anfrage", "Auf Anfrage"],
+                      ["Bis 50 km", "250–400 â‚¬", "350–550 â‚¬"],
+                      ["50–150 km", "400–650 â‚¬", "550–850 â‚¬"],
+                      ["150–300 km", "650–900 â‚¬", "850–1.150 â‚¬"],
+                      ["Über 300 km", "Auf Anfrage", "Auf Anfrage"],
                     ].map((row, i) => (
                       <tr key={i} className={`border-b border-border last:border-0 ${i % 2 === 0 ? "bg-card" : "bg-muted/30"}`}>
                         {row.map((cell, j) => (
@@ -298,30 +298,30 @@ export default function ContainerKosten() {
                 </table>
               </div>
               <p>
-                Wichtig: Die <Link to="/container-lieferung" className="font-semibold underline" style={{ color: ORANGE }}>Container Lieferung</Link> erfordert einen geeigneten Stellplatz. FÃ¼r einen Kipper-Tieflader benÃ¶tigen Sie mindestens 3,5 m Zufahrtsbreite und 20 m gerade AblaufflÃ¤che. Engstellen oder Sondergenehmigungen erhÃ¶hen die Kosten.
+                Wichtig: Die <Link to="/container-lieferung" className="font-semibold underline" style={{ color: ORANGE }}>Container Lieferung</Link> erfordert einen geeigneten Stellplatz. Für einen Kipper-Tieflader benötigen Sie mindestens 3,5 m Zufahrtsbreite und 20 m gerade Ablauffläche. Engstellen oder Sondergenehmigungen erhöhen die Kosten.
               </p>
             </div>
 
             <div>
               <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground mb-4">Lohnt sich ein gebrauchter Seecontainer?</h2>
               <p>
-                FÃ¼r die meisten AnwendungsfÃ¤lle â€“ Lager, Werkstatt, BaubÃ¼ro â€“ ist ein gebrauchter Seecontainer die wirtschaftlichste Wahl. Die <strong className="text-foreground">Seecontainer Kosten</strong> fÃ¼r gebrauchte Modelle sind 30â€“50 % niedriger als fÃ¼r neue, wÃ¤hrend FunktionalitÃ¤t und Lebensdauer kaum eingeschrÃ¤nkt sind.
+                Für die meisten Anwendungsfälle – Lager, Werkstatt, Baubüro – ist ein gebrauchter Seecontainer die wirtschaftlichste Wahl. Die <strong className="text-foreground">Seecontainer Kosten</strong> für gebrauchte Modelle sind 30–50 % niedriger als für neue, während Funktionalität und Lebensdauer kaum eingeschränkt sind.
               </p>
               <p className="mt-3">
-                Ein gebrauchter Container ist wasserdicht, sturmsicher und langlebig. Die Ã¤uÃŸerlichen Gebrauchsspuren (Kratzer, kleine Dellen) beeinflussen weder die strukturelle IntegritÃ¤t noch den Nutzwert. Mit regelmÃ¤ÃŸiger Wartung â€“ TÃ¼rdichtungen kontrollieren, Dach auf Roststellen prÃ¼fen â€“ hÃ¤lt ein gebrauchter Container problemlos 15â€“20 Jahre.
+                Ein gebrauchter Container ist wasserdicht, sturmsicher und langlebig. Die äußerlichen Gebrauchsspuren (Kratzer, kleine Dellen) beeinflussen weder die strukturelle Integrität noch den Nutzwert. Mit regelmäßiger Wartung – Türdichtungen kontrollieren, Dach auf Roststellen prüfen – hält ein gebrauchter Container problemlos 15–20 Jahre.
               </p>
               <p className="mt-3">
-                BenÃ¶tigen Sie hingegen ReprÃ¤sentativitÃ¤t (z.B. fÃ¼r ein Showroom-Konzept oder Wohnnutzung), empfehlen wir die Investition in einen One Trip Container. Informieren Sie sich auch Ã¼ber unser Sortiment an <Link to="/kategorien/10ft" className="font-semibold underline" style={{ color: ORANGE }}>10 FuÃŸ Containern</Link>, <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>20 FuÃŸ Containern</Link> und <Link to="/40-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>40 FuÃŸ Containern</Link> sowie Spezialtypen wie <Link to="/open-side-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>Open Side Container</Link> oder <Link to="/double-door-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>Double Door Container</Link>.
+                Benötigen Sie hingegen Repräsentativität (z.B. für ein Showroom-Konzept oder Wohnnutzung), empfehlen wir die Investition in einen One Trip Container. Informieren Sie sich auch über unser Sortiment an <Link to="/kategorien/10ft" className="font-semibold underline" style={{ color: ORANGE }}>10 Fuß Containern</Link>, <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>20 Fuß Containern</Link> und <Link to="/40-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>40 Fuß Containern</Link> sowie Spezialtypen wie <Link to="/open-side-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>Open Side Container</Link> oder <Link to="/double-door-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>Double Door Container</Link>.
               </p>
               <p className="mt-3">
-                Vergessen Sie auch nicht, die Kosten fÃ¼r ein <Link to="/container-fundament" className="font-semibold underline" style={{ color: ORANGE }}>Container Fundament</Link> einzuplanen â€“ vier Betonsteine als Unterlage kosten bereits ab 50 â‚¬, ein vollwertiges Streifenfundament ca. 1.500â€“5.000 â‚¬. Informationen zu den genauen <Link to="/container-masse" className="font-semibold underline" style={{ color: ORANGE }}>Container MaÃŸen</Link> helfen Ihnen dabei, den Aufstellplatz optimal vorzubereiten.
+                Vergessen Sie auch nicht, die Kosten für ein <Link to="/container-fundament" className="font-semibold underline" style={{ color: ORANGE }}>Container Fundament</Link> einzuplanen – vier Betonsteine als Unterlage kosten bereits ab 50 â‚¬, ein vollwertiges Streifenfundament ca. 1.500–5.000 â‚¬. Informationen zu den genauen <Link to="/container-masse" className="font-semibold underline" style={{ color: ORANGE }}>Container Maßen</Link> helfen Ihnen dabei, den Aufstellplatz optimal vorzubereiten.
               </p>
             </div>
 
             {/* Total Cost Example */}
             <div className="rounded-2xl border border-border overflow-hidden">
               <div className="px-6 py-4 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
-                <h3 className="font-heading font-bold text-base text-foreground">Beispielrechnung: Gesamtkosten fÃ¼r einen 20 FuÃŸ Container</h3>
+                <h3 className="font-heading font-bold text-base text-foreground">Beispielrechnung: Gesamtkosten für einen 20 Fuß Container</h3>
                 <p className="text-xs text-muted-foreground mt-0.5">Standort: 100 km Entfernung, einfache Zufahrt</p>
               </div>
               <div className="divide-y divide-border">
@@ -347,7 +347,7 @@ export default function ContainerKosten() {
 
         {/* â”€â”€ Internal Links â”€â”€ */}
         <section className="mb-14">
-          <h2 className="font-heading font-bold text-xl text-foreground mb-5">WeiterfÃ¼hrende Ratgeber</h2>
+          <h2 className="font-heading font-bold text-xl text-foreground mb-5">Weiterführende Ratgeber</h2>
           <InternalLinkGrid links={internalLinks} />
         </section>
 
@@ -355,7 +355,7 @@ export default function ContainerKosten() {
         <section className="mb-14">
           <div className="mb-6">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
-            <h2 className="font-heading font-bold text-2xl text-foreground">HÃ¤ufige Fragen zu Seecontainer Preisen</h2>
+            <h2 className="font-heading font-bold text-2xl text-foreground">Häufige Fragen zu Seecontainer Preisen</h2>
           </div>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",

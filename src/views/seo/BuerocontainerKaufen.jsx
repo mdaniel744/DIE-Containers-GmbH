@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -28,62 +28,62 @@ function SH({ children }) {
 
 /* â”€â”€ Use cases for 20ft â”€â”€ */
 const USE_CASES = [
-  "BaustellenbÃ¼ros", "ProjektbÃ¼ros", "Empfangsbereiche", "BesprechungsrÃ¤ume",
-  "PausenrÃ¤ume", "mobile VerwaltungsrÃ¤ume", "temporÃ¤re BÃ¼roerweiterungen", "ArbeitsrÃ¤ume auf FirmengelÃ¤nden",
+  "Baustellenbüros", "Projektbüros", "Empfangsbereiche", "Besprechungsräume",
+  "Pausenräume", "mobile Verwaltungsräume", "temporäre Büroerweiterungen", "Arbeitsräume auf Firmengeländen",
 ];
 
 /* â”€â”€ Equipment list â”€â”€ */
 const EQUIPMENT = [
-  { icon: ShieldCheck, label: "WÃ¤rmedÃ¤mmung" },
+  { icon: ShieldCheck, label: "Wärmedämmung" },
   { icon: Plug, label: "Elektroinstallation" },
   { icon: Lightbulb, label: "LED Beleuchtung" },
   { icon: Plug, label: "Steckdosen" },
   { icon: Wrench, label: "Heizung" },
   { icon: Snowflake, label: "Klimaanlage" },
-  { icon: DoorOpen, label: "Fenster mit RolllÃ¤den" },
+  { icon: DoorOpen, label: "Fenster mit Rollläden" },
   { icon: ShieldCheck, label: "Sicherheitsverglasung" },
   { icon: LayoutGrid, label: "Bodenbelag" },
-  { icon: Building2, label: "InnenwÃ¤nde" },
-  { icon: Wrench, label: "KÃ¼chenzeile" },
-  { icon: Wrench, label: "SanitÃ¤rbereich" },
-  { icon: Plug, label: "NetzwerkanschlÃ¼sse" },
-  { icon: Users, label: "MÃ¶blierung" },
+  { icon: Building2, label: "Innenwände" },
+  { icon: Wrench, label: "Küchenzeile" },
+  { icon: Wrench, label: "Sanitärbereich" },
+  { icon: Plug, label: "Netzwerkanschlüsse" },
+  { icon: Users, label: "Möblierung" },
 ];
 
 /* â”€â”€ Delivery checklist â”€â”€ */
 const DELIVERY_CHECKLIST = [
-  "genaue Lieferadresse", "gewÃ¼nschte ContainergrÃ¶ÃŸe", "Zufahrtsbreite",
-  "Platz zum Rangieren", "Untergrund am Aufstellort", "gewÃ¼nschte Position des Containers",
-  "mÃ¶gliche Hindernisse", "gewÃ¼nschter Lieferzeitraum",
+  "genaue Lieferadresse", "gewünschte Containergröße", "Zufahrtsbreite",
+  "Platz zum Rangieren", "Untergrund am Aufstellort", "gewünschte Position des Containers",
+  "mögliche Hindernisse", "gewünschter Lieferzeitraum",
 ];
 
 /* â”€â”€ Advantages â”€â”€ */
 const ADVANTAGES = [
-  { icon: Truck, title: "Schnell verfÃ¼gbar", desc: "Deutlich schneller einsatzbereit als ein festes GebÃ¤ude â€“ lieferbar innerhalb kurzer Zeit." },
+  { icon: Truck, title: "Schnell verfügbar", desc: "Deutlich schneller einsatzbereit als ein festes Gebäude – lieferbar innerhalb kurzer Zeit." },
   { icon: Building2, title: "Flexibel nutzbar", desc: "Bei Bedarf versetzbar, erweiterbar oder mit weiteren Containern kombinierbar." },
-  { icon: Star, title: "Wirtschaftlich", desc: "Im Vergleich zu Neubau oder GebÃ¤udeerweiterung deutlich gÃ¼nstiger und planbarer." },
-  { icon: Wrench, title: "Individuell ausstattbar", desc: "Vom einfachen BaustellenbÃ¼ro bis zum komfortablen Arbeitsraum mit SanitÃ¤r und KÃ¼che." },
+  { icon: Star, title: "Wirtschaftlich", desc: "Im Vergleich zu Neubau oder Gebäudeerweiterung deutlich günstiger und planbarer." },
+  { icon: Wrench, title: "Individuell ausstattbar", desc: "Vom einfachen Baustellenbüro bis zum komfortablen Arbeitsraum mit Sanitär und Küche." },
 ];
 
 /* â”€â”€ FAQ â”€â”€ */
 const FAQS = [
-  { q: "Was kostet ein BÃ¼rocontainer?", a: "Der Preis eines BÃ¼rocontainers hÃ¤ngt von GrÃ¶ÃŸe, Zustand, Ausstattung und Lieferung ab. Ein gebrauchter BÃ¼rocontainer ist meist gÃ¼nstiger als ein neues Modell. ZusÃ¤tzliche Ausstattung wie DÃ¤mmung, Klimaanlage, SanitÃ¤r, KÃ¼che, MÃ¶blierung oder spezielle Elektroinstallation erhÃ¶ht den Preis." },
-  { q: "Kann man einen BÃ¼rocontainer gebraucht kaufen?", a: "Ja, gebrauchte BÃ¼rocontainer sind eine beliebte LÃ¶sung fÃ¼r Baustellen, Unternehmen und temporÃ¤re Projekte. Wichtig ist, dass der Container trocken, stabil, sicher verschlieÃŸbar und technisch funktionsfÃ¤hig ist. Elektrik, Fenster, TÃ¼ren, Boden und DÃ¤mmung sollten vor dem Kauf geprÃ¼ft werden." },
-  { q: "Was kostet es, einen BÃ¼rocontainer zu mieten?", a: "Die BÃ¼rocontainer mieten Kosten hÃ¤ngen von GrÃ¶ÃŸe, Ausstattung, Mietdauer, Lieferort und Zusatzleistungen ab. FÃ¼r kurze Projekte kann die Miete sinnvoll sein. Bei langfristiger Nutzung ist der Kauf hÃ¤ufig wirtschaftlicher." },
-  { q: "Was ist besser: BÃ¼rocontainer kaufen oder mieten?", a: "Kaufen lohnt sich bei langfristiger oder wiederholter Nutzung. Mieten ist sinnvoll, wenn der Container nur fÃ¼r einen begrenzten Zeitraum benÃ¶tigt wird. Bei Bauprojekten, Events oder ÃœbergangslÃ¶sungen ist Miete oft flexibel. FÃ¼r dauerhafte BÃ¼roflÃ¤chen ist der Kauf meist die bessere Wahl." },
-  { q: "Wie groÃŸ ist ein 20 FuÃŸ BÃ¼rocontainer?", a: "Ein 20 FuÃŸ BÃ¼rocontainer basiert hÃ¤ufig auf Ã¤hnlichen GrundmaÃŸen wie ein 20 FuÃŸ Container. Die nutzbare InnenflÃ¤che kann jedoch durch DÃ¤mmung, Wandaufbau und Ausstattung etwas geringer ausfallen. Er bietet in der Regel genug Platz fÃ¼r mehrere ArbeitsplÃ¤tze oder einen kleinen Besprechungsraum." },
-  { q: "Braucht man fÃ¼r einen BÃ¼rocontainer eine Baugenehmigung?", a: "Ob eine BÃ¼rocontainer Baugenehmigung erforderlich ist, hÃ¤ngt von Standort, Nutzungsdauer, Bundesland und Nutzung ab. Bei dauerhafter Aufstellung oder regelmÃ¤ÃŸiger Nutzung als Arbeitsraum sollte die zustÃ¤ndige BaubehÃ¶rde kontaktiert werden." },
-  { q: "Kann ein BÃ¼rocontainer winterfest sein?", a: "Ja, BÃ¼rocontainer kÃ¶nnen winterfest ausgestattet werden. DafÃ¼r sind gute DÃ¤mmung, Heizung, dichte Fenster und TÃ¼ren sowie eine passende Elektroinstallation wichtig. FÃ¼r ganzjÃ¤hrige Nutzung sollte auf eine hochwertige Ausstattung geachtet werden." },
-  { q: "Wird ein BÃ¼rocontainer geliefert und aufgestellt?", a: "Ja, BÃ¼rocontainer kÃ¶nnen direkt zum gewÃ¼nschten Standort geliefert werden. Je nach Situation erfolgt die Entladung per LKW mit Kran. Wichtig sind eine geeignete Zufahrt, ausreichend Platz und ein tragfÃ¤higer Untergrund." },
-  { q: "Eignet sich ein BÃ¼rocontainer auch als Pausenraum?", a: "Ja, BÃ¼rocontainer kÃ¶nnen auch als Pausenraum, Aufenthaltsraum oder Sozialraum genutzt werden. Je nach Ausstattung kÃ¶nnen Sitzgelegenheiten, Heizung, Klimaanlage, KÃ¼chenzeile oder SanitÃ¤rbereiche integriert werden." },
-  { q: "Sind gebrauchte BÃ¼rocontainer zu verschenken realistisch?", a: "Gebrauchte BÃ¼rocontainer zu verschenken sind selten wirklich kostenlos. HÃ¤ufig entstehen trotzdem Kosten fÃ¼r Transport, Reparatur, Reinigung oder Entsorgung. Ein geprÃ¼fter gebrauchter BÃ¼rocontainer ist meist die sicherere Wahl." },
+  { q: "Was kostet ein Bürocontainer?", a: "Der Preis eines Bürocontainers hängt von Größe, Zustand, Ausstattung und Lieferung ab. Ein gebrauchter Bürocontainer ist meist günstiger als ein neues Modell. Zusätzliche Ausstattung wie Dämmung, Klimaanlage, Sanitär, Küche, Möblierung oder spezielle Elektroinstallation erhöht den Preis." },
+  { q: "Kann man einen Bürocontainer gebraucht kaufen?", a: "Ja, gebrauchte Bürocontainer sind eine beliebte Lösung für Baustellen, Unternehmen und temporäre Projekte. Wichtig ist, dass der Container trocken, stabil, sicher verschließbar und technisch funktionsfähig ist. Elektrik, Fenster, Türen, Boden und Dämmung sollten vor dem Kauf geprüft werden." },
+  { q: "Was kostet es, einen Bürocontainer zu mieten?", a: "Die Bürocontainer mieten Kosten hängen von Größe, Ausstattung, Mietdauer, Lieferort und Zusatzleistungen ab. Für kurze Projekte kann die Miete sinnvoll sein. Bei langfristiger Nutzung ist der Kauf häufig wirtschaftlicher." },
+  { q: "Was ist besser: Bürocontainer kaufen oder mieten?", a: "Kaufen lohnt sich bei langfristiger oder wiederholter Nutzung. Mieten ist sinnvoll, wenn der Container nur für einen begrenzten Zeitraum benötigt wird. Bei Bauprojekten, Events oder Übergangslösungen ist Miete oft flexibel. Für dauerhafte Büroflächen ist der Kauf meist die bessere Wahl." },
+  { q: "Wie groß ist ein 20 Fuß Bürocontainer?", a: "Ein 20 Fuß Bürocontainer basiert häufig auf ähnlichen Grundmaßen wie ein 20 Fuß Container. Die nutzbare Innenfläche kann jedoch durch Dämmung, Wandaufbau und Ausstattung etwas geringer ausfallen. Er bietet in der Regel genug Platz für mehrere Arbeitsplätze oder einen kleinen Besprechungsraum." },
+  { q: "Braucht man für einen Bürocontainer eine Baugenehmigung?", a: "Ob eine Bürocontainer Baugenehmigung erforderlich ist, hängt von Standort, Nutzungsdauer, Bundesland und Nutzung ab. Bei dauerhafter Aufstellung oder regelmäßiger Nutzung als Arbeitsraum sollte die zuständige Baubehörde kontaktiert werden." },
+  { q: "Kann ein Bürocontainer winterfest sein?", a: "Ja, Bürocontainer können winterfest ausgestattet werden. Dafür sind gute Dämmung, Heizung, dichte Fenster und Türen sowie eine passende Elektroinstallation wichtig. Für ganzjährige Nutzung sollte auf eine hochwertige Ausstattung geachtet werden." },
+  { q: "Wird ein Bürocontainer geliefert und aufgestellt?", a: "Ja, Bürocontainer können direkt zum gewünschten Standort geliefert werden. Je nach Situation erfolgt die Entladung per LKW mit Kran. Wichtig sind eine geeignete Zufahrt, ausreichend Platz und ein tragfähiger Untergrund." },
+  { q: "Eignet sich ein Bürocontainer auch als Pausenraum?", a: "Ja, Bürocontainer können auch als Pausenraum, Aufenthaltsraum oder Sozialraum genutzt werden. Je nach Ausstattung können Sitzgelegenheiten, Heizung, Klimaanlage, Küchenzeile oder Sanitärbereiche integriert werden." },
+  { q: "Sind gebrauchte Bürocontainer zu verschenken realistisch?", a: "Gebrauchte Bürocontainer zu verschenken sind selten wirklich kostenlos. Häufig entstehen trotzdem Kosten für Transport, Reparatur, Reinigung oder Entsorgung. Ein geprüfter gebrauchter Bürocontainer ist meist die sicherere Wahl." },
 ];
 
 /* â”€â”€ Ratgeber links â”€â”€ */
 const RATGEBER = [
-  { href: "/container-kaufen", title: "Container kaufen", desc: "Ãœbersicht aller Containertypen" },
-  { href: "/container-masse", title: "Container MaÃŸe", desc: "Abmessungen & InnenflÃ¤che" },
-  { href: "/container-genehmigung", title: "Container Genehmigung", desc: "Baugenehmigung klÃ¤ren" },
+  { href: "/container-kaufen", title: "Container kaufen", desc: "Übersicht aller Containertypen" },
+  { href: "/container-masse", title: "Container Maße", desc: "Abmessungen & Innenfläche" },
+  { href: "/container-genehmigung", title: "Container Genehmigung", desc: "Baugenehmigung klären" },
   { href: "/container-fundament", title: "Container Fundament", desc: "Untergrund & Aufstellung" },
   { href: "/container-lieferung", title: "Container Lieferung", desc: "Ablauf & Transportkosten" },
   { href: "/container-kosten", title: "Container Kosten", desc: "Gesamtkosten berechnen" },
@@ -93,10 +93,10 @@ const RATGEBER = [
 const OTHER_TYPES = [
   { href: "/seecontainer-kaufen", title: "Seecontainer kaufen", desc: "Klassische ISO Container" },
   { href: "/wohncontainer-kaufen", title: "Wohncontainer kaufen", desc: "Wohnraum statt Arbeitsraum" },
-  { href: "/kuehlcontainer-kaufen", title: "KÃ¼hlcontainer kaufen", desc: "SpeziallÃ¶sung fÃ¼r KÃ¼hlung" },
-  { href: "/20-fuss-container-kaufen", title: "20 FuÃŸ Container kaufen", desc: "Basis fÃ¼r BÃ¼rocontainer" },
-  { href: "/40-fuss-container-kaufen", title: "40 FuÃŸ Container kaufen", desc: "GroÃŸraumbÃ¼ro im Container" },
-  { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen", desc: "Lager direkt neben dem BÃ¼ro" },
+  { href: "/kuehlcontainer-kaufen", title: "Kühlcontainer kaufen", desc: "Speziallösung für Kühlung" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Basis für Bürocontainer" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen", desc: "Großraumbüro im Container" },
+  { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen", desc: "Lager direkt neben dem Büro" },
 ];
 
 export default function BuerocontainerKaufen() {
@@ -117,7 +117,7 @@ export default function BuerocontainerKaufen() {
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_HERO} alt="20 FuÃŸ BÃ¼rocontainer RAL 7016 wird per Kran geliefert" className="w-full h-full object-cover" />
+          <img src={IMG_HERO} alt="20 Fuß Bürocontainer RAL 7016 wird per Kran geliefert" className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(15,37,64,0.85) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -126,21 +126,21 @@ export default function BuerocontainerKaufen() {
             <ChevronRight className="w-3 h-3" />
             <Link to="/container-kaufen" className="hover:text-white transition-colors">Container kaufen</Link>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-white/70">BÃ¼rocontainer kaufen</span>
+            <span className="text-white/70">Bürocontainer kaufen</span>
           </nav>
           <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: ORANGE }}>Ratgeber 2025</span>
           <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-5 max-w-3xl leading-tight">
-            BÃ¼rocontainer kaufen â€“ flexible ArbeitsrÃ¤ume fÃ¼r Baustelle, Gewerbe und Projekte
+            Bürocontainer kaufen – flexible Arbeitsräume für Baustelle, Gewerbe und Projekte
           </h1>
           <p className="text-white/75 text-base leading-relaxed max-w-2xl mb-8">
-            BÃ¼rocontainer kaufen â€“ neue und gebrauchte BÃ¼rocontainer fÃ¼r Baustellen, Gewerbe und temporÃ¤re ArbeitsrÃ¤ume. 20 FuÃŸ BÃ¼rocontainer, Lieferung und Beratung.
+            Bürocontainer kaufen – neue und gebrauchte Bürocontainer für Baustellen, Gewerbe und temporäre Arbeitsräume. 20 Fuß Bürocontainer, Lieferung und Beratung.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/kategorien/buerocontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
-              BÃ¼rocontainer Katalog
+              Bürocontainer Katalog
             </Link>
           </div>
         </div>
@@ -150,16 +150,16 @@ export default function BuerocontainerKaufen() {
 
         {/* â”€â”€ Intro â”€â”€ */}
         <section className="mb-14">
-          <SH>BÃ¼rocontainer als schnelle LÃ¶sung fÃ¼r zusÃ¤tzlichen Arbeitsraum</SH>
+          <SH>Bürocontainer als schnelle Lösung für zusätzlichen Arbeitsraum</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Ein BÃ¼rocontainer ist eine praktische LÃ¶sung, wenn kurzfristig zusÃ¤tzlicher Arbeitsraum benÃ¶tigt wird. Ob auf Baustellen, FirmengelÃ¤nden, IndustrieflÃ¤chen, bei Sanierungen oder temporÃ¤ren Projekten â€“ BÃ¼rocontainer lassen sich schnell liefern, flexibel aufstellen und direkt nutzen. Sie schaffen funktionale BÃ¼roflÃ¤chen, ohne dass sofort ein festes GebÃ¤ude errichtet werden muss.
+              Ein Bürocontainer ist eine praktische Lösung, wenn kurzfristig zusätzlicher Arbeitsraum benötigt wird. Ob auf Baustellen, Firmengeländen, Industrieflächen, bei Sanierungen oder temporären Projekten – Bürocontainer lassen sich schnell liefern, flexibel aufstellen und direkt nutzen. Sie schaffen funktionale Büroflächen, ohne dass sofort ein festes Gebäude errichtet werden muss.
             </p>
             <p>
-              Wer einen <strong className="text-foreground">BÃ¼rocontainer kaufen</strong> mÃ¶chte, entscheidet sich fÃ¼r eine langlebige und vielseitig nutzbare RaumlÃ¶sung. Je nach AusfÃ¼hrung kann ein BÃ¼rocontainer als EinzelbÃ¼ro, BaustellenbÃ¼ro, Besprechungsraum, Empfangsbereich, Pausenraum oder temporÃ¤re Erweiterung bestehender BÃ¼roflÃ¤chen genutzt werden. Besonders gefragt sind 20 FuÃŸ BÃ¼rocontainer, da sie ausreichend Platz fÃ¼r ArbeitsplÃ¤tze bieten und dennoch kompakt genug fÃ¼r viele Standorte bleiben.
+              Wer einen <strong className="text-foreground">Bürocontainer kaufen</strong> möchte, entscheidet sich für eine langlebige und vielseitig nutzbare Raumlösung. Je nach Ausführung kann ein Bürocontainer als Einzelbüro, Baustellenbüro, Besprechungsraum, Empfangsbereich, Pausenraum oder temporäre Erweiterung bestehender Büroflächen genutzt werden. Besonders gefragt sind 20 Fuß Bürocontainer, da sie ausreichend Platz für Arbeitsplätze bieten und dennoch kompakt genug für viele Standorte bleiben.
             </p>
             <p>
-              Im Vergleich zu klassischen Bauprojekten sind BÃ¼rocontainer deutlich schneller einsatzbereit. Sie kÃ¶nnen bei Bedarf versetzt, erweitert oder mit weiteren Containern kombiniert werden. Dadurch eignen sie sich sowohl fÃ¼r dauerhafte Nutzung als auch fÃ¼r zeitlich begrenzte Projekte.
+              Im Vergleich zu klassischen Bauprojekten sind Bürocontainer deutlich schneller einsatzbereit. Sie können bei Bedarf versetzt, erweitert oder mit weiteren Containern kombiniert werden. Dadurch eignen sie sich sowohl für dauerhafte Nutzung als auch für zeitlich begrenzte Projekte.
             </p>
           </div>
         </section>
@@ -169,20 +169,20 @@ export default function BuerocontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_PRODUCT} alt="20 FuÃŸ BÃ¼rocontainer RAL 7016 â€“ AuÃŸenansicht" className="w-full h-full object-cover" />
+                <img src={IMG_PRODUCT} alt="20 Fuß Bürocontainer RAL 7016 – Außenansicht" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
-                <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Neue BÃ¼rocontainer</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">Moderne Ausstattung, individuelle Konfiguration und langfristige Nutzung fÃ¼r reprÃ¤sentative Standorte.</p>
+                <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Neue Bürocontainer</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">Moderne Ausstattung, individuelle Konfiguration und langfristige Nutzung für repräsentative Standorte.</p>
               </div>
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_INTERIOR} alt="BÃ¼rocontainer Innenraum mit Fenster, Boden und Beleuchtung" className="w-full h-full object-cover" />
+                <img src={IMG_INTERIOR} alt="Bürocontainer Innenraum mit Fenster, Boden und Beleuchtung" className="w-full h-full object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Voll ausgebauter Innenraum</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">Innenverkleidung, Bodenbelag, Fenster, Elektrik und Beleuchtung â€“ direkt einsatzbereit als Arbeitsplatz.</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Innenverkleidung, Bodenbelag, Fenster, Elektrik und Beleuchtung – direkt einsatzbereit als Arbeitsplatz.</p>
               </div>
             </div>
           </div>
@@ -190,30 +190,30 @@ export default function BuerocontainerKaufen() {
 
         {/* â”€â”€ Kaufen oder mieten? â”€â”€ */}
         <section className="mb-14">
-          <SH>BÃ¼rocontainer kaufen oder mieten â€“ was ist sinnvoller?</SH>
+          <SH>Bürocontainer kaufen oder mieten – was ist sinnvoller?</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              Viele Interessenten fragen sich, ob sie einen BÃ¼rocontainer kaufen oder einen BÃ¼rocontainer mieten sollten. Die richtige Entscheidung hÃ¤ngt vor allem von der geplanten Nutzungsdauer, dem Budget und dem Einsatzzweck ab.
+              Viele Interessenten fragen sich, ob sie einen Bürocontainer kaufen oder einen Bürocontainer mieten sollten. Die richtige Entscheidung hängt vor allem von der geplanten Nutzungsdauer, dem Budget und dem Einsatzzweck ab.
             </p>
             <p>
-              Ein Kauf lohnt sich besonders, wenn der BÃ¼rocontainer langfristig genutzt werden soll. Unternehmen, Handwerksbetriebe, Bauunternehmen und Industriekunden entscheiden sich hÃ¤ufig fÃ¼r den Kauf, weil der Container dauerhaft verfÃ¼gbar bleibt und bei Bedarf an einem anderen Standort weiterverwendet werden kann. Wer regelmÃ¤ÃŸig zusÃ¤tzliche ArbeitsrÃ¤ume benÃ¶tigt, profitiert langfristig meist stÃ¤rker vom Kauf.
+              Ein Kauf lohnt sich besonders, wenn der Bürocontainer langfristig genutzt werden soll. Unternehmen, Handwerksbetriebe, Bauunternehmen und Industriekunden entscheiden sich häufig für den Kauf, weil der Container dauerhaft verfügbar bleibt und bei Bedarf an einem anderen Standort weiterverwendet werden kann. Wer regelmäßig zusätzliche Arbeitsräume benötigt, profitiert langfristig meist stärker vom Kauf.
             </p>
             <p>
-              Die Miete ist sinnvoll, wenn der BÃ¼rocontainer nur fÃ¼r einen bestimmten Zeitraum benÃ¶tigt wird. Das ist hÃ¤ufig bei Baustellen, Events, Umbauten, Sanierungen oder kurzfristigen ProjektflÃ¤chen der Fall. Wer nach BÃ¼rocontainer mieten Kosten sucht, mÃ¶chte meist wissen, ob die monatliche Miete gÃ¼nstiger ist als der direkte Kauf. Bei kurzer Nutzungsdauer kann Mieten wirtschaftlich sein. Bei lÃ¤ngerer Nutzung kÃ¶nnen sich die Mietkosten jedoch summieren, sodass Kaufen oft die bessere LÃ¶sung ist.
+              Die Miete ist sinnvoll, wenn der Bürocontainer nur für einen bestimmten Zeitraum benötigt wird. Das ist häufig bei Baustellen, Events, Umbauten, Sanierungen oder kurzfristigen Projektflächen der Fall. Wer nach Bürocontainer mieten Kosten sucht, möchte meist wissen, ob die monatliche Miete günstiger ist als der direkte Kauf. Bei kurzer Nutzungsdauer kann Mieten wirtschaftlich sein. Bei längerer Nutzung können sich die Mietkosten jedoch summieren, sodass Kaufen oft die bessere Lösung ist.
             </p>
             <p>
-              Wenn Sie neben BÃ¼rocontainern auch andere Containerarten vergleichen mÃ¶chten, finden Sie auf unserer Seite <IL to="/container-kaufen">Container kaufen</IL> einen guten Ãœberblick Ã¼ber Lagercontainer, Seecontainer, Wohncontainer und KÃ¼hlcontainer.
+              Wenn Sie neben Bürocontainern auch andere Containerarten vergleichen möchten, finden Sie auf unserer Seite <IL to="/container-kaufen">Container kaufen</IL> einen guten Überblick über Lagercontainer, Seecontainer, Wohncontainer und Kühlcontainer.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
-                <h3 className="font-heading font-bold text-sm text-foreground">BÃ¼rocontainer kaufen</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground">Bürocontainer kaufen</h3>
               </div>
               <div className="p-5 text-sm text-muted-foreground leading-relaxed space-y-3">
-                <p>Lohnt sich bei langfristiger oder wiederholter Nutzung. Der Container bleibt dauerhaft verfÃ¼gbar und kann an jedem Standort weiterverwendet werden.</p>
+                <p>Lohnt sich bei langfristiger oder wiederholter Nutzung. Der Container bleibt dauerhaft verfügbar und kann an jedem Standort weiterverwendet werden.</p>
                 <ul className="space-y-1.5">
-                  {["Dauerhaft verfÃ¼gbar", "Bei Bedarf versetzbar", "Langfristig wirtschaftlich"].map((p, i) => (
+                  {["Dauerhaft verfügbar", "Bei Bedarf versetzbar", "Langfristig wirtschaftlich"].map((p, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs"><CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" />{p}</li>
                   ))}
                 </ul>
@@ -221,12 +221,12 @@ export default function BuerocontainerKaufen() {
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${ORANGE}15, transparent)` }}>
-                <h3 className="font-heading font-bold text-sm text-foreground">BÃ¼rocontainer mieten</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground">Bürocontainer mieten</h3>
               </div>
               <div className="p-5 text-sm text-muted-foreground leading-relaxed space-y-3">
-                <p>Sinnvoll bei zeitlich begrenzten Projekten, Baustellen, Events oder ÃœbergangslÃ¶sungen. Flexibel nutzbar, ohne langfristige Bindung.</p>
+                <p>Sinnvoll bei zeitlich begrenzten Projekten, Baustellen, Events oder Übergangslösungen. Flexibel nutzbar, ohne langfristige Bindung.</p>
                 <ul className="space-y-1.5">
-                  {["Kurzfristig verfÃ¼gbar", "Keine hohe Einmalinvestition", "Flexibel kÃ¼ndbar"].map((p, i) => (
+                  {["Kurzfristig verfügbar", "Keine hohe Einmalinvestition", "Flexibel kündbar"].map((p, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs"><CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" />{p}</li>
                   ))}
                 </ul>
@@ -235,67 +235,67 @@ export default function BuerocontainerKaufen() {
           </div>
         </section>
 
-        {/* â”€â”€ Neue BÃ¼rocontainer â”€â”€ */}
+        {/* â”€â”€ Neue Bürocontainer â”€â”€ */}
         <section className="mb-14">
-          <SH>Neue BÃ¼rocontainer kaufen</SH>
+          <SH>Neue Bürocontainer kaufen</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Neue BÃ¼rocontainer sind ideal, wenn ein gepflegter Zustand, moderne Ausstattung und langfristige Nutzung wichtig sind. Sie eignen sich besonders fÃ¼r Unternehmen, die den Container sichtbar auf dem FirmengelÃ¤nde, im Kundenbereich oder als reprÃ¤sentativen Arbeitsraum einsetzen mÃ¶chten.
+              Neue Bürocontainer sind ideal, wenn ein gepflegter Zustand, moderne Ausstattung und langfristige Nutzung wichtig sind. Sie eignen sich besonders für Unternehmen, die den Container sichtbar auf dem Firmengelände, im Kundenbereich oder als repräsentativen Arbeitsraum einsetzen möchten.
             </p>
             <p>
-              Ein neuer BÃ¼rocontainer kann je nach Bedarf ausgestattet werden. MÃ¶glich sind DÃ¤mmung, Elektroinstallation, Beleuchtung, Heizung, Klimaanlage, Fenster, TÃ¼ren, Bodenbelag, Innenverkleidung und bei Bedarf auch SanitÃ¤r- oder KÃ¼chenbereiche. Dadurch entsteht ein vollwertiger Arbeitsplatz, der sich an die Anforderungen des Unternehmens anpassen lÃ¤sst.
+              Ein neuer Bürocontainer kann je nach Bedarf ausgestattet werden. Möglich sind Dämmung, Elektroinstallation, Beleuchtung, Heizung, Klimaanlage, Fenster, Türen, Bodenbelag, Innenverkleidung und bei Bedarf auch Sanitär- oder Küchenbereiche. Dadurch entsteht ein vollwertiger Arbeitsplatz, der sich an die Anforderungen des Unternehmens anpassen lässt.
             </p>
             <p>
-              Neue BÃ¼rocontainer sind besonders sinnvoll, wenn Wert auf Optik, Komfort und eine mÃ¶glichst lange Nutzungsdauer gelegt wird. Sie sind auÃŸerdem eine gute Wahl, wenn mehrere Container zu einer grÃ¶ÃŸeren BÃ¼roanlage kombiniert werden sollen.
+              Neue Bürocontainer sind besonders sinnvoll, wenn Wert auf Optik, Komfort und eine möglichst lange Nutzungsdauer gelegt wird. Sie sind außerdem eine gute Wahl, wenn mehrere Container zu einer größeren Büroanlage kombiniert werden sollen.
             </p>
           </div>
         </section>
 
-        {/* â”€â”€ Gebrauchte BÃ¼rocontainer â”€â”€ */}
+        {/* â”€â”€ Gebrauchte Bürocontainer â”€â”€ */}
         <section className="mb-14">
-          <SH>BÃ¼rocontainer gebraucht kaufen</SH>
+          <SH>Bürocontainer gebraucht kaufen</SH>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_USED} alt="Gebrauchter weiÃŸer BÃ¼rocontainer im FreigelÃ¤nde" className="w-full h-full object-cover" />
+                <img src={IMG_USED} alt="Gebrauchter weißer Bürocontainer im Freigelände" className="w-full h-full object-cover" />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
               <p>
-                Ein BÃ¼rocontainer gebraucht ist eine wirtschaftliche Alternative zu einem neuen Modell. Wer einen <strong className="text-foreground">BÃ¼rocontainer gebraucht kaufen</strong> mÃ¶chte, sucht meist eine sofort nutzbare LÃ¶sung zu einem gÃ¼nstigeren Preis. Gebrauchte BÃ¼rocontainer eignen sich besonders fÃ¼r Baustellen, Handwerksbetriebe, temporÃ¤re ProjektbÃ¼ros oder einfache AufenthaltsrÃ¤ume.
+                Ein Bürocontainer gebraucht ist eine wirtschaftliche Alternative zu einem neuen Modell. Wer einen <strong className="text-foreground">Bürocontainer gebraucht kaufen</strong> möchte, sucht meist eine sofort nutzbare Lösung zu einem günstigeren Preis. Gebrauchte Bürocontainer eignen sich besonders für Baustellen, Handwerksbetriebe, temporäre Projektbüros oder einfache Aufenthaltsräume.
               </p>
               <p>
-                Beim Kauf eines gebrauchten BÃ¼rocontainers sollte jedoch nicht nur der Preis entscheidend sein. Wichtig sind der Zustand von Dach, Boden, WÃ¤nden, Fenstern, TÃ¼ren, Elektrik und DÃ¤mmung. Der Container sollte trocken, stabil, sicher verschlieÃŸbar und fÃ¼r die geplante Nutzung geeignet sein. Leichte Gebrauchsspuren sind bei gebrauchten BÃ¼rocontainern normal, starke FeuchtigkeitsschÃ¤den, defekte Elektrik oder beschÃ¤digte BÃ¶den sollten jedoch vermieden werden.
+                Beim Kauf eines gebrauchten Bürocontainers sollte jedoch nicht nur der Preis entscheidend sein. Wichtig sind der Zustand von Dach, Boden, Wänden, Fenstern, Türen, Elektrik und Dämmung. Der Container sollte trocken, stabil, sicher verschließbar und für die geplante Nutzung geeignet sein. Leichte Gebrauchsspuren sind bei gebrauchten Bürocontainern normal, starke Feuchtigkeitsschäden, defekte Elektrik oder beschädigte Böden sollten jedoch vermieden werden.
               </p>
               <p>
-                Viele Nutzer suchen auch nach gebrauchte BÃ¼rocontainer zu verschenken. In der Praxis ist das jedoch selten eine wirklich gÃ¼nstige LÃ¶sung. Kostenlose oder sehr gÃ¼nstige BÃ¼rocontainer haben hÃ¤ufig Reparaturbedarf, veraltete Ausstattung oder hohe Transportkosten. Ein geprÃ¼fter gebrauchter BÃ¼rocontainer ist meist die sicherere und langfristig wirtschaftlichere Wahl.
+                Viele Nutzer suchen auch nach gebrauchte Bürocontainer zu verschenken. In der Praxis ist das jedoch selten eine wirklich günstige Lösung. Kostenlose oder sehr günstige Bürocontainer haben häufig Reparaturbedarf, veraltete Ausstattung oder hohe Transportkosten. Ein geprüfter gebrauchter Bürocontainer ist meist die sicherere und langfristig wirtschaftlichere Wahl.
               </p>
             </div>
           </div>
         </section>
 
-        <CtaBanner text="BÃ¼rocontainer unverbindlich anfragen" btnLabel="Angebot anfordern" btnHref="/angebot" />
+        <CtaBanner text="Bürocontainer unverbindlich anfragen" btnLabel="Angebot anfordern" btnHref="/angebot" />
 
-        {/* â”€â”€ 20 FuÃŸ BÃ¼rocontainer â”€â”€ */}
+        {/* â”€â”€ 20 Fuß Bürocontainer â”€â”€ */}
         <section className="mb-14">
-          <SH>20 FuÃŸ BÃ¼rocontainer</SH>
+          <SH>20 Fuß Bürocontainer</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              Der 20 FuÃŸ BÃ¼rocontainer gehÃ¶rt zu den beliebtesten Varianten, weil er eine gute Balance aus GrÃ¶ÃŸe, NutzflÃ¤che und TransportfÃ¤higkeit bietet. Er bietet genÃ¼gend Raum fÃ¼r Schreibtische, StÃ¼hle, Regale, Computertechnik und mehrere ArbeitsplÃ¤tze, benÃ¶tigt aber weniger StellflÃ¤che als grÃ¶ÃŸere Containeranlagen.
+              Der 20 Fuß Bürocontainer gehört zu den beliebtesten Varianten, weil er eine gute Balance aus Größe, Nutzfläche und Transportfähigkeit bietet. Er bietet genügend Raum für Schreibtische, Stühle, Regale, Computertechnik und mehrere Arbeitsplätze, benötigt aber weniger Stellfläche als größere Containeranlagen.
             </p>
             <p>
-              Die genaue nutzbare InnenflÃ¤che hÃ¤ngt von DÃ¤mmung, Wandaufbau und Ausstattung ab. Wenn Sie ContainergrÃ¶ÃŸen vergleichen mÃ¶chten, finden Sie weitere technische Informationen auf unserer Seite <IL to="/container-masse">Container MaÃŸe</IL>. FÃ¼r reine Lagerzwecke kann alternativ ein <IL to="/20-fuss-container-kaufen">20 FuÃŸ Container kaufen</IL> sinnvoll sein.
+              Die genaue nutzbare Innenfläche hängt von Dämmung, Wandaufbau und Ausstattung ab. Wenn Sie Containergrößen vergleichen möchten, finden Sie weitere technische Informationen auf unserer Seite <IL to="/container-masse">Container Maße</IL>. Für reine Lagerzwecke kann alternativ ein <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL> sinnvoll sein.
             </p>
           </div>
           <div className="rounded-2xl border border-border bg-card overflow-hidden mb-6">
             <div className="h-72 bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center">
-              <img src={IMG_MODULAR} alt="Modulare 20 FuÃŸ Containeranlage mit Fenster und Treppe" className="w-full h-full object-contain" />
+              <img src={IMG_MODULAR} alt="Modulare 20 Fuß Containeranlage mit Fenster und Treppe" className="w-full h-full object-contain" />
             </div>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
               <Ruler className="w-4 h-4" style={{ color: ORANGE }} />
-              Ein 20 FuÃŸ BÃ¼rocontainer eignet sich besonders fÃ¼r:
+              Ein 20 Fuß Bürocontainer eignet sich besonders für:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {USE_CASES.map((item, i) => (
@@ -312,10 +312,10 @@ export default function BuerocontainerKaufen() {
           <SH>Ausstattung und Komfort</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              Ein BÃ¼rocontainer kann einfach oder komfortabel ausgestattet werden. Die Grundausstattung umfasst hÃ¤ufig Fenster, EingangstÃ¼r, Innenverkleidung, Beleuchtung, Steckdosen und eine HeizmÃ¶glichkeit. FÃ¼r lÃ¤ngere Nutzung oder ganzjÃ¤hrigen Einsatz sind zusÃ¤tzliche Ausstattungen empfehlenswert.
+              Ein Bürocontainer kann einfach oder komfortabel ausgestattet werden. Die Grundausstattung umfasst häufig Fenster, Eingangstür, Innenverkleidung, Beleuchtung, Steckdosen und eine Heizmöglichkeit. Für längere Nutzung oder ganzjährigen Einsatz sind zusätzliche Ausstattungen empfehlenswert.
             </p>
             <p>
-              Die passende Ausstattung hÃ¤ngt davon ab, wie der BÃ¼rocontainer genutzt werden soll. Ein einfacher Baustellencontainer benÃ¶tigt oft weniger Komfort als ein dauerhaft genutztes BÃ¼ro auf einem FirmengelÃ¤nde. Wer den Container ganzjÃ¤hrig nutzt, sollte besonders auf DÃ¤mmung, Heizung, BelÃ¼ftung und StromanschlÃ¼sse achten.
+              Die passende Ausstattung hängt davon ab, wie der Bürocontainer genutzt werden soll. Ein einfacher Baustellencontainer benötigt oft weniger Komfort als ein dauerhaft genutztes Büro auf einem Firmengelände. Wer den Container ganzjährig nutzt, sollte besonders auf Dämmung, Heizung, Belüftung und Stromanschlüsse achten.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -331,77 +331,77 @@ export default function BuerocontainerKaufen() {
 
         {/* â”€â”€ Baustellen â”€â”€ */}
         <section className="mb-14">
-          <SH>BÃ¼rocontainer fÃ¼r Baustellen</SH>
+          <SH>Bürocontainer für Baustellen</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Auf Baustellen sind BÃ¼rocontainer besonders beliebt, weil sie schnell verfÃ¼gbar und flexibel einsetzbar sind. Sie dienen als BauleitungsbÃ¼ro, Besprechungsraum, Aufenthaltsraum oder Dokumentationsstelle. BauplÃ¤ne, Unterlagen, technische GerÃ¤te und persÃ¶nliche GegenstÃ¤nde kÃ¶nnen geschÃ¼tzt untergebracht werden.
+              Auf Baustellen sind Bürocontainer besonders beliebt, weil sie schnell verfügbar und flexibel einsetzbar sind. Sie dienen als Bauleitungsbüro, Besprechungsraum, Aufenthaltsraum oder Dokumentationsstelle. Baupläne, Unterlagen, technische Geräte und persönliche Gegenstände können geschützt untergebracht werden.
             </p>
             <p>
-              Ein Vorteil auf Baustellen ist die MobilitÃ¤t. Nach Abschluss eines Projekts kann der Container abtransportiert und auf einer neuen Baustelle wieder eingesetzt werden. FÃ¼r grÃ¶ÃŸere Baustellen lassen sich mehrere BÃ¼rocontainer kombinieren. So entstehen grÃ¶ÃŸere Containeranlagen mit mehreren ArbeitsplÃ¤tzen, BesprechungsrÃ¤umen, Pausenbereichen oder SanitÃ¤rmodulen.
+              Ein Vorteil auf Baustellen ist die Mobilität. Nach Abschluss eines Projekts kann der Container abtransportiert und auf einer neuen Baustelle wieder eingesetzt werden. Für größere Baustellen lassen sich mehrere Bürocontainer kombinieren. So entstehen größere Containeranlagen mit mehreren Arbeitsplätzen, Besprechungsräumen, Pausenbereichen oder Sanitärmodulen.
             </p>
             <p>
-              Wenn zusÃ¤tzlich Material, Maschinen oder Werkzeuge gelagert werden mÃ¼ssen, kann ein klassischer Seecontainer die bessere ErgÃ¤nzung sein. Weitere Informationen finden Sie auf der Seite <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>.
+              Wenn zusätzlich Material, Maschinen oder Werkzeuge gelagert werden müssen, kann ein klassischer Seecontainer die bessere Ergänzung sein. Weitere Informationen finden Sie auf der Seite <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>.
             </p>
           </div>
         </section>
 
         {/* â”€â”€ Unternehmen & Gewerbe â”€â”€ */}
         <section className="mb-14">
-          <SH>BÃ¼rocontainer fÃ¼r Unternehmen und Gewerbe</SH>
+          <SH>Bürocontainer für Unternehmen und Gewerbe</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Auch auÃŸerhalb von Baustellen sind BÃ¼rocontainer eine praktische LÃ¶sung. Unternehmen nutzen sie als zusÃ¤tzliche BÃ¼roflÃ¤che, Empfangsraum, Schulungsraum, PfÃ¶rtnercontainer oder temporÃ¤re Erweiterung wÃ¤hrend Umbauten. Besonders bei wachsendem Personalbestand oder begrenzter BÃ¼roflÃ¤che kann ein BÃ¼rocontainer schnell Entlastung schaffen.
+              Auch außerhalb von Baustellen sind Bürocontainer eine praktische Lösung. Unternehmen nutzen sie als zusätzliche Bürofläche, Empfangsraum, Schulungsraum, Pförtnercontainer oder temporäre Erweiterung während Umbauten. Besonders bei wachsendem Personalbestand oder begrenzter Bürofläche kann ein Bürocontainer schnell Entlastung schaffen.
             </p>
             <p>
-              FÃ¼r Gewerbekunden ist vor allem die Planbarkeit interessant. Ein BÃ¼rocontainer kann deutlich schneller bereitgestellt werden als ein Neubau oder eine umfassende GebÃ¤udeerweiterung. Gleichzeitig bleibt die LÃ¶sung flexibel. Wenn sich der Bedarf Ã¤ndert, kann der Container versetzt, erweitert oder anders genutzt werden.
+              Für Gewerbekunden ist vor allem die Planbarkeit interessant. Ein Bürocontainer kann deutlich schneller bereitgestellt werden als ein Neubau oder eine umfassende Gebäudeerweiterung. Gleichzeitig bleibt die Lösung flexibel. Wenn sich der Bedarf ändert, kann der Container versetzt, erweitert oder anders genutzt werden.
             </p>
             <p>
-              FÃ¼r Unternehmen mit wechselnden Standorten, saisonalen Projekten oder temporÃ¤rem Personal ist diese FlexibilitÃ¤t ein entscheidender Vorteil.
+              Für Unternehmen mit wechselnden Standorten, saisonalen Projekten oder temporärem Personal ist diese Flexibilität ein entscheidender Vorteil.
             </p>
           </div>
         </section>
 
         {/* â”€â”€ Baugenehmigung â”€â”€ */}
         <section className="mb-14">
-          <SH>BÃ¼rocontainer Baugenehmigung</SH>
+          <SH>Bürocontainer Baugenehmigung</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Das Thema <strong className="text-foreground">BÃ¼rocontainer Baugenehmigung</strong> sollte frÃ¼hzeitig geprÃ¼ft werden. Ob eine Genehmigung erforderlich ist, hÃ¤ngt vom Bundesland, der Gemeinde, dem Standort, der Nutzungsdauer und dem geplanten Zweck ab. Ein kurzfristig genutzter Baustellencontainer wird hÃ¤ufig anders bewertet als ein dauerhaft aufgestellter BÃ¼rocontainer auf einem FirmengelÃ¤nde.
+              Das Thema <strong className="text-foreground">Bürocontainer Baugenehmigung</strong> sollte frühzeitig geprüft werden. Ob eine Genehmigung erforderlich ist, hängt vom Bundesland, der Gemeinde, dem Standort, der Nutzungsdauer und dem geplanten Zweck ab. Ein kurzfristig genutzter Baustellencontainer wird häufig anders bewertet als ein dauerhaft aufgestellter Bürocontainer auf einem Firmengelände.
             </p>
             <p>
-              Sobald ein BÃ¼rocontainer regelmÃ¤ÃŸig als Arbeitsraum genutzt, langfristig aufgestellt oder mit festen AnschlÃ¼ssen versehen wird, kann eine Genehmigung erforderlich sein. Auch Themen wie Brandschutz, Fluchtwege, Statik, AbstandsflÃ¤chen, Fundament und Stromanschluss kÃ¶nnen relevant sein.
+              Sobald ein Bürocontainer regelmäßig als Arbeitsraum genutzt, langfristig aufgestellt oder mit festen Anschlüssen versehen wird, kann eine Genehmigung erforderlich sein. Auch Themen wie Brandschutz, Fluchtwege, Statik, Abstandsflächen, Fundament und Stromanschluss können relevant sein.
             </p>
             <p>
-              Deshalb ist es sinnvoll, vor dem Kauf oder der Aufstellung die zustÃ¤ndige BaubehÃ¶rde zu kontaktieren. So lÃ¤sst sich vermeiden, dass der Container spÃ¤ter umgesetzt, nachgerÃ¼stet oder entfernt werden muss. Mehr dazu auf unserer Seite <IL to="/container-genehmigung">Container Genehmigung</IL>.
+              Deshalb ist es sinnvoll, vor dem Kauf oder der Aufstellung die zuständige Baubehörde zu kontaktieren. So lässt sich vermeiden, dass der Container später umgesetzt, nachgerüstet oder entfernt werden muss. Mehr dazu auf unserer Seite <IL to="/container-genehmigung">Container Genehmigung</IL>.
             </p>
           </div>
         </section>
 
         {/* â”€â”€ Fundament & Aufstellung â”€â”€ */}
         <section className="mb-14">
-          <SH>Fundament und Aufstellung eines BÃ¼rocontainers</SH>
+          <SH>Fundament und Aufstellung eines Bürocontainers</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Ein BÃ¼rocontainer benÃ¶tigt einen stabilen, ebenen und tragfÃ¤higen Untergrund. FÃ¼r kurzfristige Nutzung kann ein gut verdichteter Schotteruntergrund ausreichend sein. Bei langfristiger Aufstellung oder mehreren Containern sind Punktfundamente, Streifenfundamente oder Betonplatten oft sinnvoller.
+              Ein Bürocontainer benötigt einen stabilen, ebenen und tragfähigen Untergrund. Für kurzfristige Nutzung kann ein gut verdichteter Schotteruntergrund ausreichend sein. Bei langfristiger Aufstellung oder mehreren Containern sind Punktfundamente, Streifenfundamente oder Betonplatten oft sinnvoller.
             </p>
             <p>
-              Wichtig ist, dass der Container waagerecht steht und nicht absackt. Auch die EntwÃ¤sserung sollte berÃ¼cksichtigt werden, damit sich kein Wasser unter oder am Container sammelt. Bei grÃ¶ÃŸeren BÃ¼roanlagen sollte die Aufstellung professionell geplant werden.
+              Wichtig ist, dass der Container waagerecht steht und nicht absackt. Auch die Entwässerung sollte berücksichtigt werden, damit sich kein Wasser unter oder am Container sammelt. Bei größeren Büroanlagen sollte die Aufstellung professionell geplant werden.
             </p>
             <p>
-              Vor der Lieferung sollten Zufahrt, RangierflÃ¤che und mÃ¶gliche Hindernisse geprÃ¼ft werden. Dazu gehÃ¶ren enge Einfahrten, BÃ¤ume, ZÃ¤une, Kabel, DachÃ¼berstÃ¤nde oder weicher Boden. So kann besser entschieden werden, ob ein LKW mit Kran benÃ¶tigt wird. Weitere Details auf der Seite <IL to="/container-fundament">Container Fundament</IL>.
+              Vor der Lieferung sollten Zufahrt, Rangierfläche und mögliche Hindernisse geprüft werden. Dazu gehören enge Einfahrten, Bäume, Zäune, Kabel, Dachüberstände oder weicher Boden. So kann besser entschieden werden, ob ein LKW mit Kran benötigt wird. Weitere Details auf der Seite <IL to="/container-fundament">Container Fundament</IL>.
             </p>
           </div>
         </section>
 
         {/* â”€â”€ Lieferung â”€â”€ */}
         <section className="mb-14">
-          <SH>Lieferung von BÃ¼rocontainern</SH>
+          <SH>Lieferung von Bürocontainern</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              BÃ¼rocontainer werden in der Regel per LKW geliefert. Je nach Standort und Entladesituation kann ein Kranfahrzeug erforderlich sein, damit der Container direkt am gewÃ¼nschten Platz abgesetzt werden kann. Besonders bei engen GrundstÃ¼cken oder schwer zugÃ¤nglichen Standorten sollte die Lieferung vorher genau abgestimmt werden.
+              Bürocontainer werden in der Regel per LKW geliefert. Je nach Standort und Entladesituation kann ein Kranfahrzeug erforderlich sein, damit der Container direkt am gewünschten Platz abgesetzt werden kann. Besonders bei engen Grundstücken oder schwer zugänglichen Standorten sollte die Lieferung vorher genau abgestimmt werden.
             </p>
             <p>
-              FÃ¼r eine reibungslose Lieferung sind folgende Angaben hilfreich. Je besser diese Punkte vorab geklÃ¤rt sind, desto einfacher lÃ¤sst sich die Lieferung planen. Mehr dazu auf der Seite <IL to="/container-lieferung">Container Lieferung</IL>.
+              Für eine reibungslose Lieferung sind folgende Angaben hilfreich. Je besser diese Punkte vorab geklärt sind, desto einfacher lässt sich die Lieferung planen. Mehr dazu auf der Seite <IL to="/container-lieferung">Container Lieferung</IL>.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
@@ -415,20 +415,20 @@ export default function BuerocontainerKaufen() {
               </div>
             </div>
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden min-h-64">
-              <img src={IMG_DELIVERY} alt="BÃ¼rocontainer Lieferung per Kran" className="w-full h-full object-cover" />
+              <img src={IMG_DELIVERY} alt="Bürocontainer Lieferung per Kran" className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
 
         {/* â”€â”€ Vorteile â”€â”€ */}
         <section className="mb-14">
-          <SH>Vorteile eines BÃ¼rocontainers</SH>
+          <SH>Vorteile eines Bürocontainers</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl mb-6">
             <p>
-              Ein BÃ¼rocontainer ist schnell verfÃ¼gbar, flexibel nutzbar und wirtschaftlich interessant. Im Vergleich zu einem festen GebÃ¤ude ist er deutlich schneller einsatzbereit und kann bei Bedarf spÃ¤ter versetzt oder erweitert werden.
+              Ein Bürocontainer ist schnell verfügbar, flexibel nutzbar und wirtschaftlich interessant. Im Vergleich zu einem festen Gebäude ist er deutlich schneller einsatzbereit und kann bei Bedarf später versetzt oder erweitert werden.
             </p>
             <p>
-              Besonders fÃ¼r Unternehmen, Baustellen und temporÃ¤re Projekte bietet ein BÃ¼rocontainer viele Vorteile. Er schafft zusÃ¤tzlichen Arbeitsraum genau dort, wo er benÃ¶tigt wird. Gleichzeitig bleibt die LÃ¶sung skalierbar. Einzelne Container kÃ¶nnen spÃ¤ter ergÃ¤nzt oder zu grÃ¶ÃŸeren Anlagen kombiniert werden.
+              Besonders für Unternehmen, Baustellen und temporäre Projekte bietet ein Bürocontainer viele Vorteile. Er schafft zusätzlichen Arbeitsraum genau dort, wo er benötigt wird. Gleichzeitig bleibt die Lösung skalierbar. Einzelne Container können später ergänzt oder zu größeren Anlagen kombiniert werden.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -448,8 +448,8 @@ export default function BuerocontainerKaufen() {
         {/* â”€â”€ CTA â”€â”€ */}
         <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }}>
           <div>
-            <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt BÃ¼rocontainer anfragen</h2>
-            <p className="text-white/60 text-sm">Teilen Sie uns Nutzung, GrÃ¶ÃŸe und Lieferort mit â€“ Sie erhalten ein passendes Angebot.</p>
+            <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt Bürocontainer anfragen</h2>
+            <p className="text-white/60 text-sm">Teilen Sie uns Nutzung, Größe und Lieferort mit – Sie erhalten ein passendes Angebot.</p>
           </div>
           <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
@@ -459,13 +459,13 @@ export default function BuerocontainerKaufen() {
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
           <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
-          <h2 className="font-heading font-bold text-2xl text-foreground mb-5">HÃ¤ufige Fragen zu BÃ¼rocontainern</h2>
+          <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Bürocontainern</h2>
           <FaqAccordion items={FAQS} />
         </section>
 
         {/* â”€â”€ Ratgeber links â”€â”€ */}
         <section className="mb-14">
-          <h2 className="font-heading font-bold text-xl text-foreground mb-5">Ratgeber: Alles rund um den BÃ¼rocontainer</h2>
+          <h2 className="font-heading font-bold text-xl text-foreground mb-5">Ratgeber: Alles rund um den Bürocontainer</h2>
           <InternalLinkGrid links={RATGEBER} />
         </section>
 

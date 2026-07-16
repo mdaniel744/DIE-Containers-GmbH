@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
@@ -6,11 +6,11 @@ import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 const ORANGE = "#F28C28";
 
 const massRows = [
-  ["LÃ¤nge", "6.058 mm", "5.898 mm"],
+  ["Länge", "6.058 mm", "5.898 mm"],
   ["Breite", "2.438 mm", "2.352 mm"],
-  ["HÃ¶he (Standard)", "2.591 mm", "2.393 mm"],
-  ["HÃ¶he (High Cube)", "2.896 mm", "2.698 mm"],
-  ["Ladevolumen Standard", "â€“", "ca. 33 mÂ³"],
+  ["Höhe (Standard)", "2.591 mm", "2.393 mm"],
+  ["Höhe (High Cube)", "2.896 mm", "2.698 mm"],
+  ["Ladevolumen Standard", "–", "ca. 33 m³"],
 ];
 
 const gewichtRows = [
@@ -20,17 +20,17 @@ const gewichtRows = [
 ];
 
 const faqs = [
-  { q: "Wie groÃŸ ist ein 20 FuÃŸ Container?", a: "AuÃŸenmaÃŸe: 6,058 m Ã— 2,438 m Ã— 2,591 m. InnenlÃ¤nge ca. 5,9 m, Innenbreite 2,35 m." },
-  { q: "Was passt in einen 20 FuÃŸ Container?", a: "Ca. 33 mÂ³ â€“ entspricht dem Inhalt einer 3â€“4-Zimmer-Wohnung, 10â€“11 Europaletten oder ca. 25 t SchÃ¼ttgut." },
-  { q: "Was kostet ein 20 FuÃŸ Container?", a: "Gebrauchte Einheiten starten ab ca. 1.990 â‚¬, neue ab ca. 2.490 â‚¬. Transportkosten werden separat kalkuliert." },
-  { q: "Kann ich einen 20 FuÃŸ Container stapeln?", a: "Ja, bis zu 8 beladene Container kÃ¶nnen gestapelt werden. Die EckbeschlÃ¤ge sind nach ISO 1161 ausgelegt." },
+  { q: "Wie groß ist ein 20 Fuß Container?", a: "Außenmaße: 6,058 m × 2,438 m × 2,591 m. Innenlänge ca. 5,9 m, Innenbreite 2,35 m." },
+  { q: "Was passt in einen 20 Fuß Container?", a: "Ca. 33 m³ – entspricht dem Inhalt einer 3–4-Zimmer-Wohnung, 10–11 Europaletten oder ca. 25 t Schüttgut." },
+  { q: "Was kostet ein 20 Fuß Container?", a: "Gebrauchte Einheiten starten ab ca. 1.990 â‚¬, neue ab ca. 2.490 â‚¬. Transportkosten werden separat kalkuliert." },
+  { q: "Kann ich einen 20 Fuß Container stapeln?", a: "Ja, bis zu 8 beladene Container können gestapelt werden. Die Eckbeschläge sind nach ISO 1161 ausgelegt." },
 ];
 
 const relatedLinks = [
-  { href: "/40-fuss-container-kaufen", title: "40 FuÃŸ Container", desc: "Doppelter Stauraum" },
-  { href: "/lagercontainer-kaufen", title: "Lagercontainer", desc: "GÃ¼nstige LagerlÃ¶sung" },
-  { href: "/buerocontainer-kaufen", title: "BÃ¼rocontainer", desc: "Mobiles BÃ¼ro" },
-  { href: "/kuehlcontainer-kaufen", title: "KÃ¼hlcontainer", desc: "TemperaturgefÃ¼hrt" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container", desc: "Doppelter Stauraum" },
+  { href: "/lagercontainer-kaufen", title: "Lagercontainer", desc: "Günstige Lagerlösung" },
+  { href: "/buerocontainer-kaufen", title: "Bürocontainer", desc: "Mobiles Büro" },
+  { href: "/kuehlcontainer-kaufen", title: "Kühlcontainer", desc: "Temperaturgeführt" },
 ];
 
 function FaqItem({ q, a }) {
@@ -55,22 +55,22 @@ export default function ShopSeoBanner20ft() {
       {/* Intro */}
       <div>
         <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Ratgeber</span>
-        <h2 className="font-heading font-bold text-2xl lg:text-3xl tracking-tight mb-3">20 FuÃŸ Container kaufen â€“ MaÃŸe, Gewicht & Preise</h2>
+        <h2 className="font-heading font-bold text-2xl lg:text-3xl tracking-tight mb-3">20 Fuß Container kaufen – Maße, Gewicht & Preise</h2>
         <p className="text-muted-foreground max-w-2xl leading-relaxed">
-          Alles zum 20 FuÃŸ Container: genaue AuÃŸen- und InnenmaÃŸe, Eigengewicht, maximale Zuladung,
-          aktuelle Kaufpreise und was in einen 20 FuÃŸ Container passt.
+          Alles zum 20 Fuß Container: genaue Außen- und Innenmaße, Eigengewicht, maximale Zuladung,
+          aktuelle Kaufpreise und was in einen 20 Fuß Container passt.
         </p>
       </div>
 
       {/* Tables */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
-          <h3 className="font-heading font-bold text-lg mb-3">MaÃŸe & Abmessungen</h3>
+          <h3 className="font-heading font-bold text-lg mb-3">Maße & Abmessungen</h3>
           <div className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-muted border-b border-border">
-                  {["Merkmal", "AuÃŸenmaÃŸ", "InnenmaÃŸ"].map(h => (
+                  {["Merkmal", "Außenmaß", "Innenmaß"].map(h => (
                     <th key={h} className="px-4 py-3 text-left font-heading font-semibold text-foreground text-xs uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>
@@ -109,12 +109,12 @@ export default function ShopSeoBanner20ft() {
 
           {/* What fits */}
           <div className="mt-4 bg-muted/50 rounded-xl p-4">
-            <p className="font-heading font-semibold text-sm mb-2">Was passt rein? (~33 mÂ³)</p>
+            <p className="font-heading font-semibold text-sm mb-2">Was passt rein? (~33 m³)</p>
             <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-4">
-              <li>10â€“11 Europaletten nebeneinander</li>
-              <li>Inhalt einer 3â€“4-Zimmer-Wohnung</li>
-              <li>Ca. 25 t SchÃ¼ttgut (Kies, Sand)</li>
-              <li>2â€“3 Pkw (je nach Modell)</li>
+              <li>10–11 Europaletten nebeneinander</li>
+              <li>Inhalt einer 3–4-Zimmer-Wohnung</li>
+              <li>Ca. 25 t Schüttgut (Kies, Sand)</li>
+              <li>2–3 Pkw (je nach Modell)</li>
             </ul>
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function ShopSeoBanner20ft() {
       {/* CTA */}
       <div className="rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-4 justify-between"
         style={{ background: "linear-gradient(135deg,#1B3A5C,#0f2540)" }}>
-        <p className="font-heading font-bold text-white text-lg sm:text-xl">20 FuÃŸ Container anfragen â€“ Lieferung in 72 h</p>
+        <p className="font-heading font-bold text-white text-lg sm:text-xl">20 Fuß Container anfragen – Lieferung in 72 h</p>
         <Link to="/shop"
           className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
           style={{ backgroundColor: ORANGE }}>
@@ -133,13 +133,13 @@ export default function ShopSeoBanner20ft() {
 
       {/* Available types */}
       <div>
-        <h3 className="font-heading font-bold text-lg mb-3">VerfÃ¼gbare Typen im 20-FuÃŸ-Format</h3>
+        <h3 className="font-heading font-bold text-lg mb-3">Verfügbare Typen im 20-Fuß-Format</h3>
         <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-5">
-          <li><strong className="text-foreground">Standard (DC):</strong> Der Klassiker, 2,59 m AuÃŸenhÃ¶he â€“ ideal als <Link to="/lagercontainer-kaufen" className="text-orange-500 hover:underline">Lagercontainer</Link></li>
-          <li><strong className="text-foreground">High Cube (HC):</strong> 2,90 m AuÃŸenhÃ¶he, 30 cm mehr InnenhÃ¶he â€“ empfohlen fÃ¼r <Link to="/wohncontainer-kaufen" className="text-orange-500 hover:underline">Wohncontainer</Link></li>
-          <li><strong className="text-foreground">Open Side:</strong> Komplette SeitenwandÃ¶ffnung fÃ¼r einfaches Be- und Entladen</li>
-          <li><strong className="text-foreground"><Link to="/kuehlcontainer-kaufen" className="text-orange-500 hover:underline">KÃ¼hlcontainer (Reefer):</Link></strong> Mit integriertem KÃ¼hlaggregat</li>
-          <li><strong className="text-foreground"><Link to="/buerocontainer-kaufen" className="text-orange-500 hover:underline">BÃ¼rocontainer:</Link></strong> Ausgebaut mit Strom & DÃ¤mmung</li>
+          <li><strong className="text-foreground">Standard (DC):</strong> Der Klassiker, 2,59 m Außenhöhe – ideal als <Link to="/lagercontainer-kaufen" className="text-orange-500 hover:underline">Lagercontainer</Link></li>
+          <li><strong className="text-foreground">High Cube (HC):</strong> 2,90 m Außenhöhe, 30 cm mehr Innenhöhe – empfohlen für <Link to="/wohncontainer-kaufen" className="text-orange-500 hover:underline">Wohncontainer</Link></li>
+          <li><strong className="text-foreground">Open Side:</strong> Komplette Seitenwandöffnung für einfaches Be- und Entladen</li>
+          <li><strong className="text-foreground"><Link to="/kuehlcontainer-kaufen" className="text-orange-500 hover:underline">Kühlcontainer (Reefer):</Link></strong> Mit integriertem Kühlaggregat</li>
+          <li><strong className="text-foreground"><Link to="/buerocontainer-kaufen" className="text-orange-500 hover:underline">Bürocontainer:</Link></strong> Ausgebaut mit Strom & Dämmung</li>
         </ul>
       </div>
 
@@ -162,7 +162,7 @@ export default function ShopSeoBanner20ft() {
 
       {/* FAQ */}
       <div>
-        <h3 className="font-heading font-bold text-lg mb-4">HÃ¤ufige Fragen zum 20 FuÃŸ Container</h3>
+        <h3 className="font-heading font-bold text-lg mb-4">Häufige Fragen zum 20 Fuß Container</h3>
         <div className="space-y-2">
           {faqs.map((item, i) => <FaqItem key={i} {...item} />)}
         </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
@@ -14,14 +14,14 @@ import NextLink from "next/link";
 
 const simpleNavItems = [
   { label: "Home", path: "/" },
-  { label: "Ãœber uns", path: "/ueber-uns" },
+  { label: "Über uns", path: "/ueber-uns" },
   { label: "Kontakt", path: "/kontakt" },
 ];
 
 const SERVICE_ITEMS = [
   { label: "Container Lieferung", path: "/container-lieferung", desc: "Lieferoptionen & Logistik" },
-  { label: "Container MaÃŸe", path: "/container-masse", desc: "Alle Abmessungen & Gewichte" },
-  { label: "FAQ", path: "/faq", desc: "HÃ¤ufig gestellte Fragen" },
+  { label: "Container Maße", path: "/container-masse", desc: "Alle Abmessungen & Gewichte" },
+  { label: "FAQ", path: "/faq", desc: "Häufig gestellte Fragen" },
 ];
 
 /* â”€â”€â”€ Reusable hover-dropdown hook â”€â”€â”€ */
@@ -131,7 +131,7 @@ export default function Header() {
     const raw = location.pathname;
     if (locale === "de") {
       // If an EN version of this page exists, link to it.
-      // Otherwise stay on the same German page â€” never bounce to homepage.
+      // Otherwise stay on the same German page — never bounce to homepage.
       return isLocalizablePath(raw) ? `/en${raw === "/" ? "" : raw}` : raw;
     }
     // English â†’ German: strip /en prefix
@@ -148,7 +148,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="group flex items-center" aria-label="DIE Container GmbH â€“ Startseite">
+          <Link to="/" className="group flex items-center" aria-label="DIE Container GmbH – Startseite">
             <div className="relative h-12 w-28 overflow-hidden sm:w-32 lg:h-14 lg:w-36">
               <img
                 src="/images/die-container-logo-blue.png"
@@ -236,7 +236,7 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Ãœber uns & Kontakt */}
+            {/* Über uns & Kontakt */}
             {[{ label: t("nav.about"), path: "/ueber-uns" }, { label: t("nav.contact"), path: "/kontakt" }].map((item) => (
               <Link
                 key={item.path}

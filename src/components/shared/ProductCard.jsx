@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
+import { useCart } from "@/lib/CartContext";
 
 // Maps raw DB condition codes to locale-correct display labels.
 const CONDITION_DISPLAY = {
@@ -25,6 +26,13 @@ export default function ProductCard({ product, index = 0 }) {
   const T = useSection("productCard");
   const locale = useLocale();
   const conditionLabel = CONDITION_DISPLAY[locale]?.[product.condition_code] || product.condition;
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    addToCart(product, 1);
+    navigate("/warenkorb?added=1");
+  };
 
   return (
     <motion.div
@@ -62,14 +70,21 @@ export default function ProductCard({ product, index = 0 }) {
           <span className="font-heading font-bold text-xl text-foreground">
             {product.price_from?.toLocaleString("de-DE")} €
           </span>
-          <p className="text-xs text-muted-foreground mt-0.5">inkl. 19% MwSt. · zzgl. Versandkosten</p>
         </div>
 
-        <div className="flex gap-2">
-          <Link to={`/produkt/${product.slug || product.id}`} className="flex-1">
-            <Button size="sm" className="w-full text-xs font-medium text-[#1a1a1a] hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
-              <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
-              {T.cart}
+        <div className="flex flex-col gap-2">
+          <Button
+            size="sm"
+            onClick={handleAddToCart}
+            className="w-full text-xs font-medium text-[#1a1a1a] hover:opacity-90"
+            style={{ backgroundColor: "#F28C28" }}
+          >
+            <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
+            {T.cart}
+          </Button>
+          <Link to={`/produkt/${product.slug || product.id}`} className="w-full">
+            <Button size="sm" variant="outline" className="w-full text-xs font-medium">
+              {T.details}
             </Button>
           </Link>
         </div>

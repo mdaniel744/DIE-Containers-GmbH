@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, Package, Maximize } from "lucide-react";
@@ -55,105 +55,105 @@ function SizeCard({ title, svgProps, specs, note }) {
 
 /* â”€â”€ Specs data â”€â”€ */
 const SPECS_10FT = [
-  ["AuÃŸenlÃ¤nge", "ca. 2,99 m"],
-  ["AuÃŸenbreite", "ca. 2,44 m"],
-  ["AuÃŸenhÃ¶he", "ca. 2,59 m"],
-  ["InnenlÃ¤nge", "ca. 2,83 m"],
+  ["Außenlänge", "ca. 2,99 m"],
+  ["Außenbreite", "ca. 2,44 m"],
+  ["Außenhöhe", "ca. 2,59 m"],
+  ["Innenlänge", "ca. 2,83 m"],
   ["Innenbreite", "ca. 2,35 m"],
-  ["InnenhÃ¶he", "ca. 2,39 m"],
-  ["Volumen", "ca. 15â€“16 mÂ³"],
-  ["Eigengewicht", "ca. 1.200â€“1.500 kg"],
+  ["Innenhöhe", "ca. 2,39 m"],
+  ["Volumen", "ca. 15–16 m³"],
+  ["Eigengewicht", "ca. 1.200–1.500 kg"],
 ];
 
 const SPECS_20FT = [
-  ["AuÃŸenlÃ¤nge", "ca. 6,06 m"],
-  ["AuÃŸenbreite", "ca. 2,44 m"],
-  ["AuÃŸenhÃ¶he", "ca. 2,59 m"],
-  ["InnenlÃ¤nge", "ca. 5,90 m"],
+  ["Außenlänge", "ca. 6,06 m"],
+  ["Außenbreite", "ca. 2,44 m"],
+  ["Außenhöhe", "ca. 2,59 m"],
+  ["Innenlänge", "ca. 5,90 m"],
   ["Innenbreite", "ca. 2,35 m"],
-  ["InnenhÃ¶he", "ca. 2,39 m"],
-  ["Volumen", "ca. 33 mÂ³"],
-  ["Eigengewicht", "ca. 2.200â€“2.400 kg"],
-  ["TÃ¼rÃ¶ffnung Breite", "ca. 2,34 m"],
-  ["TÃ¼rÃ¶ffnung HÃ¶he", "ca. 2,28 m"],
+  ["Innenhöhe", "ca. 2,39 m"],
+  ["Volumen", "ca. 33 m³"],
+  ["Eigengewicht", "ca. 2.200–2.400 kg"],
+  ["Türöffnung Breite", "ca. 2,34 m"],
+  ["Türöffnung Höhe", "ca. 2,28 m"],
 ];
 
 const SPECS_40FT = [
-  ["AuÃŸenlÃ¤nge", "ca. 12,19 m"],
-  ["AuÃŸenbreite", "ca. 2,44 m"],
-  ["AuÃŸenhÃ¶he", "ca. 2,59 m"],
-  ["InnenlÃ¤nge", "ca. 12,03 m"],
+  ["Außenlänge", "ca. 12,19 m"],
+  ["Außenbreite", "ca. 2,44 m"],
+  ["Außenhöhe", "ca. 2,59 m"],
+  ["Innenlänge", "ca. 12,03 m"],
   ["Innenbreite", "ca. 2,35 m"],
-  ["InnenhÃ¶he", "ca. 2,39 m"],
-  ["Volumen", "ca. 67 mÂ³"],
-  ["Eigengewicht", "ca. 3.700â€“4.000 kg"],
-  ["TÃ¼rÃ¶ffnung Breite", "ca. 2,34 m"],
-  ["TÃ¼rÃ¶ffnung HÃ¶he", "ca. 2,28 m"],
+  ["Innenhöhe", "ca. 2,39 m"],
+  ["Volumen", "ca. 67 m³"],
+  ["Eigengewicht", "ca. 3.700–4.000 kg"],
+  ["Türöffnung Breite", "ca. 2,34 m"],
+  ["Türöffnung Höhe", "ca. 2,28 m"],
 ];
 
 const SPECS_10HC = [
-  ["AuÃŸenlÃ¤nge", "ca. 2,99 m"],
-  ["AuÃŸenbreite", "ca. 2,44 m"],
-  ["AuÃŸenhÃ¶he", "ca. 2,90 m"],
-  ["InnenlÃ¤nge", "ca. 2,83 m"],
+  ["Außenlänge", "ca. 2,99 m"],
+  ["Außenbreite", "ca. 2,44 m"],
+  ["Außenhöhe", "ca. 2,90 m"],
+  ["Innenlänge", "ca. 2,83 m"],
   ["Innenbreite", "ca. 2,35 m"],
-  ["InnenhÃ¶he", "ca. 2,69 m"],
-  ["Volumen", "ca. 17 mÂ³"],
-  ["Eigengewicht", "ca. 1.300â€“1.600 kg"],
-  ["TÃ¼rÃ¶ffnung HÃ¶he", "ca. 2,58 m"],
+  ["Innenhöhe", "ca. 2,69 m"],
+  ["Volumen", "ca. 17 m³"],
+  ["Eigengewicht", "ca. 1.300–1.600 kg"],
+  ["Türöffnung Höhe", "ca. 2,58 m"],
 ];
 
 const SPECS_20HC = [
-  ["AuÃŸenlÃ¤nge", "ca. 6,06 m"],
-  ["AuÃŸenbreite", "ca. 2,44 m"],
-  ["AuÃŸenhÃ¶he", "ca. 2,90 m"],
-  ["InnenlÃ¤nge", "ca. 5,90 m"],
+  ["Außenlänge", "ca. 6,06 m"],
+  ["Außenbreite", "ca. 2,44 m"],
+  ["Außenhöhe", "ca. 2,90 m"],
+  ["Innenlänge", "ca. 5,90 m"],
   ["Innenbreite", "ca. 2,35 m"],
-  ["InnenhÃ¶he", "ca. 2,69 m"],
-  ["Volumen", "ca. 37 mÂ³"],
-  ["Eigengewicht", "ca. 2.300â€“2.500 kg"],
-  ["TÃ¼rÃ¶ffnung Breite", "ca. 2,34 m"],
-  ["TÃ¼rÃ¶ffnung HÃ¶he", "ca. 2,58 m"],
+  ["Innenhöhe", "ca. 2,69 m"],
+  ["Volumen", "ca. 37 m³"],
+  ["Eigengewicht", "ca. 2.300–2.500 kg"],
+  ["Türöffnung Breite", "ca. 2,34 m"],
+  ["Türöffnung Höhe", "ca. 2,58 m"],
 ];
 
 const SPECS_40HC = [
-  ["AuÃŸenlÃ¤nge", "ca. 12,19 m"],
-  ["AuÃŸenbreite", "ca. 2,44 m"],
-  ["AuÃŸenhÃ¶he", "ca. 2,90 m"],
-  ["InnenlÃ¤nge", "ca. 12,03 m"],
+  ["Außenlänge", "ca. 12,19 m"],
+  ["Außenbreite", "ca. 2,44 m"],
+  ["Außenhöhe", "ca. 2,90 m"],
+  ["Innenlänge", "ca. 12,03 m"],
   ["Innenbreite", "ca. 2,35 m"],
-  ["InnenhÃ¶he", "ca. 2,69 m"],
-  ["Volumen", "ca. 76 mÂ³"],
-  ["Eigengewicht", "ca. 3.900â€“4.200 kg"],
-  ["TÃ¼rÃ¶ffnung HÃ¶he", "ca. 2,58 m"],
+  ["Innenhöhe", "ca. 2,69 m"],
+  ["Volumen", "ca. 76 m³"],
+  ["Eigengewicht", "ca. 3.900–4.200 kg"],
+  ["Türöffnung Höhe", "ca. 2,58 m"],
 ];
 
 /* â”€â”€ Size comparison overview â”€â”€ */
 const SIZE_OVERVIEW = [
-  { size: "10 FuÃŸ", length: "2,99 m", width: "2,44 m", height: "2,59 m", volume: "ca. 16 mÂ³", weight: "ca. 1.350 kg" },
-  { size: "10 FuÃŸ HC", length: "2,99 m", width: "2,44 m", height: "2,90 m", volume: "ca. 17 mÂ³", weight: "ca. 1.450 kg" },
-  { size: "20 FuÃŸ", length: "6,06 m", width: "2,44 m", height: "2,59 m", volume: "ca. 33 mÂ³", weight: "ca. 2.300 kg" },
-  { size: "20 FuÃŸ HC", length: "6,06 m", width: "2,44 m", height: "2,90 m", volume: "ca. 37 mÂ³", weight: "ca. 2.400 kg" },
-  { size: "40 FuÃŸ", length: "12,19 m", width: "2,44 m", height: "2,59 m", volume: "ca. 67 mÂ³", weight: "ca. 3.850 kg" },
-  { size: "40 FuÃŸ HC", length: "12,19 m", width: "2,44 m", height: "2,90 m", volume: "ca. 76 mÂ³", weight: "ca. 4.050 kg" },
+  { size: "10 Fuß", length: "2,99 m", width: "2,44 m", height: "2,59 m", volume: "ca. 16 m³", weight: "ca. 1.350 kg" },
+  { size: "10 Fuß HC", length: "2,99 m", width: "2,44 m", height: "2,90 m", volume: "ca. 17 m³", weight: "ca. 1.450 kg" },
+  { size: "20 Fuß", length: "6,06 m", width: "2,44 m", height: "2,59 m", volume: "ca. 33 m³", weight: "ca. 2.300 kg" },
+  { size: "20 Fuß HC", length: "6,06 m", width: "2,44 m", height: "2,90 m", volume: "ca. 37 m³", weight: "ca. 2.400 kg" },
+  { size: "40 Fuß", length: "12,19 m", width: "2,44 m", height: "2,59 m", volume: "ca. 67 m³", weight: "ca. 3.850 kg" },
+  { size: "40 Fuß HC", length: "12,19 m", width: "2,44 m", height: "2,90 m", volume: "ca. 76 m³", weight: "ca. 4.050 kg" },
 ];
 
 /* â”€â”€ FAQ â”€â”€ */
 const FAQS = [
-  { q: "Welche MaÃŸe hat ein 20 FuÃŸ Container?", a: "Ein 20 FuÃŸ Container hat typischerweise AuÃŸenmaÃŸe von ca. 6,06 m LÃ¤nge, 2,44 m Breite und 2,59 m HÃ¶he. Die InnenmaÃŸe liegen ungefÃ¤hr bei 5,90 m LÃ¤nge, 2,35 m Breite und 2,39 m HÃ¶he." },
-  { q: "Welche MaÃŸe hat ein 40 FuÃŸ Container?", a: "Ein 40 FuÃŸ Container hat typischerweise AuÃŸenmaÃŸe von ca. 12,19 m LÃ¤nge, 2,44 m Breite und 2,59 m HÃ¶he. Die InnenmaÃŸe liegen ungefÃ¤hr bei 12,03 m LÃ¤nge, 2,35 m Breite und 2,39 m HÃ¶he." },
-  { q: "Was sind High Cube Container MaÃŸe?", a: "Ein 40 FuÃŸ High Cube Container hat etwa die gleiche LÃ¤nge und Breite wie ein Standard 40 FuÃŸ Container, ist aber hÃ¶her. Die AuÃŸenhÃ¶he betrÃ¤gt ca. 2,90 m, die InnenhÃ¶he ca. 2,69 m." },
-  { q: "Welche ContainergrÃ¶ÃŸe ist am beliebtesten?", a: "Der 20 FuÃŸ Container gehÃ¶rt zu den beliebtesten GrÃ¶ÃŸen, weil er vielseitig einsetzbar ist und ein gutes VerhÃ¤ltnis zwischen Stauraum und StellflÃ¤che bietet." },
-  { q: "Welche MaÃŸe sind fÃ¼r die Lieferung wichtig?", a: "FÃ¼r die Lieferung sind vor allem AuÃŸenlÃ¤nge, AuÃŸenbreite, AuÃŸenhÃ¶he, Gesamtgewicht, Zufahrt und RangierflÃ¤che wichtig. Besonders bei 40 FuÃŸ Containern sollte die Entladung vorab gut geplant werden." },
-  { q: "Welche MaÃŸe sind fÃ¼r Lagerung wichtig?", a: "FÃ¼r Lagerung sind InnenlÃ¤nge, Innenbreite, InnenhÃ¶he, TÃ¼rÃ¶ffnung und Volumen entscheidend. Diese Werte zeigen, wie viel nutzbarer Raum tatsÃ¤chlich verfÃ¼gbar ist." },
+  { q: "Welche Maße hat ein 20 Fuß Container?", a: "Ein 20 Fuß Container hat typischerweise Außenmaße von ca. 6,06 m Länge, 2,44 m Breite und 2,59 m Höhe. Die Innenmaße liegen ungefähr bei 5,90 m Länge, 2,35 m Breite und 2,39 m Höhe." },
+  { q: "Welche Maße hat ein 40 Fuß Container?", a: "Ein 40 Fuß Container hat typischerweise Außenmaße von ca. 12,19 m Länge, 2,44 m Breite und 2,59 m Höhe. Die Innenmaße liegen ungefähr bei 12,03 m Länge, 2,35 m Breite und 2,39 m Höhe." },
+  { q: "Was sind High Cube Container Maße?", a: "Ein 40 Fuß High Cube Container hat etwa die gleiche Länge und Breite wie ein Standard 40 Fuß Container, ist aber höher. Die Außenhöhe beträgt ca. 2,90 m, die Innenhöhe ca. 2,69 m." },
+  { q: "Welche Containergröße ist am beliebtesten?", a: "Der 20 Fuß Container gehört zu den beliebtesten Größen, weil er vielseitig einsetzbar ist und ein gutes Verhältnis zwischen Stauraum und Stellfläche bietet." },
+  { q: "Welche Maße sind für die Lieferung wichtig?", a: "Für die Lieferung sind vor allem Außenlänge, Außenbreite, Außenhöhe, Gesamtgewicht, Zufahrt und Rangierfläche wichtig. Besonders bei 40 Fuß Containern sollte die Entladung vorab gut geplant werden." },
+  { q: "Welche Maße sind für Lagerung wichtig?", a: "Für Lagerung sind Innenlänge, Innenbreite, Innenhöhe, Türöffnung und Volumen entscheidend. Diese Werte zeigen, wie viel nutzbarer Raum tatsächlich verfügbar ist." },
 ];
 
 /* â”€â”€ Ratgeber links â”€â”€ */
 const RATGEBER = [
-  { href: "/container-kaufen", title: "Container kaufen", desc: "Ãœbersicht aller Containertypen" },
+  { href: "/container-kaufen", title: "Container kaufen", desc: "Übersicht aller Containertypen" },
   { href: "/seecontainer-kaufen", title: "Seecontainer kaufen", desc: "Klassische ISO Container" },
-  { href: "/20-fuss-container-kaufen", title: "20 FuÃŸ Container kaufen", desc: "MaÃŸe und Preise" },
-  { href: "/40-fuss-container-kaufen", title: "40 FuÃŸ Container kaufen", desc: "MaÃŸe und Preise" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Maße und Preise" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container kaufen", desc: "Maße und Preise" },
   { href: "/container-gewicht", title: "Container Gewicht", desc: "Eigengewicht und Nutzlast" },
   { href: "/container-kosten", title: "Container Kosten", desc: "Preise und Kostenfaktoren" },
   { href: "/container-lieferung", title: "Container Lieferung", desc: "Transport und Aufstellung" },
@@ -184,14 +184,14 @@ export default function ContainerMasse() {
             <ChevronRight className="w-3 h-3" />
             <Link to="/container-kaufen" className="hover:text-white transition-colors">Container kaufen</Link>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-white/70">Container MaÃŸe</span>
+            <span className="text-white/70">Container Maße</span>
           </nav>
           <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: ORANGE }}>Ratgeber 2025</span>
           <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-5 max-w-3xl leading-tight">
-            Container MaÃŸe â€“ alle wichtigen GrÃ¶ÃŸen im Ãœberblick
+            Container Maße – alle wichtigen Größen im Überblick
           </h1>
           <p className="text-white/75 text-base leading-relaxed max-w-2xl mb-8">
-            Container MaÃŸe im Ãœberblick â€“ 10 FuÃŸ, 20 FuÃŸ, 40 FuÃŸ und High Cube Container mit AuÃŸenmaÃŸen, InnenmaÃŸen, Volumen, Gewicht und TÃ¼rÃ¶ffnungen vergleichen.
+            Container Maße im Überblick – 10 Fuß, 20 Fuß, 40 Fuß und High Cube Container mit Außenmaßen, Innenmaßen, Volumen, Gewicht und Türöffnungen vergleichen.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
@@ -208,31 +208,31 @@ export default function ContainerMasse() {
 
         {/* â”€â”€ Intro â”€â”€ */}
         <section className="mb-14">
-          <SH>Container MaÃŸe richtig vergleichen</SH>
+          <SH>Container Maße richtig vergleichen</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Wer einen Container kaufen mÃ¶chte, sollte die passenden <strong className="text-foreground">Container MaÃŸe</strong> genau kennen. Die GrÃ¶ÃŸe entscheidet nicht nur darÃ¼ber, wie viel Platz im Inneren zur VerfÃ¼gung steht, sondern auch darÃ¼ber, ob der Container am gewÃ¼nschten Standort aufgestellt, transportiert und sinnvoll genutzt werden kann. Besonders hÃ¤ufig werden 10 FuÃŸ, 20 FuÃŸ und 40 FuÃŸ Container nachgefragt. ZusÃ¤tzlich gibt es High Cube Container, die durch ihre grÃ¶ÃŸere HÃ¶he mehr Innenvolumen bieten.
+              Wer einen Container kaufen möchte, sollte die passenden <strong className="text-foreground">Container Maße</strong> genau kennen. Die Größe entscheidet nicht nur darüber, wie viel Platz im Inneren zur Verfügung steht, sondern auch darüber, ob der Container am gewünschten Standort aufgestellt, transportiert und sinnvoll genutzt werden kann. Besonders häufig werden 10 Fuß, 20 Fuß und 40 Fuß Container nachgefragt. Zusätzlich gibt es High Cube Container, die durch ihre größere Höhe mehr Innenvolumen bieten.
             </p>
             <p>
-              Die wichtigsten Angaben sind AuÃŸenmaÃŸe, InnenmaÃŸe, TÃ¼rÃ¶ffnung, Eigengewicht und Ladevolumen. Die AuÃŸenmaÃŸe sind entscheidend fÃ¼r Transport und Aufstellung. Die InnenmaÃŸe zeigen, wie viel nutzbarer Raum tatsÃ¤chlich zur VerfÃ¼gung steht. TÃ¼rÃ¶ffnung und InnenhÃ¶he sind besonders wichtig, wenn sperrige GÃ¼ter, Maschinen, Paletten oder Regalsysteme eingelagert werden sollen.
+              Die wichtigsten Angaben sind Außenmaße, Innenmaße, Türöffnung, Eigengewicht und Ladevolumen. Die Außenmaße sind entscheidend für Transport und Aufstellung. Die Innenmaße zeigen, wie viel nutzbarer Raum tatsächlich zur Verfügung steht. Türöffnung und Innenhöhe sind besonders wichtig, wenn sperrige Güter, Maschinen, Paletten oder Regalsysteme eingelagert werden sollen.
             </p>
             <p>
-              Wenn Sie noch nicht sicher sind, welcher Container zu Ihrem Projekt passt, kÃ¶nnen Sie zuerst die Seite <IL to="/container-kaufen">Container kaufen</IL> besuchen. Dort erhalten Sie einen Ãœberblick Ã¼ber verschiedene Containerarten und Einsatzbereiche.
+              Wenn Sie noch nicht sicher sind, welcher Container zu Ihrem Projekt passt, können Sie zuerst die Seite <IL to="/container-kaufen">Container kaufen</IL> besuchen. Dort erhalten Sie einen Überblick über verschiedene Containerarten und Einsatzbereiche.
             </p>
           </div>
         </section>
 
         {/* â”€â”€ Overview table â”€â”€ */}
         <section className="mb-14">
-          <SH>Container MaÃŸe auf einen Blick</SH>
+          <SH>Container Maße auf einen Blick</SH>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-6">
-            Die folgende Ãœbersicht zeigt die wichtigsten AuÃŸenmaÃŸe, das Volumen und das Eigengewicht aller gÃ¤ngigen ContainergrÃ¶ÃŸen im direkten Vergleich.
+            Die folgende Übersicht zeigt die wichtigsten Außenmaße, das Volumen und das Eigengewicht aller gängigen Containergrößen im direkten Vergleich.
           </p>
           <div className="overflow-x-auto rounded-2xl border border-border">
             <table className="w-full text-sm">
               <thead>
                 <tr style={{ backgroundColor: NAVY }}>
-                  {["GrÃ¶ÃŸe", "AuÃŸenlÃ¤nge", "AuÃŸenbreite", "AuÃŸenhÃ¶he", "Volumen", "Eigengewicht"].map((h, i) => (
+                  {["Größe", "Außenlänge", "Außenbreite", "Außenhöhe", "Volumen", "Eigengewicht"].map((h, i) => (
                     <th key={i} className="px-4 py-4 text-left font-heading font-semibold text-white text-xs uppercase tracking-wide">{h}</th>
                   ))}
                 </tr>
@@ -255,148 +255,148 @@ export default function ContainerMasse() {
 
         {/* â”€â”€ Warum wichtig? â”€â”€ */}
         <section className="mb-14">
-          <SH>Warum sind Container MaÃŸe so wichtig?</SH>
+          <SH>Warum sind Container Maße so wichtig?</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              Die richtigen MaÃŸe helfen dabei, FehlkÃ¤ufe zu vermeiden. Ein Container kann auf dem Papier groÃŸ wirken, aber je nach Nutzung kÃ¶nnen InnenhÃ¶he, TÃ¼rbreite oder StellflÃ¤che entscheidend sein. FÃ¼r Werkzeug, MÃ¶bel oder kleinere Waren reicht hÃ¤ufig ein <IL to="/20-fuss-container-kaufen">20 FuÃŸ Container</IL>. FÃ¼r grÃ¶ÃŸere Warenmengen, Maschinen oder gewerbliche LagerflÃ¤chen ist oft ein <IL to="/40-fuss-container-kaufen">40 FuÃŸ Container</IL> besser geeignet.
+              Die richtigen Maße helfen dabei, Fehlkäufe zu vermeiden. Ein Container kann auf dem Papier groß wirken, aber je nach Nutzung können Innenhöhe, Türbreite oder Stellfläche entscheidend sein. Für Werkzeug, Möbel oder kleinere Waren reicht häufig ein <IL to="/20-fuss-container-kaufen">20 Fuß Container</IL>. Für größere Warenmengen, Maschinen oder gewerbliche Lagerflächen ist oft ein <IL to="/40-fuss-container-kaufen">40 Fuß Container</IL> besser geeignet.
             </p>
             <p>
-              Auch die Zufahrt zum Standort spielt eine wichtige Rolle. Ein 40 FuÃŸ Container benÃ¶tigt deutlich mehr Platz fÃ¼r Lieferung, Rangieren und Aufstellung als ein kleineres Modell. Wer nur begrenzte FlÃ¤che zur VerfÃ¼gung hat, sollte deshalb besonders genau prÃ¼fen, ob der Container problemlos platziert werden kann.
+              Auch die Zufahrt zum Standort spielt eine wichtige Rolle. Ein 40 Fuß Container benötigt deutlich mehr Platz für Lieferung, Rangieren und Aufstellung als ein kleineres Modell. Wer nur begrenzte Fläche zur Verfügung hat, sollte deshalb besonders genau prüfen, ob der Container problemlos platziert werden kann.
             </p>
             <p>
-              FÃ¼r klassische Lager- und Transportzwecke sind Seecontainer besonders beliebt. Weitere Informationen dazu finden Sie auf der Seite <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>.
+              Für klassische Lager- und Transportzwecke sind Seecontainer besonders beliebt. Weitere Informationen dazu finden Sie auf der Seite <IL to="/seecontainer-kaufen">Seecontainer kaufen</IL>.
             </p>
           </div>
         </section>
 
-        {/* â”€â”€ 10 FuÃŸ Container MaÃŸe â”€â”€ */}
+        {/* â”€â”€ 10 Fuß Container Maße â”€â”€ */}
         <section className="mb-14">
-          <SH>10 FuÃŸ Container MaÃŸe</SH>
+          <SH>10 Fuß Container Maße</SH>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-6">
-            Ein 10 FuÃŸ Container ist eine kompakte LÃ¶sung fÃ¼r kleine LagerflÃ¤chen, Werkzeuge, GartengerÃ¤te, Ersatzteile oder private Nutzung. Er benÃ¶tigt wenig StellflÃ¤che und eignet sich gut fÃ¼r Standorte, an denen grÃ¶ÃŸere Container nicht mÃ¶glich sind.
+            Ein 10 Fuß Container ist eine kompakte Lösung für kleine Lagerflächen, Werkzeuge, Gartengeräte, Ersatzteile oder private Nutzung. Er benötigt wenig Stellfläche und eignet sich gut für Standorte, an denen größere Container nicht möglich sind.
           </p>
           <SizeCard
-            title="10 FuÃŸ Standard Container"
+            title="10 Fuß Standard Container"
             svgProps={{
               boxW: 40, boxD: 28, boxH: 52,
               lengthLabel: "2,99 m", widthLabel: "2,44 m", heightLabel: "2,59 m",
               uid: "10ft-masse"
             }}
             specs={SPECS_10FT}
-            note="Ein 10 FuÃŸ Container ist besonders praktisch, wenn eine kleine, sichere und wetterfeste LagerlÃ¶sung benÃ¶tigt wird. FÃ¼r grÃ¶ÃŸere Lageraufgaben ist jedoch meist ein 20 FuÃŸ Container sinnvoller."
+            note="Ein 10 Fuß Container ist besonders praktisch, wenn eine kleine, sichere und wetterfeste Lagerlösung benötigt wird. Für größere Lageraufgaben ist jedoch meist ein 20 Fuß Container sinnvoller."
           />
           <SizeCard
-            title="10 FuÃŸ High Cube Container"
+            title="10 Fuß High Cube Container"
             svgProps={{
               boxW: 40, boxD: 28, boxH: 65,
               lengthLabel: "2,99 m", widthLabel: "2,44 m", heightLabel: "2,90 m",
               uid: "10hc-masse"
             }}
             specs={SPECS_10HC}
-            note="Der 10 FuÃŸ High Cube Container bietet durch seine grÃ¶ÃŸere HÃ¶he ca. 30 cm mehr Innenraum als der Standard Container. Er eignet sich fÃ¼r sperrige GÃ¼ter oder wenn zusÃ¤tzliche InnenhÃ¶he benÃ¶tigt wird."
+            note="Der 10 Fuß High Cube Container bietet durch seine größere Höhe ca. 30 cm mehr Innenraum als der Standard Container. Er eignet sich für sperrige Güter oder wenn zusätzliche Innenhöhe benötigt wird."
           />
         </section>
 
-        {/* â”€â”€ 20 FuÃŸ Container MaÃŸe â”€â”€ */}
+        {/* â”€â”€ 20 Fuß Container Maße â”€â”€ */}
         <section className="mb-14">
-          <SH>20 FuÃŸ Container MaÃŸe</SH>
+          <SH>20 Fuß Container Maße</SH>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-6">
-            Die 20 FuÃŸ Container MaÃŸe machen diese GrÃ¶ÃŸe zu einer der beliebtesten LÃ¶sungen fÃ¼r Lagerung, Baustelle, Gewerbe und private Nutzung. Der 20 FuÃŸ Container bietet ein gutes VerhÃ¤ltnis zwischen Innenraum und StellflÃ¤che.
+            Die 20 Fuß Container Maße machen diese Größe zu einer der beliebtesten Lösungen für Lagerung, Baustelle, Gewerbe und private Nutzung. Der 20 Fuß Container bietet ein gutes Verhältnis zwischen Innenraum und Stellfläche.
           </p>
           <SizeCard
-            title="20 FuÃŸ Standard Container"
+            title="20 Fuß Standard Container"
             svgProps={{
               boxW: 80, boxD: 28, boxH: 52,
               lengthLabel: "6,06 m", widthLabel: "2,44 m", heightLabel: "2,59 m",
               uid: "20ft-masse"
             }}
             specs={SPECS_20FT}
-            note={<>Ein 20 FuÃŸ Container eignet sich fÃ¼r Werkzeuge, Maschinen, MÃ¶bel, Baumaterialien, Waren und vieles mehr. Wer eine flexible Allround LÃ¶sung sucht, findet weitere Informationen auf der Seite <IL to="/20-fuss-container-kaufen">20 FuÃŸ Container kaufen</IL>.</>}
+            note={<>Ein 20 Fuß Container eignet sich für Werkzeuge, Maschinen, Möbel, Baumaterialien, Waren und vieles mehr. Wer eine flexible Allround Lösung sucht, findet weitere Informationen auf der Seite <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL>.</>}
           />
           <SizeCard
-            title="20 FuÃŸ High Cube Container"
+            title="20 Fuß High Cube Container"
             svgProps={{
               boxW: 80, boxD: 28, boxH: 65,
               lengthLabel: "6,06 m", widthLabel: "2,44 m", heightLabel: "2,90 m",
               uid: "20hc-masse"
             }}
             specs={SPECS_20HC}
-            note="Der 20 FuÃŸ High Cube Container bietet ca. 30 cm mehr InnenhÃ¶he als der Standard Container und damit mehr Ladevolumen. Er ist ideal fÃ¼r sperrige Waren, Regalsysteme oder wenn jeder Kubikmeter zÃ¤hlt."
+            note="Der 20 Fuß High Cube Container bietet ca. 30 cm mehr Innenhöhe als der Standard Container und damit mehr Ladevolumen. Er ist ideal für sperrige Waren, Regalsysteme oder wenn jeder Kubikmeter zählt."
           />
         </section>
 
-        {/* â”€â”€ 40 FuÃŸ Container MaÃŸe â”€â”€ */}
+        {/* â”€â”€ 40 Fuß Container Maße â”€â”€ */}
         <section className="mb-14">
-          <SH>40 FuÃŸ Container MaÃŸe</SH>
+          <SH>40 Fuß Container Maße</SH>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-6">
-            Die 40 FuÃŸ Container MaÃŸe sind besonders relevant fÃ¼r Kunden mit hohem Lagerbedarf. Ein 40 FuÃŸ Container bietet fast doppelt so viel LÃ¤nge wie ein 20 FuÃŸ Container und eignet sich fÃ¼r groÃŸe Warenmengen, Industrie, Handel, Landwirtschaft und Logistik.
+            Die 40 Fuß Container Maße sind besonders relevant für Kunden mit hohem Lagerbedarf. Ein 40 Fuß Container bietet fast doppelt so viel Länge wie ein 20 Fuß Container und eignet sich für große Warenmengen, Industrie, Handel, Landwirtschaft und Logistik.
           </p>
           <SizeCard
-            title="40 FuÃŸ Standard Container"
+            title="40 Fuß Standard Container"
             svgProps={{
               boxW: 140, boxD: 28, boxH: 52,
               lengthLabel: "12,19 m", widthLabel: "2,44 m", heightLabel: "2,59 m",
               uid: "40ft-masse"
             }}
             specs={SPECS_40FT}
-            note={<>Ein 40 FuÃŸ Container ist ideal, wenn viel Stauraum benÃ¶tigt wird und ausreichend Platz fÃ¼r Lieferung und Aufstellung vorhanden ist. Weitere Details finden Sie auf der Seite <IL to="/40-fuss-container-kaufen">40 FuÃŸ Container kaufen</IL>.</>}
+            note={<>Ein 40 Fuß Container ist ideal, wenn viel Stauraum benötigt wird und ausreichend Platz für Lieferung und Aufstellung vorhanden ist. Weitere Details finden Sie auf der Seite <IL to="/40-fuss-container-kaufen">40 Fuß Container kaufen</IL>.</>}
           />
         </section>
 
-        {/* â”€â”€ High Cube Container MaÃŸe â”€â”€ */}
+        {/* â”€â”€ High Cube Container Maße â”€â”€ */}
         <section className="mb-14">
-          <SH>High Cube Container MaÃŸe</SH>
+          <SH>High Cube Container Maße</SH>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mb-6">
-            High Cube Container unterscheiden sich vor allem durch ihre grÃ¶ÃŸere HÃ¶he. WÃ¤hrend Standard Container meist ca. 2,59 m hoch sind, erreichen High Cube Container etwa 2,90 m AuÃŸenhÃ¶he. Dadurch entsteht mehr InnenhÃ¶he und mehr Ladevolumen.
+            High Cube Container unterscheiden sich vor allem durch ihre größere Höhe. Während Standard Container meist ca. 2,59 m hoch sind, erreichen High Cube Container etwa 2,90 m Außenhöhe. Dadurch entsteht mehr Innenhöhe und mehr Ladevolumen.
           </p>
           <SizeCard
-            title="40 FuÃŸ High Cube Container"
+            title="40 Fuß High Cube Container"
             svgProps={{
               boxW: 140, boxD: 28, boxH: 65,
               lengthLabel: "12,19 m", widthLabel: "2,44 m", heightLabel: "2,90 m",
               uid: "40hc-masse"
             }}
             specs={SPECS_40HC}
-            note="Ein High Cube Container ist besonders sinnvoll, wenn sperrige GÃ¼ter, Regalsysteme, Maschinen oder voluminÃ¶se Waren gelagert werden sollen. Auch fÃ¼r Umbauten oder SonderlÃ¶sungen kann die zusÃ¤tzliche HÃ¶he vorteilhaft sein."
+            note="Ein High Cube Container ist besonders sinnvoll, wenn sperrige Güter, Regalsysteme, Maschinen oder voluminöse Waren gelagert werden sollen. Auch für Umbauten oder Sonderlösungen kann die zusätzliche Höhe vorteilhaft sein."
           />
         </section>
 
-        <CtaBanner text="Container mit passenden MaÃŸen anfragen" btnLabel="Angebot anfordern" btnHref="/angebot" />
+        <CtaBanner text="Container mit passenden Maßen anfragen" btnLabel="Angebot anfordern" btnHref="/angebot" />
 
-        {/* â”€â”€ AuÃŸenmaÃŸe oder InnenmaÃŸe? â”€â”€ */}
+        {/* â”€â”€ Außenmaße oder Innenmaße? â”€â”€ */}
         <section className="mb-14">
-          <SH>AuÃŸenmaÃŸe oder InnenmaÃŸe â€“ was ist wichtiger?</SH>
+          <SH>Außenmaße oder Innenmaße – was ist wichtiger?</SH>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-card p-5">
               <div className="flex items-center gap-2 mb-3">
                 <Maximize className="w-5 h-5" style={{ color: NAVY }} />
-                <h3 className="font-heading font-bold text-sm text-foreground">AuÃŸenmaÃŸe</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground">Außenmaße</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Die AuÃŸenmaÃŸe sind entscheidend fÃ¼r Transport, Aufstellung und Platzbedarf auf dem GrundstÃ¼ck. Sie zeigen, wie viel FlÃ¤che der Container tatsÃ¤chlich einnimmt. Besonders bei der <IL to="/container-lieferung">Lieferung</IL> sind AuÃŸenlÃ¤nge, AuÃŸenbreite und AuÃŸenhÃ¶he wichtig.
+                Die Außenmaße sind entscheidend für Transport, Aufstellung und Platzbedarf auf dem Grundstück. Sie zeigen, wie viel Fläche der Container tatsächlich einnimmt. Besonders bei der <IL to="/container-lieferung">Lieferung</IL> sind Außenlänge, Außenbreite und Außenhöhe wichtig.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-card p-5">
               <div className="flex items-center gap-2 mb-3">
                 <Package className="w-5 h-5" style={{ color: ORANGE }} />
-                <h3 className="font-heading font-bold text-sm text-foreground">InnenmaÃŸe</h3>
+                <h3 className="font-heading font-bold text-sm text-foreground">Innenmaße</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Die InnenmaÃŸe sind wichtig, wenn es darum geht, was im Container gelagert werden kann. Besonders bei Paletten, Maschinen, MÃ¶beln oder Regalen sollten InnenlÃ¤nge, Innenbreite und InnenhÃ¶he genau geprÃ¼ft werden. Auch die TÃ¼rÃ¶ffnung ist entscheidend, wenn groÃŸe GegenstÃ¤nde ein- und ausgeladen werden mÃ¼ssen.
+                Die Innenmaße sind wichtig, wenn es darum geht, was im Container gelagert werden kann. Besonders bei Paletten, Maschinen, Möbeln oder Regalen sollten Innenlänge, Innenbreite und Innenhöhe genau geprüft werden. Auch die Türöffnung ist entscheidend, wenn große Gegenstände ein- und ausgeladen werden müssen.
               </p>
             </div>
           </div>
         </section>
 
-        {/* â”€â”€ Welche GrÃ¶ÃŸe passt? â”€â”€ */}
+        {/* â”€â”€ Welche Größe passt? â”€â”€ */}
         <section className="mb-14">
-          <SH>Welche ContainergrÃ¶ÃŸe passt zu welchem Einsatz?</SH>
+          <SH>Welche Containergröße passt zu welchem Einsatz?</SH>
           <div className="text-sm text-muted-foreground leading-relaxed space-y-4 max-w-3xl">
             <p>
-              FÃ¼r kleine LagerflÃ¤chen, Werkzeuge oder private Nutzung reicht oft ein 10 FuÃŸ Container. Der 20 FuÃŸ Container ist die beste Allround LÃ¶sung fÃ¼r Lagerung, Baustellen, Handwerk, Landwirtschaft und Gewerbe. Er bietet ausreichend Stauraum, bleibt aber noch vergleichsweise einfach zu liefern und aufzustellen.
+              Für kleine Lagerflächen, Werkzeuge oder private Nutzung reicht oft ein 10 Fuß Container. Der 20 Fuß Container ist die beste Allround Lösung für Lagerung, Baustellen, Handwerk, Landwirtschaft und Gewerbe. Er bietet ausreichend Stauraum, bleibt aber noch vergleichsweise einfach zu liefern und aufzustellen.
             </p>
             <p>
-              Der 40 FuÃŸ Container eignet sich fÃ¼r groÃŸe LagerflÃ¤chen, Maschinen, Palettenware, Industrie und Handel. Wenn zusÃ¤tzliche HÃ¶he benÃ¶tigt wird, ist ein High Cube Container sinnvoll. FÃ¼r ArbeitsrÃ¤ume, UnterkÃ¼nfte oder gekÃ¼hlte Lagerung sollten dagegen spezielle Containerarten wie <IL to="/buerocontainer-kaufen">BÃ¼rocontainer</IL>, <IL to="/wohncontainer-kaufen">Wohncontainer</IL> oder <IL to="/kuehlcontainer-kaufen">KÃ¼hlcontainer</IL> geprÃ¼ft werden.
+              Der 40 Fuß Container eignet sich für große Lagerflächen, Maschinen, Palettenware, Industrie und Handel. Wenn zusätzliche Höhe benötigt wird, ist ein High Cube Container sinnvoll. Für Arbeitsräume, Unterkünfte oder gekühlte Lagerung sollten dagegen spezielle Containerarten wie <IL to="/buerocontainer-kaufen">Bürocontainer</IL>, <IL to="/wohncontainer-kaufen">Wohncontainer</IL> oder <IL to="/kuehlcontainer-kaufen">Kühlcontainer</IL> geprüft werden.
             </p>
           </div>
         </section>
@@ -404,13 +404,13 @@ export default function ContainerMasse() {
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
           <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
-          <h2 className="font-heading font-bold text-2xl text-foreground mb-5">HÃ¤ufige Fragen zu Container MaÃŸen</h2>
+          <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Container Maßen</h2>
           <FaqAccordion items={FAQS} />
         </section>
 
         {/* â”€â”€ Ratgeber links â”€â”€ */}
         <section className="mb-14">
-          <h2 className="font-heading font-bold text-xl text-foreground mb-5">WeiterfÃ¼hrende Ratgeber</h2>
+          <h2 className="font-heading font-bold text-xl text-foreground mb-5">Weiterführende Ratgeber</h2>
           <InternalLinkGrid links={RATGEBER} />
         </section>
 

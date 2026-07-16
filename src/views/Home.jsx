@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import HeroSection from "@/components/home/HeroSection";
 import ShopBySize from "@/components/home/ShopBySize";
@@ -35,7 +35,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-heading font-bold text-3xl sm:text-4xl text-secondary-foreground mb-4">
-              Bereit fÃ¼r Ihren Container?
+              Bereit für Ihren Container?
             </h2>
             <p className="text-lg text-secondary-foreground/70 mb-8 max-w-lg mx-auto">
               Fordern Sie jetzt Ihr kostenloses und unverbindliches Angebot an.
@@ -49,7 +49,7 @@ export default function Home() {
               </Link>
               <Link to="/shop">
                 <Button size="lg" variant="outline" className="border-secondary-foreground/30 text-secondary-foreground hover:bg-secondary-foreground/10 font-heading font-semibold px-8 h-13">
-                  Shop durchstÃ¶bern
+                  Shop durchstöbern
                 </Button>
               </Link>
             </div>

@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import RichTextContent from "@/components/shared/RichTextContent";
-import { useCart } from "@/lib/CartContext";
 import { useNavigate } from "react-router-dom";
 import {
   ShoppingCart, Minus, Plus, ArrowLeft, Truck, ShieldCheck,
@@ -63,12 +62,10 @@ export default function ProductDetail() {
   const T = useSection("product");
   const Tpd = useSection("productDetail");
   const locale = useLocale();
-  const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const handleAddToCart = () => {
-    addToCart(product, quantity);
-    navigate("/warenkorb?added=1");
+  const handleInquiry = () => {
+    navigate(`/angebot?product=${product.id}&qty=${quantity}`);
   };
 
   // Locale-aware condition label using the raw condition_code from DB
@@ -192,13 +189,13 @@ export default function ProductDetail() {
 
             {/* CTA */}
             <Button
-              onClick={handleAddToCart}
+              onClick={handleInquiry}
               size="lg"
               className="w-full font-heading font-bold text-base h-14 text-[#1a1a1a] shadow-lg hover:opacity-90 transition-opacity"
               style={{ backgroundColor: ORANGE }}
             >
-              <ShoppingCart className="w-5 h-5 mr-2" />
-              Jetzt Kaufen{quantity > 1 ? ` (${quantity}×)` : ""}
+              <ChevronRight className="w-5 h-5 mr-2" />
+              Unverbindliches Angebot anfordern
             </Button>
 
             {/* Dimensions quick-view */}
@@ -502,12 +499,12 @@ export default function ProductDetail() {
       {/* Mobile fixed CTA */}
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-xl border-t border-border lg:hidden z-40">
         <Button
-          onClick={handleAddToCart}
+          onClick={handleInquiry}
           className="w-full font-heading font-semibold h-12 text-[#1a1a1a]"
           style={{ backgroundColor: ORANGE }}
         >
-          <ShoppingCart className="w-4 h-4 mr-2" />
-          Jetzt Kaufen – {product.price_from?.toLocaleString("de-DE")} €
+          <ChevronRight className="w-4 h-4 mr-2" />
+          Angebot anfordern – {product.price_from?.toLocaleString("de-DE")} €
         </Button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { makeMetadata } from "../../seo";
 
 import Shop from "@/views/Shop";
@@ -338,8 +338,6 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const key = getKey(await params);
-  if (key === "angebot") redirect("/shop");
-
   const route = ROUTES[key];
 
   if (!route) notFound();
