@@ -13,6 +13,7 @@ export default function Warenkorb() {
 
   const subtotal = cart.reduce((sum, item) => sum + (item.product.price_from || 0) * item.quantity, 0);
   const vat = subtotal * 19 / 119;
+  const netto = subtotal / 1.19;
 
   const fmt = (n) => n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -133,30 +134,28 @@ export default function Warenkorb() {
           <div className="border border-border rounded-xl p-6 bg-card">
             <h2 className="font-heading font-bold text-lg mb-5 uppercase tracking-wide">Warenkorb-Summe</h2>
 
-            <div className="space-y-4 text-sm">
-              <div className="flex justify-between items-center py-2 border-b border-border">
-                <span className="font-medium">Zwischensumme</span>
-                <span className="font-semibold">{fmt(subtotal)} €</span>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between py-1.5">
+                <span className="text-muted-foreground">Warenwert (netto)</span>
+                <span>{fmt(netto)} €</span>
               </div>
-
-              <div className="py-2 border-b border-border">
-                <div className="flex justify-between items-start">
-                  <span className="font-medium">Versand</span>
-                  <div className="text-right text-muted-foreground text-xs max-w-[160px]">
-                    Versandkosten werden individuell nach Lieferort berechnet.
-                  </div>
+              <div className="flex justify-between py-1.5">
+                <span className="text-muted-foreground">19% MwSt. auf Warenwert</span>
+                <span>{fmt(vat)} €</span>
+              </div>
+              <div className="flex justify-between items-start py-1.5 pb-3 border-b border-border">
+                <span className="text-muted-foreground">Lieferpauschale</span>
+                <div className="text-right text-muted-foreground text-xs max-w-[150px]">
+                  Wird individuell nach Lieferort berechnet
                 </div>
               </div>
-
-              <div className="flex justify-between items-start py-2">
+              <div className="flex justify-between items-start pt-2">
                 <span className="font-heading font-bold text-base">Gesamtsumme</span>
                 <div className="text-right">
                   <div className="font-heading font-bold text-xl" style={{ color: "#1B3A5C" }}>
                     {fmt(subtotal)} €
                   </div>
-                  <div className="text-xs text-muted-foreground mt-0.5">
-                    inkl. <span className="font-medium">{fmt(vat)} €</span> 19% MwSt.
-                  </div>
+                  <div className="text-xs text-muted-foreground mt-0.5">zzgl. Lieferpauschale</div>
                 </div>
               </div>
             </div>

@@ -65,6 +65,7 @@ export default function Kasse() {
 
   const subtotal = cart.reduce((sum, item) => sum + (item.product.price_from || 0) * item.quantity, 0);
   const vat = subtotal * 19 / 119;
+  const netto = subtotal / 1.19;
   const fmt = (n) => n.toLocaleString("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   const updateBilling = (name, value) => setBilling((p) => ({ ...p, [name]: value }));
@@ -232,22 +233,26 @@ export default function Kasse() {
               </div>
 
               {/* Totals */}
-              <div className="px-6 py-4 border-b border-border space-y-3 text-sm">
+              <div className="px-6 py-4 border-b border-border space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span className="font-medium">Zwischensumme</span>
-                  <span className="font-semibold" style={{ color: "#1B3A5C" }}>{fmt(subtotal)} €</span>
+                  <span className="text-muted-foreground">Warenwert (netto)</span>
+                  <span>{fmt(netto)} €</span>
                 </div>
-                <div className="flex justify-between items-start">
-                  <span className="font-medium">Versand</span>
-                  <span className="text-xs text-muted-foreground text-right max-w-[140px]">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">19% MwSt. auf Warenwert</span>
+                  <span>{fmt(vat)} €</span>
+                </div>
+                <div className="flex justify-between items-start pb-2 border-b border-border">
+                  <span className="text-muted-foreground">Lieferpauschale</span>
+                  <span className="text-xs text-muted-foreground text-right max-w-[130px]">
                     Wird individuell nach Lieferort berechnet
                   </span>
                 </div>
-                <div className="flex justify-between items-start pt-1 border-t border-border">
+                <div className="flex justify-between items-start pt-1">
                   <span className="font-heading font-bold">Gesamtsumme</span>
                   <div className="text-right">
                     <div className="font-heading font-bold text-lg" style={{ color: "#1B3A5C" }}>{fmt(subtotal)} €</div>
-                    <div className="text-xs text-muted-foreground">inkl. {fmt(vat)} € 19% MwSt.</div>
+                    <div className="text-xs text-muted-foreground">zzgl. Lieferpauschale</div>
                   </div>
                 </div>
               </div>
@@ -255,10 +260,10 @@ export default function Kasse() {
               {/* Payment note */}
               <div className="px-6 py-4 border-b border-border bg-muted/40 space-y-2">
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Versandkosten:</strong> Werden individuell nach Lieferort berechnet und Ihnen separat mitgeteilt.
+                  Die 19&nbsp;% Mehrwertsteuer wird auf den Netto-Warenwert berechnet. Die Lieferpauschale wird individuell nach Lieferort ermittelt und Ihnen separat mitgeteilt.
                 </p>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  <strong className="text-foreground">Zahlung per Banküberweisung:</strong> Nach Eingang Ihrer Bestellung erhalten Sie per E-Mail eine Auftragsbestätigung mit unseren Bankdaten (IBAN/BIC) sowie den finalen Gesamtkosten inkl. Versand.
+                  <strong className="text-foreground">Zahlung per Banküberweisung:</strong> Nach Eingang Ihrer Bestellung erhalten Sie per E-Mail eine Auftragsbestätigung mit unseren Bankdaten (IBAN/BIC) sowie den finalen Gesamtkosten inkl. Lieferpauschale.
                 </p>
               </div>
 

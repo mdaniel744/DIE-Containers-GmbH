@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/lib/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useFeaturedCategories } from "@/hooks/useCategories";
 import { HERO_IMAGE } from "@/lib/productData";
@@ -121,6 +122,7 @@ export default function Header() {
   const [mobileKatalogOpen, setMobileKatalogOpen] = useState(false);
   const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
   const location = useLocation();
+  const { itemCount } = useCart();
   const { categories } = useFeaturedCategories();
   const t = useT();
   const locale = useLocale();
@@ -261,6 +263,17 @@ export default function Header() {
               <Phone className="w-4 h-4" />
               <span>0049 163 5393 159</span>
             </a>
+            <Link to="/warenkorb" className="relative p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Warenkorb">
+              <ShoppingCart className="w-5 h-5 text-foreground/70" />
+              {itemCount > 0 && (
+                <span
+                  className="absolute -top-1 -right-1 min-w-[18px] h-[18px] rounded-full text-[11px] font-bold flex items-center justify-center text-white px-1 leading-none"
+                  style={{ backgroundColor: "#F28C28" }}
+                >
+                  {itemCount > 99 ? "99+" : itemCount}
+                </span>
+              )}
+            </Link>
             <Link to="/shop">
               <Button className="font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
                 {t("nav.cta")}
@@ -269,13 +282,26 @@ export default function Header() {
           </div>
 
           {/* Mobile toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-            aria-label={t("nav.menu")}
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          <div className="lg:hidden flex items-center gap-1">
+            <Link to="/warenkorb" className="relative p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Warenkorb">
+              <ShoppingCart className="w-5 h-5 text-foreground/70" />
+              {itemCount > 0 && (
+                <span
+                  className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 rounded-full text-[10px] font-bold flex items-center justify-center text-white px-0.5 leading-none"
+                  style={{ backgroundColor: "#F28C28" }}
+                >
+                  {itemCount > 9 ? "9+" : itemCount}
+                </span>
+              )}
+            </Link>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              aria-label={t("nav.menu")}
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
