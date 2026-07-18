@@ -186,7 +186,6 @@ export default function ContainerMasse() {
             <ChevronRight className="w-3 h-3" />
             <span className="text-white/70">Container Maße</span>
           </nav>
-          <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: ORANGE }}>Ratgeber 2025</span>
           <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-5 max-w-3xl leading-tight">
             Container Maße – alle wichtigen Größen im Überblick
           </h1>

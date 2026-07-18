@@ -143,7 +143,6 @@ export default function KuehlcontainerKaufen() {
             <ChevronRight className="w-3 h-3" />
             <span className="text-white/70">Kühlcontainer kaufen</span>
           </nav>
-          <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: ORANGE }}>Ratgeber 2026</span>
           <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-5 max-w-3xl leading-tight">
             Kühlcontainer kaufen
           </h1>
