@@ -9,6 +9,7 @@ import QuoteStep1 from "@/components/quote/QuoteStep1";
 import QuoteStep2 from "@/components/quote/QuoteStep2";
 import QuoteStep3 from "@/components/quote/QuoteStep3";
 import { useSection } from "@/lib/i18n";
+import { getContainerHeightVariant, normalizeQuoteContainerSize } from "@/lib/quoteContainer";
 
 const ORANGE = "#F28C28";
 // stepLabels are now read from i18n inside the component
@@ -23,7 +24,8 @@ export default function QuoteRequest() {
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("product");
   const qty = parseInt(searchParams.get("qty"), 10) || 1;
-  const productSize = searchParams.get("size") || "";
+  const productSize = normalizeQuoteContainerSize(searchParams.get("size"));
+  const productHeight = searchParams.get("height") || "";
 
   const [step, setStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
@@ -31,6 +33,7 @@ export default function QuoteRequest() {
   const [submitError, setSubmitError] = useState(null);
   const [data, setData] = useState({
     container_size: productSize,
+    container_height: productHeight,
     container_type: "",
     main_category: "",
     modified_subtype: "",
@@ -57,9 +60,10 @@ export default function QuoteRequest() {
       quantity: qty,
       product_id: productId || "",
       container_size: productSize || prev.container_size,
+      container_height: productHeight || prev.container_height,
     }));
     if (productId) setStep(1);
-  }, [productId, productSize, qty]);
+  }, [productId, productSize, productHeight, qty]);
 
   // Auto-continue: when arriving from a product page, fetch & pre-select it
   useEffect(() => {
@@ -87,7 +91,8 @@ export default function QuoteRequest() {
           main_category: mainCat,
           container_type: isModified ? subtype : mainCat,
           modified_subtype: subtype,
-          container_size: product.size || productSize || prev.container_size,
+          container_size: normalizeQuoteContainerSize(product.size) || productSize || prev.container_size,
+          container_height: getContainerHeightVariant(product),
           condition: product.condition || prev.condition,
           quantity: qty,
         }));
@@ -107,7 +112,7 @@ export default function QuoteRequest() {
       return true;
     }
     if (step === 1) {
-      return data.container_size && data.condition && data.unloading_method && isPositiveInteger(data.quantity);
+      return data.container_size && data.container_height && data.condition && data.unloading_method && isPositiveInteger(data.quantity);
     }
     if (step === 2) {
       return data.first_name && data.last_name && data.email && data.phone && data.accepted_terms;

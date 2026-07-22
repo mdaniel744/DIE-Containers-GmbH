@@ -19,6 +19,7 @@ import {
 import { motion } from "framer-motion";
 import ContactBanner from "@/components/shared/ContactBanner";
 import { useSection } from "@/lib/i18n";
+import { getContainerHeightVariant, normalizeQuoteContainerSize } from "@/lib/quoteContainer";
 import { useLocale } from "@/hooks/useLocale";
 import { useAttributeValueTranslations } from "@/hooks/useAttributeValueTranslations";
 import { useCart } from "@/lib/CartContext";
@@ -72,7 +73,8 @@ export default function ProductDetail() {
       qty: String(quantity),
     });
 
-    if (product.size) params.set("size", product.size);
+    if (product.size) params.set("size", normalizeQuoteContainerSize(product.size) || product.size);
+    params.set("height", getContainerHeightVariant(product));
 
     navigate(`/angebot?${params.toString()}`);
   };

@@ -23,6 +23,7 @@ const QuoteSchema = z.object({
   main_category: z.string().max(100).optional(),
   modified_subtype: z.string().max(100).optional(),
   container_size: z.string().max(50).optional(),
+  container_height: z.string().max(50).optional(),
   container_type: z.string().max(100).optional(),
   condition: z.string().max(50).optional(),
   color: z.string().max(50).optional(),
@@ -272,7 +273,7 @@ const supabaseQuoteRequests = {
       parsed.additional_notes || null,
     ].filter(Boolean).join("\n\n");
 
-    const { container_size, container_type, main_category, modified_subtype, condition, color, quantity, country, unloading_method, desired_delivery_date } = parsed;
+    const { container_size, container_height, container_type, main_category, modified_subtype, condition, color, quantity, country, unloading_method, desired_delivery_date } = parsed;
 
     // No .select() here: the "inquiries" table grants anon INSERT only, no
     // SELECT — requesting the row back (INSERT ... RETURNING) fails RLS.
@@ -287,6 +288,7 @@ const supabaseQuoteRequests = {
         main_category,
         modified_subtype,
         container_size,
+        container_height,
         container_type,
         condition,
         color,

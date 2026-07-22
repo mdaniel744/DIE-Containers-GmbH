@@ -20,31 +20,31 @@ const STEPS = [
   num: "01",
   title: "Angebotsanfrage",
   desc: "Unverbindlich anfragen – per Formular, Telefon oder E-Mail. Angabe von Containertyp, Lieferort und Wunschtermin.",
-  icon: "ðŸ“‹"
+  icon: "📋"
 },
 {
   num: "02",
   title: "Angebot & Bestätigung",
   desc: "Sie erhalten ein verbindliches Angebot mit Endpreis inklusive Transport. Nach Auftragsbestätigung wird der Liefertermin koordiniert.",
-  icon: "âœ…"
+  icon: "✅"
 },
 {
   num: "03",
   title: "Aufstellplatz vorbereiten",
   desc: "Untergrund vorbereiten und Zufahrt freihalten. Ausreichend Platz für LKW-Rangieren einplanen.",
-  icon: "ðŸ—ï¸"
+  icon: "🏗️"
 },
 {
   num: "04",
   title: "Lieferung per LKW",
   desc: "Je nach Containertyp und Entfernung wird ein Kipper-Tieflader, Flachbett-Trailer oder LKW-Kran eingesetzt.",
-  icon: "ðŸš›"
+  icon: "🚚"
 },
 {
   num: "05",
   title: "Abnahme & Übergabe",
   desc: "Gemeinsame Sichtprüfung vor Ort. Bei Mängeln sofortige Dokumentation. Container ist sofort einsatzbereit.",
-  icon: "ðŸ”‘"
+  icon: "🔑"
 }];
 
 
@@ -98,42 +98,42 @@ const TRUCK_TYPES = [
 /* â”€â”€ Site Requirements â”€â”€ */
 const REQUIREMENTS = [
 {
-  icon: "â†”ï¸",
+  icon: "↔️",
   title: "Zufahrtsbreite",
   value: "min. 3,5 m",
   note: "Besser 4 m für komfortables Rangieren",
   ok: true
 },
 {
-  icon: "â†•ï¸",
+  icon: "↕️",
   title: "Durchfahrtshöhe",
   value: "min. 4,5 m",
   note: "Container auf LKW benötigt volle Höhe",
   ok: true
 },
 {
-  icon: "ðŸ“",
+  icon: "📏",
   title: "Freie Geradeausfahrt",
   value: "min. 20 m (40ft: 35 m)",
   note: "Kipper-Tieflader braucht gerade Ablauffläche",
   ok: true
 },
 {
-  icon: "ðŸ§±",
+  icon: "🧱",
   title: "Untergrund",
   value: "Fest & Eben",
   note: "Beton, Schotter, Pflaster – kein aufgeweichter Boden",
   ok: true
 },
 {
-  icon: "ðŸ‘¤",
+  icon: "👤",
   title: "Ansprechpartner",
   value: "Vor Ort",
   note: "Für Abnahme und Einweisen des Fahrers anwesend sein",
   ok: true
 },
 {
-  icon: "âš ï¸",
+  icon: "⚠️",
   title: "Besonderheiten melden",
   value: "Vorab",
   note: "Engstellen, Brücken, Stromleitungen, Höhenbeschränkungen",
@@ -420,12 +420,12 @@ export default function ContainerLieferung() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-border">
               <div className="p-6">
-                <div className="text-2xl mb-3">ðŸ”„</div>
+                <div className="text-2xl mb-3">🔄</div>
                 <h3 className="font-heading font-bold text-sm text-foreground mb-2">Türen zeigen zur LKW-Kabine</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">Der Container liegt mit den Türen vorne auf dem Kipper. Beim Absetzen landet die Türseite zuletzt auf dem Boden – die Türen öffnen in Richtung der Anfahrt.</p>
               </div>
               <div className="p-6">
-                <div className="text-2xl mb-3">â†©ï¸</div>
+                <div className="text-2xl mb-3">↩️</div>
                 <h3 className="font-heading font-bold text-sm text-foreground mb-2">Türen zeigen zur LKW-Rückseite</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">Der Container liegt mit den Türen hinten auf dem Kipper. Beim Absetzen landet die Türseite zuerst auf dem Boden – die Türen öffnen vom LKW weg.</p>
               </div>

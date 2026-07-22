@@ -20,11 +20,10 @@ export default function QuoteStep2({ data, setData }) {
   const T = useSection("quote");
   const update = (key, value) => setData((prev) => ({ ...prev, [key]: value }));
 
-  const { options: sizeOptions } = useAttributeOptions("Size");
   const { options: colorOptions } = useAttributeOptions("Color");
 
-  // Fall back to i18n values in local dev or when Supabase has no data yet
-  const sizes = sizeOptions.length > 0 ? sizeOptions : T.sizes;
+  // Quote sizes are fixed so every standard and High Cube combination stays available.
+  const sizes = T.sizes;
   const colors = colorOptions.length > 0
     ? colorOptions
     : T.colors.map((c) => ({ value: c, label: c }));
@@ -47,6 +46,18 @@ export default function QuoteStep2({ data, setData }) {
             <SelectTrigger><SelectValue placeholder={T.sizePlaceholder} /></SelectTrigger>
             <SelectContent>
               {sizes.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="space-y-2">
+          <Label className="text-sm font-medium">{T.heightLabel} *</Label>
+          <Select value={data.container_height || ""} onValueChange={(v) => update("container_height", v)}>
+            <SelectTrigger><SelectValue placeholder={T.heightPlaceholder} /></SelectTrigger>
+            <SelectContent>
+              {T.heightVariants.map((variant) => (
+                <SelectItem key={variant.value} value={variant.value}>{variant.label}</SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
