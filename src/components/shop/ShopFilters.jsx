@@ -7,10 +7,14 @@ import { useAttributeOptions } from "@/hooks/useAttributeOptions";
 import { useSection } from "@/lib/i18n";
 
 const COLOR_MAP = {
-  Blau: "#2563eb",
-  Anthrazit: "#374151",
-  Grün: "#15803d",
-  Weiß: "#e5e7eb",
+  "RAL 3020": "#CC0000",
+  "RAL 5010": "#1A4472",
+  "RAL 5013": "#1D2A57",
+  "RAL 6005": "#2F4538",
+  "RAL 6007": "#28392B",
+  "RAL 7016": "#293133",
+  "RAL 7035": "#D4D8D8",
+  "RAL 7042": "#8F9695",
 };
 const FALLBACK_COLOR = "#9ca3af";
 
@@ -126,7 +130,13 @@ export default function ShopFilters({ filters, setFilters, priceRange, setPriceR
                 return (
                   <button
                     key={option.value}
-                    onClick={() => toggleFilter(group.key, option.value)}
+                    onClick={() => setFilters((prev) => {
+                      const current = prev[group.key] || [];
+                      return {
+                        ...prev,
+                        [group.key]: current.length === 1 && current[0] === option.value ? [] : [option.value],
+                      };
+                    })}
                     title={option.label}
                     className={`w-8 h-8 rounded-full border-2 transition-all ${
                       isChecked ? "border-[#F28C28] scale-110 shadow-md" : "border-border hover:border-[#F28C28]/50"

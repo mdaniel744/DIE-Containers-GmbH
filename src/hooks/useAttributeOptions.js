@@ -51,8 +51,8 @@ export function useAttributeOptions(attributeName) {
         if (!cancelled) {
           setOptions(
             values.map((v) => ({
-              value: v.value,                             // raw key — for filter matching
-              label: translationMap[v.id]?.value ?? v.value, // translated — for display
+              value: v.value,
+              label: translationMap[v.id]?.value ?? v.value,
             }))
           );
           setLoading(false);
