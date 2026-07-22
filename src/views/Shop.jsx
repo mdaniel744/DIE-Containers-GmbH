@@ -12,6 +12,10 @@ import { useSection } from "@/lib/i18n";
 import ShopSeoBanner20ft from "@/components/shop/ShopSeoBanner20ft";
 import ShopSeoBanner40ft from "@/components/shop/ShopSeoBanner40ft";
 import ShopSeoContainerKaufen from "@/components/shop/ShopSeoContainerKaufen";
+import SeecontainerKaufen from "@/views/seo/SeecontainerKaufen";
+import KuehlcontainerKaufen from "@/views/seo/KuehlcontainerKaufen";
+import BuerocontainerKaufen from "@/views/seo/BuerocontainerKaufen";
+import OpenSideContainerKaufen from "@/views/seo/OpenSideContainerKaufen";
 
 export default function Shop() {
   const { products: allProducts, loading } = useProducts();
@@ -23,9 +27,10 @@ export default function Shop() {
     const size = normalize(searchParams.get("size"));
     const type = normalize(searchParams.get("type"));
     const condition = normalize(searchParams.get("condition"));
+    const catalog = normalize(searchParams.get("catalog"));
     return {
       size: size ? [size] : [],
-      container_type: type ? [type] : [],
+      container_type: catalog === "seecontainer" ? ["Standard", "High Cube"] : type ? [type] : [],
       condition: condition ? [condition] : [],
     };
   };
@@ -59,6 +64,23 @@ export default function Shop() {
   }, [allProducts, filters, priceRange, sortBy]);
 
   const activeCount = Object.values(filters).flat().length + (priceRange[1] < 50000 ? 1 : 0);
+  const selectedTypes = filters.container_type || [];
+  const isShippingContainerFilter = selectedTypes.length > 0 && selectedTypes.every((type) => ["Standard", "High Cube"].includes(type));
+  const selectedSeoContent = (() => {
+    if (selectedTypes.length === 1 && selectedTypes[0] === "Open Side") {
+      return <OpenSideContainerKaufen embedded showProducts={false} />;
+    }
+    if (selectedTypes.length === 1 && selectedTypes[0] === "Kühlcontainer") {
+      return <KuehlcontainerKaufen embedded showProducts={false} />;
+    }
+    if (selectedTypes.length === 1 && selectedTypes[0] === "Bürocontainer") {
+      return <BuerocontainerKaufen embedded showProducts={false} />;
+    }
+    if (isShippingContainerFilter) {
+      return <SeecontainerKaufen embedded showProducts={false} />;
+    }
+    return null;
+  })();
 
   const filterContent = (
     <ShopFilters
@@ -66,6 +88,7 @@ export default function Shop() {
       setFilters={setFilters}
       priceRange={priceRange}
       setPriceRange={setPriceRange}
+      availableProducts={allProducts}
     />
   );
 
@@ -165,18 +188,16 @@ export default function Shop() {
           </div>
         </div>
 
-        {/* SEO content for 20ft filter */}
-        {filters.size?.includes("20ft") && filters.size?.length === 1 && (
+        {/* Size-specific guides only apply when no type-specific article is selected. */}
+        {!selectedSeoContent && filters.size?.includes("20ft") && filters.size?.length === 1 && (
           <ShopSeoBanner20ft />
         )}
 
-        {/* SEO content for 40ft filter */}
-        {filters.size?.includes("40ft") && filters.size?.length === 1 && (
+        {!selectedSeoContent && filters.size?.includes("40ft") && filters.size?.length === 1 && (
           <ShopSeoBanner40ft />
         )}
 
-        {/* Main SEO content: Container kaufen */}
-        <ShopSeoContainerKaufen />
+        {selectedSeoContent || <ShopSeoContainerKaufen />}
       </div>
     </div>
   );

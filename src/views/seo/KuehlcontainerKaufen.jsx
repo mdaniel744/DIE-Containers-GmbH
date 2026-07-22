@@ -115,9 +115,9 @@ const OTHER_TYPES = [
   { href: "/lagercontainer-kaufen", title: "Lagercontainer kaufen", desc: "Ungekühlt lagern" },
 ];
 
-export default function KuehlcontainerKaufen() {
+export default function KuehlcontainerKaufen({ embedded = false, showProducts = true }) {
   return (
-    <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
+    <div className={embedded ? "" : "pt-20 lg:pt-24 pb-20 bg-background min-h-screen"}>
 
       {/* Schema.org FAQ */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -130,6 +130,7 @@ export default function KuehlcontainerKaufen() {
         }))
       })}} />
 
+      {!embedded && <>
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
@@ -154,14 +155,16 @@ export default function KuehlcontainerKaufen() {
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
-            <a href="#verfuegbare-kuehlcontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
+            <Link to="/shop?type=K%C3%BChlcontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
               Kühlcontainer ansehen
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      </>}
+
+      {showProducts && <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ProductListingSection
           id="verfuegbare-kuehlcontainer"
           className="mb-16 scroll-mt-28"
@@ -169,7 +172,7 @@ export default function KuehlcontainerKaufen() {
           description="Temperaturgeführte Container für Lebensmittel, Gewerbe, Events und sensible Waren."
           filterValue="Kühlcontainer"
         />
-      </div>
+      </div>}
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 

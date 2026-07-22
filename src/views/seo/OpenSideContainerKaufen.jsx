@@ -160,7 +160,7 @@ const RELATED_LINKS = [
   { href: "/buerocontainer-kaufen", title: "Bürocontainer", desc: "Mobile Arbeitsräume und Baustellenbüros" },
 ];
 
-export default function OpenSideContainerKaufen() {
+export default function OpenSideContainerKaufen({ embedded = false, showProducts = true }) {
   return (
     <SeoPageLayout
       breadcrumb={[
@@ -170,6 +170,7 @@ export default function OpenSideContainerKaufen() {
       label="Produkt-Ratgeber"
       title="Container mit offener Seite kaufen"
       intro="Container mit offener Seite kaufen – Open Side Container für Lagerung, Baustelle, Gewerbe und sperrige Güter. 20 Fuß und 40 Fuß Modelle, neu oder gebraucht mit Lieferung."
+      embedded={embedded}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
@@ -181,13 +182,13 @@ export default function OpenSideContainerKaufen() {
         })),
       })}} />
 
-      <ProductListingSection
+      {showProducts && <ProductListingSection
         id="verfuegbare-open-side-container"
         className="mb-14 scroll-mt-28"
         title="Verfügbare Container mit offener Seite"
         description="Open Side Container mit vollständig öffnender Seitenwand für einen besonders breiten Zugriff auf den Innenraum."
         filterValue="Open Side"
-      />
+      />}
 
       <section className="mb-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

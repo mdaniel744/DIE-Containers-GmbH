@@ -8,12 +8,12 @@ export { default as ContainerDiagram } from "./ContainerDiagram";
 
 const ORANGE = "#F28C28";
 
-export function SeoPageLayout({ breadcrumb, label, title, intro, children }) {
+export function SeoPageLayout({ breadcrumb, label, title, intro, children, embedded = false }) {
   return (
-    <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
+    <div className={embedded ? "" : "pt-20 lg:pt-24 pb-20 bg-background min-h-screen"}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        {breadcrumb && (
+        {!embedded && breadcrumb && (
           <nav className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6 flex-wrap">
             <Link to="/" className="hover:text-foreground transition-colors">Startseite</Link>
             {breadcrumb.map((crumb, i) => (
@@ -29,7 +29,7 @@ export function SeoPageLayout({ breadcrumb, label, title, intro, children }) {
           </nav>
         )}
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        {!embedded && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           {label && (
             <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>
               {label}
@@ -39,7 +39,7 @@ export function SeoPageLayout({ breadcrumb, label, title, intro, children }) {
           {intro && (
             <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-2xl">{intro}</p>
           )}
-        </motion.div>
+        </motion.div>}
 
         {children}
 

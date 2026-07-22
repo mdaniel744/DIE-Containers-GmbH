@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { X } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -14,17 +14,74 @@ const COLOR_MAP = {
 };
 const FALLBACK_COLOR = "#9ca3af";
 
-export default function ShopFilters({ filters, setFilters, priceRange, setPriceRange }) {
+const TYPE_ORDER = ["Standard", "High Cube", "Open Side", "Doppeltür", "Kühlcontainer", "Bürocontainer", "Wohncontainer"];
+const SIZE_ORDER = ["10ft", "20ft", "40ft"];
+
+function mergeOptions(attributeOptions, productOptions, order = []) {
+  const uniqueOptions = new Map();
+
+  [...attributeOptions, ...productOptions].forEach((option) => {
+    const value = String(option?.value ?? "").trim();
+    if (!value) return;
+
+    const key = value.toLocaleLowerCase("de-DE");
+    if (!uniqueOptions.has(key)) {
+      uniqueOptions.set(key, { value, label: option.label || value });
+    }
+  });
+
+  return [...uniqueOptions.values()].sort((a, b) => {
+    const aIndex = order.indexOf(a.value);
+    const bIndex = order.indexOf(b.value);
+    const normalizedAIndex = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+    const normalizedBIndex = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+
+    if (normalizedAIndex !== normalizedBIndex) return normalizedAIndex - normalizedBIndex;
+    return a.label.localeCompare(b.label, "de");
+  });
+}
+
+export default function ShopFilters({ filters, setFilters, priceRange, setPriceRange, availableProducts = [] }) {
   const { options: sizeOptions } = useAttributeOptions("Size");
   const { options: typeOptions } = useAttributeOptions("Container Type");
   const { options: colorOptions } = useAttributeOptions("Color");
   const T = useSection("filters");
 
+  // The Base44 attribute catalogue is optional. Derive missing options from the
+  // products themselves so the shop sidebar always remains usable.
+  const productOptions = useMemo(() => {
+    const buildOptions = (key) => {
+      const options = new Map();
+
+      availableProducts.forEach((product) => {
+        const values = Array.isArray(product[key]) ? product[key] : [product[key]];
+        values.forEach((rawValue) => {
+          const value = String(rawValue ?? "").trim();
+          if (!value) return;
+          const normalizedValue = value.toLocaleLowerCase("de-DE");
+          if (!options.has(normalizedValue)) options.set(normalizedValue, { value, label: value });
+        });
+      });
+
+      return [...options.values()];
+    };
+
+    return {
+      size: buildOptions("size"),
+      containerType: buildOptions("container_type"),
+      color: buildOptions("color"),
+    };
+  }, [availableProducts]);
+
+  const resolvedSizeOptions = mergeOptions(sizeOptions, productOptions.size, SIZE_ORDER);
+  const resolvedTypeOptions = mergeOptions(typeOptions, productOptions.containerType, TYPE_ORDER);
+  const resolvedColorOptions = mergeOptions(colorOptions, productOptions.color);
+
   const filterGroups = [
-    { key: "size", label: T.size, options: sizeOptions, type: "checkbox" },
+    { key: "size", label: T.size, options: resolvedSizeOptions, type: "checkbox" },
     { key: "condition", label: T.condition, options: T.conditionOptions, type: "checkbox" },
-    { key: "container_type", label: T.type, options: typeOptions, type: "checkbox" },
-    { key: "color", label: T.color, options: colorOptions, type: "color" },
+    { key: "container_type", label: T.type, options: resolvedTypeOptions, type: "checkbox" },
+    { key: "color", label: T.color, options: resolvedColorOptions, type: "color" },
   ].filter((group) => group.options.length > 0);
 
   const toggleFilter = (key, value) => {

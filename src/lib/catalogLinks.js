@@ -14,14 +14,14 @@ const CATALOG_CATEGORY_LINKS = [
   { keys: ["10ft", "10-fuss", "10-foot"], path: "/kategorien/10ft" },
   { keys: ["20ft", "20-fuss", "20-foot"], path: "/kategorien/20ft" },
   { keys: ["40ft", "40-fuss", "40-foot"], path: "/kategorien/40ft" },
-  { keys: ["kuehlcontainer", "kuhlcontainer", "reefer", "refrigerated"], path: "/kuehlcontainer-kaufen" },
-  { keys: ["buerocontainer", "burocontainer", "office"], path: "/buerocontainer-kaufen" },
-  { keys: ["modifizierter-container", "modifiziert", "modified-container", "modified"], path: "/open-side-container-kaufen" },
-  { keys: ["open-side", "openside", "offener-seite", "offene-seite"], path: "/open-side-container-kaufen" },
+  { keys: ["kuehlcontainer", "kuhlcontainer", "reefer", "refrigerated"], shopType: "Kühlcontainer" },
+  { keys: ["buerocontainer", "burocontainer", "office"], shopType: "Bürocontainer" },
+  { keys: ["modifizierter-container", "modifiziert", "modified-container", "modified"], shopType: "Open Side" },
+  { keys: ["open-side", "openside", "offener-seite", "offene-seite"], shopType: "Open Side" },
   { keys: ["doppeltuer", "doppeltur", "double-door", "doubledoor"], path: "/double-door-container-kaufen" },
   { keys: ["lagercontainer", "storage"], path: "/lagercontainer-kaufen" },
   { keys: ["wohncontainer", "living", "residential"], path: "/wohncontainer-kaufen" },
-  { keys: ["seecontainer", "shipping-container", "shipping"], path: "/seecontainer-kaufen" },
+  { keys: ["seecontainer", "shipping-container", "shipping"], shopFilter: { catalog: "seecontainer" } },
   { keys: ["container-kaufen", "all-containers"], path: "/container-kaufen" },
   { keys: ["container-garage", "garage"], shopType: "Container Garage" },
   { keys: ["werkstattcontainer", "workshop"], shopType: "Werkstattcontainer" },
@@ -59,6 +59,7 @@ export function resolveCatalogCategoryHref(category, locale = "de") {
   );
 
   if (match?.path) return localizeCatalogPath(match.path, locale);
+  if (match?.shopFilter) return shopFilterPath(match.shopFilter, locale);
   if (match?.shopType) return shopFilterPath({ type: match.shopType }, locale);
 
   // Safe fallback: /shop understands `type`, not `category`.
