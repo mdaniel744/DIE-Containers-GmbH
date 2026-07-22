@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CheckCircle, Zap, ShieldCheck, Star } from "lucide-react";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
+import ProductListingSection from "@/components/shop/ProductListingSection";
 
 const ORANGE = "#F28C28";
 const NAVY = "#1B3A5C";
@@ -153,11 +154,21 @@ export default function KuehlcontainerKaufen() {
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/kategorien/kuehlcontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
+            <a href="#verfuegbare-kuehlcontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
               Kühlcontainer ansehen
-            </Link>
+            </a>
           </div>
         </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ProductListingSection
+          id="verfuegbare-kuehlcontainer"
+          className="mb-16 scroll-mt-28"
+          title="Verfügbare Kühlcontainer"
+          description="Temperaturgeführte Container für Lebensmittel, Gewerbe, Events und sensible Waren."
+          filterValue="Kühlcontainer"
+        />
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

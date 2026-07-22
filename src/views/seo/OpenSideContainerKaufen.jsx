@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
   SeoPageLayout, SeoSection, InternalLinkGrid, FaqAccordion, CtaBanner
 } from "@/components/seo/SeoPageLayout";
+import ProductListingSection from "@/components/shop/ProductListingSection";
 
 const IMG_SIDE_BLUE_1 = "/images/open-side-40hc-ral5010-side-door-1.jpg";
 const IMG_SIDE_BLUE_2 = "/images/open-side-40hc-ral5010-side-door-4.jpg";
@@ -179,6 +180,14 @@ export default function OpenSideContainerKaufen() {
           "acceptedAnswer": { "@type": "Answer", "text": item.a },
         })),
       })}} />
+
+      <ProductListingSection
+        id="verfuegbare-open-side-container"
+        className="mb-14 scroll-mt-28"
+        title="Verfügbare Container mit offener Seite"
+        description="Open Side Container mit vollständig öffnender Seitenwand für einen besonders breiten Zugriff auf den Innenraum."
+        filterValue="Open Side"
+      />
 
       <section className="mb-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
