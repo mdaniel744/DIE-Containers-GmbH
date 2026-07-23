@@ -6,7 +6,7 @@ import { ChevronRight, ArrowRight, TrendingUp, Package, MapPin, Truck, Star, Wre
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Pricing Grid Data â”€â”€ */
@@ -105,7 +105,7 @@ export default function ContainerKosten() {
             <ChevronRight className="w-3 h-3" />
             <span className="text-white/70">Container Kosten</span>
           </nav>
-          <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: ORANGE }}>Preisübersicht 2025</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-4 block" style={{ color: BRAND_BLUE }}>Preisübersicht 2025</span>
           <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-5 max-w-3xl leading-tight">
             Seecontainer Preise in Deutschland – Aktuelle Kosten für neue und gebrauchte Container
           </h1>
@@ -115,8 +115,8 @@ export default function ContainerKosten() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/shop"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: ORANGE }}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: BRAND_BLUE }}
             >
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
@@ -135,7 +135,7 @@ export default function ContainerKosten() {
         {/* â”€â”€ Pricing Grid Section â”€â”€ */}
         <section className="mb-16">
           <div className="text-center mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Marktpreisübersicht</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Marktpreisübersicht</span>
             <h2 className="font-heading font-bold text-2xl lg:text-4xl text-foreground tracking-tight mb-3">Container Preise nach Größe & Zustand</h2>
             <p className="text-muted-foreground text-sm max-w-xl mx-auto">Vergleichen Sie aktuelle Seecontainer-Kaufpreise ab Lager Deutschland. Alle Preise netto, exklusive Transport.</p>
           </div>
@@ -152,7 +152,7 @@ export default function ContainerKosten() {
               >
                 {/* Row header */}
                 <div className="flex items-center gap-4 px-5 py-4 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
-                  <div className="w-20 h-14 rounded-lg overflow-hidden bg-[#fdf8f0] shrink-0 flex items-center justify-center p-1">
+                  <div className="w-20 h-14 rounded-lg overflow-hidden bg-[#F2F7FC] shrink-0 flex items-center justify-center p-1">
                     <img src={row.img} alt={row.size} className="w-full h-full object-contain" />
                   </div>
                   <div>
@@ -167,7 +167,7 @@ export default function ContainerKosten() {
                       {col.badge && (
                         <span
                           className="absolute top-3 right-3 text-[9px] font-bold px-2 py-0.5 rounded-full text-white"
-                          style={{ backgroundColor: ci === 0 ? NAVY : ORANGE }}
+                          style={{ backgroundColor: ci === 0 ? NAVY : BRAND_BLUE }}
                         >
                           {col.badge}
                         </span>
@@ -183,9 +183,9 @@ export default function ContainerKosten() {
           </div>
 
           {/* Disclaimer */}
-          <div className="mt-5 flex items-start gap-2 p-4 rounded-xl bg-amber-50 border border-amber-200">
-            <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-            <p className="text-xs text-amber-800 italic leading-relaxed">
+          <div className="mt-5 flex items-start gap-2 p-4 rounded-xl bg-blue-50 border border-blue-200">
+            <AlertTriangle className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
+            <p className="text-xs text-blue-800 italic leading-relaxed">
               <strong>Preishinweis:</strong> Die angegebenen Preise dienen nur zur Orientierung. Die endgültigen Kosten hängen von Verfügbarkeit, Lieferort und aktuellen Marktbedingungen ab. Fordern Sie ein individuelles Angebot für verbindliche Preise an.
             </p>
           </div>
@@ -197,7 +197,7 @@ export default function ContainerKosten() {
         {/* â”€â”€ Price Factors â”€â”€ */}
         <section className="mb-16">
           <div className="text-center mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Einflussfaktoren</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Einflussfaktoren</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground tracking-tight mb-3">Was beeinflusst den Seecontainer Preis?</h2>
             <p className="text-muted-foreground text-sm max-w-xl mx-auto">Verstehen Sie die wichtigsten Faktoren, die den Endpreis Ihres Containers bestimmen.</p>
           </div>
@@ -209,7 +209,7 @@ export default function ContainerKosten() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07 }}
-                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-orange-200 transition-all"
+                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-blue-200 transition-all"
               >
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${NAVY}15` }}>
                   <f.icon className="w-5 h-5" style={{ color: NAVY }} />
@@ -234,7 +234,7 @@ export default function ContainerKosten() {
                 Grundsätzlich unterscheidet man zwischen drei Zustandsklassen: <em>One Trip Container</em> (nahezu neu, einmalig verwendet), <em>Multi Trip Container</em> (leicht gebraucht, wenige Einsätze) und <em>gebrauchten Seecontainern</em> (mehrfach eingesetzt, voll funktionsfähig). Die <strong className="text-foreground">Seecontainer Kosten</strong> variieren zwischen diesen Klassen um 30–50 %.
               </p>
               <p className="mt-3">
-                Als Richtwert: Ein gebrauchter <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>20 Fuß Container</Link> kostet ab ca. 1.990 â‚¬, ein neuer One Trip Container ab ca. 3.200 â‚¬. Der <strong className="text-foreground">20 Fuß Container Preis</strong> macht ihn zum beliebtesten Modell – er bietet das beste Preis-Leistungsverhältnis für Lager, Baustellen und gewerbliche Anwendungen.
+                Als Richtwert: Ein gebrauchter <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: BRAND_BLUE }}>20 Fuß Container</Link> kostet ab ca. 1.990 â‚¬, ein neuer One Trip Container ab ca. 3.200 â‚¬. Der <strong className="text-foreground">20 Fuß Container Preis</strong> macht ihn zum beliebtesten Modell – er bietet das beste Preis-Leistungsverhältnis für Lager, Baustellen und gewerbliche Anwendungen.
               </p>
             </div>
 
@@ -270,7 +270,7 @@ export default function ContainerKosten() {
             <div>
               <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground mb-4">Transport- und Lieferkosten in Deutschland</h2>
               <p>
-                Beim Kauf eines Seecontainers werden Kaufpreis und <Link to="/container-lieferung" className="font-semibold underline" style={{ color: ORANGE }}>Transportkosten</Link> meist separat ausgewiesen. Die Lieferkosten richten sich nach der Entfernung vom Depot zum Aufstellort und starten ab ca. 250 â‚¬ für kurze Strecken bis 50 km.
+                Beim Kauf eines Seecontainers werden Kaufpreis und <Link to="/container-lieferung" className="font-semibold underline" style={{ color: BRAND_BLUE }}>Transportkosten</Link> meist separat ausgewiesen. Die Lieferkosten richten sich nach der Entfernung vom Depot zum Aufstellort und starten ab ca. 250 â‚¬ für kurze Strecken bis 50 km.
               </p>
               <div className="overflow-x-auto rounded-xl border border-border my-4">
                 <table className="w-full text-xs">
@@ -298,7 +298,7 @@ export default function ContainerKosten() {
                 </table>
               </div>
               <p>
-                Wichtig: Die <Link to="/container-lieferung" className="font-semibold underline" style={{ color: ORANGE }}>Container Lieferung</Link> erfordert einen geeigneten Stellplatz. Für einen Kipper-Tieflader benötigen Sie mindestens 3,5 m Zufahrtsbreite und 20 m gerade Ablauffläche. Engstellen oder Sondergenehmigungen erhöhen die Kosten.
+                Wichtig: Die <Link to="/container-lieferung" className="font-semibold underline" style={{ color: BRAND_BLUE }}>Container Lieferung</Link> erfordert einen geeigneten Stellplatz. Für einen Kipper-Tieflader benötigen Sie mindestens 3,5 m Zufahrtsbreite und 20 m gerade Ablauffläche. Engstellen oder Sondergenehmigungen erhöhen die Kosten.
               </p>
             </div>
 
@@ -311,10 +311,10 @@ export default function ContainerKosten() {
                 Ein gebrauchter Container ist wasserdicht, sturmsicher und langlebig. Die äußerlichen Gebrauchsspuren (Kratzer, kleine Dellen) beeinflussen weder die strukturelle Integrität noch den Nutzwert. Mit regelmäßiger Wartung – Türdichtungen kontrollieren, Dach auf Roststellen prüfen – hält ein gebrauchter Container problemlos 15–20 Jahre.
               </p>
               <p className="mt-3">
-                Benötigen Sie hingegen Repräsentativität (z.B. für ein Showroom-Konzept oder Wohnnutzung), empfehlen wir die Investition in einen One Trip Container. Informieren Sie sich auch über unser Sortiment an <Link to="/kategorien/10ft" className="font-semibold underline" style={{ color: ORANGE }}>10 Fuß Containern</Link>, <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>20 Fuß Containern</Link> und <Link to="/40-fuss-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>40 Fuß Containern</Link> sowie Spezialtypen wie <Link to="/open-side-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>Open Side Container</Link> oder <Link to="/double-door-container-kaufen" className="font-semibold underline" style={{ color: ORANGE }}>Double Door Container</Link>.
+                Benötigen Sie hingegen Repräsentativität (z.B. für ein Showroom-Konzept oder Wohnnutzung), empfehlen wir die Investition in einen One Trip Container. Informieren Sie sich auch über unser Sortiment an <Link to="/kategorien/10ft" className="font-semibold underline" style={{ color: BRAND_BLUE }}>10 Fuß Containern</Link>, <Link to="/20-fuss-container-kaufen" className="font-semibold underline" style={{ color: BRAND_BLUE }}>20 Fuß Containern</Link> und <Link to="/40-fuss-container-kaufen" className="font-semibold underline" style={{ color: BRAND_BLUE }}>40 Fuß Containern</Link> sowie Spezialtypen wie <Link to="/open-side-container-kaufen" className="font-semibold underline" style={{ color: BRAND_BLUE }}>Open Side Container</Link> oder <Link to="/double-door-container-kaufen" className="font-semibold underline" style={{ color: BRAND_BLUE }}>Double Door Container</Link>.
               </p>
               <p className="mt-3">
-                Vergessen Sie auch nicht, die Kosten für ein <Link to="/container-fundament" className="font-semibold underline" style={{ color: ORANGE }}>Container Fundament</Link> einzuplanen – vier Betonsteine als Unterlage kosten bereits ab 50 â‚¬, ein vollwertiges Streifenfundament ca. 1.500–5.000 â‚¬. Informationen zu den genauen <Link to="/container-masse" className="font-semibold underline" style={{ color: ORANGE }}>Container Maßen</Link> helfen Ihnen dabei, den Aufstellplatz optimal vorzubereiten.
+                Vergessen Sie auch nicht, die Kosten für ein <Link to="/container-fundament" className="font-semibold underline" style={{ color: BRAND_BLUE }}>Container Fundament</Link> einzuplanen – vier Betonsteine als Unterlage kosten bereits ab 50 â‚¬, ein vollwertiges Streifenfundament ca. 1.500–5.000 â‚¬. Informationen zu den genauen <Link to="/container-masse" className="font-semibold underline" style={{ color: BRAND_BLUE }}>Container Maßen</Link> helfen Ihnen dabei, den Aufstellplatz optimal vorzubereiten.
               </p>
             </div>
 
@@ -354,7 +354,7 @@ export default function ContainerKosten() {
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
           <div className="mb-6">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
             <h2 className="font-heading font-bold text-2xl text-foreground">Häufige Fragen zu Seecontainer Preisen</h2>
           </div>
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -377,15 +377,15 @@ export default function ContainerKosten() {
               <Link
                 key={i}
                 to={art.href}
-                className="group flex flex-col rounded-2xl border border-border overflow-hidden hover:shadow-md hover:border-orange-200 transition-all bg-card"
+                className="group flex flex-col rounded-2xl border border-border overflow-hidden hover:shadow-md hover:border-blue-200 transition-all bg-card"
               >
-                <div className="h-36 overflow-hidden bg-[#fdf8f0] flex items-center justify-center p-4">
+                <div className="h-36 overflow-hidden bg-[#F2F7FC] flex items-center justify-center p-4">
                   <img src={art.img} alt={art.title} className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
                 </div>
                 <div className="p-4 flex-1 flex flex-col">
                   <p className="font-heading font-bold text-sm text-foreground group-hover:text-[#1B3A5C] transition-colors mb-1">{art.title}</p>
                   <p className="text-xs text-muted-foreground flex-1">{art.desc}</p>
-                  <div className="flex items-center gap-1 mt-3" style={{ color: ORANGE }}>
+                  <div className="flex items-center gap-1 mt-3" style={{ color: BRAND_BLUE }}>
                     <span className="text-xs font-semibold font-heading">Mehr lesen</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>

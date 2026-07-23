@@ -7,7 +7,7 @@ import { InternalLinkGrid, FaqAccordion, CtaBanner } from "@/components/seo/SeoP
 import ContactBanner from "@/components/shared/ContactBanner";
 import ProductListingSection from "@/components/shop/ProductListingSection";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Images â”€â”€ */
@@ -65,7 +65,7 @@ const RATGEBER = [
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: ORANGE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -116,7 +116,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
             Seecontainer kaufen in Deutschland – neue und gebrauchte Seecontainer in 10 Fuß, 20 Fuß und 40 Fuß. Robuste Lager- und Transportcontainer mit Lieferung direkt zum Standort.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop?catalog=seecontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -180,7 +180,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
                 <p className="text-xs text-muted-foreground leading-relaxed mb-3">
                   Seitlich öffnende Seecontainer bieten besonders einfachen Zugriff auf sperrige Waren.
                 </p>
-                <Link to="/open-side-container-kaufen" className="inline-flex items-center gap-1 text-xs font-semibold font-heading" style={{ color: ORANGE }}>
+                <Link to="/open-side-container-kaufen" className="inline-flex items-center gap-1 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
                   Open Side ansehen <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -215,7 +215,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
               <div className="h-48 overflow-hidden">
                 <img src={IMG_USED} alt="Gebrauchte gestapelte 40 Fuß Seecontainer" className="w-full h-full object-cover" />
               </div>
-              <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${ORANGE}15, transparent)` }}>
+              <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${BRAND_BLUE}15, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Gebrauchte Seecontainer (Cargo-Worthy)</h3>
               </div>
               <div className="p-5 text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -256,7 +256,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
                 <div className="p-4 bg-card">
                   <p className="font-heading font-bold text-sm text-foreground mb-1">20 Fuß Seecontainer</p>
                   <p className="text-xs text-muted-foreground">ca. 6,06 × 2,44 × 2,59 m | ~33 m³ Volumen</p>
-                  <Link to="/20-fuss-container-kaufen" className="inline-flex items-center gap-1 mt-2 text-xs font-semibold font-heading" style={{ color: ORANGE }}>
+                  <Link to="/20-fuss-container-kaufen" className="inline-flex items-center gap-1 mt-2 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
                     Mehr erfahren <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -286,7 +286,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
                 <div className="p-4 bg-card">
                   <p className="font-heading font-bold text-sm text-foreground mb-1">40 Fuß Seecontainer</p>
                   <p className="text-xs text-muted-foreground">ca. 12,19 × 2,44 × 2,59 m | ~67 m³ Volumen</p>
-                  <Link to="/40-fuss-container-kaufen" className="inline-flex items-center gap-1 mt-2 text-xs font-semibold font-heading" style={{ color: ORANGE }}>
+                  <Link to="/40-fuss-container-kaufen" className="inline-flex items-center gap-1 mt-2 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
                     Mehr erfahren <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -374,7 +374,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
           </div>
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Wrench className="w-4 h-4" style={{ color: ORANGE }} />
+              <Wrench className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Checkliste vor dem Kauf
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -410,14 +410,14 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt den passenden Seecontainer finden</h2>
             <p className="text-white/60 text-sm">Unverbindlich anfragen – Angebot inkl. Lieferung erhalten.</p>
           </div>
-          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zum Seecontainer-Kauf</h2>
           <FaqAccordion items={FAQS} />
         </section>

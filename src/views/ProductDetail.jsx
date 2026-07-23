@@ -24,7 +24,7 @@ import { useLocale } from "@/hooks/useLocale";
 import { useAttributeValueTranslations } from "@/hooks/useAttributeValueTranslations";
 import { useCart } from "@/lib/CartContext";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const DEFAULT_PRODUCT_DESCRIPTION = (title) =>
   `${title} – wind- und wasserdichter ISO-Norm-Stahlcontainer aus wetterfestem Corten-Stahl. Sofort einsatzbereit, stapelbar und individuell umbaubar.`;
 
@@ -37,8 +37,8 @@ const CONDITION_DISPLAY = {
 function AttributeItem({ icon: Icon, label, value }) {
   return (
     <div className="flex items-start gap-2.5 bg-muted/50 rounded-lg p-3">
-      <div className="w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: "rgba(242,140,40,0.12)" }}>
-        <Icon className="w-3.5 h-3.5" style={{ color: ORANGE }} />
+      <div className="w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: "rgba(30,95,174,0.12)" }}>
+        <Icon className="w-3.5 h-3.5" style={{ color: BRAND_BLUE }} />
       </div>
       <div className="min-w-0">
         <p className="text-[10px] text-muted-foreground uppercase tracking-wide">{label}</p>
@@ -165,7 +165,7 @@ export default function ProductDetail() {
             <div>
               <div className="flex items-center gap-2 mb-3 flex-wrap">
                 {product.badge && (
-                  <Badge className="text-xs" style={{ backgroundColor: "rgba(242,140,40,0.15)", color: ORANGE, borderColor: "rgba(242,140,40,0.3)" }}>
+                  <Badge className="text-xs" style={{ backgroundColor: "rgba(30,95,174,0.15)", color: BRAND_BLUE, borderColor: "rgba(30,95,174,0.3)" }}>
                     {product.badge}
                   </Badge>
                 )}
@@ -206,8 +206,8 @@ export default function ProductDetail() {
             <Button
               onClick={handleInquiry}
               size="lg"
-              className="w-full font-heading font-bold text-base h-14 text-[#1a1a1a] shadow-lg hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: ORANGE }}
+              className="w-full font-heading font-bold text-base h-14 text-white shadow-lg hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: BRAND_BLUE }}
             >
               <ChevronRight className="w-5 h-5 mr-2" />
               Unverbindliches Angebot anfordern
@@ -259,7 +259,7 @@ export default function ProductDetail() {
                   {T.weatherLabel}
                 </div>
               )}
-              <div className="flex items-center gap-1.5 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-3 py-1.5">
+              <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5">
                 <Award className="w-3.5 h-3.5" />
                 {T.isoLabel}
               </div>
@@ -286,7 +286,7 @@ export default function ProductDetail() {
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#F28C28] data-[state=active]:text-foreground data-[state=active]:shadow-none px-5 py-3.5 font-heading text-sm font-medium text-muted-foreground transition-colors"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1E5FAE] data-[state=active]:text-foreground data-[state=active]:shadow-none px-5 py-3.5 font-heading text-sm font-medium text-muted-foreground transition-colors"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -350,7 +350,7 @@ export default function ProductDetail() {
                       <Wind className="w-3.5 h-3.5" /> {T.weatherLabel}
                     </span>
                   )}
-                  <span className="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-700 rounded-full px-3 py-1.5 text-xs font-medium">
+                  <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-700 rounded-full px-3 py-1.5 text-xs font-medium">
                     <Award className="w-3.5 h-3.5" /> {T.isoLabel}
                   </span>
                   <span className="inline-flex items-center gap-1.5 bg-purple-50 border border-purple-200 text-purple-700 rounded-full px-3 py-1.5 text-xs font-medium">
@@ -435,9 +435,9 @@ export default function ProductDetail() {
                     { icon: CheckCircle2, label: "Vor Auslieferung geprüft" },
                     { icon: PhoneCall, label: "Kostenlose Beratung" },
                   ].map(({ icon: Ic, label }, i) => (
-                    <div key={i} className="flex flex-col items-center gap-2.5 p-5 bg-card border border-border rounded-xl text-center hover:border-orange-200 transition-colors">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "rgba(242,140,40,0.12)" }}>
-                        <Ic className="w-5 h-5" style={{ color: ORANGE }} />
+                    <div key={i} className="flex flex-col items-center gap-2.5 p-5 bg-card border border-border rounded-xl text-center hover:border-blue-200 transition-colors">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "rgba(30,95,174,0.12)" }}>
+                        <Ic className="w-5 h-5" style={{ color: BRAND_BLUE }} />
                       </div>
                       <p className="font-heading font-semibold text-xs text-foreground leading-snug">{label}</p>
                     </div>
@@ -461,7 +461,7 @@ export default function ProductDetail() {
                       "Lüftungssystem",
                     ].map((item, i, arr) => (
                       <div key={i} className={`flex items-center gap-2.5 px-5 py-3 text-sm text-muted-foreground ${i < arr.length - 1 ? "border-b border-border sm:border-b-0 sm:[&:nth-child(odd)]:border-b sm:[&:nth-child(even)]:border-b" : ""} ${i % 2 === 0 ? "bg-card" : "bg-muted/10"} border-b border-border last:border-b-0`}>
-                        <ChevronRight className="w-3.5 h-3.5 shrink-0" style={{ color: ORANGE }} />
+                        <ChevronRight className="w-3.5 h-3.5 shrink-0" style={{ color: BRAND_BLUE }} />
                         {item}
                       </div>
                     ))}
@@ -481,7 +481,7 @@ export default function ProductDetail() {
                     { icon: ShieldCheck, label: "Transport", value: "Vollversichert", sub: "Kranwagen-Lieferung" },
                   ].map(({ icon: Ic, label, value, sub }, i) => (
                     <div key={i} className="flex flex-col items-center gap-1.5 p-4 border border-border rounded-xl bg-card text-center">
-                      <Ic className="w-5 h-5 mb-1" style={{ color: ORANGE }} />
+                      <Ic className="w-5 h-5 mb-1" style={{ color: BRAND_BLUE }} />
                       <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{label}</p>
                       <p className="font-heading font-bold text-sm text-foreground">{value}</p>
                       <p className="text-[10px] text-muted-foreground">{sub}</p>
@@ -498,7 +498,7 @@ export default function ProductDetail() {
                     { n: "04", title: "Abnahme vor Ort", desc: "Gemeinsame Prüfung bei Übergabe – kein Aufwand für Sie." },
                   ].map(({ n, title, desc }, i, arr) => (
                     <div key={i} className={`flex items-start gap-4 px-5 py-4 bg-card ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
-                      <span className="font-mono text-xs font-bold shrink-0 mt-0.5" style={{ color: ORANGE }}>{n}</span>
+                      <span className="font-mono text-xs font-bold shrink-0 mt-0.5" style={{ color: BRAND_BLUE }}>{n}</span>
                       <div>
                         <p className="font-heading font-semibold text-sm text-foreground">{title}</p>
                         <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>
@@ -508,8 +508,8 @@ export default function ProductDetail() {
                 </div>
 
                 {/* Ground note */}
-                <div className="flex gap-3 p-4 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800">
-                  <Award className="w-4 h-4 shrink-0 mt-0.5 text-amber-500" />
+                <div className="flex gap-3 p-4 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800">
+                  <Award className="w-4 h-4 shrink-0 mt-0.5 text-blue-500" />
                   <p><strong>Untergrund:</strong> Ebener, fester Untergrund (Pflaster, Asphalt oder Schotter) erforderlich. Sondersituationen auf Anfrage.</p>
                 </div>
               </div>
@@ -524,8 +524,8 @@ export default function ProductDetail() {
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-xl border-t border-border lg:hidden z-40 space-y-2">
         <Button
           onClick={handleInquiry}
-          className="w-full font-heading font-semibold h-12 text-[#1a1a1a]"
-          style={{ backgroundColor: ORANGE }}
+          className="w-full font-heading font-semibold h-12 text-white"
+          style={{ backgroundColor: BRAND_BLUE }}
         >
           <ChevronRight className="w-4 h-4 mr-2" />
           Angebot anfordern – {product.price_from?.toLocaleString("de-DE")} €

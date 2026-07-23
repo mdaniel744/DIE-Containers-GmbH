@@ -24,6 +24,25 @@ const SERVICE_ITEMS = [
   { label: "FAQ", path: "/faq", desc: "Häufig gestellte Fragen" },
 ];
 
+const FALLBACK_CATALOG_CATEGORIES = [
+  { slug: "seecontainer", nameDe: "Seecontainer", nameEn: "Shipping containers", image_url: "/images/quote-category-seecontainer.png" },
+  { slug: "10ft", nameDe: "10 Fuß Container", nameEn: "10ft containers", image_url: "/images/container-category-10ft.png" },
+  { slug: "20ft", nameDe: "20 Fuß Container", nameEn: "20ft containers", image_url: "/images/container-category-20ft.png" },
+  { slug: "40ft", nameDe: "40 Fuß Container", nameEn: "40ft containers", image_url: "/images/container-category-40ft.png" },
+  { slug: "open-side", nameDe: "Open Side Container", nameEn: "Open side containers", image_url: "/images/open-side-20hc-ral7016-open-3.jpg" },
+  { slug: "double-door", nameDe: "Double Door Container", nameEn: "Double door containers", image_url: "/images/double-door-40hc-ral5010-open.jpg" },
+  { slug: "buerocontainer", nameDe: "Bürocontainer", nameEn: "Office containers", image_url: "/images/quote-category-buerocontainer.png" },
+  { slug: "kuehlcontainer", nameDe: "Kühlcontainer", nameEn: "Refrigerated containers", image_url: "/images/quote-category-kuehlcontainer.png" },
+  { slug: "wohncontainer", nameDe: "Wohncontainer", nameEn: "Living containers", image_url: "/images/quote-category-wohncontainer.png" },
+];
+
+function getFallbackCatalogCategories(locale) {
+  return FALLBACK_CATALOG_CATEGORIES.map(({ nameDe, nameEn, ...category }) => ({
+    ...category,
+    name: locale === "de" ? nameDe : nameEn,
+  }));
+}
+
 /* â”€â”€â”€ Reusable hover-dropdown hook â”€â”€â”€ */
 function useHoverDropdown(delay = 180) {
   const [open, setOpen] = useState(false);
@@ -57,14 +76,14 @@ function CatalogDropdown({ visible, categories, locale }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-background border border-border rounded-2xl shadow-2xl overflow-hidden"
+          className="max-h-[calc(100vh-7rem)] overflow-y-auto overscroll-contain rounded-2xl border border-border bg-background shadow-2xl"
           style={{ pointerEvents: "auto" }}
         >
           {/* Header bar */}
           <div className="px-5 py-3 border-b border-border bg-muted/50 flex items-center justify-between">
             <span className="font-heading font-bold text-sm text-foreground">{t("nav.catalog")}</span>
             <Link
-              to="/angebot"
+              to={locale === "de" ? "/shop" : "/en/shop"}
               className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {t("nav.showAll")}
@@ -77,10 +96,10 @@ function CatalogDropdown({ visible, categories, locale }) {
               <Link
                 key={cat.slug}
                 to={resolveCatalogCategoryHref(cat, locale)}
-                className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#F28C28]/70 hover:shadow-md transition-all overflow-hidden"
+                className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#1E5FAE]/70 hover:shadow-md transition-all overflow-hidden"
               >
                 {/* Image area */}
-                <div className="relative bg-[#fdf8f0] flex items-center justify-center p-3 h-28 overflow-hidden">
+                <div className="relative bg-[#F2F7FC] flex items-center justify-center p-3 h-28 overflow-hidden">
                   <img
                     src={cat.image_url || HERO_IMAGE}
                     alt={cat.name}
@@ -101,8 +120,8 @@ function CatalogDropdown({ visible, categories, locale }) {
           <div className="px-4 pb-4">
             <Link
               to="/angebot"
-              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#F28C28" }}
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: "#1E5FAE" }}
             >
               {t("nav.requestQuote")}
             </Link>
@@ -120,11 +139,14 @@ export default function Header() {
   const service = useHoverDropdown();
   const [mobileKatalogOpen, setMobileKatalogOpen] = useState(false);
   const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+  const mobileMenuRef = useRef(null);
   const location = useLocation();
   const { itemCount } = useCart();
   const { categories } = useFeaturedCategories();
   const t = useT();
   const locale = useLocale();
+  const catalogCategories = categories.length > 0 ? categories : getFallbackCatalogCategories(locale);
 
   // Build the alternate-locale URL for the switcher.
   // If the current page has no English equivalent, fall back to /en homepage.
@@ -140,11 +162,56 @@ export default function Header() {
     return stripped || "/";
   })();
 
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+    setMobileKatalogOpen(false);
+    setMobileServiceOpen(false);
+  };
+
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+    setMobileKatalogOpen(false);
+    setMobileServiceOpen(false);
+  }, [location.pathname, location.search]);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const focusFrame = window.requestAnimationFrame(() => mobileMenuRef.current?.focus());
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        setMobileKatalogOpen(false);
+        setMobileServiceOpen(false);
+        window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+      }
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+        setMobileKatalogOpen(false);
+        setMobileServiceOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isOpen]);
 
   return (
+    <>
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl shadow-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -192,7 +259,7 @@ export default function Header() {
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${catalog.open ? "rotate-180" : ""}`}
                 />
               </Link>
-              <CatalogDropdown visible={catalog.open} categories={categories} locale={locale} />
+              <CatalogDropdown visible={catalog.open} categories={catalogCategories} locale={locale} />
             </div>
 
             {/* Container Service dropdown */}
@@ -267,14 +334,14 @@ export default function Header() {
               {itemCount > 0 && (
                 <span
                   className="absolute -top-1 -right-1 min-w-[18px] h-[18px] rounded-full text-[11px] font-bold flex items-center justify-center text-white px-1 leading-none"
-                  style={{ backgroundColor: "#F28C28" }}
+                  style={{ backgroundColor: "#1E5FAE" }}
                 >
                   {itemCount > 99 ? "99+" : itemCount}
                 </span>
               )}
             </Link>
             <Link to="/angebot">
-              <Button className="font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
+              <Button className="font-heading font-semibold text-sm text-white" style={{ backgroundColor: "#1E5FAE" }}>
                 {t("nav.cta")}
               </Button>
             </Link>
@@ -282,44 +349,73 @@ export default function Header() {
 
           {/* Mobile toggle */}
           <div className="lg:hidden flex items-center gap-1">
-            <Link to="/warenkorb" className="relative p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Warenkorb">
+            <Link
+              to="/warenkorb"
+              className="relative inline-flex h-11 w-11 touch-manipulation items-center justify-center rounded-xl hover:bg-muted active:bg-muted transition-colors"
+              aria-label="Warenkorb"
+            >
               <ShoppingCart className="w-5 h-5 text-foreground/70" />
               {itemCount > 0 && (
                 <span
                   className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 rounded-full text-[10px] font-bold flex items-center justify-center text-white px-0.5 leading-none"
-                  style={{ backgroundColor: "#F28C28" }}
+                  style={{ backgroundColor: "#1E5FAE" }}
                 >
                   {itemCount > 9 ? "9+" : itemCount}
                 </span>
               )}
             </Link>
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-muted transition-colors"
-              aria-label={t("nav.menu")}
+              ref={menuButtonRef}
+              type="button"
+              onClick={() => (isOpen ? closeMobileMenu() : setIsOpen(true))}
+              className="inline-flex h-12 w-12 touch-manipulation items-center justify-center rounded-xl border border-transparent hover:bg-muted active:border-border active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5FAE] focus-visible:ring-offset-2 transition-colors"
+              aria-label={isOpen ? (locale === "de" ? "Menü schließen" : "Close menu") : t("nav.menu")}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
       </div>
+    </header>
 
       {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-0 bottom-0 top-16 z-40 lg:hidden"
           >
-            <nav className="px-4 py-4 space-y-1">
+            <button
+              type="button"
+              className="absolute inset-0 h-full w-full cursor-default bg-slate-950/40 backdrop-blur-[1px]"
+              onClick={closeMobileMenu}
+              aria-label={locale === "de" ? "Navigation schließen" : "Close navigation"}
+            />
+            <motion.div
+              id="mobile-navigation"
+              ref={mobileMenuRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={locale === "de" ? "Mobile Navigation" : "Mobile navigation"}
+              tabIndex={-1}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-y-0 right-0 z-10 w-[calc(100%_-_1.5rem)] max-w-sm overflow-y-auto overscroll-contain border-l border-border bg-background shadow-2xl focus:outline-none"
+            >
+            <nav className="min-h-full space-y-1 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-4">
               {simpleNavItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                  onClick={closeMobileMenu}
+                  className={`flex min-h-12 touch-manipulation items-center rounded-xl px-4 py-3 text-base font-medium transition-colors ${
                     location.pathname === item.path ? "bg-secondary/10 text-secondary" : "hover:bg-muted"
                   }`}
                 >
@@ -330,31 +426,39 @@ export default function Header() {
               {/* Mobile katalog accordion */}
               <div>
                 <button
-                  onClick={() => setMobileKatalogOpen(!mobileKatalogOpen)}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium hover:bg-muted transition-colors"
+                  type="button"
+                  onClick={() => {
+                    setMobileKatalogOpen((current) => !current);
+                    setMobileServiceOpen(false);
+                  }}
+                  className="flex min-h-12 w-full touch-manipulation items-center justify-between rounded-xl px-4 py-3 text-base font-medium hover:bg-muted active:bg-muted transition-colors"
+                  aria-expanded={mobileKatalogOpen}
+                  aria-controls="mobile-catalog-links"
                 >
                   {t("nav.catalog")}
-                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileKatalogOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`h-5 w-5 transition-transform ${mobileKatalogOpen ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
                   {mobileKatalogOpen && (
                     <motion.div
+                      id="mobile-catalog-links"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
                       className="overflow-hidden"
                     >
                       <div className="grid grid-cols-2 gap-2 px-2 py-2">
-                        {categories.map((cat) => (
+                        {catalogCategories.map((cat) => (
                           <Link
                             key={cat.slug}
                             to={resolveCatalogCategoryHref(cat, locale)}
-                            className="flex flex-col items-center p-2 rounded-xl border border-border bg-card text-center overflow-hidden"
+                            onClick={closeMobileMenu}
+                            className="flex min-h-28 touch-manipulation flex-col items-center overflow-hidden rounded-xl border border-border bg-card p-2 text-center transition-colors hover:border-[#1E5FAE]/70 active:bg-muted"
                           >
-                            <div className="w-full h-16 bg-[#fdf8f0] rounded-lg mb-1.5 flex items-center justify-center p-1">
+                            <div className="w-full h-16 bg-[#F2F7FC] rounded-lg mb-1.5 flex items-center justify-center p-1">
                               <img src={cat.image_url || HERO_IMAGE} alt={cat.name} className="w-full h-full object-contain" />
                             </div>
-                            <p className="font-heading font-semibold text-[11px] text-foreground leading-tight">{cat.name}</p>
+                            <p className="font-heading text-xs font-semibold leading-tight text-foreground">{cat.name}</p>
                           </Link>
                         ))}
                       </div>
@@ -366,15 +470,22 @@ export default function Header() {
               {/* Mobile Service accordion */}
               <div>
                 <button
-                  onClick={() => setMobileServiceOpen(!mobileServiceOpen)}
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium hover:bg-muted transition-colors"
+                  type="button"
+                  onClick={() => {
+                    setMobileServiceOpen((current) => !current);
+                    setMobileKatalogOpen(false);
+                  }}
+                  className="flex min-h-12 w-full touch-manipulation items-center justify-between rounded-xl px-4 py-3 text-base font-medium hover:bg-muted active:bg-muted transition-colors"
+                  aria-expanded={mobileServiceOpen}
+                  aria-controls="mobile-service-links"
                 >
                   {t("nav.service")}
-                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileServiceOpen ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`h-5 w-5 transition-transform ${mobileServiceOpen ? "rotate-180" : ""}`} />
                 </button>
                 <AnimatePresence>
                   {mobileServiceOpen && (
                     <motion.div
+                      id="mobile-service-links"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
@@ -385,7 +496,8 @@ export default function Header() {
                           <Link
                             key={item.path}
                             to={item.path}
-                            className="px-4 py-2.5 rounded-lg hover:bg-muted transition-colors font-heading font-semibold text-sm text-foreground block"
+                            onClick={closeMobileMenu}
+                            className="flex min-h-12 touch-manipulation items-center rounded-xl px-4 py-2.5 font-heading text-sm font-semibold text-foreground transition-colors hover:bg-muted active:bg-muted"
                           >
                             {item.label}
                           </Link>
@@ -397,17 +509,18 @@ export default function Header() {
               </div>
 
               <div className="pt-3 border-t border-border mt-3 space-y-2">
-                <Link to="/angebot" className="block">
-                  <Button className="w-full font-heading font-semibold text-[#1a1a1a]" style={{ backgroundColor: "#F28C28" }}>
+                <Link to="/angebot" className="block touch-manipulation" onClick={closeMobileMenu}>
+                  <Button className="w-full font-heading font-semibold text-white" style={{ backgroundColor: "#1E5FAE" }}>
                     {t("nav.cta")}
                   </Button>
                 </Link>
               </div>
             </nav>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
 

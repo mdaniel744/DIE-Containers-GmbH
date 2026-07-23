@@ -6,7 +6,7 @@ import { SeoSection, SeoTable, FaqAccordion, InternalLinkGrid, CtaBanner } from 
 import ContactBanner from "@/components/shared/ContactBanner";
 import { Mail, Truck, CheckCircle, MapPin, FileText } from "lucide-react";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const DELIVERY_STEPS = [
   { icon: FileText, title: "1. Request a quote", desc: "Submit a no-obligation enquiry via our form, by phone or email." },
@@ -61,14 +61,14 @@ export default function ContainerDelivery() {
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Delivery service</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Delivery service</span>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-4">
             Container Delivery throughout Germany
           </h1>
           <p className="text-muted-foreground text-base leading-relaxed max-w-2xl mb-6">
             Shipping containers are delivered by specialist vehicle directly to your site. Here you'll find everything about the delivery process, vehicle types, transport costs and how to prepare your site.
           </p>
-          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: ORANGE }}>
+          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white" style={{ backgroundColor: BRAND_BLUE }}>
             Request a free quote <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -77,7 +77,7 @@ export default function ContainerDelivery() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
             {DELIVERY_STEPS.map((s, i) => (
               <div key={i} className="flex gap-3 p-4 bg-card rounded-xl border border-border">
-                <s.icon className="w-5 h-5 shrink-0 mt-0.5" style={{ color: ORANGE }} />
+                <s.icon className="w-5 h-5 shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
                 <div>
                   <p className="font-heading font-semibold text-sm mb-1">{s.title}</p>
                   <p className="text-xs text-muted-foreground">{s.desc}</p>

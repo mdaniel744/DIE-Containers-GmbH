@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const massRows = [
   ["Länge", "2.991 mm", "2.802 mm"],
@@ -49,7 +49,7 @@ export default function ShopSeoBanner10ft() {
     <div className="mt-16 border-t border-border pt-12 space-y-10">
       {/* Intro */}
       <div>
-        <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Ratgeber</span>
+        <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Ratgeber</span>
         <h2 className="font-heading font-bold text-2xl lg:text-3xl tracking-tight mb-3">10 Fuß Container kaufen – Maße, Preise & Anwendungen</h2>
         <p className="text-muted-foreground max-w-2xl leading-relaxed">
           Der 10 Fuß Container ist die kompakteste ISO-Seecontainer-Einheit – ideal für begrenzte Platzverhältnisse.
@@ -125,8 +125,8 @@ export default function ShopSeoBanner10ft() {
         style={{ background: "linear-gradient(135deg,#1B3A5C,#0f2540)" }}>
         <p className="font-heading font-bold text-white text-lg sm:text-xl">10 Fuß Container anfragen – kostenlos & unverbindlich</p>
         <Link to="/shop"
-          className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-          style={{ backgroundColor: ORANGE }}>
+          className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+          style={{ backgroundColor: BRAND_BLUE }}>
           Angebot anfordern <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
@@ -138,7 +138,7 @@ export default function ShopSeoBanner10ft() {
           <li><strong className="text-foreground">Platzsparend:</strong> Passt auch auf beengte Grundstücke und schmale Gärten</li>
           <li><strong className="text-foreground">Leicht:</strong> Ca. 1.300–1.500 kg Eigengewicht – weniger Anforderungen an den Untergrund</li>
           <li><strong className="text-foreground">Günstig:</strong> Preisgünstigste Einstiegslösung für witterungsbeständige Lagerung</li>
-          <li><strong className="text-foreground">Stapelbar:</strong> ISO-genormte Eckbeschläge – kombinierbar mit <Link to="/kategorien/20ft" className="text-orange-500 hover:underline">20 Fuß</Link> und <Link to="/kategorien/40ft" className="text-orange-500 hover:underline">40 Fuß Containern</Link></li>
+          <li><strong className="text-foreground">Stapelbar:</strong> ISO-genormte Eckbeschläge – kombinierbar mit <Link to="/kategorien/20ft" className="text-blue-500 hover:underline">20 Fuß</Link> und <Link to="/kategorien/40ft" className="text-blue-500 hover:underline">40 Fuß Containern</Link></li>
           <li><strong className="text-foreground">Schnell lieferbar:</strong> Deutschlandweit innerhalb von 72 Stunden</li>
         </ul>
       </div>
@@ -149,12 +149,12 @@ export default function ShopSeoBanner10ft() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {relatedLinks.map((link) => (
             <Link key={link.href} to={link.href}
-              className="flex items-center justify-between gap-3 p-4 bg-card border border-border rounded-xl hover:border-orange-300 hover:shadow-sm transition-all group">
+              className="flex items-center justify-between gap-3 p-4 bg-card border border-border rounded-xl hover:border-blue-300 hover:shadow-sm transition-all group">
               <div>
-                <p className="font-heading font-semibold text-sm group-hover:text-orange-600 transition-colors">{link.title}</p>
+                <p className="font-heading font-semibold text-sm group-hover:text-blue-600 transition-colors">{link.title}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{link.desc}</p>
               </div>
-              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-orange-500 shrink-0 transition-colors" />
+              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 shrink-0 transition-colors" />
             </Link>
           ))}
         </div>

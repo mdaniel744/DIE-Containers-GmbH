@@ -24,16 +24,16 @@ export default function AdminDashboard() {
   const availableProducts = products.filter(p => p.is_available).length;
 
   const stats = [
-    { label: "Produkte gesamt", value: products.length, icon: Package, color: "#F28C28", href: "/admin/produkte" },
+    { label: "Produkte gesamt", value: products.length, icon: Package, color: "#1E5FAE", href: "/admin/produkte" },
     { label: "Verfügbar", value: availableProducts, icon: CheckCircle2, color: "#10b981", href: "/admin/produkte" },
     { label: "Anfragen gesamt", value: quotes.length, icon: FileText, color: "#6366f1", href: "/admin/anfragen" },
-    { label: "Offene Anfragen", value: pendingQuotes, icon: Clock, color: "#f59e0b", href: "/admin/anfragen" },
+    { label: "Offene Anfragen", value: pendingQuotes, icon: Clock, color: "#38BDF8", href: "/admin/anfragen" },
   ];
 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-48">
-        <div className="w-8 h-8 border-4 border-slate-700 border-t-orange-500 rounded-full animate-spin" />
+        <div className="w-8 h-8 border-4 border-slate-700 border-t-blue-500 rounded-full animate-spin" />
       </div>
     );
   }
@@ -67,7 +67,7 @@ export default function AdminDashboard() {
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
           <div className="flex items-center justify-between mb-5">
             <h2 className="font-heading font-semibold text-white">Neueste Anfragen</h2>
-            <Link to="/admin/anfragen" className="text-xs text-orange-400 hover:text-orange-300 flex items-center gap-1">
+            <Link to="/admin/anfragen" className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1">
               Alle <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
                     <p className="text-slate-400 text-xs">{q.container_size} · {q.container_type}</p>
                   </div>
                   <span className={`text-[10px] font-medium px-2 py-1 rounded-full ${
-                    q.status === "pending" ? "bg-amber-500/10 text-amber-400" :
+                    q.status === "pending" ? "bg-blue-500/10 text-blue-400" :
                     q.status === "quoted" ? "bg-blue-500/10 text-blue-400" :
                     "bg-emerald-500/10 text-emerald-400"
                   }`}>
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
           <div className="flex items-center justify-between mb-5">
             <h2 className="font-heading font-semibold text-white">Produkte</h2>
-            <Link to="/admin/produkte" className="text-xs text-orange-400 hover:text-orange-300 flex items-center gap-1">
+            <Link to="/admin/produkte" className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1">
               Alle <ArrowRight className="w-3 h-3" />
             </Link>
           </div>

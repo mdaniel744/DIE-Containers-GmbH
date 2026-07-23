@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { SeoSection, SeoTable, FaqAccordion, InternalLinkGrid, CtaBanner } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const PRICE_TABLE = [
   ["10 ft Standard", "from €990", "from €1,890", "from €2,490"],
@@ -38,14 +38,14 @@ export default function ContainerCosts() {
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Market price overview</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Market price overview</span>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-4">
             Container Prices by Size & Condition
           </h1>
           <p className="text-muted-foreground text-base leading-relaxed max-w-2xl mb-6">
             Compare current shipping container purchase prices from stock in Germany. All prices are net, excluding transport.
           </p>
-          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: ORANGE }}>
+          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white" style={{ backgroundColor: BRAND_BLUE }}>
             Request a free quote <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

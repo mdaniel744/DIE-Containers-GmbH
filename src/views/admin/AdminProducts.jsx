@@ -41,7 +41,7 @@ export default function AdminProducts() {
           <p className="text-slate-400 text-sm mt-1">{products.length} Container im System</p>
         </div>
         <Link to="/admin/produkte/neu">
-          <Button className="font-heading font-semibold text-slate-900 hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
+          <Button className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#1E5FAE" }}>
             <Plus className="w-4 h-4 mr-2" /> Neues Produkt
           </Button>
         </Link>
@@ -60,14 +60,14 @@ export default function AdminProducts() {
 
       {loading ? (
         <div className="flex items-center justify-center h-48">
-          <div className="w-8 h-8 border-4 border-slate-700 border-t-orange-500 rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-slate-700 border-t-blue-500 rounded-full animate-spin" />
         </div>
       ) : (
         <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
           {filtered.length === 0 ? (
             <div className="text-center py-16 text-slate-500">
               <p>Keine Produkte gefunden.</p>
-              <Link to="/admin/produkte/neu" className="text-orange-400 text-sm hover:underline mt-2 inline-block">
+              <Link to="/admin/produkte/neu" className="text-blue-400 text-sm hover:underline mt-2 inline-block">
                 Jetzt erstes Produkt anlegen →
               </Link>
             </div>

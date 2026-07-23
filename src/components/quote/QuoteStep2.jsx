@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 import { useAttributeOptions } from "@/hooks/useAttributeOptions";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const TRANSPORT_ICONS = {
   delivery_no_unload: Truck,
@@ -106,10 +106,10 @@ export default function QuoteStep2({ data, setData }) {
                 key={value}
                 onClick={() => update("unloading_method", value)}
                 className={`flex flex-col items-center p-4 rounded-xl border-2 text-center transition-all ${
-                  active ? "border-[#F28C28] bg-[#F28C28]/5" : "border-border hover:border-[#F28C28]/40 bg-card"
+                  active ? "border-[#1E5FAE] bg-[#1E5FAE]/5" : "border-border hover:border-[#1E5FAE]/40 bg-card"
                 }`}
               >
-                <Icon className="w-6 h-6 mb-2" style={{ color: active ? ORANGE : "#888" }} />
+                <Icon className="w-6 h-6 mb-2" style={{ color: active ? BRAND_BLUE : "#888" }} />
                 <p className={`font-heading font-semibold text-sm ${active ? "text-foreground" : "text-foreground/70"}`}>{label}</p>
                 <p className="text-xs text-muted-foreground mt-1">{desc}</p>
               </button>
@@ -128,8 +128,8 @@ export default function QuoteStep2({ data, setData }) {
           </div>
           <AnimatePresence>
             {showDateInfo && (
-              <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="flex gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800">
-                <Info className="w-3.5 h-3.5 shrink-0 mt-0.5 text-amber-500" />
+              <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="flex gap-2 p-3 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-800">
+                <Info className="w-3.5 h-3.5 shrink-0 mt-0.5 text-blue-500" />
                 <p>{T.deliveryNote}</p>
               </motion.div>
             )}

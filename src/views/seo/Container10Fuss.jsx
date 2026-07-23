@@ -85,13 +85,13 @@ export default function Container10Fuss() {
       {/* Introduction */}
       <SeoSection title="Was ist ein 10 Fuß Container?">
         <p>
-          Der 10 Fuß Container, auch als Halbcontainer oder halber TEU bezeichnet, ist die kleinste in der Praxis weit verbreitete ISO-Containereinheit. Mit einer Außenlänge von knapp drei Metern bietet er ein Ladevolumen von ca. 15,7 m³ – mehr als genug für zahlreiche Lager- und Transportaufgaben, bei denen ein <Link to="/20-fuss-container-kaufen" className="text-orange-500 hover:underline">20 Fuß Container</Link> zu groß und zu teuer wäre.
+          Der 10 Fuß Container, auch als Halbcontainer oder halber TEU bezeichnet, ist die kleinste in der Praxis weit verbreitete ISO-Containereinheit. Mit einer Außenlänge von knapp drei Metern bietet er ein Ladevolumen von ca. 15,7 m³ – mehr als genug für zahlreiche Lager- und Transportaufgaben, bei denen ein <Link to="/20-fuss-container-kaufen" className="text-blue-500 hover:underline">20 Fuß Container</Link> zu groß und zu teuer wäre.
         </p>
         <p>
           DIE Container GmbH führt 10 Fuß Seecontainer in verschiedenen Ausführungen: als Standard- und High-Cube-Variante, neu oder gebraucht, in unterschiedlichen Farben. Alle Einheiten werden vor der Auslieferung einer mehrstufigen Qualitätsprüfung unterzogen und sind wasser- sowie winddicht.
         </p>
         <p>
-          Ob als <Link to="/lagercontainer-kaufen" className="text-orange-500 hover:underline">Lagercontainer</Link> im Garten, als Baustellendepot oder als Basis für einen individuellen Umbauprojekt – der 10 Fuß Container ist vielseitiger als sein kompaktes Format vermuten lässt. Auf dieser Seite erhalten Sie alle relevanten Informationen, um die richtige Kaufentscheidung zu treffen.
+          Ob als <Link to="/lagercontainer-kaufen" className="text-blue-500 hover:underline">Lagercontainer</Link> im Garten, als Baustellendepot oder als Basis für einen individuellen Umbauprojekt – der 10 Fuß Container ist vielseitiger als sein kompaktes Format vermuten lässt. Auf dieser Seite erhalten Sie alle relevanten Informationen, um die richtige Kaufentscheidung zu treffen.
         </p>
       </SeoSection>
 
@@ -102,10 +102,10 @@ export default function Container10Fuss() {
         </p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <strong className="text-foreground">Platzsparend:</strong> Mit unter 3 m Länge passt der 10 Fuß Container auch auf beengte Grundstücke, in schmale Gärten oder Garagenauffahrten – Bereiche, in denen ein <Link to="/20-fuss-container-kaufen" className="text-orange-500 hover:underline">20 Fuß Standardcontainer</Link> schlicht nicht aufgestellt werden kann.
+            <strong className="text-foreground">Platzsparend:</strong> Mit unter 3 m Länge passt der 10 Fuß Container auch auf beengte Grundstücke, in schmale Gärten oder Garagenauffahrten – Bereiche, in denen ein <Link to="/20-fuss-container-kaufen" className="text-blue-500 hover:underline">20 Fuß Standardcontainer</Link> schlicht nicht aufgestellt werden kann.
           </li>
           <li>
-            <strong className="text-foreground">Geringes Eigengewicht:</strong> Der 10 Fuß Container wiegt leer nur ca. 1.300–1.500 kg. Das erleichtert den Transport und reduziert die Anforderungen an den <Link to="/container-fundament" className="text-orange-500 hover:underline">Untergrund und das Fundament</Link> erheblich.
+            <strong className="text-foreground">Geringes Eigengewicht:</strong> Der 10 Fuß Container wiegt leer nur ca. 1.300–1.500 kg. Das erleichtert den Transport und reduziert die Anforderungen an den <Link to="/container-fundament" className="text-blue-500 hover:underline">Untergrund und das Fundament</Link> erheblich.
           </li>
           <li>
             <strong className="text-foreground">Kostengünstig:</strong> Gebrauchte 10 Fuß Container sind bereits ab ca. 990 € erhältlich – damit ist er die preisgünstigste Einstiegslösung für sichere, witterungsbeständige Lagerung.
@@ -117,7 +117,7 @@ export default function Container10Fuss() {
             <strong className="text-foreground">Kompatibel & stapelbar:</strong> Dank ISO-genormter Eckbeschläge lassen sich 10 Fuß Container mit anderen ISO-Containern kombinieren und stapeln. Das eröffnet flexible Erweiterungsmöglichkeiten.
           </li>
           <li>
-            <strong className="text-foreground">Schnell verfügbar:</strong> 10 Fuß Container sind ab Lager lieferbar. DIE Container GmbH liefert deutschlandweit innerhalb von 72 Stunden. Details zur <Link to="/container-lieferung" className="text-orange-500 hover:underline">Container Lieferung</Link> finden Sie in unserem Ratgeber.
+            <strong className="text-foreground">Schnell verfügbar:</strong> 10 Fuß Container sind ab Lager lieferbar. DIE Container GmbH liefert deutschlandweit innerhalb von 72 Stunden. Details zur <Link to="/container-lieferung" className="text-blue-500 hover:underline">Container Lieferung</Link> finden Sie in unserem Ratgeber.
           </li>
         </ul>
       </SeoSection>
@@ -125,14 +125,14 @@ export default function Container10Fuss() {
       {/* Technische Daten */}
       <SeoSection title="Technische Daten und Abmessungen">
         <p>
-          Die genauen <Link to="/container-masse" className="text-orange-500 hover:underline">Container Maße</Link> sind entscheidend für die Planung von Aufstellfläche, Transportlogistik und Raumnutzung. Alle Angaben beziehen sich auf den ISO-genormten 10 Fuß Standardcontainer:
+          Die genauen <Link to="/container-masse" className="text-blue-500 hover:underline">Container Maße</Link> sind entscheidend für die Planung von Aufstellfläche, Transportlogistik und Raumnutzung. Alle Angaben beziehen sich auf den ISO-genormten 10 Fuß Standardcontainer:
         </p>
         <SeoTable headers={massTable.headers} rows={massTable.rows} />
         <p>
-          Das nutzbare Innenvolumen von ca. 15,7 m³ entspricht ungefähr dem Inhalt eines großen Abstellraums oder Kellers. Die Bodentragfähigkeit liegt bei 30 t/m². Zum Vergleich: Ein <Link to="/40-fuss-container-kaufen" className="text-orange-500 hover:underline">40 Fuß Container</Link> bietet mit ca. 67 m³ mehr als viermal so viel Raum.
+          Das nutzbare Innenvolumen von ca. 15,7 m³ entspricht ungefähr dem Inhalt eines großen Abstellraums oder Kellers. Die Bodentragfähigkeit liegt bei 30 t/m². Zum Vergleich: Ein <Link to="/40-fuss-container-kaufen" className="text-blue-500 hover:underline">40 Fuß Container</Link> bietet mit ca. 67 m³ mehr als viermal so viel Raum.
         </p>
         <p>
-          Das Eigengewicht (Tara) des 10 Fuß Containers liegt je nach Ausführung und Baujahr zwischen 1.300 und 1.500 kg. Für detaillierte Angaben zum <Link to="/container-gewicht" className="text-orange-500 hover:underline">Container Gewicht</Link> aller Größen empfehlen wir unseren Ratgeber.
+          Das Eigengewicht (Tara) des 10 Fuß Containers liegt je nach Ausführung und Baujahr zwischen 1.300 und 1.500 kg. Für detaillierte Angaben zum <Link to="/container-gewicht" className="text-blue-500 hover:underline">Container Gewicht</Link> aller Größen empfehlen wir unseren Ratgeber.
         </p>
       </SeoSection>
 
@@ -143,7 +143,7 @@ export default function Container10Fuss() {
         </p>
         <SeoTable headers={preisTable.headers} rows={preisTable.rows} />
         <p>
-          Hinzu kommen Transportkosten, die sich nach Lieferentfernung und Abladeaufwand richten. Sie erhalten die genauen Gesamtkosten in Ihrem individuellen Angebot. Für einen umfassenden Überblick über alle <Link to="/container-kosten" className="text-orange-500 hover:underline">Container Kosten</Link> inklusive Transport und Nebenkosten lesen Sie unseren Preisratgeber.
+          Hinzu kommen Transportkosten, die sich nach Lieferentfernung und Abladeaufwand richten. Sie erhalten die genauen Gesamtkosten in Ihrem individuellen Angebot. Für einen umfassenden Überblick über alle <Link to="/container-kosten" className="text-blue-500 hover:underline">Container Kosten</Link> inklusive Transport und Nebenkosten lesen Sie unseren Preisratgeber.
         </p>
       </SeoSection>
 
@@ -166,7 +166,7 @@ export default function Container10Fuss() {
           </li>
         </ul>
         <p>
-          Alle Zustandsklassen finden Sie auch in unserem <Link to="/shop?size=10ft" className="text-orange-500 hover:underline">Shop gefiltert nach 10 Fuß Containern</Link>.
+          Alle Zustandsklassen finden Sie auch in unserem <Link to="/shop?size=10ft" className="text-blue-500 hover:underline">Shop gefiltert nach 10 Fuß Containern</Link>.
         </p>
       </SeoSection>
 
@@ -180,7 +180,7 @@ export default function Container10Fuss() {
           <li><strong className="text-foreground">Baustellen-Depot:</strong> Werkzeuge, Materialien und Kleingeräte direkt auf der Baustelle lagern. Der robuste Stahlbau schützt vor Diebstahl und Witterung.</li>
           <li><strong className="text-foreground">Archiv & Aktenlager:</strong> Wichtige Unterlagen trocken und sicher aufbewahren. Durch die hermetische Dichtigkeit ist der Container auch für empfindliche Dokumente geeignet.</li>
           <li><strong className="text-foreground">Event & Pop-up Store:</strong> Der 10 Fuß Container lässt sich schnell aufstellen und als temporärer Verkaufsstand, Bar oder Info-Pavillon nutzen.</li>
-          <li><strong className="text-foreground">Modulares Bauen:</strong> Als Basismodul für größere Containerprojekte. Mehrere 10 Fuß Container lassen sich zu individuellen Raumlösungen kombinieren – z. B. als Gartenhaus oder <Link to="/buerocontainer-kaufen" className="text-orange-500 hover:underline">Bürocontainer</Link>.</li>
+          <li><strong className="text-foreground">Modulares Bauen:</strong> Als Basismodul für größere Containerprojekte. Mehrere 10 Fuß Container lassen sich zu individuellen Raumlösungen kombinieren – z. B. als Gartenhaus oder <Link to="/buerocontainer-kaufen" className="text-blue-500 hover:underline">Bürocontainer</Link>.</li>
           <li><strong className="text-foreground">Gastronomie & Foodtruck-Basis:</strong> Der überschaubare Grundriss ist ideal für mobilen Kaffee- oder Snack-Verkauf, als Küche oder Schankanlage.</li>
         </ul>
       </SeoSection>
@@ -191,13 +191,13 @@ export default function Container10Fuss() {
           DIE Container GmbH liefert 10 Fuß Container deutschlandweit per Kranwagen direkt an Ihren gewünschten Aufstellort. Da der Container nur ca. 1.300–1.500 kg wiegt, sind auch beengte Zufahrtssituationen oft problemlos handhabbar.
         </p>
         <p>
-          Wichtig für die Lieferplanung: Der Unterstellplatz sollte eben und tragfähig sein. Für weichen Untergrund (Rasen, lockere Erde) empfehlen wir eine einfache Fundamentlösung. Unser <Link to="/container-fundament" className="text-orange-500 hover:underline">Ratgeber zu Container-Fundamenten</Link> zeigt alle gängigen Varianten mit Kosten- und Aufwandsschätzung.
+          Wichtig für die Lieferplanung: Der Unterstellplatz sollte eben und tragfähig sein. Für weichen Untergrund (Rasen, lockere Erde) empfehlen wir eine einfache Fundamentlösung. Unser <Link to="/container-fundament" className="text-blue-500 hover:underline">Ratgeber zu Container-Fundamenten</Link> zeigt alle gängigen Varianten mit Kosten- und Aufwandsschätzung.
         </p>
         <p>
-          Die Standard-Lieferzeit beträgt 3–7 Werktage. Express-Lieferung innerhalb von 72 Stunden ist möglich. Alle Details zu Ablauf, Anforderungen und Kosten finden Sie in unserem <Link to="/container-lieferung" className="text-orange-500 hover:underline">Ratgeber zur Container Lieferung</Link>.
+          Die Standard-Lieferzeit beträgt 3–7 Werktage. Express-Lieferung innerhalb von 72 Stunden ist möglich. Alle Details zu Ablauf, Anforderungen und Kosten finden Sie in unserem <Link to="/container-lieferung" className="text-blue-500 hover:underline">Ratgeber zur Container Lieferung</Link>.
         </p>
         <p>
-          Für die meisten kurzfristigen Aufstellungen (unter 3 Monaten) ist in Deutschland keine Baugenehmigung erforderlich. Bei dauerhafter Nutzung sollten Sie vorab das Bauamt kontaktieren. Mehr dazu in unserem <Link to="/container-genehmigung" className="text-orange-500 hover:underline">Leitfaden zur Container Genehmigung</Link>.
+          Für die meisten kurzfristigen Aufstellungen (unter 3 Monaten) ist in Deutschland keine Baugenehmigung erforderlich. Bei dauerhafter Nutzung sollten Sie vorab das Bauamt kontaktieren. Mehr dazu in unserem <Link to="/container-genehmigung" className="text-blue-500 hover:underline">Leitfaden zur Container Genehmigung</Link>.
         </p>
       </SeoSection>
 

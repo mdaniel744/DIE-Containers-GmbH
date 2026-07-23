@@ -29,7 +29,7 @@ export default function AdminLayout({ children }) {
     <nav className="flex flex-col h-full">
       {/* Logo */}
       <div className="flex items-center gap-2.5 px-6 py-5 border-b border-slate-800">
-        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "#F28C28" }}>
+        <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "#1E5FAE" }}>
           <Container className="w-4 h-4 text-white" />
         </div>
         <div>
@@ -50,7 +50,7 @@ export default function AdminLayout({ children }) {
                 ? "text-white"
                 : "text-slate-400 hover:text-white hover:bg-slate-800"
             }`}
-            style={isActive(item) ? { backgroundColor: "rgba(242,140,40,0.15)", color: "#F28C28" } : {}}
+            style={isActive(item) ? { backgroundColor: "rgba(30,95,174,0.15)", color: "#1E5FAE" } : {}}
           >
             <item.icon className="w-4 h-4 shrink-0" />
             {item.label}

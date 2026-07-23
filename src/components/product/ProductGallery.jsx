@@ -82,8 +82,8 @@ export default function ProductGallery({ images, title, imageAlts = [] }) {
             onClick={() => setSelected(i)}
             className={`w-20 h-16 rounded-lg overflow-hidden border-2 shrink-0 transition-all ${
             i === selected ?
-            "border-[#F28C28] scale-[1.03]" :
-            "border-border hover:border-[#F28C28]/50"}`
+            "border-[#1E5FAE] scale-[1.03]" :
+            "border-border hover:border-[#1E5FAE]/50"}`
             }>
             
                 <img src={img} alt={imageAlts[i] || `${title} ${i + 1}`} className="w-full h-full object-cover" />

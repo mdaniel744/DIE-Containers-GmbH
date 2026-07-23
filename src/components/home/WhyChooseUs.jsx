@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
   return (
     <section className="py-20 lg:py-28 bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading label={T.label} title={T.title} description={T.description} />
+        <SectionHeading label={T.label} title={T.title} description={T.description} inverted />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {T.features.map((f, i) => (
             <motion.div
@@ -22,11 +22,11 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center p-6 rounded-xl border border-primary-foreground/10 hover:border-secondary/40 transition-colors"
+              className="text-center p-6 rounded-xl border border-white/15 hover:border-white/40 transition-colors"
             >
               {(() => { const Icon = ICONS[i]; return (
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-secondary/15 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-secondary" />
+                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
               ); })()}
               <h3 className="font-heading font-semibold text-sm mb-2">{f.title}</h3>

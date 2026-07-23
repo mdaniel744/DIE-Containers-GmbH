@@ -19,14 +19,14 @@ export default function ContactBanner() {
     >
       <div className="px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div>
-          <p className="text-xs font-mono tracking-widest uppercase mb-2" style={{ color: "#F28C28" }}>
+          <p className="text-xs font-mono tracking-widest uppercase mb-2 text-white/80">
             {T.label}
           </p>
           <h3 className="font-heading font-bold text-xl sm:text-2xl text-white mb-1">{T.title}</h3>
           <p className="text-white/60 text-sm">{T.description}</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-          <a href="tel:+491635393159" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] transition-opacity hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
+          <a href="tel:+491635393159" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-secondary font-heading font-semibold text-sm transition-colors hover:bg-white/90">
             <Phone className="w-4 h-4" />
             {T.ctaPhone}
           </a>

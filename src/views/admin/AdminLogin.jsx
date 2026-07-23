@@ -29,7 +29,7 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#F28C28" }}>
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#1E5FAE" }}>
             <Container className="w-5 h-5 text-white" />
           </div>
           <span className="font-heading font-bold text-xl text-white">DIE Container Admin</span>
@@ -48,7 +48,7 @@ export default function AdminLogin() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@diecontainers.com"
                 required
-                className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-orange-500"
+                className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500"
               />
             </div>
             <div>
@@ -59,7 +59,7 @@ export default function AdminLogin() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-orange-500"
+                className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-blue-500"
               />
             </div>
 
@@ -70,8 +70,8 @@ export default function AdminLogin() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full h-11 font-heading font-semibold text-slate-900 hover:opacity-90"
-              style={{ backgroundColor: "#F28C28" }}
+              className="w-full h-11 font-heading font-semibold text-white hover:opacity-90"
+              style={{ backgroundColor: "#1E5FAE" }}
             >
               {loading ? "Anmelden..." : "Anmelden"}
             </Button>

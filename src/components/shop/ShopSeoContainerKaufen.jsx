@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CheckCircle, Package, Wrench, Building2, Thermometer } from "lucide-react";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Image assets â”€â”€ */
@@ -92,7 +92,7 @@ const FAQS = [
 
 /* â”€â”€ Inline link helper â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: ORANGE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
 }
 
 /* â”€â”€ Section heading â”€â”€ */
@@ -133,7 +133,7 @@ export default function ShopSeoContainerKaufen() {
 
       {/* â”€â”€ H2: Container kaufen leicht gemacht â”€â”€ */}
       <div className="mb-12">
-        <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Ratgeber</span>
+        <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Ratgeber</span>
         <h1 className="font-heading font-bold text-2xl lg:text-3xl text-foreground tracking-tight mb-5">
           Container kaufen – neue und gebrauchte Container für jeden Bedarf
         </h1>
@@ -174,7 +174,7 @@ export default function ShopSeoContainerKaufen() {
             >
               <Link
                 to={card.href}
-                className="group flex flex-col h-full rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-orange-200 transition-all bg-card"
+                className="group flex flex-col h-full rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-blue-200 transition-all bg-card"
               >
                 <div className="h-44 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50">
                   <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
@@ -185,7 +185,7 @@ export default function ShopSeoContainerKaufen() {
                     <h3 className="font-heading font-bold text-sm text-foreground group-hover:text-[#1B3A5C] transition-colors">{card.title}</h3>
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed flex-1">{card.desc}</p>
-                  <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold font-heading" style={{ color: ORANGE }}>
+                  <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
                     {card.linkText} <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -219,7 +219,7 @@ export default function ShopSeoContainerKaufen() {
           </div>
           {/* Gebrauchte */}
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
-            <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${ORANGE}15, transparent)` }}>
+            <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${BRAND_BLUE}15, transparent)` }}>
               <h3 className="font-heading font-bold text-sm text-foreground">Gebrauchte Container (Cargo-Worthy)</h3>
             </div>
             <div className="p-5 text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -281,7 +281,7 @@ export default function ShopSeoContainerKaufen() {
             <div className="p-5">
               <h3 className="font-heading font-bold text-sm text-foreground mb-2">20 Fuß Container</h3>
               <p className="text-xs text-muted-foreground leading-relaxed mb-3">Der Allrounder: ca. 6,06 m lang, 2,44 m breit, 2,59 m hoch. Ausreichend Platz für die meisten Lager- und Gewerbeanwendungen.</p>
-              <Link to="/20-fuss-container-kaufen" className="inline-flex items-center gap-1 text-xs font-semibold font-heading" style={{ color: ORANGE }}>
+              <Link to="/20-fuss-container-kaufen" className="inline-flex items-center gap-1 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
                 20 Fuß Container kaufen <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -293,7 +293,7 @@ export default function ShopSeoContainerKaufen() {
             <div className="p-5">
               <h3 className="font-heading font-bold text-sm text-foreground mb-2">40 Fuß Container</h3>
               <p className="text-xs text-muted-foreground leading-relaxed mb-3">Maximales Volumen: ca. 12,19 m lang, 2,44 m breit, 2,59 m hoch. Für große Lagerflächen und industrielle Projekte.</p>
-              <Link to="/40-fuss-container-kaufen" className="inline-flex items-center gap-1 text-xs font-semibold font-heading" style={{ color: ORANGE }}>
+              <Link to="/40-fuss-container-kaufen" className="inline-flex items-center gap-1 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
                 40 Fuß Container kaufen <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -330,7 +330,7 @@ export default function ShopSeoContainerKaufen() {
         </div>
         <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
           <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-            <Wrench className="w-4 h-4" style={{ color: ORANGE }} />
+            <Wrench className="w-4 h-4" style={{ color: BRAND_BLUE }} />
             Checkliste vor dem Kauf
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -378,8 +378,8 @@ export default function ShopSeoContainerKaufen() {
         </div>
         <Link
           to="/shop"
-          className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-          style={{ backgroundColor: ORANGE }}
+          className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+          style={{ backgroundColor: BRAND_BLUE }}
         >
           Angebot anfordern <ArrowRight className="w-4 h-4" />
         </Link>
@@ -387,7 +387,7 @@ export default function ShopSeoContainerKaufen() {
 
       {/* â”€â”€ FAQ â”€â”€ */}
       <div className="mb-10">
-        <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
+        <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
         <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground mb-5">Häufige Fragen zum Containerkauf</h2>
         <div className="space-y-2">
           {FAQS.map((faq, i) => (
@@ -411,10 +411,10 @@ export default function ShopSeoContainerKaufen() {
             <Link
               key={i}
               to={link.href}
-              className="flex items-center justify-between gap-3 p-4 bg-card border border-border rounded-xl hover:border-orange-300 hover:shadow-sm transition-all group"
+              className="flex items-center justify-between gap-3 p-4 bg-card border border-border rounded-xl hover:border-blue-300 hover:shadow-sm transition-all group"
             >
-              <p className="font-heading font-semibold text-sm text-foreground group-hover:text-orange-600 transition-colors">{link.title}</p>
-              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-orange-500 shrink-0 transition-colors" />
+              <p className="font-heading font-semibold text-sm text-foreground group-hover:text-blue-600 transition-colors">{link.title}</p>
+              <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 shrink-0 transition-colors" />
             </Link>
           ))}
         </div>

@@ -29,7 +29,7 @@ export default function Warenkorb() {
           <p className="text-muted-foreground">Entdecken Sie unsere Container und fügen Sie sie hinzu.</p>
         </div>
         <Link to="/shop">
-          <Button style={{ backgroundColor: "#F28C28", color: "#1a1a1a" }} className="font-heading font-semibold px-8 h-11">
+          <Button style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }} className="font-heading font-semibold px-8 h-11">
             Container entdecken <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </Link>
@@ -81,7 +81,7 @@ export default function Warenkorb() {
                         alt={item.product.title}
                         className="w-16 h-12 object-cover rounded-lg flex-shrink-0"
                       />
-                      <Link to={`/produkt/${item.product.slug || item.product.id}`} className="font-heading font-semibold text-sm hover:text-[#F28C28] transition-colors line-clamp-2">
+                      <Link to={`/produkt/${item.product.slug || item.product.id}`} className="font-heading font-semibold text-sm hover:text-[#1E5FAE] transition-colors line-clamp-2">
                         {item.product.title}
                       </Link>
                     </div>
@@ -163,7 +163,7 @@ export default function Warenkorb() {
             <Button
               onClick={() => navigate("/kasse")}
               className="w-full mt-6 h-12 font-heading font-bold text-base"
-              style={{ backgroundColor: "#F28C28", color: "#1a1a1a" }}
+              style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }}
             >
               Weiter Zur Kasse <ArrowRight className="w-4 h-4 ml-2" />
             </Button>

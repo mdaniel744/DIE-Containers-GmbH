@@ -6,7 +6,6 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import { Search, MapPin, FileText, Mail, Truck, Phone, AtSign, Clock, ArrowRight } from "lucide-react";
 import { useSection } from "@/lib/i18n";
 
-const ORANGE = "#F28C28";
 const STEP_ICONS = [Search, MapPin, FileText, Mail, Truck];
 
 export default function DeliveryProcess() {
@@ -43,14 +42,14 @@ export default function DeliveryProcess() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
-              <p className="font-mono text-xs tracking-widest uppercase mb-2" style={{ color: ORANGE }}>{T.contactLabel}</p>
+              <p className="font-mono text-xs tracking-widest uppercase mb-2 text-white/80">{T.contactLabel}</p>
               <h2 className="font-heading font-bold text-white text-2xl lg:text-3xl leading-tight">{T.contactTitle}</h2>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 text-white/80 text-sm">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(242,140,40,0.2)" }}>
-                  <Phone className="w-4 h-4" style={{ color: ORANGE }} />
+                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">{T.phoneLabel}</p>
@@ -58,8 +57,8 @@ export default function DeliveryProcess() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(242,140,40,0.2)" }}>
-                  <AtSign className="w-4 h-4" style={{ color: ORANGE }} />
+                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <AtSign className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">{T.emailLabel}</p>
@@ -67,8 +66,8 @@ export default function DeliveryProcess() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(242,140,40,0.2)" }}>
-                  <Clock className="w-4 h-4" style={{ color: ORANGE }} />
+                <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 text-white" />
                 </div>
                 <div>
                   <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">{T.hoursLabel}</p>
@@ -78,7 +77,7 @@ export default function DeliveryProcess() {
             </div>
 
             <div className="shrink-0">
-              <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-bold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity shadow-lg" style={{ backgroundColor: ORANGE }}>
+              <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-white text-secondary font-heading font-bold text-sm hover:bg-white/90 transition-colors shadow-lg">
                 <Truck className="w-4 h-4" />
                 {T.contactCta}
                 <ArrowRight className="w-4 h-4" />

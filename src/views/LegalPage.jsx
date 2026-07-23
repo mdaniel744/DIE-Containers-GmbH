@@ -2,10 +2,10 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, MessageCircle, MapPin, CheckCircle, Truck, Shield, CreditCard, Lock, FileText, Building } from "lucide-react";
+import { Mail, MessageCircle, MapPin, CheckCircle, Truck, Shield, CreditCard, Lock, FileText, Building, AlertTriangle } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 const legalContent = {
@@ -59,7 +59,7 @@ function Section({ number, title, children }) {
   return (
     <div className="mb-8">
       <div className="flex items-center gap-3 mb-3">
-        <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white font-heading" style={{ backgroundColor: ORANGE }}>
+        <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white font-heading" style={{ backgroundColor: BRAND_BLUE }}>
           {number}
         </span>
         <h2 className="font-heading font-bold text-base text-foreground">{title}</h2>
@@ -76,7 +76,7 @@ function BulletList({ items }) {
     <ul className="space-y-1.5 mt-2">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2">
-          <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: ORANGE }} />
+          <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: BRAND_BLUE }} />
           <span>{item}</span>
         </li>
       ))}
@@ -106,7 +106,7 @@ function ContactBlock() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 items-stretch">
           <a href="mailto:contact@diecontainers.com"
             className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
-            <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
+            <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">E-Mail</p>
               <p className="text-sm font-semibold text-white leading-tight break-all">contact@diecontainers.com</p>
@@ -114,14 +114,14 @@ function ContactBlock() {
           </a>
           <a href="https://wa.me/491635393159" target="_blank" rel="noopener noreferrer"
             className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
-            <MessageCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
+            <MessageCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">WhatsApp</p>
               <p className="text-sm font-semibold text-white leading-tight">0049 163 5393 159</p>
             </div>
           </a>
           <div className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-4">
-            <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
+            <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">Adresse</p>
               <p className="text-sm font-semibold text-white leading-tight">Hermann-Oberth-Str. 23, 85640 Putzbrunn</p>
@@ -173,7 +173,7 @@ function ZahlungsbedingungenPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Zahlungsbedingungen & Zahlungsrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Bei DIE Container GmbH legen wir großen Wert auf transparente, sichere und nachvollziehbare Zahlungsprozesse – ohne versteckte Gebühren oder zwischengeschaltete Zahlungsdienstleister.
@@ -183,7 +183,7 @@ function ZahlungsbedingungenPage() {
           <div className="divide-y divide-border">
             <Section number="1" title="Verfügbare Zahlungsmethoden">
               <div className="bg-muted/50 rounded-xl px-4 py-4 flex items-start gap-3">
-                <Building className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
+                <Building className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
                 <div>
                   <p className="font-heading font-semibold text-foreground text-sm mb-1">Banküberweisung (SEPA – Vorkasse)</p>
                   <p>Die Zahlung erfolgt per SEPA-Banküberweisung auf unser offizielles Geschäftskonto.</p>
@@ -196,8 +196,9 @@ function ZahlungsbedingungenPage() {
                 "Die Zahlung ist sofort und ohne Abzug fällig",
                 "Nach Zahlungseingang wird der Container für die Lieferung freigegeben",
               ]} />
-              <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                <p className="text-xs text-amber-800"><strong>âš ï¸ Wichtiger Hinweis:</strong> Zahlungen sind ausschließlich auf das offizielle Firmenkonto von DIE Container GmbH zu leisten, das Ihnen im Rechnungsdokument mitgeteilt wird.</p>
+              <div className="mt-3 flex items-start gap-2 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+                <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5 text-blue-700" aria-hidden="true" />
+                <p className="text-xs text-blue-800"><strong>Wichtiger Hinweis:</strong> Zahlungen sind ausschließlich auf das offizielle Firmenkonto von DIE Container GmbH zu leisten, das Ihnen im Rechnungsdokument mitgeteilt wird.</p>
               </div>
             </Section>
 
@@ -212,8 +213,9 @@ function ZahlungsbedingungenPage() {
                 "Versand bzw. Disposition des Containers erst nach Zahlungseingang",
                 "Organisation der Lieferung",
               ]} />
-              <div className="mt-3 bg-muted/50 rounded-xl px-4 py-3">
-                <p className="text-xs text-muted-foreground"><strong className="text-foreground">ðŸ“„ Rechnung & Beleg:</strong> Nach Zahlungseingang erhalten Sie die Rechnung im Originalformat per E-Mail. Auf Wunsch stellen wir Ihnen zusätzlich einen Zahlungsbeleg als PDF mit Stempel und Unterschrift für Ihre Buchhaltung zur Verfügung.</p>
+              <div className="mt-3 flex items-start gap-2 bg-muted/50 rounded-xl px-4 py-3">
+                <FileText className="w-4 h-4 shrink-0 mt-0.5 text-primary" aria-hidden="true" />
+                <p className="text-xs text-muted-foreground"><strong className="text-foreground">Rechnung & Beleg:</strong> Nach Zahlungseingang erhalten Sie die Rechnung im Originalformat per E-Mail. Auf Wunsch stellen wir Ihnen zusätzlich einen Zahlungsbeleg als PDF mit Stempel und Unterschrift für Ihre Buchhaltung zur Verfügung.</p>
               </div>
             </Section>
 
@@ -235,7 +237,7 @@ function ZahlungsbedingungenPage() {
                   { icon: FileText, text: "Alle Daten werden gemäß Datenschutzbestimmungen verarbeitet" },
                 ].map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-start gap-3 bg-muted/50 rounded-xl px-4 py-3">
-                    <Icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: ORANGE }} />
+                    <Icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
                     <span className="text-sm">{text}</span>
                   </div>
                 ))}
@@ -260,7 +262,7 @@ function AgbPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
@@ -278,7 +280,7 @@ function AgbPage() {
 
             <Section number="2" title="Preise & Zahlung">
               <BulletList items={[
-                "Alle Preise sind in Euro (â‚¬) angegeben und beinhalten – sofern nicht anders angegeben – die gesetzliche Mehrwertsteuer (derzeit 19 %).",
+                "Alle Preise sind in Euro (\u20AC) angegeben und beinhalten – sofern nicht anders angegeben – die gesetzliche Mehrwertsteuer (derzeit 19 %).",
                 "Lieferkosten variieren je nach Bestellmenge und Lieferadresse innerhalb Deutschlands.",
                 "Die Zahlung erfolgt ausschließlich per Vorkasse (100 %) via Banküberweisung.",
                 "Die Lieferung erfolgt erst nach vollständigem Zahlungseingang.",
@@ -367,7 +369,7 @@ function DatenschutzPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Datenschutzerklärung</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Wir bei DIE Container GmbH verstehen, dass einige Ihrer persönlichen Daten sensibler Natur sind und Sie vielleicht Bedenken haben, diese persönlichen Daten mit uns zu teilen. Wenn Sie sich jedoch dafür entscheiden, mit uns zu interagieren oder uns Ihre Daten mitzuteilen, werden wir Ihre Privatsphäre auf die in dieser Richtlinie aufgeführte Weise schützen. Diese Richtlinie kann sich von Zeit zu Zeit ändern, daher sollten Sie sich über Änderungen informieren.
@@ -417,7 +419,7 @@ function RueckgabePage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rückgabe & Erstattung</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rückgabe & Erstattung</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Rückgabe- und Erstattungsrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Alle Informationen zu Rückgaberecht, Reklamationen, Erstattungsverfahren und Ausnahmen beim Kauf von Containern über unseren Online-Shop.
@@ -493,9 +495,9 @@ function RueckgabePage() {
               <ContactBlock />
               <div className="mt-4">
                 <Link to="/kontakt"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: ORANGE }}>
-                  Reklamation einreichen â†’
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: BRAND_BLUE }}>
+                  Reklamation einreichen <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </Section>
@@ -519,7 +521,7 @@ function VersandPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Versand</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Versand</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Liefer- & Versandrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Alle Informationen zu Liefergebiet, Lieferzeiten, Transportkosten und dem Ablauf Ihrer Containerlieferung.
@@ -534,7 +536,7 @@ function VersandPage() {
 
             <Section number="2" title="Lieferzeiten">
               <div className="bg-muted/50 rounded-xl px-4 py-3 flex items-center gap-3">
-                <Truck className="w-5 h-5 flex-shrink-0" style={{ color: ORANGE }} />
+                <Truck className="w-5 h-5 flex-shrink-0" style={{ color: BRAND_BLUE }} />
                 <span><strong className="text-foreground">Standardlieferzeit:</strong> 3–9 Werktage nach Auftragsannahme</span>
               </div>
               <p className="mt-2">Lieferzeiten können abhängig von folgenden Faktoren variieren:</p>
@@ -581,7 +583,7 @@ function VersandPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                 {promises.map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3">
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: ORANGE }} />
+                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: BRAND_BLUE }} />
                     <span className="font-medium text-foreground text-sm">{text}</span>
                   </div>
                 ))}
@@ -593,9 +595,9 @@ function VersandPage() {
               <ContactBlock />
               <div className="mt-4">
                 <Link to="/shop"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: ORANGE }}>
-                  Transportangebot anfordern â†’
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: BRAND_BLUE }}>
+                  Transportangebot anfordern <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </Section>
@@ -612,7 +614,7 @@ function GeneralTermsPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen <strong className="text-foreground">DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland</strong> und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
@@ -628,7 +630,7 @@ function GeneralTermsPage() {
             </Section>
             <Section number="2" title="Preise & Zahlung">
               <BulletList items={[
-                "Alle Preise sind in Euro (â‚¬) angegeben und beinhalten – sofern nicht anders angegeben – die gesetzliche Mehrwertsteuer (derzeit 19 %).",
+                "Alle Preise sind in Euro (\u20AC) angegeben und beinhalten – sofern nicht anders angegeben – die gesetzliche Mehrwertsteuer (derzeit 19 %).",
                 "Lieferkosten variieren je nach Bestellmenge und Lieferadresse innerhalb Deutschlands.",
                 "Die Zahlung erfolgt ausschließlich per Vorkasse (100 %) via Banküberweisung.",
                 "Die Lieferung erfolgt erst nach vollständigem Zahlungseingang.",
@@ -711,7 +713,7 @@ function VatDutiesPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Mehrwertsteuer & Zölle</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Alle Preise beinhalten 19 % MwSt. und werden klar ausgewiesen. DIE Container GmbH gewährleistet eine transparente Preisgestaltung und stellt jedem Kunden eine detaillierte Rechnung mit allen steuerlichen Informationen zur Verfügung.
@@ -753,8 +755,8 @@ function VatDutiesPage() {
                 "Die Ware wird physisch in andere EU-Länder geliefert.",
                 "Der Käufer hat seinen Sitz außerhalb Deutschlands.",
               ]} />
-              <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                <p className="text-xs text-amber-800"><strong>Hinweis:</strong> Bitte kontaktieren Sie uns vor der Bestellung, damit wir die Voraussetzungen prüfen und die steuerfreie Lieferung korrekt dokumentieren können.</p>
+              <div className="mt-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+                <p className="text-xs text-blue-800"><strong>Hinweis:</strong> Bitte kontaktieren Sie uns vor der Bestellung, damit wir die Voraussetzungen prüfen und die steuerfreie Lieferung korrekt dokumentieren können.</p>
               </div>
             </Section>
             <Section number="5" title="Steuerfreie Exporte außerhalb der EU">
@@ -800,7 +802,7 @@ function CookiePolicyPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Cookie-Richtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website diecontainers.com besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemäß dieser Richtlinie zu.
@@ -815,7 +817,7 @@ function CookiePolicyPage() {
                 {[
                   { type: "Notwendige Cookies", desc: "Diese Cookies sind für den ordnungsgemäßen Betrieb der Website unerlässlich. Sie ermöglichen grundlegende Funktionen wie Seitennavigation, Sicherheit und Formularübermittlungen. Sie können diese Cookies nicht ablehnen.", color: "bg-blue-50 border-blue-200", text: "text-blue-800" },
                   { type: "Funktionale Cookies", desc: "Diese Cookies ermöglichen es der Website, Ihre Einstellungen (z. B. Sprachpräferenzen) zu speichern und erweiterte, personalisierte Funktionen bereitzustellen. Sie können von uns oder von Drittanbietern gesetzt werden.", color: "bg-green-50 border-green-200", text: "text-green-800" },
-                  { type: "Analyse- / Performance-Cookies", desc: "Diese Cookies erfassen anonyme Informationen darüber, wie Besucher unsere Website nutzen, z. B. welche Seiten am häufigsten aufgerufen werden. So können wir die Leistung und Benutzerfreundlichkeit der Website verbessern.", color: "bg-amber-50 border-amber-200", text: "text-amber-800" },
+                  { type: "Analyse- / Performance-Cookies", desc: "Diese Cookies erfassen anonyme Informationen darüber, wie Besucher unsere Website nutzen, z. B. welche Seiten am häufigsten aufgerufen werden. So können wir die Leistung und Benutzerfreundlichkeit der Website verbessern.", color: "bg-blue-50 border-blue-200", text: "text-blue-800" },
                   { type: "Marketing-Cookies", desc: "Diese Cookies verfolgen Ihre Surfaktivitäten, um relevante Werbung auszuspielen. Wir verwenden derzeit keine Marketing-Cookies von Drittanbietern. Sollte sich dies ändern, werden wir diese Richtlinie aktualisieren und Ihre Einwilligung einholen.", color: "bg-rose-50 border-rose-200", text: "text-rose-800" },
                 ].map((item, i) => (
                   <div key={i} className={`rounded-xl border px-4 py-4 ${item.color}`}>
@@ -841,8 +843,8 @@ function CookiePolicyPage() {
                 "Einwilligung: Beim ersten Besuch unserer Website kann Ihnen ein Cookie-Einwilligungsbanner angezeigt werden. Sie können Ihre Einstellungen jederzeit ändern.",
                 "Opt-out-Tools: Für Analyse-Dienste können Sie verfügbare Opt-out-Tools nutzen (z. B. Google Analytics Opt-out-Browser-Add-on).",
               ]} />
-              <div className="mt-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                <p className="text-xs text-amber-800"><strong>Bitte beachten:</strong> Das Deaktivieren bestimmter Cookies kann die Funktionalität unserer Website beeinträchtigen und den Zugang zu einigen Funktionen einschränken.</p>
+              <div className="mt-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
+                <p className="text-xs text-blue-800"><strong>Bitte beachten:</strong> Das Deaktivieren bestimmter Cookies kann die Funktionalität unserer Website beeinträchtigen und den Zugang zu einigen Funktionen einschränken.</p>
               </div>
             </Section>
             <Section number="6" title="Rechtsgrundlage">

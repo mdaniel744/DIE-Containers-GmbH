@@ -11,7 +11,7 @@ const IMG_CLOSED_BLUE = "/images/double-door-40hc-ral5010-closed.jpg";
 const IMG_OPEN_BLUE = "/images/double-door-40hc-ral5010-open.jpg";
 
 function IL({ to, children }) {
-  return <Link to={to} className="text-orange-500 hover:underline font-semibold">{children}</Link>;
+  return <Link to={to} className="text-blue-500 hover:underline font-semibold">{children}</Link>;
 }
 
 function BulletList({ items }) {
@@ -19,7 +19,7 @@ function BulletList({ items }) {
     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-4">
       {items.map((item) => (
         <li key={item} className="flex gap-2 text-sm text-muted-foreground">
-          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-orange-500 shrink-0" />
+          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-blue-500 shrink-0" />
           <span>{item}</span>
         </li>
       ))}

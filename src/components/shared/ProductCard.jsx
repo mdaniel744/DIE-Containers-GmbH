@@ -18,7 +18,7 @@ const CONDITION_DISPLAY = {
 const badgeStyles = {
   Neu: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20",
   Gebraucht: "bg-blue-500/10 text-blue-700 border-blue-500/20",
-  Bestseller: "bg-amber-500/10 text-amber-700 border-amber-500/20",
+  Bestseller: "bg-blue-500/10 text-blue-700 border-blue-500/20",
   Angebot: "bg-rose-500/10 text-rose-700 border-rose-500/20",
 };
 
@@ -76,8 +76,8 @@ export default function ProductCard({ product, index = 0 }) {
           <Button
             size="sm"
             onClick={handleAddToCart}
-            className="w-full text-xs font-medium text-[#1a1a1a] hover:opacity-90"
-            style={{ backgroundColor: "#F28C28" }}
+            className="w-full text-xs font-medium text-white hover:opacity-90"
+            style={{ backgroundColor: "#1E5FAE" }}
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
             {T.cart}

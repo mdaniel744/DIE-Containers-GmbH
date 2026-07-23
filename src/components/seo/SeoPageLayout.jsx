@@ -6,7 +6,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
 export { default as ContainerDiagram } from "./ContainerDiagram";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 export function SeoPageLayout({ breadcrumb, label, title, intro, children, embedded = false }) {
   return (
@@ -31,7 +31,7 @@ export function SeoPageLayout({ breadcrumb, label, title, intro, children, embed
 
         {!embedded && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           {label && (
-            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>
+            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>
               {label}
             </span>
           )}
@@ -90,13 +90,13 @@ export function InternalLinkGrid({ links }) {
         <Link
           key={i}
           to={link.href}
-          className="flex items-center justify-between gap-3 p-4 bg-card border border-border rounded-xl hover:border-orange-300 hover:shadow-sm transition-all group"
+          className="flex items-center justify-between gap-3 p-4 bg-card border border-border rounded-xl hover:border-blue-300 hover:shadow-sm transition-all group"
         >
           <div>
-            <p className="font-heading font-semibold text-sm text-foreground group-hover:text-orange-600 transition-colors">{link.title}</p>
+            <p className="font-heading font-semibold text-sm text-foreground group-hover:text-blue-600 transition-colors">{link.title}</p>
             {link.desc && <p className="text-xs text-muted-foreground mt-0.5">{link.desc}</p>}
           </div>
-          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-orange-500 shrink-0 transition-colors" />
+          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 shrink-0 transition-colors" />
         </Link>
       ))}
     </div>
@@ -133,8 +133,8 @@ export function CtaBanner({ text, btnLabel, btnHref }) {
       <p className="font-heading font-bold text-white text-lg sm:text-xl">{text}</p>
       <Link
         to={btnHref || "/angebot"}
-        className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-        style={{ backgroundColor: ORANGE }}
+        className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+        style={{ backgroundColor: BRAND_BLUE }}
       >
         {btnLabel || "Angebot anfordern"}
         <ArrowRight className="w-4 h-4" />

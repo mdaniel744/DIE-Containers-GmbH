@@ -139,7 +139,7 @@ export default function ShopFilters({ filters, setFilters, priceRange, setPriceR
                     })}
                     title={option.label}
                     className={`w-8 h-8 rounded-full border-2 transition-all ${
-                      isChecked ? "border-[#F28C28] scale-110 shadow-md" : "border-border hover:border-[#F28C28]/50"
+                      isChecked ? "border-[#1E5FAE] scale-110 shadow-md" : "border-border hover:border-[#1E5FAE]/50"
                     }`}
                     style={{ backgroundColor: COLOR_MAP[option.value] || FALLBACK_COLOR }}
                   />

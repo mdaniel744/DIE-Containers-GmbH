@@ -6,7 +6,7 @@ import { ChevronRight, Phone, CheckCircle, AlertTriangle, ArrowRight, Info } fro
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Image assets â”€â”€ */
@@ -53,7 +53,7 @@ const TRUCK_TYPES = [
 {
   title: "Kipper-Tieflader (Tilt Trailer)",
   badge: "Häufigste Methode",
-  badgeColor: ORANGE,
+  badgeColor: BRAND_BLUE,
   desc: "Der Kipper-Tieflader ist die gängigste Methode für Containerlieferungen. Das Fahrzeug fährt rückwärts an die Abstellposition, neigt die Ladefläche hydraulisch und lässt den Container langsam auf den Boden gleiten – ganz ohne Kran oder Maschinen vor Ort.",
   pros: [
   "Kein Kran oder Gabelstapler vor Ort benötigt",
@@ -170,8 +170,8 @@ function DeliveryDiagram() {
         <text x="110" y="148" textAnchor="middle" fontSize="9" fill="white" fontFamily="monospace">TILT TRAILER</text>
 
         {/* Tilting bed arrow */}
-        <line x1="190" y1="142" x2="310" y2="100" stroke={ORANGE} strokeWidth="3" strokeLinecap="round" strokeDasharray="5 3" />
-        <path d="M300 96 L310 100 L305 110" stroke={ORANGE} strokeWidth="2" fill="none" strokeLinecap="round" />
+        <line x1="190" y1="142" x2="310" y2="100" stroke={BRAND_BLUE} strokeWidth="3" strokeLinecap="round" strokeDasharray="5 3" />
+        <path d="M300 96 L310 100 L305 110" stroke={BRAND_BLUE} strokeWidth="2" fill="none" strokeLinecap="round" />
 
         {/* Container being placed */}
         <rect x="270" y="115" width="100" height="50" rx="4" fill="#3a6aaa" stroke="#ddeeff" strokeWidth="1.5" />
@@ -179,12 +179,12 @@ function DeliveryDiagram() {
         <line key={i} x1={x} y1="115" x2={x} y2="165" stroke="#ddeeff" strokeWidth="0.8" strokeOpacity="0.4" />
         )}
         {[[270, 115], [370, 115], [270, 165], [370, 165]].map(([cx, cy], i) =>
-        <rect key={i} x={cx - 4} y={cy - 4} width="8" height="8" rx="1" fill={ORANGE} stroke="rgba(0,0,0,0.3)" strokeWidth="0.5" />
+        <rect key={i} x={cx - 4} y={cy - 4} width="8" height="8" rx="1" fill={BRAND_BLUE} stroke="rgba(0,0,0,0.3)" strokeWidth="0.5" />
         )}
         <text x="320" y="144" textAnchor="middle" fontSize="9" fill="white" fontFamily="monospace">CONTAINER</text>
 
         {/* Ground target */}
-        <rect x="270" y="168" width="100" height="6" rx="2" fill={ORANGE} opacity="0.3" strokeDasharray="4 2" stroke={ORANGE} strokeWidth="1" />
+        <rect x="270" y="168" width="100" height="6" rx="2" fill={BRAND_BLUE} opacity="0.3" strokeDasharray="4 2" stroke={BRAND_BLUE} strokeWidth="1" />
 
         {/* Width arrow */}
         <line x1="30" y1="90" x2="190" y2="90" stroke="#64748b" strokeWidth="1" />
@@ -247,7 +247,7 @@ export default function ContainerLieferung() {
           </nav>
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
             <div className="flex-1">
-              <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>
+              <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>
                 Lieferservice
               </span>
               <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-4">
@@ -258,8 +258,8 @@ export default function ContainerLieferung() {
               </p>
               <div className="flex flex-wrap gap-4 mt-6">
                 <Link to="/shop"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: ORANGE }}>
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: BRAND_BLUE }}>
                   
                   Lieferangebot anfordern <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -292,7 +292,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ 5-Step Process â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Schritt für Schritt</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Schritt für Schritt</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">So läuft Ihre Container-Lieferung ab</h2>
           </div>
 
@@ -306,7 +306,7 @@ export default function ContainerLieferung() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center p-5 rounded-2xl bg-card border border-border hover:border-orange-300 hover:shadow-md transition-all">
+                className="relative flex flex-col items-center text-center p-5 rounded-2xl bg-card border border-border hover:border-blue-300 hover:shadow-md transition-all">
                 
                   <div className="w-10 h-10 rounded-full flex items-center justify-center font-heading font-bold text-xs text-white mb-3 shrink-0 relative z-10"
                 style={{ backgroundColor: NAVY }}>
@@ -324,7 +324,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ Truck Types â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Transportmethoden</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Transportmethoden</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Welches Fahrzeug wird eingesetzt?</h2>
             <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Die Wahl des Fahrzeugs hängt vom Containertyp, der Entfernung und den Zugangsbedingungen am Zielort ab.</p>
           </div>
@@ -356,9 +356,9 @@ export default function ContainerLieferung() {
                     </li>
                   )}
                 </ul>
-                <div className="mt-auto flex items-start gap-2 p-3 rounded-xl bg-amber-50 border border-amber-200 hidden">
-                  <Info className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
-                  <p className="text-xs text-amber-700">{truck.note}</p>
+                <div className="mt-auto flex items-start gap-2 p-3 rounded-xl bg-blue-50 border border-blue-200 hidden">
+                  <Info className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
+                  <p className="text-xs text-blue-700">{truck.note}</p>
                 </div>
                 </div>
               </motion.div>
@@ -378,7 +378,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ Site Requirements â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Checkliste</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Checkliste</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Was müssen Sie vorbereiten?</h2>
             <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Bereiten Sie diese Punkte vor dem Liefertag vor, um einen reibungslosen Ablauf zu gewährleisten</p>
           </div>
@@ -390,7 +390,7 @@ export default function ContainerLieferung() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className={`p-5 rounded-2xl border ${req.ok ? "bg-card border-border" : "bg-amber-50 border-amber-200"}`}>
+              className={`p-5 rounded-2xl border ${req.ok ? "bg-card border-border" : "bg-blue-50 border-blue-200"}`}>
               
                 <div className="flex items-start gap-3">
                   <span className="text-2xl shrink-0">{req.icon}</span>
@@ -399,10 +399,10 @@ export default function ContainerLieferung() {
                       <p className="font-heading font-bold text-sm text-foreground">{req.title}</p>
                       {req.ok ?
                     <CheckCircle className="w-4 h-4 text-green-500 shrink-0" /> :
-                    <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
+                    <AlertTriangle className="w-4 h-4 text-blue-500 shrink-0" />
                     }
                     </div>
-                    <p className="font-heading font-semibold text-lg leading-none mb-1" style={{ color: ORANGE }}>{req.value}</p>
+                    <p className="font-heading font-semibold text-lg leading-none mb-1" style={{ color: BRAND_BLUE }}>{req.value}</p>
                     <p className="text-xs text-muted-foreground">{req.note}</p>
                   </div>
                 </div>
@@ -431,7 +431,7 @@ export default function ContainerLieferung() {
               </div>
             </div>
             <div className="px-6 py-4 bg-muted/30 border-t border-border flex items-start gap-2">
-              <Info className="w-4 h-4 shrink-0 mt-0.5" style={{ color: ORANGE }} />
+              <Info className="w-4 h-4 shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
               <p className="text-xs text-muted-foreground">Teilen Sie uns Ihre gewünschte Türausrichtung bei der Anfrage mit, damit wir den Container entsprechend beladen können.</p>
             </div>
           </div>
@@ -443,7 +443,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ Cost Table â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-6">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>Preisübersicht</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Preisübersicht</span>
             <h2 className="font-heading font-bold text-2xl text-foreground">Transportkosten nach Entfernung</h2>
             <p className="text-muted-foreground text-sm mt-2">Richtwerte ab unserem Standort. Endpreise individuell auf Anfrage.</p>
           </div>
@@ -468,7 +468,7 @@ export default function ContainerLieferung() {
             </table>
           </div>
           <p className="text-xs text-muted-foreground mt-3 flex items-start gap-1.5">
-            <AlertTriangle className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+            <AlertTriangle className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
             Erschwernistarife gelten bei: Nachtlieferung, enger Zufahrt (unter 3,5 m), Sondergenehmigungen für Schwertransporte.
           </p>
         </section>

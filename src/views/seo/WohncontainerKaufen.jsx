@@ -6,7 +6,7 @@ import { ArrowRight, ChevronRight, CheckCircle, X, Home, Truck, ShieldCheck, Wre
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Image assets â”€â”€ */
@@ -21,7 +21,7 @@ const IMG_TRANSPORT = "/images/wohncontainer-transport-kran.jpg";
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: ORANGE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -152,7 +152,7 @@ export default function WohncontainerKaufen() {
             Wohncontainer kaufen in Deutschland – winterfeste Wohncontainer, gebrauchte Modelle, schlüsselfertige Lösungen sowie Container mit Küche und Bad. Jetzt passende Wohnlösung finden.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -224,7 +224,7 @@ export default function WohncontainerKaufen() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Snowflake className="w-4 h-4" style={{ color: ORANGE }} />
+              <Snowflake className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Worauf Sie achten sollten:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -253,7 +253,7 @@ export default function WohncontainerKaufen() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Star className="w-4 h-4" style={{ color: ORANGE }} />
+              <Star className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Typische Preisfaktoren:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -291,7 +291,7 @@ export default function WohncontainerKaufen() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Wrench className="w-4 h-4" style={{ color: ORANGE }} />
+              <Wrench className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Typische Ausstattung mit Küche und Bad:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -347,7 +347,7 @@ export default function WohncontainerKaufen() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4" style={{ color: ORANGE }} />
+              <ShieldCheck className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Checkliste für gebrauchte Wohncontainer:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -374,9 +374,9 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {STEPS.map((step, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
-                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-orange-200 transition-all">
+                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-blue-200 transition-all">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="font-heading font-bold text-lg" style={{ color: ORANGE }}>{step.num}</span>
+                  <span className="font-heading font-bold text-lg" style={{ color: BRAND_BLUE }}>{step.num}</span>
                 </div>
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">{step.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
@@ -398,7 +398,7 @@ export default function WohncontainerKaufen() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4" style={{ color: ORANGE }} />
+              <AlertTriangle className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Diese Fehler sollten Sie vermeiden:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -453,7 +453,7 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {ADVANTAGES.map((adv, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-orange-200 transition-all">
+                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-blue-200 transition-all">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${NAVY}15` }}>
                   <adv.icon className="w-5 h-5" style={{ color: NAVY }} />
                 </div>
@@ -486,14 +486,14 @@ export default function WohncontainerKaufen() {
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt Wohncontainer anfragen</h2>
             <p className="text-white/60 text-sm">Teilen Sie uns Nutzung, Ausstattung und Lieferort mit – Sie erhalten ein passendes Angebot.</p>
           </div>
-          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Wohncontainern</h2>
           <FaqAccordion items={FAQS} />
         </section>

@@ -6,12 +6,12 @@ import { ContainerSVG } from "@/components/seo/ContainerDiagram";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: ORANGE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -193,7 +193,7 @@ export default function ContainerMasse() {
             Container Maße im Überblick – 10 Fuß, 20 Fuß, 40 Fuß und High Cube Container mit Außenmaßen, Innenmaßen, Volumen, Gewicht und Türöffnungen vergleichen.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -377,7 +377,7 @@ export default function ContainerMasse() {
             </div>
             <div className="rounded-2xl border border-border bg-card p-5">
               <div className="flex items-center gap-2 mb-3">
-                <Package className="w-5 h-5" style={{ color: ORANGE }} />
+                <Package className="w-5 h-5" style={{ color: BRAND_BLUE }} />
                 <h3 className="font-heading font-bold text-sm text-foreground">Innenmaße</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -402,7 +402,7 @@ export default function ContainerMasse() {
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Container Maßen</h2>
           <FaqAccordion items={FAQS} />
         </section>

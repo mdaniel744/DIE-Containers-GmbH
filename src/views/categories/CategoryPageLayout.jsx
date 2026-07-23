@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 /**
  * Shared layout for all category pages (10ft, 20ft, 40ft, Kühl, Büro, OpenSide).
@@ -37,12 +37,12 @@ export default function CategoryPageLayout({ filterKey, filterValue, i18nSection
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs tracking-widest uppercase" style={{ color: ORANGE }}>{T.label}</span>
+            <span className="font-mono text-xs tracking-widest uppercase" style={{ color: BRAND_BLUE }}>{T.label}</span>
           </div>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-3">{T.title}</h1>
           <p className="text-muted-foreground max-w-2xl">{T.description}</p>
           <div className="mt-3 text-sm text-muted-foreground">
-            <Link to={T.guidePath} className="text-orange-500 hover:underline">{T.guideLink}</Link>
+            <Link to={T.guidePath} className="text-blue-500 hover:underline">{T.guideLink}</Link>
           </div>
         </motion.div>
 
@@ -60,7 +60,7 @@ export default function CategoryPageLayout({ filterKey, filterValue, i18nSection
           <h2 className="font-heading font-semibold text-lg mb-4">{Tpage.moreCategories}</h2>
           <div className="flex flex-wrap gap-2">
             {crossLinks.map(({ key, href }) => (
-              <Link key={href} to={href} className="px-4 py-2 bg-card border border-border rounded-lg text-sm hover:border-orange-300 transition-colors">
+              <Link key={href} to={href} className="px-4 py-2 bg-card border border-border rounded-lg text-sm hover:border-blue-300 transition-colors">
                 {Tpage.crossLinks[key]}
               </Link>
             ))}

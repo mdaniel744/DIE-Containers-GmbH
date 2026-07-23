@@ -98,7 +98,7 @@ export default function AdminProductEdit() {
 
   if (loading) return (
     <div className="flex items-center justify-center h-48">
-      <div className="w-8 h-8 border-4 border-slate-700 border-t-orange-500 rounded-full animate-spin" />
+      <div className="w-8 h-8 border-4 border-slate-700 border-t-blue-500 rounded-full animate-spin" />
     </div>
   );
 
@@ -116,7 +116,7 @@ export default function AdminProductEdit() {
             </h1>
             {!isNew && form.slug && (
               <a href={`/produkt/${form.slug}`} target="_blank"
-                className="text-xs text-orange-400 hover:text-orange-300 flex items-center gap-1 mt-0.5">
+                className="text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1 mt-0.5">
                 <Eye className="w-3 h-3" /> Vorschau
               </a>
             )}
@@ -125,8 +125,8 @@ export default function AdminProductEdit() {
         <Button
           onClick={handleSave}
           disabled={saving || !form.title}
-          className="font-heading font-semibold text-slate-900 hover:opacity-90 min-w-[120px]"
-          style={{ backgroundColor: saved ? "#10b981" : "#F28C28" }}
+          className="font-heading font-semibold text-white hover:opacity-90 min-w-[120px]"
+          style={{ backgroundColor: saved ? "#10b981" : "#1E5FAE" }}
         >
           {saving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
           {saved ? "Gespeichert!" : saving ? "Speichern..." : "Speichern"}
@@ -225,7 +225,7 @@ export default function AdminProductEdit() {
                   </button>
                 </div>
               ))}
-              <label className={`aspect-square rounded-xl border-2 border-dashed border-slate-700 flex flex-col items-center justify-center gap-1 cursor-pointer hover:border-orange-500 transition-colors ${uploadingGallery ? "opacity-50" : ""}`}>
+              <label className={`aspect-square rounded-xl border-2 border-dashed border-slate-700 flex flex-col items-center justify-center gap-1 cursor-pointer hover:border-blue-500 transition-colors ${uploadingGallery ? "opacity-50" : ""}`}>
                 {uploadingGallery ? (
                   <Loader2 className="w-5 h-5 text-slate-400 animate-spin" />
                 ) : (
@@ -312,8 +312,8 @@ export default function AdminProductEdit() {
         <Button
           onClick={handleSave}
           disabled={saving || !form.title}
-          className="font-heading font-semibold text-slate-900 hover:opacity-90 min-w-[140px]"
-          style={{ backgroundColor: saved ? "#10b981" : "#F28C28" }}
+          className="font-heading font-semibold text-white hover:opacity-90 min-w-[140px]"
+          style={{ backgroundColor: saved ? "#10b981" : "#1E5FAE" }}
         >
           {saving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
           {saved ? "Gespeichert!" : saving ? "Speichern..." : "Änderungen speichern"}
@@ -346,7 +346,7 @@ function SelectField({ value, onChange, options }) {
     <select
       value={value}
       onChange={e => onChange(e.target.value)}
-      className="w-full h-9 rounded-md bg-slate-800 border border-slate-700 text-white text-sm px-3 focus:outline-none focus:border-orange-500"
+      className="w-full h-9 rounded-md bg-slate-800 border border-slate-700 text-white text-sm px-3 focus:outline-none focus:border-blue-500"
     >
       {options.map(o => <option key={o} value={o}>{o || "– Kein Badge –"}</option>)}
     </select>
@@ -359,7 +359,7 @@ function Toggle({ label, value, onChange }) {
       <span className="text-sm text-slate-300">{label}</span>
       <button
         onClick={() => onChange(!value)}
-        className={`relative w-10 h-5 rounded-full transition-colors ${value ? "bg-orange-500" : "bg-slate-700"}`}
+        className={`relative w-10 h-5 rounded-full transition-colors ${value ? "bg-blue-500" : "bg-slate-700"}`}
       >
         <span className={`absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${value ? "translate-x-5" : "translate-x-0"}`} />
       </button>

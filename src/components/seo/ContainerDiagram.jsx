@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const STEEL_FRONT = "#2F343A";
 const STEEL_SIDE = "#474e56";
 const STEEL_TOP = "#3a4148";
@@ -107,10 +107,10 @@ export function ContainerSVG({ boxW = 100, boxD = 30, boxH = 55, lengthLabel, wi
     >
       <defs>
         <marker id={mid} markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-          <path d="M0,0 L5,2.5 L0,5 Z" fill={ORANGE} />
+          <path d="M0,0 L5,2.5 L0,5 Z" fill={BRAND_BLUE} />
         </marker>
         <marker id={mrid} markerWidth="5" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
-          <path d="M0,0 L5,2.5 L0,5 Z" fill={ORANGE} />
+          <path d="M0,0 L5,2.5 L0,5 Z" fill={BRAND_BLUE} />
         </marker>
       </defs>
 
@@ -132,45 +132,45 @@ export function ContainerSVG({ boxW = 100, boxD = 30, boxH = 55, lengthLabel, wi
 
       {/* Door */}
       <polygon points={`${dLeft.x},${dLeft.y} ${dRight.x},${dRight.y} ${dRightT.x},${dRightT.y} ${dLeftT.x},${dLeftT.y}`}
-        fill="none" stroke={ORANGE} strokeWidth="0.8" opacity="0.55" />
+        fill="none" stroke={BRAND_BLUE} strokeWidth="0.8" opacity="0.55" />
       <line x1={dMid.x} y1={dMid.y} x2={dMidT.x} y2={dMidT.y}
-        stroke={ORANGE} strokeWidth="0.6" opacity="0.45" />
+        stroke={BRAND_BLUE} strokeWidth="0.6" opacity="0.45" />
 
       {/* Corner castings */}
       {Object.values(c).map((v, i) => (
         <rect key={i} x={v.x - 3} y={v.y - 2.5} width={6} height={5} rx="0.8"
-          fill={ORANGE} opacity="0.85" />
+          fill={BRAND_BLUE} opacity="0.85" />
       ))}
 
       {/* ---- ARROWS ---- */}
 
       {/* Length */}
-      <line x1={c.fbl.x} y1={c.fbl.y} x2={La.x} y2={La.y - 4} stroke={ORANGE} strokeWidth="0.6" strokeDasharray="2,2" />
-      <line x1={c.fbr.x} y1={c.fbr.y} x2={Lb.x} y2={Lb.y - 4} stroke={ORANGE} strokeWidth="0.6" strokeDasharray="2,2" />
-      <line x1={La.x} y1={La.y} x2={Lb.x} y2={Lb.y} stroke={ORANGE} strokeWidth="1.2"
+      <line x1={c.fbl.x} y1={c.fbl.y} x2={La.x} y2={La.y - 4} stroke={BRAND_BLUE} strokeWidth="0.6" strokeDasharray="2,2" />
+      <line x1={c.fbr.x} y1={c.fbr.y} x2={Lb.x} y2={Lb.y - 4} stroke={BRAND_BLUE} strokeWidth="0.6" strokeDasharray="2,2" />
+      <line x1={La.x} y1={La.y} x2={Lb.x} y2={Lb.y} stroke={BRAND_BLUE} strokeWidth="1.2"
         markerStart={`url(#${mrid})`} markerEnd={`url(#${mid})`} />
       <text x={(La.x + Lb.x) / 2} y={Lmy} textAnchor="middle"
-        fill={ORANGE} fontSize="8" fontFamily="Montserrat,sans-serif" fontWeight="700">
+        fill={BRAND_BLUE} fontSize="8" fontFamily="Montserrat,sans-serif" fontWeight="700">
         L: {lengthLabel}
       </text>
 
       {/* Width */}
-      <line x1={c.fbr.x} y1={c.fbr.y} x2={Wa.x} y2={Wa.y} stroke={ORANGE} strokeWidth="0.6" strokeDasharray="2,2" />
-      <line x1={c.bbr.x} y1={c.bbr.y} x2={Wb.x} y2={Wb.y} stroke={ORANGE} strokeWidth="0.6" strokeDasharray="2,2" />
-      <line x1={Wa.x} y1={Wa.y} x2={Wb.x} y2={Wb.y} stroke={ORANGE} strokeWidth="1.2"
+      <line x1={c.fbr.x} y1={c.fbr.y} x2={Wa.x} y2={Wa.y} stroke={BRAND_BLUE} strokeWidth="0.6" strokeDasharray="2,2" />
+      <line x1={c.bbr.x} y1={c.bbr.y} x2={Wb.x} y2={Wb.y} stroke={BRAND_BLUE} strokeWidth="0.6" strokeDasharray="2,2" />
+      <line x1={Wa.x} y1={Wa.y} x2={Wb.x} y2={Wb.y} stroke={BRAND_BLUE} strokeWidth="1.2"
         markerStart={`url(#${mrid})`} markerEnd={`url(#${mid})`} />
       <text x={Wmx} y={Wmy} textAnchor="start"
-        fill={ORANGE} fontSize="8" fontFamily="Montserrat,sans-serif" fontWeight="700">
+        fill={BRAND_BLUE} fontSize="8" fontFamily="Montserrat,sans-serif" fontWeight="700">
         B: {widthLabel}
       </text>
 
       {/* Height */}
-      <line x1={c.fbl.x} y1={c.fbl.y} x2={Ha.x + 4} y2={Ha.y} stroke={ORANGE} strokeWidth="0.6" strokeDasharray="2,2" />
-      <line x1={c.ftl.x} y1={c.ftl.y} x2={Hb.x + 4} y2={Hb.y} stroke={ORANGE} strokeWidth="0.6" strokeDasharray="2,2" />
-      <line x1={Ha.x} y1={Ha.y} x2={Hb.x} y2={Hb.y} stroke={ORANGE} strokeWidth="1.2"
+      <line x1={c.fbl.x} y1={c.fbl.y} x2={Ha.x + 4} y2={Ha.y} stroke={BRAND_BLUE} strokeWidth="0.6" strokeDasharray="2,2" />
+      <line x1={c.ftl.x} y1={c.ftl.y} x2={Hb.x + 4} y2={Hb.y} stroke={BRAND_BLUE} strokeWidth="0.6" strokeDasharray="2,2" />
+      <line x1={Ha.x} y1={Ha.y} x2={Hb.x} y2={Hb.y} stroke={BRAND_BLUE} strokeWidth="1.2"
         markerStart={`url(#${mrid})`} markerEnd={`url(#${mid})`} />
       <text x={Hmx} y={Hmy} textAnchor="end"
-        fill={ORANGE} fontSize="8" fontFamily="Montserrat,sans-serif" fontWeight="700">
+        fill={BRAND_BLUE} fontSize="8" fontFamily="Montserrat,sans-serif" fontWeight="700">
         H: {heightLabel}
       </text>
     </svg>

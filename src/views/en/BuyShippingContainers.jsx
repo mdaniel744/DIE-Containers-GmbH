@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { SeoSection, FaqAccordion, InternalLinkGrid, CtaBanner } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const CONTAINER_TYPES = [
   { label: "Shipping container", desc: "Robust ISO containers from Corten steel – windproof and waterproof, available in 10 ft, 20 ft and 40 ft.", href: "/en/shop", cta: "View shipping containers" },
@@ -43,7 +43,7 @@ export default function BuyShippingContainers() {
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Overview 2025</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Overview 2025</span>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-4">
             Buy Shipping Containers – New and Used for Every Purpose
           </h1>
@@ -51,7 +51,7 @@ export default function BuyShippingContainers() {
             Buy shipping containers in Germany — new and used containers for storage, transport, office, residential and refrigeration use. Wide selection, fair prices and delivery direct to your location.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: ORANGE }}>
+            <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white" style={{ backgroundColor: BRAND_BLUE }}>
               Request a free quote <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/en/shop" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-foreground border border-border hover:bg-muted transition-colors">
@@ -66,7 +66,7 @@ export default function BuyShippingContainers() {
               <div key={i} className="p-5 bg-card border border-border rounded-xl">
                 <p className="font-heading font-semibold text-base mb-2">{c.label}</p>
                 <p className="text-sm text-muted-foreground mb-4">{c.desc}</p>
-                <Link to={c.href} className="inline-flex items-center gap-1.5 text-sm font-medium hover:opacity-80 transition-opacity" style={{ color: ORANGE }}>
+                <Link to={c.href} className="inline-flex items-center gap-1.5 text-sm font-medium hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>
                   {c.cta} <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

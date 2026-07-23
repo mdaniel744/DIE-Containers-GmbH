@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { SeoSection, SeoTable, FaqAccordion, InternalLinkGrid, CtaBanner } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const PERMIT_TABLE = [
   ["Storage container (temp., <3 months)", "Usually permit-free", "§ 55 LBO (varies by state)"],
@@ -44,14 +44,14 @@ export default function ContainerPermits() {
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Guide</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Guide</span>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-4">
             Container Permits – Do I Need Planning Permission?
           </h1>
           <p className="text-muted-foreground text-base leading-relaxed max-w-2xl mb-6">
             When is a building permit required for a shipping container? Complete guide to permit requirements by usage type, how to apply and what to watch out for.
           </p>
-          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: ORANGE }}>
+          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white" style={{ backgroundColor: BRAND_BLUE }}>
             Request a free quote <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

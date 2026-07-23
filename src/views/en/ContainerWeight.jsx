@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { SeoSection, SeoTable, FaqAccordion, InternalLinkGrid, CtaBanner } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const WEIGHT_TABLE = [
   ["10 ft Standard", "approx. 1,200–1,500 kg", "approx. 8,500–10,000 kg", "approx. 10,160 kg"],
@@ -38,14 +38,14 @@ export default function ContainerWeight() {
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>Guide</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>Guide</span>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-4">
             Container Weight – Tare Weight & Payload for All Types
           </h1>
           <p className="text-muted-foreground text-base leading-relaxed max-w-2xl mb-6">
             How heavy is a shipping container? Tare weight, maximum payload and gross weight for all container types – essential for transport planning, foundation design and structural calculations.
           </p>
-          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a]" style={{ backgroundColor: ORANGE }}>
+          <Link to="/en/angebot" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white" style={{ backgroundColor: BRAND_BLUE }}>
             Request a container quote <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

@@ -6,7 +6,7 @@ import { ArrowRight, ChevronRight, CheckCircle, Package, Truck } from "lucide-re
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Images â”€â”€ */
@@ -102,7 +102,7 @@ const RATGEBER = [
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: ORANGE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -145,7 +145,7 @@ export default function Container40Fuss() {
             40 Fuß Container kaufen in Deutschland – neue und gebrauchte 40 Fuß Container, Standard und High Cube, für Lagerung, Gewerbe, Industrie und Transport. Mit Lieferung direkt zum Standort.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop?size=40ft" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -227,7 +227,7 @@ export default function Container40Fuss() {
               <div className="h-48 overflow-hidden">
                 <img src={IMG_40FT_USED} alt="Gebrauchter 40 Fuß Open Side Container RAL 1015" className="w-full h-full object-cover" />
               </div>
-              <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${ORANGE}15, transparent)` }}>
+              <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${BRAND_BLUE}15, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Gebrauchte 40 Fuß Container (Cargo-Worthy)</h3>
               </div>
               <div className="p-5 text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -287,7 +287,7 @@ export default function Container40Fuss() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 mt-6">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Package className="w-4 h-4" style={{ color: ORANGE }} />
+              <Package className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               40 Fuß High Cube Container – besonders geeignet für:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -360,7 +360,7 @@ export default function Container40Fuss() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Truck className="w-4 h-4" style={{ color: ORANGE }} />
+              <Truck className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Für die Lieferung hilfreiche Angaben
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -418,7 +418,7 @@ export default function Container40Fuss() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Package className="w-4 h-4" style={{ color: ORANGE }} />
+              <Package className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Typische Einsatzbereiche
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -464,14 +464,14 @@ export default function Container40Fuss() {
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt 40 Fuß Container anfragen</h2>
             <p className="text-white/60 text-sm">Unverbindlich anfragen – Angebot inkl. Lieferung erhalten.</p>
           </div>
-          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zum 40 Fuß Container</h2>
           <FaqAccordion items={FAQS} />
         </section>

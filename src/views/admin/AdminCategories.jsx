@@ -87,7 +87,7 @@ function CategoryForm({ initial, onSave, onCancel }) {
         <div className="flex items-center gap-3 mt-5">
           <label className="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" checked={form.is_active} onChange={e => set("is_active", e.target.checked)} className="sr-only peer" />
-            <div className="w-9 h-5 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-orange-500"></div>
+            <div className="w-9 h-5 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-500"></div>
           </label>
           <span className="text-sm text-slate-300">Aktiv</span>
         </div>
@@ -102,7 +102,7 @@ function CategoryForm({ initial, onSave, onCancel }) {
         <Button variant="ghost" onClick={onCancel} className="text-slate-400 hover:text-white">
           <X className="w-4 h-4 mr-1" /> Abbrechen
         </Button>
-        <Button disabled={saving || !form.name || !form.slug} onClick={handleSave} className="text-slate-900" style={{ backgroundColor: "#F28C28" }}>
+        <Button disabled={saving || !form.name || !form.slug} onClick={handleSave} className="text-white" style={{ backgroundColor: "#1E5FAE" }}>
           <Check className="w-4 h-4 mr-1" /> {saving ? "Speichern..." : "Speichern"}
         </Button>
       </div>
@@ -139,7 +139,7 @@ export default function AdminCategories() {
           <h1 className="font-heading font-bold text-white text-2xl">Kategorien</h1>
           <p className="text-slate-400 text-sm mt-1">{categories.length} Container-Kategorien</p>
         </div>
-        <Button onClick={() => { setShowForm(true); setEditingId(null); }} className="font-heading font-semibold text-slate-900 hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
+        <Button onClick={() => { setShowForm(true); setEditingId(null); }} className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#1E5FAE" }}>
           <Plus className="w-4 h-4 mr-2" /> Neue Kategorie
         </Button>
       </div>
@@ -153,7 +153,7 @@ export default function AdminCategories() {
 
       {loading ? (
         <div className="flex items-center justify-center h-48">
-          <div className="w-8 h-8 border-4 border-slate-700 border-t-orange-500 rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-slate-700 border-t-blue-500 rounded-full animate-spin" />
         </div>
       ) : categories.length === 0 ? (
         <div className="text-center py-20 text-slate-500">

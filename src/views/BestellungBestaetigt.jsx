@@ -153,7 +153,7 @@ export default function BestellungBestaetigt() {
         {/* CTA */}
         <div className="flex justify-center pt-2">
           <Link to="/shop">
-            <Button style={{ backgroundColor: "#F28C28", color: "#1a1a1a" }} className="font-heading font-semibold px-8 h-11">
+            <Button style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }} className="font-heading font-semibold px-8 h-11">
               Weiter einkaufen <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>

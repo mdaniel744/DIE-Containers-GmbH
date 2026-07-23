@@ -31,10 +31,10 @@ export default function Footer() {
             <p className="font-heading font-semibold text-white mb-3">DIE Container GmbH</p>
             <p className="text-sm text-primary-foreground/70 leading-relaxed mb-5">{t("footer.tagline")}</p>
             <div className="space-y-3 text-sm text-primary-foreground/70">
-              <a href="tel:+491635393159" className="flex items-center gap-2 hover:text-secondary transition-colors">
+              <a href="tel:+491635393159" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Phone className="w-4 h-4" /> 0049 163 5393 159
               </a>
-              <a href="mailto:contact@diecontainers.com" className="flex items-center gap-2 text-xs xl:text-sm hover:text-secondary transition-colors">
+              <a href="mailto:contact@diecontainers.com" className="flex items-center gap-2 text-xs xl:text-sm hover:text-white transition-colors">
                 <Mail className="w-4 h-4" /> contact@diecontainers.com
               </a>
               <div className="flex items-start gap-2">
@@ -49,7 +49,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {shopLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-secondary transition-colors">
+                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -63,7 +63,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {ratgeberLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-secondary transition-colors">
+                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -77,7 +77,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {infoLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-secondary transition-colors">
+                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -91,7 +91,7 @@ export default function Footer() {
             <ul className="space-y-2.5 font-mono text-xs">
               {legalLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-primary-foreground/60 hover:text-secondary transition-colors">
+                  <Link to={link.path} className="text-primary-foreground/60 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>

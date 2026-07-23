@@ -10,7 +10,7 @@ const STATUS_LABELS = {
   accepted: "Akzeptiert", declined: "Abgelehnt"
 };
 const STATUS_COLORS = {
-  pending: "bg-amber-500/10 text-amber-400",
+  pending: "bg-blue-500/10 text-blue-400",
   reviewed: "bg-blue-500/10 text-blue-400",
   quoted: "bg-purple-500/10 text-purple-400",
   accepted: "bg-emerald-500/10 text-emerald-400",
@@ -64,7 +64,7 @@ export default function AdminQuotes() {
           {["all", ...STATUS_OPTS].map(s => (
             <button key={s} onClick={() => setFilter(s)}
               className={`px-3 py-2 rounded-xl text-xs font-medium transition-colors ${
-                filter === s ? "bg-orange-500 text-slate-900" : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white"
+                filter === s ? "bg-blue-500 text-white" : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white"
               }`}>
               {s === "all" ? "Alle" : STATUS_LABELS[s]}
             </button>
@@ -74,7 +74,7 @@ export default function AdminQuotes() {
 
       {loading ? (
         <div className="flex items-center justify-center h-48">
-          <div className="w-8 h-8 border-4 border-slate-700 border-t-orange-500 rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-slate-700 border-t-blue-500 rounded-full animate-spin" />
         </div>
       ) : (
         <div className="space-y-3">
@@ -186,7 +186,7 @@ function InfoRow({ icon: Icon, label, value, link }) {
     <div className="flex items-center gap-2">
       <Icon className="w-3.5 h-3.5 text-slate-400 shrink-0" />
       {link ? (
-        <a href={link} className="text-orange-400 hover:underline text-xs truncate">{value}</a>
+        <a href={link} className="text-blue-400 hover:underline text-xs truncate">{value}</a>
       ) : (
         <span className="text-slate-200 text-xs truncate">{value}</span>
       )}

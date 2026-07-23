@@ -187,13 +187,13 @@ export default function Kasse() {
                     type="checkbox"
                     checked={deliverySameAsBilling}
                     onChange={(e) => setDeliverySameAsBilling(e.target.checked)}
-                    className="w-4 h-4 rounded accent-[#F28C28]"
+                    className="w-4 h-4 rounded accent-[#1E5FAE]"
                   />
                   <span className="text-sm font-medium">Lieferadresse entspricht der Rechnungsadresse</span>
                 </label>
 
                 {!deliverySameAsBilling && (
-                  <div className="mt-5 pl-4 border-l-2 border-[#F28C28]/40 space-y-4">
+                  <div className="mt-5 pl-4 border-l-2 border-[#1E5FAE]/40 space-y-4">
                     <h3 className="font-heading font-semibold text-base">Lieferadresse</h3>
                     <AddressBlock values={delivery} onChange={updateDelivery} prefix="del" showPhone={true} />
                   </div>
@@ -203,7 +203,7 @@ export default function Kasse() {
               <div className="border border-border rounded-xl p-5 bg-muted/30">
                 <h2 className="font-heading font-bold text-lg uppercase tracking-wide mb-3">Zahlungsart</h2>
                 <label className="flex items-start gap-3 cursor-default">
-                  <input type="radio" checked readOnly aria-label="SEPA-Banküberweisung" className="mt-1 accent-[#F28C28]" />
+                  <input type="radio" checked readOnly aria-label="SEPA-Banküberweisung" className="mt-1 accent-[#1E5FAE]" />
                   <span>
                     <span className="block font-heading font-semibold text-sm">SEPA-Banküberweisung</span>
                     <span className="block mt-1 text-sm text-muted-foreground leading-relaxed">Nach Ihrer Bestellung erhalten Sie die Auftragsbestätigung mit Bankverbindung und Verwendungszweck für die SEPA-Überweisung.</span>
@@ -299,7 +299,7 @@ export default function Kasse() {
                   type="submit"
                   disabled={submitting}
                   className="w-full h-12 font-heading font-bold text-base"
-                  style={{ backgroundColor: "#F28C28", color: "#1a1a1a" }}
+                  style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }}
                 >
                   {submitting ? "Wird verarbeitet…" : "Zahlungspflichtig Bestellen →"}
                 </Button>

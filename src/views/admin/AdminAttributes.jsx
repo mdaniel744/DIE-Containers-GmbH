@@ -76,7 +76,7 @@ function ValueForm({ attributeId, attributeSlug, initial, onSave, onCancel }) {
         <Button variant="ghost" size="sm" onClick={onCancel} className="text-slate-400 hover:text-white h-7 text-xs">
           <X className="w-3 h-3 mr-1" /> Abbrechen
         </Button>
-        <Button size="sm" disabled={saving || !form.label || !form.value} onClick={handleSave} className="h-7 text-xs text-slate-900" style={{ backgroundColor: "#F28C28" }}>
+        <Button size="sm" disabled={saving || !form.label || !form.value} onClick={handleSave} className="h-7 text-xs text-white" style={{ backgroundColor: "#1E5FAE" }}>
           <Check className="w-3 h-3 mr-1" /> {saving ? "Speichern..." : "Speichern"}
         </Button>
       </div>
@@ -111,7 +111,7 @@ function AttributeRow({ attr, allValues, onDeleteAttr, onRefreshValues }) {
         <div className="flex gap-1">
           <button
             onClick={() => { setOpen(true); setAddingValue(true); }}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-orange-400 hover:text-orange-300 hover:bg-orange-950/20 rounded-lg transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-blue-400 hover:text-blue-300 hover:bg-blue-950/20 rounded-lg transition-colors"
           >
             <Plus className="w-3 h-3" /> Wert hinzufügen
           </button>
@@ -205,7 +205,7 @@ export default function AdminAttributes() {
           <h1 className="font-heading font-bold text-white text-2xl">Attribute</h1>
           <p className="text-slate-400 text-sm mt-1">Verwalten Sie Produktattribute und deren Werte</p>
         </div>
-        <Button onClick={() => setShowNewForm(true)} className="font-heading font-semibold text-slate-900 hover:opacity-90" style={{ backgroundColor: "#F28C28" }}>
+        <Button onClick={() => setShowNewForm(true)} className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#1E5FAE" }}>
           <Plus className="w-4 h-4 mr-2" /> Neues Attribut
         </Button>
       </div>
@@ -247,7 +247,7 @@ export default function AdminAttributes() {
             <Button variant="ghost" onClick={() => setShowNewForm(false)} className="text-slate-400 hover:text-white">
               <X className="w-4 h-4 mr-1" /> Abbrechen
             </Button>
-            <Button disabled={saving || !newAttr.name || !newAttr.slug} onClick={handleCreateAttr} className="text-slate-900" style={{ backgroundColor: "#F28C28" }}>
+            <Button disabled={saving || !newAttr.name || !newAttr.slug} onClick={handleCreateAttr} className="text-white" style={{ backgroundColor: "#1E5FAE" }}>
               <Check className="w-4 h-4 mr-1" /> {saving ? "Speichern..." : "Erstellen"}
             </Button>
           </div>
@@ -256,7 +256,7 @@ export default function AdminAttributes() {
 
       {loading ? (
         <div className="flex items-center justify-center h-48">
-          <div className="w-8 h-8 border-4 border-slate-700 border-t-orange-500 rounded-full animate-spin" />
+          <div className="w-8 h-8 border-4 border-slate-700 border-t-blue-500 rounded-full animate-spin" />
         </div>
       ) : attributes.length === 0 ? (
         <div className="text-center py-20 text-slate-500">

@@ -21,9 +21,9 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <span className="font-mono text-xs text-secondary tracking-widest uppercase">{T.label}</span>
+              <span className="font-mono text-xs text-white/80 tracking-widest uppercase">{T.label}</span>
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6 tracking-tight">
-                {T.title}<span className="text-secondary">{T.titleColored}</span>{T.title2}
+                {T.title}<span className="text-white">{T.titleColored}</span>{T.title2}
               </h1>
               <p className="text-lg text-primary-foreground/70 leading-relaxed">{T.body}</p>
             </motion.div>

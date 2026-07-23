@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 const IMG = {
   seecontainer: "/images/quote-category-seecontainer.png",
@@ -35,7 +35,7 @@ function CategoryCard({ item, active, onClick, compact }) {
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
       className={`flex flex-col items-center ${compact ? "p-3" : "p-4"} rounded-2xl border-2 text-center transition-all ${
-        active ? "border-[#F28C28] bg-[#F28C28]/5" : "border-border hover:border-[#F28C28]/40 bg-card"
+        active ? "border-[#1E5FAE] bg-[#1E5FAE]/5" : "border-border hover:border-[#1E5FAE]/40 bg-card"
       }`}
     >
       <div className={`w-full ${compact ? "h-24" : "h-32 sm:h-36"} mb-3 rounded-xl overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 border border-border flex items-center justify-center`}>

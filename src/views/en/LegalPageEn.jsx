@@ -234,7 +234,7 @@ const LEGAL_CONTENT = {
   },
 };
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 
 export default function LegalPageEn() {
   const pathname = usePathname();
@@ -248,7 +248,7 @@ export default function LegalPageEn() {
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: ORANGE }}>{page.label}</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>{page.label}</span>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-2">{page.title}</h1>
         </div>
         <div>{page.content}</div>

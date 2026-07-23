@@ -7,7 +7,7 @@ import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoP
 import ContactBanner from "@/components/shared/ContactBanner";
 import ProductListingSection from "@/components/shop/ProductListingSection";
 
-const ORANGE = "#F28C28";
+const BRAND_BLUE = "#1E5FAE";
 const NAVY = "#1B3A5C";
 
 /* â”€â”€ Image assets â”€â”€ */
@@ -20,7 +20,7 @@ const IMG_DELIVERY = "/images/buerocontainer-lieferung-kran.jpg";
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: ORANGE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -137,7 +137,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
             Bürocontainer kaufen – neue und gebrauchte Bürocontainer für Baustellen, Gewerbe und temporäre Arbeitsräume. 20 Fuß Bürocontainer, Lieferung und Beratung.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop?type=B%C3%BCrocontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -233,7 +233,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
               </div>
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
-              <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${ORANGE}15, transparent)` }}>
+              <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${BRAND_BLUE}15, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Bürocontainer mieten</h3>
               </div>
               <div className="p-5 text-sm text-muted-foreground leading-relaxed space-y-3">
@@ -307,7 +307,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Ruler className="w-4 h-4" style={{ color: ORANGE }} />
+              <Ruler className="w-4 h-4" style={{ color: BRAND_BLUE }} />
               Ein 20 Fuß Bürocontainer eignet sich besonders für:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -447,7 +447,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {ADVANTAGES.map((adv, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-orange-200 transition-all">
+                className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-blue-200 transition-all">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${NAVY}15` }}>
                   <adv.icon className="w-5 h-5" style={{ color: NAVY }} />
                 </div>
@@ -464,14 +464,14 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt Bürocontainer anfragen</h2>
             <p className="text-white/60 text-sm">Teilen Sie uns Nutzung, Größe und Lieferort mit – Sie erhalten ein passendes Angebot.</p>
           </div>
-          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-[#1a1a1a] hover:opacity-90 transition-opacity" style={{ backgroundColor: ORANGE }}>
+          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: ORANGE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Bürocontainern</h2>
           <FaqAccordion items={FAQS} />
         </section>

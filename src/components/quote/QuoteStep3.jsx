@@ -63,7 +63,7 @@ export default function QuoteStep3({ data, setData }) {
           <Checkbox
             checked={data.accepted_terms || false}
             onCheckedChange={(v) => update("accepted_terms", v)}
-            className="mt-0.5 data-[state=checked]:bg-[#F28C28] data-[state=checked]:border-[#F28C28]"
+            className="mt-0.5 data-[state=checked]:bg-[#1E5FAE] data-[state=checked]:border-[#1E5FAE]"
           />
           <span className="text-sm text-muted-foreground">
             {T.termsText}{" "}
