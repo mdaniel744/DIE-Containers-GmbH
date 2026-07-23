@@ -6,7 +6,7 @@ import ShopFilters from "@/components/shop/ShopFilters";
 import { Button } from "@/components/ui/button";
 import { SlidersHorizontal, X, Package } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 import ShopSeoBanner20ft from "@/components/shop/ShopSeoBanner20ft";
@@ -17,31 +17,33 @@ import KuehlcontainerKaufen from "@/views/seo/KuehlcontainerKaufen";
 import BuerocontainerKaufen from "@/views/seo/BuerocontainerKaufen";
 import OpenSideContainerKaufen from "@/views/seo/OpenSideContainerKaufen";
 
+function getFiltersFromParams(searchParams) {
+  const normalize = (value) => value?.trim() || null;
+  const size = normalize(searchParams.get("size"));
+  const type = normalize(searchParams.get("type"));
+  const condition = normalize(searchParams.get("condition"));
+  const catalog = normalize(searchParams.get("catalog"));
+
+  return {
+    size: size ? [size] : [],
+    container_type: catalog === "seecontainer" ? ["Standard", "High Cube"] : type ? [type] : [],
+    condition: condition ? [condition] : [],
+  };
+}
+
 export default function Shop() {
   const { products: allProducts, loading } = useProducts();
   const T = useSection("shop");
-  const [searchParams] = useSearchParams();
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.toString();
 
-  const getFiltersFromParams = () => {
-    const normalize = (val) => val ? decodeURIComponent(val).trim() : null;
-    const size = normalize(searchParams.get("size"));
-    const type = normalize(searchParams.get("type"));
-    const condition = normalize(searchParams.get("condition"));
-    const catalog = normalize(searchParams.get("catalog"));
-    return {
-      size: size ? [size] : [],
-      container_type: catalog === "seecontainer" ? ["Standard", "High Cube"] : type ? [type] : [],
-      condition: condition ? [condition] : [],
-    };
-  };
-
-  const [filters, setFilters] = useState(getFiltersFromParams());
+  const [filters, setFilters] = useState(() => getFiltersFromParams(searchParams));
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [sortBy, setSortBy] = useState("price_asc");
 
   useEffect(() => {
-    setFilters(getFiltersFromParams());
-  }, [searchParams]);
+    setFilters(getFiltersFromParams(new URLSearchParams(searchQuery)));
+  }, [searchQuery]);
 
   const filteredProducts = useMemo(() => {
     if (!allProducts.length) return [];

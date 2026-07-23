@@ -5,7 +5,6 @@ import { Menu, X, Phone, ChevronDown, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { useFeaturedCategories } from "@/hooks/useCategories";
 import { HERO_IMAGE } from "@/lib/productData";
 import { useT } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
@@ -25,13 +24,13 @@ const SERVICE_ITEMS = [
 ];
 
 const FALLBACK_CATALOG_CATEGORIES = [
-  { slug: "seecontainer", nameDe: "Seecontainer", nameEn: "Shipping containers", image_url: "/images/quote-category-seecontainer.png" },
+  { slug: "seecontainer", nameDe: "Seecontainer", nameEn: "Shipping containers", image_url: "/images/quote-category-seecontainer.png?v=20260723" },
   { slug: "10ft", nameDe: "10 Fuß Container", nameEn: "10ft containers", image_url: "/images/container-category-10ft.png" },
   { slug: "20ft", nameDe: "20 Fuß Container", nameEn: "20ft containers", image_url: "/images/container-category-20ft.png" },
   { slug: "40ft", nameDe: "40 Fuß Container", nameEn: "40ft containers", image_url: "/images/container-category-40ft.png" },
   { slug: "open-side", nameDe: "Container mit offener Seite", nameEn: "Open side containers", image_url: "/images/open-side-20hc-ral7016-open-3.jpg" },
   { slug: "double-door", nameDe: "Doppeltüren Container", nameEn: "Double door containers", image_url: "/images/double-door-40hc-ral5010-open.jpg" },
-  { slug: "lagercontainer", nameDe: "Lagercontainer", nameEn: "Storage containers", image_url: "/images/quote-category-seecontainer.png" },
+  { slug: "lagercontainer", nameDe: "Lagercontainer", nameEn: "Storage containers", image_url: "/images/container-category-20ft.png" },
   { slug: "buerocontainer", nameDe: "Bürocontainer", nameEn: "Office containers", image_url: "/images/quote-category-buerocontainer.png" },
   { slug: "kuehlcontainer", nameDe: "Kühlcontainer", nameEn: "Refrigerated containers", image_url: "/images/quote-category-kuehlcontainer.png" },
   { slug: "wohncontainer", nameDe: "Wohncontainer", nameEn: "Living containers", image_url: "/images/quote-category-wohncontainer.png" },
@@ -42,17 +41,6 @@ function getFallbackCatalogCategories(locale) {
     ...category,
     name: locale === "de" ? nameDe : nameEn,
   }));
-}
-
-function getCatalogCategories(categories, locale) {
-  const remoteBySlug = new Map(
-    categories.map((category) => [String(category.slug || "").toLowerCase(), category])
-  );
-
-  return getFallbackCatalogCategories(locale).map((fallback) => {
-    const remote = remoteBySlug.get(fallback.slug);
-    return remote?.image_url ? { ...fallback, image_url: remote.image_url } : fallback;
-  });
 }
 
 /* â”€â”€â”€ Reusable hover-dropdown hook â”€â”€â”€ */
@@ -160,10 +148,9 @@ export default function Header() {
   const serviceMenuRef = useRef(null);
   const location = useLocation();
   const { itemCount } = useCart();
-  const { categories } = useFeaturedCategories();
   const t = useT();
   const locale = useLocale();
-  const catalogCategories = getCatalogCategories(categories, locale);
+  const catalogCategories = getFallbackCatalogCategories(locale);
 
   // Build the alternate-locale URL for the switcher.
   // If the current page has no English equivalent, fall back to /en homepage.
