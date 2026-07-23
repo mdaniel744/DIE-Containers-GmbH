@@ -29,8 +29,9 @@ const FALLBACK_CATALOG_CATEGORIES = [
   { slug: "10ft", nameDe: "10 Fuß Container", nameEn: "10ft containers", image_url: "/images/container-category-10ft.png" },
   { slug: "20ft", nameDe: "20 Fuß Container", nameEn: "20ft containers", image_url: "/images/container-category-20ft.png" },
   { slug: "40ft", nameDe: "40 Fuß Container", nameEn: "40ft containers", image_url: "/images/container-category-40ft.png" },
-  { slug: "open-side", nameDe: "Open Side Container", nameEn: "Open side containers", image_url: "/images/open-side-20hc-ral7016-open-3.jpg" },
-  { slug: "double-door", nameDe: "Double Door Container", nameEn: "Double door containers", image_url: "/images/double-door-40hc-ral5010-open.jpg" },
+  { slug: "open-side", nameDe: "Container mit offener Seite", nameEn: "Open side containers", image_url: "/images/open-side-20hc-ral7016-open-3.jpg" },
+  { slug: "double-door", nameDe: "Doppeltüren Container", nameEn: "Double door containers", image_url: "/images/double-door-40hc-ral5010-open.jpg" },
+  { slug: "lagercontainer", nameDe: "Lagercontainer", nameEn: "Storage containers", image_url: "/images/quote-category-seecontainer.png" },
   { slug: "buerocontainer", nameDe: "Bürocontainer", nameEn: "Office containers", image_url: "/images/quote-category-buerocontainer.png" },
   { slug: "kuehlcontainer", nameDe: "Kühlcontainer", nameEn: "Refrigerated containers", image_url: "/images/quote-category-kuehlcontainer.png" },
   { slug: "wohncontainer", nameDe: "Wohncontainer", nameEn: "Living containers", image_url: "/images/quote-category-wohncontainer.png" },
@@ -41,6 +42,17 @@ function getFallbackCatalogCategories(locale) {
     ...category,
     name: locale === "de" ? nameDe : nameEn,
   }));
+}
+
+function getCatalogCategories(categories, locale) {
+  const remoteBySlug = new Map(
+    categories.map((category) => [String(category.slug || "").toLowerCase(), category])
+  );
+
+  return getFallbackCatalogCategories(locale).map((fallback) => {
+    const remote = remoteBySlug.get(fallback.slug);
+    return remote?.image_url ? { ...fallback, image_url: remote.image_url } : fallback;
+  });
 }
 
 /* â”€â”€â”€ Reusable hover-dropdown hook â”€â”€â”€ */
@@ -63,14 +75,14 @@ function useHoverDropdown(delay = 180) {
 }
 
 /* â”€â”€â”€ Mega dropdown component â”€â”€â”€ */
-function CatalogDropdown({ visible, categories, locale }) {
+function CatalogDropdown({ visible, categories, locale, onClose }) {
   const t = useT();
   if (categories.length === 0) return null;
 
   return (
     <AnimatePresence>
       {visible && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[700px] z-50">
+        <div id="desktop-catalog-menu" className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[700px] z-50">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,6 +96,7 @@ function CatalogDropdown({ visible, categories, locale }) {
             <span className="font-heading font-bold text-sm text-foreground">{t("nav.catalog")}</span>
             <Link
               to={locale === "de" ? "/shop" : "/en/shop"}
+              onClick={onClose}
               className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {t("nav.showAll")}
@@ -96,6 +109,7 @@ function CatalogDropdown({ visible, categories, locale }) {
               <Link
                 key={cat.slug}
                 to={resolveCatalogCategoryHref(cat, locale)}
+                onClick={onClose}
                 className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#1E5FAE]/70 hover:shadow-md transition-all overflow-hidden"
               >
                 {/* Image area */}
@@ -120,6 +134,7 @@ function CatalogDropdown({ visible, categories, locale }) {
           <div className="px-4 pb-4">
             <Link
               to="/angebot"
+              onClick={onClose}
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "#1E5FAE" }}
             >
@@ -141,12 +156,14 @@ export default function Header() {
   const [mobileServiceOpen, setMobileServiceOpen] = useState(false);
   const menuButtonRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const catalogMenuRef = useRef(null);
+  const serviceMenuRef = useRef(null);
   const location = useLocation();
   const { itemCount } = useCart();
   const { categories } = useFeaturedCategories();
   const t = useT();
   const locale = useLocale();
-  const catalogCategories = categories.length > 0 ? categories : getFallbackCatalogCategories(locale);
+  const catalogCategories = getCatalogCategories(categories, locale);
 
   // Build the alternate-locale URL for the switcher.
   // If the current page has no English equivalent, fall back to /en homepage.
@@ -172,7 +189,31 @@ export default function Header() {
     setIsOpen(false);
     setMobileKatalogOpen(false);
     setMobileServiceOpen(false);
+    catalog.setOpen(false);
+    service.setOpen(false);
   }, [location.pathname, location.search]);
+
+  useEffect(() => {
+    const closeDesktopMenus = (event) => {
+      if (event.key === "Escape") {
+        catalog.setOpen(false);
+        service.setOpen(false);
+        return;
+      }
+
+      if (event.type === "pointerdown") {
+        if (!catalogMenuRef.current?.contains(event.target)) catalog.setOpen(false);
+        if (!serviceMenuRef.current?.contains(event.target)) service.setOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", closeDesktopMenus);
+    document.addEventListener("pointerdown", closeDesktopMenus);
+    return () => {
+      document.removeEventListener("keydown", closeDesktopMenus);
+      document.removeEventListener("pointerdown", closeDesktopMenus);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -242,12 +283,26 @@ export default function Header() {
 
             {/* Container Katalog with mega dropdown */}
             <div
+              ref={catalogMenuRef}
               className="relative"
-              onMouseEnter={catalog.onEnter}
+              onMouseEnter={() => {
+                service.setOpen(false);
+                catalog.onEnter();
+              }}
               onMouseLeave={catalog.onLeave}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) catalog.setOpen(false);
+              }}
             >
-              <Link
-                to="/shop"
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={catalog.open}
+                aria-controls="desktop-catalog-menu"
+                onClick={() => {
+                  service.setOpen(false);
+                  catalog.setOpen((current) => !current);
+                }}
                 className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                   isCatalogPath(location.pathname)
                     ? "text-secondary font-semibold"
@@ -258,17 +313,37 @@ export default function Header() {
                 <ChevronDown
                   className={`w-3.5 h-3.5 transition-transform duration-200 ${catalog.open ? "rotate-180" : ""}`}
                 />
-              </Link>
-              <CatalogDropdown visible={catalog.open} categories={catalogCategories} locale={locale} />
+              </button>
+              <CatalogDropdown
+                visible={catalog.open}
+                categories={catalogCategories}
+                locale={locale}
+                onClose={() => catalog.setOpen(false)}
+              />
             </div>
 
             {/* Container Service dropdown */}
             <div
+              ref={serviceMenuRef}
               className="relative"
-              onMouseEnter={service.onEnter}
+              onMouseEnter={() => {
+                catalog.setOpen(false);
+                service.onEnter();
+              }}
               onMouseLeave={service.onLeave}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) service.setOpen(false);
+              }}
             >
               <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={service.open}
+                aria-controls="desktop-service-menu"
+                onClick={() => {
+                  catalog.setOpen(false);
+                  service.setOpen((current) => !current);
+                }}
                 className={`flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                   SERVICE_ITEMS.some(i => location.pathname === i.path)
                     ? "text-secondary font-semibold"
@@ -280,7 +355,7 @@ export default function Header() {
               </button>
               <AnimatePresence>
                 {service.open && (
-                  <div className="absolute top-full left-0 pt-2 w-56 z-50">
+                  <div id="desktop-service-menu" className="absolute top-full left-0 pt-2 w-56 z-50">
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -293,6 +368,7 @@ export default function Header() {
                       <Link
                         key={item.path}
                         to={item.path}
+                        onClick={() => service.setOpen(false)}
                         className="px-4 py-3 hover:bg-muted transition-colors border-b border-border/50 last:border-0 font-heading font-semibold text-sm text-foreground block"
                       >
                         {item.label}
