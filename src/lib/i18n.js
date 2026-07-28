@@ -28,6 +28,7 @@ const strings = {
       tagline: "DIE Container GmbH bietet neue und gebrauchte Container für Lagerung, Transport, Gewerbe, Bau und private Nutzung. Wir stehen für zuverlässige Containerlösungen, klare Kommunikation und professionelle Abwicklung.",
       copyright: "Alle Rechte vorbehalten.",
       disclaimer: "Alle Angaben ohne Gewähr",
+      cookieSettings: "Cookie-Einstellungen",
     },
 
     // ─── HERO ─────────────────────────────────────────────────────────────────
@@ -290,6 +291,20 @@ const strings = {
       termsConfirm: "Ich bestätige, dass es sich um eine unverbindliche Angebotsanfrage handelt.",
       termsAgb: "AGB",
       termsPrivacy: "Datenschutzerklärung",
+      costSummaryTitle: "Kostenübersicht",
+      unitPriceLabel: "Containerpreis (netto)",
+      vatLabel: "19 % MwSt.",
+      shippingLabel: "Standardlieferung",
+      craneDeliveryLabel: "Lieferung mit Kranentladung",
+      selfPickupLabel: "Selbstabholung",
+      shippingPendingLabel: "Transportoption wählen",
+      shippingIndividualLabel: "Individuell nach Menge und Lieferort",
+      craneShippingIndividualLabel: "Individuell · höher als Standardlieferung",
+      productGrossTotalLabel: "Zwischensumme inkl. 19 % MwSt.",
+      totalCostLabel: "Gesamtkosten",
+      costSummaryNote: "Die Produktsumme wird exakt berechnet. Transportkosten richten sich nach Menge, Containergröße, Lieferort, Zufahrt und Entladung. Eine Kranentladung ist teurer als eine Standardlieferung; den verbindlichen Transportpreis erhalten Sie im persönlichen Angebot.",
+      individualPriceTitle: "Preis wird individuell berechnet",
+      individualPriceText: "Für diese Konfiguration ist kein fester Produktpreis hinterlegt. Sie erhalten den vollständigen Preis inklusive Mehrwertsteuer und Versand in Ihrem persönlichen Angebot.",
     },
 
     // ─── CONTACT PAGE ────────────────────────────────────────────────────────
@@ -619,6 +634,7 @@ const strings = {
       tagline: "DIE Container GmbH offers new and used containers for storage, transport, trade, construction and private use, backed by clear communication and professional handling.",
       copyright: "All rights reserved.",
       disclaimer: "All information without guarantee",
+      cookieSettings: "Cookie settings",
     },
 
     hero: {
@@ -869,6 +885,20 @@ const strings = {
       termsConfirm: "I confirm that this is a non-binding quote request.",
       termsAgb: "Terms & Conditions",
       termsPrivacy: "Privacy Policy",
+      costSummaryTitle: "Cost summary",
+      unitPriceLabel: "container price (net)",
+      vatLabel: "19% VAT",
+      shippingLabel: "Standard delivery",
+      craneDeliveryLabel: "Delivery with crane unloading",
+      selfPickupLabel: "Self-collection",
+      shippingPendingLabel: "Select transport option",
+      shippingIndividualLabel: "Calculated by quantity and delivery location",
+      craneShippingIndividualLabel: "Calculated individually · higher than standard delivery",
+      productGrossTotalLabel: "Subtotal incl. 19% VAT",
+      totalCostLabel: "Total cost",
+      costSummaryNote: "The product subtotal is calculated exactly. Transport depends on quantity, container size, delivery location, access and unloading. Crane unloading costs more than standard delivery; the confirmed transport price will be included in your personal quote.",
+      individualPriceTitle: "Price calculated individually",
+      individualPriceText: "No fixed product price is stored for this configuration. Your personal quote will include the complete price with VAT and shipping.",
     },
 
     contact: {

@@ -396,12 +396,18 @@ function DatenschutzPage() {
               <p>Wenn Sie sich entscheiden, unsere Website zu nutzen, um ein Angebot oder andere Informationen anzufordern, erhalten Sie von uns Bestätigungs-E-Mails. Systemgenerierte E-Mails wie diese betrachten wir als angefordert und fallen nicht unter unsere Opt-out-Option.</p>
             </Section>
 
-            <Section number="5" title="Ihr Einverständnis">
+            <Section number="5" title="Meta Pixel">
+              <p>Nach Ihrer ausdrücklichen Einwilligung verwenden wir auf dieser Website das Meta Pixel von Meta Platforms Ireland Limited. Das Pixel hilft uns, Seitenaufrufe zu messen, die Wirksamkeit unserer Werbung auf Facebook und Instagram auszuwerten und Zielgruppen für relevante Werbung zu bilden.</p>
+              <p className="mt-2">Dabei können Meta und wir Informationen über Ihren Besuch verarbeiten, darunter aufgerufene Seiten, Browser- und Geräteinformationen, IP-Adresse sowie über Cookies erzeugte Kennungen. Eine Datenübermittlung in Drittländer, insbesondere die USA, kann nicht ausgeschlossen werden. Rechtsgrundlage ist ausschließlich Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG.</p>
+              <p className="mt-2">Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen“ im Footer widerrufen. Weitere Informationen finden Sie in der <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer" className="underline hover:text-foreground">Datenschutzrichtlinie von Meta</a>.</p>
+            </Section>
+
+            <Section number="6" title="Ihr Einverständnis">
               <p>Durch die Nutzung dieser Website und der auf unserer Website verfügbaren Dienste erklären Sie sich mit der Erfassung und Verwendung Ihrer Daten wie oben beschrieben einverstanden. Wenn wir uns entscheiden, unsere Datenschutzpolitik zu ändern, werden wir die Änderungen auf dieser Seite veröffentlichen, damit Sie immer über unsere Politik informiert sind.</p>
               <p className="mt-2">Vielen Dank für Ihren Besuch bei der DIE Container GmbH. Sollten Sie Fragen zu diesen Richtlinien haben, können Sie uns gerne kontaktieren.</p>
             </Section>
 
-            <Section number="6" title="Kontaktieren Sie uns">
+            <Section number="7" title="Kontaktieren Sie uns">
               <p>Haben Sie Fragen dazu, wie wir Ihrem Unternehmen helfen können? Senden Sie uns eine E-Mail, und wir melden uns in Kürze bei Ihnen.</p>
               <ContactBlock />
             </Section>
@@ -805,7 +811,7 @@ function CookiePolicyPage() {
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Cookie-Richtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website diecontainers.com besuchen. Durch die weitere Nutzung unserer Website stimmen Sie dem Einsatz von Cookies gemäß dieser Richtlinie zu.
+              Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website diecontainers.com besuchen. Nicht notwendige Technologien werden erst nach Ihrer ausdrücklichen Einwilligung aktiviert.
             </p>
           </div>
           <div className="divide-y divide-border">
@@ -818,7 +824,7 @@ function CookiePolicyPage() {
                   { type: "Notwendige Cookies", desc: "Diese Cookies sind für den ordnungsgemäßen Betrieb der Website unerlässlich. Sie ermöglichen grundlegende Funktionen wie Seitennavigation, Sicherheit und Formularübermittlungen. Sie können diese Cookies nicht ablehnen.", color: "bg-blue-50 border-blue-200", text: "text-blue-800" },
                   { type: "Funktionale Cookies", desc: "Diese Cookies ermöglichen es der Website, Ihre Einstellungen (z. B. Sprachpräferenzen) zu speichern und erweiterte, personalisierte Funktionen bereitzustellen. Sie können von uns oder von Drittanbietern gesetzt werden.", color: "bg-green-50 border-green-200", text: "text-green-800" },
                   { type: "Analyse- / Performance-Cookies", desc: "Diese Cookies erfassen anonyme Informationen darüber, wie Besucher unsere Website nutzen, z. B. welche Seiten am häufigsten aufgerufen werden. So können wir die Leistung und Benutzerfreundlichkeit der Website verbessern.", color: "bg-blue-50 border-blue-200", text: "text-blue-800" },
-                  { type: "Marketing-Cookies", desc: "Diese Cookies verfolgen Ihre Surfaktivitäten, um relevante Werbung auszuspielen. Wir verwenden derzeit keine Marketing-Cookies von Drittanbietern. Sollte sich dies ändern, werden wir diese Richtlinie aktualisieren und Ihre Einwilligung einholen.", color: "bg-rose-50 border-rose-200", text: "text-rose-800" },
+                  { type: "Marketing-Cookies", desc: "Nach Ihrer Einwilligung verwenden wir das Meta Pixel, um Seitenaufrufe zu messen, die Wirksamkeit unserer Werbung auf Facebook und Instagram auszuwerten und relevante Zielgruppen zu bilden. Ohne Ihre Einwilligung wird das Meta Pixel nicht geladen.", color: "bg-rose-50 border-rose-200", text: "text-rose-800" },
                 ].map((item, i) => (
                   <div key={i} className={`rounded-xl border px-4 py-4 ${item.color}`}>
                     <p className={`font-heading font-semibold text-sm mb-1 ${item.text}`}>{item.type}</p>
@@ -828,7 +834,7 @@ function CookiePolicyPage() {
               </div>
             </Section>
             <Section number="3" title="Cookies von Drittanbietern">
-              <p>Unsere Website kann Inhalte oder Funktionen von Drittanbietern enthalten (z. B. eingebettete Karten oder Analyse-Tools). Diese Drittanbieter können eigene Cookies auf Ihrem Gerät setzen, die deren eigenen Datenschutz- und Cookie-Richtlinien unterliegen. Wir haben keinen Einfluss auf Cookies von Drittanbietern.</p>
+              <p>Bei erteilter Einwilligung laden wir das Meta Pixel (Pixel-ID 1324522606105588) von Meta Platforms Ireland Limited. Meta kann dabei Cookies oder vergleichbare Kennungen verwenden und Informationen zu Ihrem Besuch verarbeiten. Weitere Informationen finden Sie in der <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer" className="underline hover:text-foreground">Datenschutzrichtlinie von Meta</a>.</p>
             </Section>
             <Section number="4" title="Wie lange werden Cookies gespeichert?">
               <BulletList items={[
@@ -840,8 +846,8 @@ function CookiePolicyPage() {
               <p>Sie haben das Recht, die Verwendung von Cookies auf Ihrem Gerät zu steuern:</p>
               <BulletList items={[
                 "Browser-Einstellungen: Die meisten Browser ermöglichen es Ihnen, Cookies einzusehen, zu verwalten, zu blockieren oder zu löschen. Weitere Informationen finden Sie im Hilfebereich Ihres Browsers.",
-                "Einwilligung: Beim ersten Besuch unserer Website kann Ihnen ein Cookie-Einwilligungsbanner angezeigt werden. Sie können Ihre Einstellungen jederzeit ändern.",
-                "Opt-out-Tools: Für Analyse-Dienste können Sie verfügbare Opt-out-Tools nutzen (z. B. Google Analytics Opt-out-Browser-Add-on).",
+                "Einwilligung: Beim ersten Besuch unserer Website wird ein Cookie-Einwilligungsbanner angezeigt. Nicht notwendige Technologien werden nur nach Ihrer Zustimmung aktiviert.",
+                "Widerruf: Über den Link „Cookie-Einstellungen“ im Footer können Sie Ihre Auswahl jederzeit ändern oder eine erteilte Einwilligung widerrufen.",
               ]} />
               <div className="mt-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3">
                 <p className="text-xs text-blue-800"><strong>Bitte beachten:</strong> Das Deaktivieren bestimmter Cookies kann die Funktionalität unserer Website beeinträchtigen und den Zugang zu einigen Funktionen einschränken.</p>
@@ -856,7 +862,7 @@ function CookiePolicyPage() {
             </Section>
             <Section number="7" title="Änderungen dieser Cookie-Richtlinie">
               <p>Wir behalten uns das Recht vor, diese Cookie-Richtlinie jederzeit zu aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht. Wir empfehlen Ihnen, diese Richtlinie regelmäßig zu prüfen.</p>
-              <p className="mt-2 text-xs text-muted-foreground">Zuletzt aktualisiert: Juni 2026</p>
+              <p className="mt-2 text-xs text-muted-foreground">Zuletzt aktualisiert: Juli 2026</p>
             </Section>
             <Section number="8" title="Kontakt">
               <p>Wenn Sie Fragen zur Verwendung von Cookies oder zu dieser Richtlinie haben, kontaktieren Sie uns bitte:</p>

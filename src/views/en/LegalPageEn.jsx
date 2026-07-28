@@ -60,6 +60,10 @@ const LEGAL_CONTENT = {
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">6. Cookies</h2>
           <p>This website uses technically necessary cookies. No tracking or advertising cookies are used without your consent. See our <a href="/en/cookie-policy" className="underline">Cookie Policy</a> for details.</p>
         </section>
+        <section>
+          <h2 className="font-heading font-semibold text-base text-foreground mb-2">7. Meta Pixel</h2>
+          <p>After you explicitly consent, we use the Meta Pixel provided by Meta Platforms Ireland Limited to measure page views and advertising performance on Facebook and Instagram. Meta may process browser, device, IP address and cookie identifier information, including in third countries such as the United States. The legal basis is your consent under Art. 6(1)(a) GDPR and Section 25(1) TDDDG. You can withdraw consent at any time through “Cookie settings” in the footer. See <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noreferrer" className="underline">Meta's Privacy Policy</a> for further information.</p>
+        </section>
       </div>
     ),
   },
@@ -77,10 +81,11 @@ const LEGAL_CONTENT = {
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Cookies we use</h2>
           <p><strong className="text-foreground">Technically necessary cookies:</strong> These are required for the website to function correctly. They cannot be disabled.</p>
           <p><strong className="text-foreground">Analytics cookies:</strong> We may use anonymised analytics to understand how visitors use our website and improve it. No personal data is collected.</p>
+          <p><strong className="text-foreground">Marketing cookies:</strong> With your consent, the Meta Pixel (Pixel ID 1324522606105588) measures page views and advertising performance on Facebook and Instagram. The Meta Pixel is not loaded before consent.</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Managing cookies</h2>
-          <p>You can control and delete cookies via your browser settings. Disabling technically necessary cookies may affect the functionality of the website.</p>
+          <p>You can control and delete cookies via your browser settings. You can also change or withdraw your consent at any time through “Cookie settings” in the footer. Disabling technically necessary cookies may affect the functionality of the website.</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Contact</h2>

@@ -31,6 +31,14 @@ const QuoteSchema = z.object({
   unloading_method: z.string().max(100).optional(),
   desired_delivery_date: z.string().max(20).optional(),
   product_id: z.string().uuid().optional().nullable(),
+  product_title: z.string().max(300).optional(),
+  unit_price: z.number().nonnegative().optional(),
+  net_subtotal: z.number().nonnegative().optional(),
+  vat_rate: z.number().min(0).max(1).optional(),
+  vat_amount: z.number().nonnegative().optional(),
+  gross_subtotal: z.number().nonnegative().optional(),
+  shipping_fee: z.number().nonnegative().nullable().optional(),
+  total_amount: z.number().nonnegative().nullable().optional(),
 });
 
 // Dashboard's `condition` column uses English codes; the storefront UI/filters
@@ -273,7 +281,27 @@ const supabaseQuoteRequests = {
       parsed.additional_notes || null,
     ].filter(Boolean).join("\n\n");
 
-    const { container_size, container_height, container_type, main_category, modified_subtype, condition, color, quantity, country, unloading_method, desired_delivery_date } = parsed;
+    const {
+      container_size,
+      container_height,
+      container_type,
+      main_category,
+      modified_subtype,
+      condition,
+      color,
+      quantity,
+      country,
+      unloading_method,
+      desired_delivery_date,
+      product_title,
+      unit_price,
+      net_subtotal,
+      vat_rate,
+      vat_amount,
+      gross_subtotal,
+      shipping_fee,
+      total_amount,
+    } = parsed;
 
     // No .select() here: the "inquiries" table grants anon INSERT only, no
     // SELECT — requesting the row back (INSERT ... RETURNING) fails RLS.
@@ -296,6 +324,17 @@ const supabaseQuoteRequests = {
         country,
         unloading_method,
         desired_delivery_date,
+        pricing: unit_price == null ? null : {
+          product_title,
+          unit_price,
+          net_subtotal,
+          vat_rate,
+          vat_amount,
+          gross_subtotal,
+          shipping_fee,
+          total_amount,
+          currency: "EUR",
+        },
       },
     });
     if (error) throw error;

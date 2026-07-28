@@ -3,24 +3,34 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Cookie } from "lucide-react";
-
-const STORAGE_KEY = "die-containers-cookie-consent";
+import {
+  COOKIE_CONSENT,
+  OPEN_COOKIE_SETTINGS_EVENT,
+  getStoredCookieConsent,
+  setStoredCookieConsent,
+} from "@/lib/cookieConsent";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) setVisible(true);
+    const openSettings = () => setVisible(true);
+
+    if (!getStoredCookieConsent()) setVisible(true);
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings);
+
+    return () => {
+      window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, openSettings);
+    };
   }, []);
 
   const accept = () => {
-    localStorage.setItem(STORAGE_KEY, "accepted");
+    setStoredCookieConsent(COOKIE_CONSENT.ALL);
     setVisible(false);
   };
 
   const decline = () => {
-    localStorage.setItem(STORAGE_KEY, "essential");
+    setStoredCookieConsent(COOKIE_CONSENT.ESSENTIAL);
     setVisible(false);
   };
 
@@ -28,16 +38,25 @@ export default function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6">
-      <div className="max-w-4xl mx-auto bg-card border border-border rounded-2xl shadow-2xl p-5 sm:p-6">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cookie-consent-title"
+        className="max-w-4xl mx-auto bg-card border border-border rounded-2xl shadow-2xl p-5 sm:p-6"
+      >
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
           <div className="flex items-start gap-3 flex-1 min-w-0">
             <Cookie className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#1E5FAE" }} />
             <div>
-              <p className="font-heading font-semibold text-sm mb-1">Wir verwenden Cookies</p>
+              <p id="cookie-consent-title" className="font-heading font-semibold text-sm mb-1">
+                Wir verwenden Cookies
+              </p>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Wir nutzen Cookies, um Ihnen die bestmögliche Nutzererfahrung zu bieten. Technisch notwendige Cookies werden immer gesetzt. Weitere Informationen finden Sie in unserer{" "}
-                <Link to="/datenschutz" className="underline hover:text-foreground transition-colors">
-                  Datenschutzerklärung
+                Technisch notwendige Cookies werden immer verwendet. Mit Ihrer Einwilligung nutzen wir außerdem
+                Analyse- und Marketing-Technologien, einschließlich des Meta Pixels, um Seitenaufrufe und die
+                Wirksamkeit unserer Werbung zu messen. Weitere Informationen finden Sie in unserer{" "}
+                <Link to="/cookie-policy" className="underline hover:text-foreground transition-colors">
+                  Cookie-Richtlinie
                 </Link>.
               </p>
             </div>

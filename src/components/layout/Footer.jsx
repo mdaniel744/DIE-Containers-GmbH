@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { useT, useSection } from "@/lib/i18n";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 export default function Footer() {
   const t = useT();
@@ -108,6 +109,13 @@ export default function Footer() {
             <p className="text-xs text-primary-foreground/50 font-mono">
               © {new Date().getFullYear()} DIE Container GmbH. Alle Rechte vorbehalten.
             </p>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="text-xs text-primary-foreground/60 font-mono underline-offset-4 hover:text-white hover:underline transition-colors"
+            >
+              {t("footer.cookieSettings")}
+            </button>
             <p className="text-xs text-primary-foreground/40 font-mono">
               {t("footer.disclaimer")}
             </p>

@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import CookieConsent from "@/components/shared/CookieConsent";
+import MetaPixel from "@/components/shared/MetaPixel";
 
 export default function MainLayout({ children }) {
   return (
@@ -13,6 +14,9 @@ export default function MainLayout({ children }) {
         {children || <Outlet />}
       </main>
       <Footer />
+      <Suspense fallback={null}>
+        <MetaPixel />
+      </Suspense>
       <CookieConsent />
     </div>
   );

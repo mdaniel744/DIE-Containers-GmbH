@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
@@ -8,8 +8,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import QuoteStep1 from "@/components/quote/QuoteStep1";
 import QuoteStep2 from "@/components/quote/QuoteStep2";
 import QuoteStep3 from "@/components/quote/QuoteStep3";
+import QuoteCostSummary from "@/components/quote/QuoteCostSummary";
 import { useSection } from "@/lib/i18n";
 import { getContainerHeightVariant, normalizeQuoteContainerSize } from "@/lib/quoteContainer";
+import { useProducts } from "@/hooks/useProducts";
+import {
+  calculateQuoteCosts,
+  findMatchingQuoteProduct,
+} from "@/lib/quotePricing";
 
 const BRAND_BLUE = "#1E5FAE";
 // stepLabels are now read from i18n inside the component
@@ -21,6 +27,7 @@ const isPositiveInteger = (value) => {
 export default function QuoteRequest() {
   const T = useSection("quote");
   const navigate = useNavigate();
+  const { products } = useProducts();
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("product");
   const qty = parseInt(searchParams.get("qty"), 10) || 1;
@@ -53,6 +60,34 @@ export default function QuoteRequest() {
     accepted_terms: false,
   });
   const [prefilledProduct, setPrefilledProduct] = useState(null);
+
+  const configuredProducts = useMemo(() => {
+    if (!prefilledProduct) return products;
+    if (products.some((product) => String(product.id) === String(prefilledProduct.id))) {
+      return products;
+    }
+    return [prefilledProduct, ...products];
+  }, [prefilledProduct, products]);
+
+  const selectedProduct = useMemo(
+    () => findMatchingQuoteProduct(configuredProducts, data),
+    [configuredProducts, data]
+  );
+  const pricing = useMemo(
+    () => calculateQuoteCosts({
+      unitPrice: selectedProduct?.price_from,
+      quantity: data.quantity,
+      unloadingMethod: data.unloading_method,
+    }),
+    [selectedProduct, data.quantity, data.unloading_method]
+  );
+  const configurationComplete = Boolean(
+    data.main_category &&
+    data.container_size &&
+    data.container_height &&
+    data.condition &&
+    isPositiveInteger(data.quantity)
+  );
 
   useEffect(() => {
     setData((prev) => ({
@@ -98,7 +133,7 @@ export default function QuoteRequest() {
         }));
         setPrefilledProduct(product);
         setStep(1);
-      } catch (e) {
+      } catch {
         // product not found – stay on step 0
       }
     })();
@@ -124,7 +159,19 @@ export default function QuoteRequest() {
     setSubmitting(true);
     setSubmitError(null);
     try {
-      await base44.entities.QuoteRequest.create({ ...data, quantity: Number(data.quantity) });
+      await base44.entities.QuoteRequest.create({
+        ...data,
+        product_id: selectedProduct?.id || data.product_id || "",
+        product_title: selectedProduct?.title || "",
+        quantity: Number(data.quantity),
+        unit_price: pricing?.unitPrice,
+        net_subtotal: pricing?.netSubtotal,
+        vat_rate: pricing?.vatRate,
+        vat_amount: pricing?.vatAmount,
+        gross_subtotal: pricing?.grossSubtotal,
+        shipping_fee: pricing?.shippingFee,
+        total_amount: pricing?.total,
+      });
       setSubmitted(true);
     } catch (err) {
       console.error("[quote] submit failed:", err);
@@ -236,6 +283,15 @@ export default function QuoteRequest() {
             </motion.div>
           </AnimatePresence>
         </div>
+
+        {step >= 1 && (
+          <QuoteCostSummary
+            product={selectedProduct}
+            pricing={pricing}
+            configurationComplete={configurationComplete}
+            unloadingMethod={data.unloading_method}
+          />
+        )}
 
         {/* Navigation */}
         <div className="flex justify-between mt-6">

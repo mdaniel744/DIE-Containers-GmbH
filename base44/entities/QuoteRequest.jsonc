@@ -32,6 +32,30 @@
     "product_id": {
       "type": "string"
     },
+    "product_title": {
+      "type": "string"
+    },
+    "unit_price": {
+      "type": "number"
+    },
+    "net_subtotal": {
+      "type": "number"
+    },
+    "vat_rate": {
+      "type": "number"
+    },
+    "vat_amount": {
+      "type": "number"
+    },
+    "gross_subtotal": {
+      "type": "number"
+    },
+    "shipping_fee": {
+      "type": "number"
+    },
+    "total_amount": {
+      "type": "number"
+    },
     "street": {
       "type": "string"
     },
