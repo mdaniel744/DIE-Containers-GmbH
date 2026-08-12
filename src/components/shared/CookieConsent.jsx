@@ -46,7 +46,7 @@ export default function CookieConsent() {
       >
         <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
           <div className="flex items-start gap-3 flex-1 min-w-0">
-            <Cookie className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#1E5FAE" }} />
+            <Cookie className="w-5 h-5 shrink-0 mt-0.5" style={{ color: "#46C54B" }} />
             <div>
               <p id="cookie-consent-title" className="font-heading font-semibold text-sm mb-1">
                 Wir verwenden Cookies
@@ -75,7 +75,7 @@ export default function CookieConsent() {
               size="sm"
               onClick={accept}
               className="flex-1 sm:flex-none text-xs h-9 font-semibold text-white"
-              style={{ backgroundColor: "#1E5FAE" }}
+              style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
             >
               Alle akzeptieren
             </Button>

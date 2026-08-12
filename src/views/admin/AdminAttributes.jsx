@@ -76,7 +76,7 @@ function ValueForm({ attributeId, attributeSlug, initial, onSave, onCancel }) {
         <Button variant="ghost" size="sm" onClick={onCancel} className="text-slate-400 hover:text-white h-7 text-xs">
           <X className="w-3 h-3 mr-1" /> Abbrechen
         </Button>
-        <Button size="sm" disabled={saving || !form.label || !form.value} onClick={handleSave} className="h-7 text-xs text-white" style={{ backgroundColor: "#1E5FAE" }}>
+        <Button size="sm" disabled={saving || !form.label || !form.value} onClick={handleSave} className="h-7 text-xs text-white" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
           <Check className="w-3 h-3 mr-1" /> {saving ? "Speichern..." : "Speichern"}
         </Button>
       </div>
@@ -205,7 +205,7 @@ export default function AdminAttributes() {
           <h1 className="font-heading font-bold text-white text-2xl">Attribute</h1>
           <p className="text-slate-400 text-sm mt-1">Verwalten Sie Produktattribute und deren Werte</p>
         </div>
-        <Button onClick={() => setShowNewForm(true)} className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#1E5FAE" }}>
+        <Button onClick={() => setShowNewForm(true)} className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
           <Plus className="w-4 h-4 mr-2" /> Neues Attribut
         </Button>
       </div>
@@ -247,7 +247,7 @@ export default function AdminAttributes() {
             <Button variant="ghost" onClick={() => setShowNewForm(false)} className="text-slate-400 hover:text-white">
               <X className="w-4 h-4 mr-1" /> Abbrechen
             </Button>
-            <Button disabled={saving || !newAttr.name || !newAttr.slug} onClick={handleCreateAttr} className="text-white" style={{ backgroundColor: "#1E5FAE" }}>
+            <Button disabled={saving || !newAttr.name || !newAttr.slug} onClick={handleCreateAttr} className="text-white" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
               <Check className="w-4 h-4 mr-1" /> {saving ? "Speichern..." : "Erstellen"}
             </Button>
           </div>

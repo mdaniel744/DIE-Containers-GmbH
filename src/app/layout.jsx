@@ -34,7 +34,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#1E5FAE",
+  themeColor: "#46C54B",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -46,9 +46,9 @@ const organizationSchema = {
   "@id": `${siteUrl}/#organization`,
   name: "DIE Container GmbH",
   url: siteUrl,
-  logo: `${siteUrl}/images/die-container-logo-blue.png`,
+  logo: `${siteUrl}/images/die-container-logo-green.png`,
   email: "contact@diecontainers.com",
-  telephone: "0049 163 5393 159",
+  telephone: "+49 (0) 89 277 808 979",
   vatID: "DE 330443785",
   identifier: {
     "@type": "PropertyValue",
@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
     <html lang="de">
       <head>
         {/* PWA — Apple-specific tags (not covered by Next.js metadata API) */}
-        <link rel="apple-touch-icon" href="/images/die-container-logo-blue.png" />
+        <link rel="apple-touch-icon" href="/images/die-container-logo-green.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="DIE Container GmbH" />

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 const STEEL_FRONT = "#2F343A";
 const STEEL_SIDE = "#474e56";
 const STEEL_TOP = "#3a4148";

@@ -6,8 +6,8 @@ import { ChevronRight, Phone, CheckCircle, AlertTriangle, ArrowRight, Info } fro
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const BRAND_BLUE = "#1E5FAE";
-const NAVY = "#1B3A5C";
+const BRAND_BLUE = "#46C54B";
+const NAVY = "#176B20";
 
 /* â”€â”€ Image assets â”€â”€ */
 const IMG_TILT_TRAILER = "/images/container-delivery-tilt-trailer.webp";
@@ -231,7 +231,7 @@ export default function ContainerLieferung() {
       {/* â”€â”€ Hero Banner â”€â”€ */}
       <div
         className="relative overflow-hidden mb-12"
-        style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #0f2540 100%)` }}>
+        style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #0B3D13 100%)` }}>
         
         <div className="absolute inset-0 opacity-10"
         style={{
@@ -247,7 +247,7 @@ export default function ContainerLieferung() {
           </nav>
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
             <div className="flex-1">
-              <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>
+              <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: "#278A2F" }}>
                 Lieferservice
               </span>
               <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-4">
@@ -259,11 +259,11 @@ export default function ContainerLieferung() {
               <div className="flex flex-wrap gap-4 mt-6">
                 <Link to="/shop"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: BRAND_BLUE }}>
+                style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
                   
                   Lieferangebot anfordern <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a href="tel:+491635393159"
+                <a href="tel:+4989277808979"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white border border-white/20 hover:bg-white/10 transition-colors">
                   
                   <Phone className="w-4 h-4" /> Direkt anrufen
@@ -292,7 +292,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ 5-Step Process â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Schritt für Schritt</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Schritt für Schritt</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">So läuft Ihre Container-Lieferung ab</h2>
           </div>
 
@@ -324,7 +324,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ Truck Types â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Transportmethoden</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Transportmethoden</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Welches Fahrzeug wird eingesetzt?</h2>
             <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Die Wahl des Fahrzeugs hängt vom Containertyp, der Entfernung und den Zugangsbedingungen am Zielort ab.</p>
           </div>
@@ -378,7 +378,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ Site Requirements â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-8">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Checkliste</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Checkliste</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Was müssen Sie vorbereiten?</h2>
             <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Bereiten Sie diese Punkte vor dem Liefertag vor, um einen reibungslosen Ablauf zu gewährleisten</p>
           </div>
@@ -402,7 +402,7 @@ export default function ContainerLieferung() {
                     <AlertTriangle className="w-4 h-4 text-blue-500 shrink-0" />
                     }
                     </div>
-                    <p className="font-heading font-semibold text-lg leading-none mb-1" style={{ color: BRAND_BLUE }}>{req.value}</p>
+                    <p className="font-heading font-semibold text-lg leading-none mb-1" style={{ color: "#278A2F" }}>{req.value}</p>
                     <p className="text-xs text-muted-foreground">{req.note}</p>
                   </div>
                 </div>
@@ -431,7 +431,7 @@ export default function ContainerLieferung() {
               </div>
             </div>
             <div className="px-6 py-4 bg-muted/30 border-t border-border flex items-start gap-2">
-              <Info className="w-4 h-4 shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
+              <Info className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
               <p className="text-xs text-muted-foreground">Teilen Sie uns Ihre gewünschte Türausrichtung bei der Anfrage mit, damit wir den Container entsprechend beladen können.</p>
             </div>
           </div>
@@ -443,7 +443,7 @@ export default function ContainerLieferung() {
         {/* â”€â”€ Cost Table â”€â”€ */}
         <section className="mb-14">
           <div className="text-center mb-6">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Preisübersicht</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Preisübersicht</span>
             <h2 className="font-heading font-bold text-2xl text-foreground">Transportkosten nach Entfernung</h2>
             <p className="text-muted-foreground text-sm mt-2">Richtwerte ab unserem Standort. Endpreise individuell auf Anfrage.</p>
           </div>

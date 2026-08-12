@@ -14,7 +14,7 @@ function RichTextLink({ node, href = "", children, ...props }) {
     return <span>{children}</span>;
   }
 
-  const className = "font-medium text-[#1E5FAE] underline underline-offset-4 hover:text-[#174C8C] transition-colors";
+  const className = "font-medium text-[#278A2F] underline underline-offset-4 hover:text-[#278A2F] transition-colors";
 
   if (isInternalHref(href)) {
     return (
@@ -54,10 +54,10 @@ const markdownComponents = {
     <p className="text-base text-muted-foreground leading-relaxed mb-5 max-w-3xl whitespace-pre-line" {...props} />
   ),
   ul: ({ node, ...props }) => (
-    <ul className="list-disc pl-6 mb-5 space-y-2 text-muted-foreground marker:text-[#1E5FAE]" {...props} />
+    <ul className="list-disc pl-6 mb-5 space-y-2 text-muted-foreground marker:text-[#278A2F]" {...props} />
   ),
   ol: ({ node, ...props }) => (
-    <ol className="list-decimal pl-6 mb-5 space-y-2 text-muted-foreground marker:text-[#1E5FAE]" {...props} />
+    <ol className="list-decimal pl-6 mb-5 space-y-2 text-muted-foreground marker:text-[#278A2F]" {...props} />
   ),
   li: ({ node, ...props }) => (
     <li className="pl-1 leading-relaxed" {...props} />
@@ -70,7 +70,7 @@ const markdownComponents = {
     <em className="italic text-foreground/90" {...props} />
   ),
   blockquote: ({ node, ...props }) => (
-    <blockquote className="border-l-4 border-[#1E5FAE] bg-muted/40 rounded-r-xl px-5 py-4 my-6 text-muted-foreground italic" {...props} />
+    <blockquote className="border-l-4 border-[#46C54B] bg-muted/40 rounded-r-xl px-5 py-4 my-6 text-muted-foreground italic" {...props} />
   ),
   hr: ({ node, ...props }) => (
     <hr className="my-8 border-border" {...props} />

@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 
 /**
  * Shared layout for all category pages (10ft, 20ft, 40ft, Kühl, Büro, OpenSide).
@@ -37,7 +37,7 @@ export default function CategoryPageLayout({ filterKey, filterValue, i18nSection
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs tracking-widest uppercase" style={{ color: BRAND_BLUE }}>{T.label}</span>
+            <span className="font-mono text-xs tracking-widest uppercase" style={{ color: "#278A2F" }}>{T.label}</span>
           </div>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-3">{T.title}</h1>
           <p className="text-muted-foreground max-w-2xl">{T.description}</p>

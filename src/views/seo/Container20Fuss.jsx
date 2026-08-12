@@ -6,8 +6,8 @@ import { ArrowRight, ChevronRight, CheckCircle, Package, Wrench } from "lucide-r
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const BRAND_BLUE = "#1E5FAE";
-const NAVY = "#1B3A5C";
+const BRAND_BLUE = "#46C54B";
+const NAVY = "#176B20";
 
 /* â”€â”€ Images â”€â”€ */
 const IMG_20FT_HERO = "/images/20ft-used-red-rear.jpg";
@@ -88,7 +88,7 @@ const RATGEBER = [
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: "#278A2F" }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -131,7 +131,7 @@ export default function Container20Fuss() {
             20 Fuß Container kaufen in Deutschland – neue und gebrauchte 20 Fuß Container für Lagerung, Transport, Baustelle und Gewerbe. Mit Lieferung direkt zum Standort.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop?size=20ft" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -246,7 +246,7 @@ export default function Container20Fuss() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Package className="w-4 h-4" style={{ color: BRAND_BLUE }} />
+              <Package className="w-4 h-4" style={{ color: "#278A2F" }} />
               20 Fuß Seecontainer – besonders geeignet für:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -314,7 +314,7 @@ export default function Container20Fuss() {
                 <div className="p-4 bg-card">
                   <p className="font-heading font-bold text-sm text-foreground mb-1">20 Fuß Bürocontainer</p>
                   <p className="text-xs text-muted-foreground">Auch als Bürocontainer oder Wohncontainer in 20 Fuß verfügbar.</p>
-                  <Link to="/buerocontainer-kaufen" className="inline-flex items-center gap-1 mt-2 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
+                  <Link to="/buerocontainer-kaufen" className="inline-flex items-center gap-1 mt-2 text-xs font-semibold font-heading" style={{ color: "#278A2F" }}>
                     Bürocontainer entdecken <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -365,7 +365,7 @@ export default function Container20Fuss() {
           </div>
           <div className="rounded-2xl border border-border bg-card p-5 sm:p-6">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Wrench className="w-4 h-4" style={{ color: BRAND_BLUE }} />
+              <Wrench className="w-4 h-4" style={{ color: "#278A2F" }} />
               Checkliste vor dem Kauf
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -393,19 +393,19 @@ export default function Container20Fuss() {
         </section>
 
         {/* â”€â”€ CTA â”€â”€ */}
-        <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }}>
+        <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0B3D13)` }}>
           <div>
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt 20 Fuß Container anfragen</h2>
             <p className="text-white/60 text-sm">Unverbindlich anfragen – Angebot inkl. Lieferung erhalten.</p>
           </div>
-          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
+          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zum 20 Fuß Container</h2>
           <FaqAccordion items={FAQS} />
         </section>

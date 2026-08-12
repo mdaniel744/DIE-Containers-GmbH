@@ -17,7 +17,7 @@ function CurrencyValue({ value, muted = false, accent = false }) {
     <span
       className={
         accent
-          ? "font-heading text-xl font-bold text-[#1E5FAE]"
+          ? "font-heading text-xl font-bold text-[#278A2F]"
           : muted
             ? "text-muted-foreground"
             : "font-medium text-foreground"
@@ -42,7 +42,7 @@ export default function QuoteCostSummary({
     return (
       <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50/70 p-5 text-blue-950">
         <div className="flex items-start gap-3">
-          <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#1E5FAE]" />
+          <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#278A2F]" />
           <div>
             <h3 className="font-heading font-bold">{T.individualPriceTitle}</h3>
             <p className="mt-1 text-sm text-blue-900/75">{T.individualPriceText}</p>
@@ -67,10 +67,10 @@ export default function QuoteCostSummary({
   const hasFinalTotal = pricing.total !== null;
 
   return (
-    <section className="mt-6 overflow-hidden rounded-2xl border border-[#1E5FAE]/25 bg-card">
-      <div className="flex items-center gap-3 border-b border-[#1E5FAE]/15 bg-[#1E5FAE]/5 px-5 py-4">
-        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1E5FAE]/10">
-          <Calculator className="h-5 w-5 text-[#1E5FAE]" />
+    <section className="mt-6 overflow-hidden rounded-2xl border border-[#46C54B]/25 bg-card">
+      <div className="flex items-center gap-3 border-b border-[#46C54B]/15 bg-[#46C54B]/5 px-5 py-4">
+        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#46C54B]/10">
+          <Calculator className="h-5 w-5 text-[#278A2F]" />
         </div>
         <div>
           <h3 className="font-heading font-bold text-foreground">{T.costSummaryTitle}</h3>
@@ -95,7 +95,7 @@ export default function QuoteCostSummary({
             {shippingLabel}
           </span>
           {shippingValue ? (
-            <span className="text-right text-xs font-medium text-[#1E5FAE]">
+            <span className="text-right text-xs font-medium text-[#278A2F]">
               {shippingValue}
             </span>
           ) : (

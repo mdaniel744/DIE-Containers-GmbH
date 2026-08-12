@@ -14,7 +14,7 @@ export default function HeroSection() {
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <img src={HERO_IMAGE} alt="Seecontainer kaufen" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-primary/78" />
+        <div className="absolute inset-0 bg-secondary/84" />
         <div className="absolute inset-0 blueprint-line opacity-[0.04]" />
       </div>
 

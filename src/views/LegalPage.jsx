@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 import { Mail, MessageCircle, MapPin, CheckCircle, Truck, Shield, CreditCard, Lock, FileText, Building, AlertTriangle } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const BRAND_BLUE = "#1E5FAE";
-const NAVY = "#1B3A5C";
+const BRAND_BLUE = "#46C54B";
+const NAVY = "#176B20";
 
 const legalContent = {
   impressum: {
     title: "Impressum",
-    content: "**Angaben gemäß § 5 TMG:**\n\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland\n\n**Kontakt:**\nTelefon: 0049 163 5393 159\nE-Mail: contact@diecontainers.com\n\n**Handelsregister / EUID:**\nHRB256757\n\n**Umsatzsteuer-ID:**\nUmsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:\nDE 330443785\n\n**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:**\nDIE Container GmbH\nHermann-Oberth-Str. 23\n85640 Putzbrunn\nDeutschland",
+    content: "**Angaben gemäß § 5 TMG:**\n\nDie Container GmbH\nHermann-Oberth-Str 23\n85640 Putzbrunn\nDeutschland\n\n**Kontakt:**\nTel.: 015901014410\nE-Mail: contact@containers.com\n\n**Registereintrag:**\nRegistergericht: Amtsgericht München\nRegisternummer: HRB 256757\n\n**Vertreten durch:**\nGeschäftsführer: Julian Hallal\n\n**Umsatzsteuer-Identifikationsnummer:**\nDE330443785",
   },
   "cookie-policy": {
     title: "Cookie Policy",
@@ -59,7 +59,7 @@ function Section({ number, title, children }) {
   return (
     <div className="mb-8">
       <div className="flex items-center gap-3 mb-3">
-        <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white font-heading" style={{ backgroundColor: BRAND_BLUE }}>
+        <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white font-heading" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
           {number}
         </span>
         <h2 className="font-heading font-bold text-base text-foreground">{title}</h2>
@@ -76,7 +76,7 @@ function BulletList({ items }) {
     <ul className="space-y-1.5 mt-2">
       {items.map((item, i) => (
         <li key={i} className="flex items-start gap-2">
-          <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: BRAND_BLUE }} />
+          <span className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }} />
           <span>{item}</span>
         </li>
       ))}
@@ -102,26 +102,26 @@ function NumberedList({ items }) {
 function ContactBlock() {
   return (
     <div className="mt-4 rounded-2xl overflow-hidden border border-border">
-      <div className="p-1" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }}>
+      <div className="p-1" style={{ background: `linear-gradient(135deg, ${NAVY}, #0B3D13)` }}>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 items-stretch">
           <a href="mailto:contact@diecontainers.com"
             className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
-            <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
+            <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">E-Mail</p>
               <p className="text-sm font-semibold text-white leading-tight break-all">contact@diecontainers.com</p>
             </div>
           </a>
-          <a href="https://wa.me/491635393159" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/4989277808979" target="_blank" rel="noopener noreferrer"
             className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
-            <MessageCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
+            <MessageCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">WhatsApp</p>
-              <p className="text-sm font-semibold text-white leading-tight">0049 163 5393 159</p>
+              <p className="text-sm font-semibold text-white leading-tight">+49 (0) 89 277 808 979</p>
             </div>
           </a>
           <div className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-4">
-            <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
+            <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">Adresse</p>
               <p className="text-sm font-semibold text-white leading-tight">Hermann-Oberth-Str. 23, 85640 Putzbrunn</p>
@@ -173,7 +173,7 @@ function ZahlungsbedingungenPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Zahlungsbedingungen & Zahlungsrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Bei DIE Container GmbH legen wir großen Wert auf transparente, sichere und nachvollziehbare Zahlungsprozesse – ohne versteckte Gebühren oder zwischengeschaltete Zahlungsdienstleister.
@@ -183,7 +183,7 @@ function ZahlungsbedingungenPage() {
           <div className="divide-y divide-border">
             <Section number="1" title="Verfügbare Zahlungsmethoden">
               <div className="bg-muted/50 rounded-xl px-4 py-4 flex items-start gap-3">
-                <Building className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
+                <Building className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
                 <div>
                   <p className="font-heading font-semibold text-foreground text-sm mb-1">Banküberweisung (SEPA – Vorkasse)</p>
                   <p>Die Zahlung erfolgt per SEPA-Banküberweisung auf unser offizielles Geschäftskonto.</p>
@@ -237,7 +237,7 @@ function ZahlungsbedingungenPage() {
                   { icon: FileText, text: "Alle Daten werden gemäß Datenschutzbestimmungen verarbeitet" },
                 ].map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-start gap-3 bg-muted/50 rounded-xl px-4 py-3">
-                    <Icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: BRAND_BLUE }} />
+                    <Icon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
                     <span className="text-sm">{text}</span>
                   </div>
                 ))}
@@ -262,7 +262,7 @@ function AgbPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
@@ -369,7 +369,7 @@ function DatenschutzPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Datenschutzerklärung</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Wir bei DIE Container GmbH verstehen, dass einige Ihrer persönlichen Daten sensibler Natur sind und Sie vielleicht Bedenken haben, diese persönlichen Daten mit uns zu teilen. Wenn Sie sich jedoch dafür entscheiden, mit uns zu interagieren oder uns Ihre Daten mitzuteilen, werden wir Ihre Privatsphäre auf die in dieser Richtlinie aufgeführte Weise schützen. Diese Richtlinie kann sich von Zeit zu Zeit ändern, daher sollten Sie sich über Änderungen informieren.
@@ -425,7 +425,7 @@ function RueckgabePage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rückgabe & Erstattung</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Rückgabe & Erstattung</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Rückgabe- und Erstattungsrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Alle Informationen zu Rückgaberecht, Reklamationen, Erstattungsverfahren und Ausnahmen beim Kauf von Containern über unseren Online-Shop.
@@ -502,7 +502,7 @@ function RueckgabePage() {
               <div className="mt-4">
                 <Link to="/kontakt"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: BRAND_BLUE }}>
+                  style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
                   Reklamation einreichen <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
@@ -527,7 +527,7 @@ function VersandPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Versand</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Versand</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Liefer- & Versandrichtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Alle Informationen zu Liefergebiet, Lieferzeiten, Transportkosten und dem Ablauf Ihrer Containerlieferung.
@@ -542,7 +542,7 @@ function VersandPage() {
 
             <Section number="2" title="Lieferzeiten">
               <div className="bg-muted/50 rounded-xl px-4 py-3 flex items-center gap-3">
-                <Truck className="w-5 h-5 flex-shrink-0" style={{ color: BRAND_BLUE }} />
+                <Truck className="w-5 h-5 flex-shrink-0" style={{ color: "#278A2F" }} />
                 <span><strong className="text-foreground">Standardlieferzeit:</strong> 3–9 Werktage nach Auftragsannahme</span>
               </div>
               <p className="mt-2">Lieferzeiten können abhängig von folgenden Faktoren variieren:</p>
@@ -589,7 +589,7 @@ function VersandPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
                 {promises.map(({ icon: Icon, text }, i) => (
                   <div key={i} className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3">
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: BRAND_BLUE }} />
+                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: "#278A2F" }} />
                     <span className="font-medium text-foreground text-sm">{text}</span>
                   </div>
                 ))}
@@ -602,7 +602,7 @@ function VersandPage() {
               <div className="mt-4">
                 <Link to="/shop"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: BRAND_BLUE }}>
+                  style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
                   Transportangebot anfordern <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
@@ -620,7 +620,7 @@ function GeneralTermsPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Allgemeine Geschäftsbedingungen (AGB)</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen <strong className="text-foreground">DIE Container GmbH, Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland</strong> und ihren Kunden für den Verkauf von neuen und gebrauchten Containern einschließlich Lieferung und optionaler Dienstleistungen. Mit der Bestellung erklärt der Kunde sein Einverständnis mit diesen Bedingungen.
@@ -719,7 +719,7 @@ function VatDutiesPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Mehrwertsteuer & Zölle</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Alle Preise beinhalten 19 % MwSt. und werden klar ausgewiesen. DIE Container GmbH gewährleistet eine transparente Preisgestaltung und stellt jedem Kunden eine detaillierte Rechnung mit allen steuerlichen Informationen zur Verfügung.
@@ -808,7 +808,7 @@ function CookiePolicyPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Rechtliches</span>
+            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Rechtliches</span>
             <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Cookie-Richtlinie</h1>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Diese Cookie-Richtlinie erläutert, wie <strong className="text-foreground">DIE Container GmbH</strong> (Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland) Cookies und ähnliche Tracking-Technologien einsetzt, wenn Sie unsere Website diecontainers.com besuchen. Nicht notwendige Technologien werden erst nach Ihrer ausdrücklichen Einwilligung aktiviert.

@@ -11,7 +11,7 @@ export default function WhyChooseUs() {
   const T = useSection("whyChooseUs");
 
   return (
-    <section className="py-20 lg:py-28 bg-primary text-primary-foreground">
+    <section className="py-20 lg:py-28 bg-secondary text-secondary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading label={T.label} title={T.title} description={T.description} inverted />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
                 </div>
               ); })()}
               <h3 className="font-heading font-semibold text-sm mb-2">{f.title}</h3>
-              <p className="text-xs text-primary-foreground/60 leading-relaxed">{f.desc}</p>
+              <p className="text-xs text-secondary-foreground/60 leading-relaxed">{f.desc}</p>
             </motion.div>
           ))}
         </div>

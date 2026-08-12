@@ -24,7 +24,7 @@ export default function AdminDashboard() {
   const availableProducts = products.filter(p => p.is_available).length;
 
   const stats = [
-    { label: "Produkte gesamt", value: products.length, icon: Package, color: "#1E5FAE", href: "/admin/produkte" },
+    { label: "Produkte gesamt", value: products.length, icon: Package, color: "#46C54B", href: "/admin/produkte" },
     { label: "Verfügbar", value: availableProducts, icon: CheckCircle2, color: "#10b981", href: "/admin/produkte" },
     { label: "Anfragen gesamt", value: quotes.length, icon: FileText, color: "#6366f1", href: "/admin/anfragen" },
     { label: "Offene Anfragen", value: pendingQuotes, icon: Clock, color: "#38BDF8", href: "/admin/anfragen" },

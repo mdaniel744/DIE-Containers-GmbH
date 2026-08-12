@@ -41,7 +41,7 @@ export default function AdminProducts() {
           <p className="text-slate-400 text-sm mt-1">{products.length} Container im System</p>
         </div>
         <Link to="/admin/produkte/neu">
-          <Button className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#1E5FAE" }}>
+          <Button className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
             <Plus className="w-4 h-4 mr-2" /> Neues Produkt
           </Button>
         </Link>

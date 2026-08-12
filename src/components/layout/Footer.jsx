@@ -14,7 +14,7 @@ export default function Footer() {
   const infoLinks = useSection("footerInfoLinks");
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-secondary text-secondary-foreground">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -30,10 +30,10 @@ export default function Footer() {
               </div>
             </Link>
             <p className="font-heading font-semibold text-white mb-3">DIE Container GmbH</p>
-            <p className="text-sm text-primary-foreground/70 leading-relaxed mb-5">{t("footer.tagline")}</p>
-            <div className="space-y-3 text-sm text-primary-foreground/70">
-              <a href="tel:+491635393159" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="w-4 h-4" /> 0049 163 5393 159
+            <p className="text-sm text-secondary-foreground/70 leading-relaxed mb-5">{t("footer.tagline")}</p>
+            <div className="space-y-3 text-sm text-secondary-foreground/70">
+              <a href="tel:+4989277808979" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Phone className="w-4 h-4" /> +49 (0) 89 277 808 979
               </a>
               <a href="mailto:contact@diecontainers.com" className="flex items-center gap-2 text-xs xl:text-sm hover:text-white transition-colors">
                 <Mail className="w-4 h-4" /> contact@diecontainers.com
@@ -50,7 +50,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {shopLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-white transition-colors">
+                  <Link to={link.path} className="text-sm text-secondary-foreground/70 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -64,7 +64,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {ratgeberLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-white transition-colors">
+                  <Link to={link.path} className="text-sm text-secondary-foreground/70 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -78,7 +78,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {infoLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-sm text-primary-foreground/70 hover:text-white transition-colors">
+                  <Link to={link.path} className="text-sm text-secondary-foreground/70 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -92,7 +92,7 @@ export default function Footer() {
             <ul className="space-y-2.5 font-mono text-xs">
               {legalLinks.map((link) =>
                 <li key={link.path}>
-                  <Link to={link.path} className="text-primary-foreground/60 hover:text-white transition-colors">
+                  <Link to={link.path} className="text-secondary-foreground/60 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -103,20 +103,20 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-primary-foreground/10">
+      <div className="border-t border-secondary-foreground/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
-            <p className="text-xs text-primary-foreground/50 font-mono">
+            <p className="text-xs text-secondary-foreground/50 font-mono">
               © {new Date().getFullYear()} DIE Container GmbH. Alle Rechte vorbehalten.
             </p>
             <button
               type="button"
               onClick={openCookieSettings}
-              className="text-xs text-primary-foreground/60 font-mono underline-offset-4 hover:text-white hover:underline transition-colors"
+              className="text-xs text-secondary-foreground/60 font-mono underline-offset-4 hover:text-white hover:underline transition-colors"
             >
               {t("footer.cookieSettings")}
             </button>
-            <p className="text-xs text-primary-foreground/40 font-mono">
+            <p className="text-xs text-secondary-foreground/40 font-mono">
               {t("footer.disclaimer")}
             </p>
           </div>

@@ -6,13 +6,13 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#1B3A5C",
-  "theme_color": "#F28C28",
+  "background_color": "#176B20",
+  "theme_color": "#46C54B",
   "lang": "de",
   "categories": ["shopping", "business"],
   "icons": [
     {
-      "src": "/images/die-container-logo-blue.png",
+      "src": "/images/die-container-logo-green.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
@@ -24,14 +24,14 @@
       "short_name": "Shop",
       "description": "Alle verfügbaren Container",
       "url": "/shop",
-      "icons": [{ "src": "/images/die-container-logo-blue.png", "sizes": "512x512" }]
+      "icons": [{ "src": "/images/die-container-logo-green.png", "sizes": "512x512" }]
     },
     {
       "name": "Angebot anfordern",
       "short_name": "Angebot",
       "description": "Kostenloses Angebot anfordern",
       "url": "/angebot",
-      "icons": [{ "src": "/images/die-container-logo-blue.png", "sizes": "512x512" }]
+      "icons": [{ "src": "/images/die-container-logo-green.png", "sizes": "512x512" }]
     }
   ],
   "screenshots": [

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 
 const massRows = [
   ["Außenlänge", "12.192 mm", "12.192 mm"],
@@ -54,7 +54,7 @@ export default function ShopSeoBanner40ft() {
     <div className="mt-16 border-t border-border pt-12 space-y-10">
       {/* Intro */}
       <div>
-        <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>Ratgeber</span>
+        <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Ratgeber</span>
         <h2 className="font-heading font-bold text-2xl lg:text-3xl tracking-tight mb-3">40 Fuß Container kaufen – Maße, High Cube & Preise</h2>
         <p className="text-muted-foreground max-w-2xl leading-relaxed">
           Alles zum 40 Fuß Container und 40 Fuß High Cube: genaue Maße, Vergleich Standard vs. HC,
@@ -122,11 +122,11 @@ export default function ShopSeoBanner40ft() {
 
       {/* CTA */}
       <div className="rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-4 justify-between"
-        style={{ background: "linear-gradient(135deg,#1B3A5C,#0f2540)" }}>
+        style={{ background: "linear-gradient(135deg,#176B20,#0B3D13)" }}>
         <p className="font-heading font-bold text-white text-lg sm:text-xl">40 Fuß Container anfragen – in 72 Stunden geliefert</p>
         <Link to="/shop"
           className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-          style={{ backgroundColor: BRAND_BLUE }}>
+          style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
           Angebot anfordern <ArrowRight className="w-4 h-4" />
         </Link>
       </div>

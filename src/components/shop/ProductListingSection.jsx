@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { X, Package } from "lucide-react";
 import { useSection } from "@/lib/i18n";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 const CONDITION_CODES = ["all", "new", "used", "refurbished"];
 
 const normalizeFilterValue = (value) =>
@@ -95,7 +95,7 @@ export default function ProductListingSection({
                   ? "border-transparent text-white"
                   : "border-border bg-card text-muted-foreground hover:border-blue-300"
               }`}
-              style={conditionFilter === code ? { backgroundColor: BRAND_BLUE } : {}}
+              style={conditionFilter === code ? { backgroundColor: BRAND_BLUE, color: "#0D2A12" } : {}}
             >
               {conditionLabels[code]}
             </button>

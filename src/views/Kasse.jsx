@@ -187,13 +187,13 @@ export default function Kasse() {
                     type="checkbox"
                     checked={deliverySameAsBilling}
                     onChange={(e) => setDeliverySameAsBilling(e.target.checked)}
-                    className="w-4 h-4 rounded accent-[#1E5FAE]"
+                    className="w-4 h-4 rounded accent-[#46C54B]"
                   />
                   <span className="text-sm font-medium">Lieferadresse entspricht der Rechnungsadresse</span>
                 </label>
 
                 {!deliverySameAsBilling && (
-                  <div className="mt-5 pl-4 border-l-2 border-[#1E5FAE]/40 space-y-4">
+                  <div className="mt-5 pl-4 border-l-2 border-[#46C54B]/40 space-y-4">
                     <h3 className="font-heading font-semibold text-base">Lieferadresse</h3>
                     <AddressBlock values={delivery} onChange={updateDelivery} prefix="del" showPhone={true} />
                   </div>
@@ -203,7 +203,7 @@ export default function Kasse() {
               <div className="border border-border rounded-xl p-5 bg-muted/30">
                 <h2 className="font-heading font-bold text-lg uppercase tracking-wide mb-3">Zahlungsart</h2>
                 <label className="flex items-start gap-3 cursor-default">
-                  <input type="radio" checked readOnly aria-label="SEPA-Banküberweisung" className="mt-1 accent-[#1E5FAE]" />
+                  <input type="radio" checked readOnly aria-label="SEPA-Banküberweisung" className="mt-1 accent-[#46C54B]" />
                   <span>
                     <span className="block font-heading font-semibold text-sm">SEPA-Banküberweisung</span>
                     <span className="block mt-1 text-sm text-muted-foreground leading-relaxed">Nach Ihrer Bestellung erhalten Sie die Auftragsbestätigung mit Bankverbindung und Verwendungszweck für die SEPA-Überweisung.</span>
@@ -269,7 +269,7 @@ export default function Kasse() {
                 <div className="flex justify-between items-start pt-1">
                   <span className="font-heading font-bold">Gesamtsumme</span>
                   <div className="text-right">
-                    <div className="font-heading font-bold text-lg" style={{ color: "#1B3A5C" }}>{fmt(total)} €</div>
+                    <div className="font-heading font-bold text-lg" style={{ color: "#176B20" }}>{fmt(total)} €</div>
                   </div>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function Kasse() {
                   type="submit"
                   disabled={submitting}
                   className="w-full h-12 font-heading font-bold text-base"
-                  style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }}
+                  style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
                 >
                   {submitting ? "Wird verarbeitet…" : "Zahlungspflichtig Bestellen →"}
                 </Button>

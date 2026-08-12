@@ -6,7 +6,7 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
 export { default as ContainerDiagram } from "./ContainerDiagram";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 
 export function SeoPageLayout({ breadcrumb, label, title, intro, children, embedded = false }) {
   return (
@@ -31,7 +31,7 @@ export function SeoPageLayout({ breadcrumb, label, title, intro, children, embed
 
         {!embedded && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           {label && (
-            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>
+            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: "#278A2F" }}>
               {label}
             </span>
           )}
@@ -129,12 +129,12 @@ export function FaqAccordion({ items }) {
 
 export function CtaBanner({ text, btnLabel, btnHref }) {
   return (
-    <div className="rounded-2xl p-6 sm:p-8 my-8 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "linear-gradient(135deg,#1B3A5C,#0f2540)" }}>
+    <div className="rounded-2xl p-6 sm:p-8 my-8 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "linear-gradient(135deg,#176B20,#0B3D13)" }}>
       <p className="font-heading font-bold text-white text-lg sm:text-xl">{text}</p>
       <Link
         to={btnHref || "/angebot"}
         className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-        style={{ backgroundColor: BRAND_BLUE }}
+        style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
       >
         {btnLabel || "Angebot anfordern"}
         <ArrowRight className="w-4 h-4" />

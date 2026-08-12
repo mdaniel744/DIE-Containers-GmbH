@@ -77,7 +77,7 @@ export default function ProductCard({ product, index = 0 }) {
             size="sm"
             onClick={handleAddToCart}
             className="w-full text-xs font-medium text-white hover:opacity-90"
-            style={{ backgroundColor: "#1E5FAE" }}
+            style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
             {T.cart}

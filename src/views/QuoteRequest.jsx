@@ -17,7 +17,7 @@ import {
   findMatchingQuoteProduct,
 } from "@/lib/quotePricing";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 // stepLabels are now read from i18n inside the component
 const isPositiveInteger = (value) => {
   const numericValue = Number(value);
@@ -197,7 +197,7 @@ export default function QuoteRequest() {
           <Button
             onClick={() => navigate("/")}
             className="font-heading font-semibold text-white hover:opacity-90"
-            style={{ backgroundColor: BRAND_BLUE }}
+            style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
           >
             {T.backToHome}
           </Button>
@@ -219,11 +219,11 @@ export default function QuoteRequest() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 flex items-center gap-3 p-4 rounded-xl border border-[#1E5FAE]/30 bg-[#1E5FAE]/5"
+            className="mb-6 flex items-center gap-3 p-4 rounded-xl border border-[#46C54B]/30 bg-[#46C54B]/5"
           >
             <img src={prefilledProduct.image_url} alt={prefilledProduct.title} className="w-12 h-12 rounded-lg object-cover shrink-0" />
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-mono uppercase tracking-wide" style={{ color: BRAND_BLUE }}>{T.selectedProduct}</p>
+              <p className="text-xs font-mono uppercase tracking-wide" style={{ color: "#278A2F" }}>{T.selectedProduct}</p>
               <p className="font-heading font-semibold text-sm text-foreground truncate">{prefilledProduct.title}</p>
             </div>
             <Check className="w-5 h-5 text-emerald-500 shrink-0" />
@@ -243,7 +243,7 @@ export default function QuoteRequest() {
                       ? "text-white"
                       : "bg-muted text-muted-foreground"
                   }`}
-                  style={i <= step ? { backgroundColor: BRAND_BLUE } : {}}
+                  style={i <= step ? { backgroundColor: BRAND_BLUE, color: "#0D2A12" } : {}}
                 >
                   {i < step ? <Check className="w-3.5 h-3.5" /> : i + 1}
                 </div>
@@ -260,7 +260,7 @@ export default function QuoteRequest() {
           <div className="relative h-1.5 bg-muted rounded-full overflow-hidden">
             <motion.div
               className="absolute inset-y-0 left-0 rounded-full"
-              style={{ backgroundColor: BRAND_BLUE }}
+              style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
               animate={{ width: `${((step + 1) / 3) * 100}%` }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             />
@@ -309,7 +309,7 @@ export default function QuoteRequest() {
               onClick={() => setStep(step + 1)}
               disabled={!canAdvance()}
               className="font-heading font-semibold text-white hover:opacity-90"
-              style={{ backgroundColor: BRAND_BLUE }}
+              style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
             >
               {T.next} <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
@@ -318,7 +318,7 @@ export default function QuoteRequest() {
               onClick={handleSubmit}
               disabled={!canAdvance() || submitting}
               className="font-heading font-semibold text-white hover:opacity-90"
-              style={{ backgroundColor: BRAND_BLUE }}
+              style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
             >
               {submitting ? (
                 <span className="flex items-center gap-2">

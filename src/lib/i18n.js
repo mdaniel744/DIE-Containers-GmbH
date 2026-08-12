@@ -313,7 +313,7 @@ const strings = {
       title: "Sprechen Sie mit uns",
       subtitle: "Haben Sie Fragen oder benötigen eine Beratung? Unser Team steht Ihnen gerne zur Verfügung.",
       infoItems: [
-        { label: "Telefon", value: "0049 163 5393 159", href: "tel:+491635393159" },
+        { label: "Telefon", value: "+49 (0) 89 277 808 979", href: "tel:+4989277808979" },
         { label: "E-Mail", value: "contact@diecontainers.com", href: "mailto:contact@diecontainers.com" },
         { label: "Adresse", value: "Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland" },
         { label: "Öffnungszeiten", value: "Büro: Mo–Fr 8:00–17:30 | Lager: Mo–Fr 7:30–16:30" },
@@ -412,7 +412,7 @@ const strings = {
       locationBody: "DIE Container GmbH ist in Putzbrunn ansässig und liefert Container in alle 16 Bundesländer – von Schleswig-Holstein bis Bayern, von Nordrhein-Westfalen bis Sachsen. Wir beliefern Kunden aus Lagerung, Bauwesen, Handel, Industrie, modularen Raumlösungen und Export.",
       locationDetails: [
         { label: "Standort", value: "Putzbrunn, Deutschland" },
-        { label: "Telefon", value: "0049 163 5393 159", href: "tel:+491635393159" },
+        { label: "Telefon", value: "+49 (0) 89 277 808 979", href: "tel:+4989277808979" },
         { label: "E-Mail", value: "contact@diecontainers.com", href: "mailto:contact@diecontainers.com" },
       ],
     },
@@ -445,7 +445,7 @@ const strings = {
       label: "Haben Sie Fragen?",
       title: "Wir beraten Sie persönlich & kostenlos",
       description: "Unser Team hilft Ihnen, den richtigen Container für Ihre Anforderungen zu finden.",
-      ctaPhone: "0049 163 5393 159",
+      ctaPhone: "+49 (0) 89 277 808 979",
       ctaContact: "Kontakt aufnehmen",
     },
 
@@ -906,7 +906,7 @@ const strings = {
       title: "Talk to us",
       subtitle: "Do you have questions or need advice? Our team is happy to help.",
       infoItems: [
-        { label: "Phone", value: "0049 163 5393 159", href: "tel:+491635393159" },
+        { label: "Phone", value: "+49 (0) 89 277 808 979", href: "tel:+4989277808979" },
         { label: "Email", value: "contact@diecontainers.com", href: "mailto:contact@diecontainers.com" },
         { label: "Address", value: "Hermann-Oberth-Str. 23, 85640 Putzbrunn, Germany" },
         { label: "Opening hours", value: "Office: Mon–Fri 8:00–17:30 | Warehouse: Mon–Fri 7:30–16:30" },
@@ -1014,7 +1014,7 @@ const strings = {
       label: "Have a question?",
       title: "We advise you personally & free of charge",
       description: "Our team helps you find the right container for your requirements.",
-      ctaPhone: "0049 163 5393 159",
+      ctaPhone: "+49 (0) 89 277 808 979",
       ctaContact: "Get in touch",
     },
 

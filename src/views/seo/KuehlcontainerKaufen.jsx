@@ -7,8 +7,8 @@ import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoP
 import ContactBanner from "@/components/shared/ContactBanner";
 import ProductListingSection from "@/components/shop/ProductListingSection";
 
-const BRAND_BLUE = "#1E5FAE";
-const NAVY = "#1B3A5C";
+const BRAND_BLUE = "#46C54B";
+const NAVY = "#176B20";
 
 /* â”€â”€ Image assets â”€â”€ */
 const IMG_HERO = "/images/refrigerated-container-10ft.webp";
@@ -19,7 +19,7 @@ const IMG_COMPRESSOR = "/images/reefer-thermoking-compressor.jpg";
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: "#278A2F" }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -152,7 +152,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
             Kühlcontainer kaufen oder mieten – neue und gebrauchte Kühlcontainer in 10 Fuß, 20 Fuß und 40 Fuß für Lebensmittel, Gastronomie, Events, Pharma und Gewerbe.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop?type=K%C3%BChlcontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -244,7 +244,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Star className="w-4 h-4" style={{ color: BRAND_BLUE }} />
+              <Star className="w-4 h-4" style={{ color: "#278A2F" }} />
               Wichtige Preisfaktoren:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -309,12 +309,12 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
                 <Link to={s.href} className="group flex flex-col h-full p-5 bg-card border border-border rounded-2xl hover:border-blue-300 hover:shadow-md transition-all">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs tracking-widest uppercase font-bold" style={{ color: BRAND_BLUE }}>{s.size}</span>
-                    {s.badge && <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full text-white" style={{ backgroundColor: BRAND_BLUE }}>{s.badge}</span>}
+                    <span className="font-mono text-xs tracking-widest uppercase font-bold" style={{ color: "#278A2F" }}>{s.size}</span>
+                    {s.badge && <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full text-white" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>{s.badge}</span>}
                   </div>
-                  <h3 className="font-heading font-bold text-sm text-foreground mb-2 group-hover:text-[#1B3A5C] transition-colors">{s.title}</h3>
+                  <h3 className="font-heading font-bold text-sm text-foreground mb-2 group-hover:text-[#176B20] transition-colors">{s.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed flex-1">{s.desc}</p>
-                  <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold font-heading" style={{ color: BRAND_BLUE }}>
+                  <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold font-heading" style={{ color: "#278A2F" }}>
                     Jetzt ansehen <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </Link>
@@ -343,13 +343,13 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4" style={{ color: BRAND_BLUE }} />
+              <ShieldCheck className="w-4 h-4" style={{ color: "#278A2F" }} />
               Darauf sollten Sie achten:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {GEBRAUCHT_TIPS.map((item, i) => (
                 <div key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                  <span className="font-heading font-bold text-xs shrink-0 mt-0.5" style={{ color: BRAND_BLUE }}>{i + 1}.</span>
+                  <span className="font-heading font-bold text-xs shrink-0 mt-0.5" style={{ color: "#278A2F" }}>{i + 1}.</span>
                   <span>{item}</span>
                 </div>
               ))}
@@ -370,7 +370,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
               </p>
               <div className="rounded-xl border border-border bg-muted/30 p-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <Zap className="w-4 h-4" style={{ color: BRAND_BLUE }} />
+                  <Zap className="w-4 h-4" style={{ color: "#278A2F" }} />
                   <span className="font-heading font-semibold text-xs text-foreground">Stromanschluss:</span>
                 </div>
                 <p className="text-xs text-muted-foreground">400 V Drehstrom (3-phasig), 32 A abgesichert. Normaler Haushaltsstrom (230 V) ist nicht ausreichend. Stromanschluss vorab am Standort klären.</p>
@@ -412,7 +412,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
             {STEPS.map((step, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
                 className="p-5 bg-card border border-border rounded-2xl hover:shadow-md hover:border-blue-200 transition-all">
-                <span className="font-heading font-bold text-lg mb-3 block" style={{ color: BRAND_BLUE }}>{step.num}</span>
+                <span className="font-heading font-bold text-lg mb-3 block" style={{ color: "#278A2F" }}>{step.num}</span>
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">{step.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
               </motion.div>
@@ -488,19 +488,19 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
         </section>
 
         {/* â”€â”€ CTA â”€â”€ */}
-        <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }}>
+        <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0B3D13)` }}>
           <div>
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt Kühlcontainer anfragen</h2>
             <p className="text-white/60 text-sm">Ware, Temperatur und Lieferort angeben – wir erstellen Ihr Angebot.</p>
           </div>
-          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
+          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Kühlcontainern</h2>
           <FaqAccordion items={FAQS} />
         </section>

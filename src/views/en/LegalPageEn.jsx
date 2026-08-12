@@ -14,7 +14,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Contact</h2>
-          <p>Phone: 0049 163 5393 159<br />Email: contact@diecontainers.com</p>
+          <p>Phone: +49 (0) 89 277 808 979<br />Email: contact@diecontainers.com</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Commercial register</h2>
@@ -179,7 +179,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">How to initiate a return</h2>
-          <p>Contact us at contact@diecontainers.com or 0049 163 5393 159 to arrange a return.</p>
+          <p>Contact us at contact@diecontainers.com or +49 (0) 89 277 808 979 to arrange a return.</p>
         </section>
       </div>
     ),
@@ -232,14 +232,14 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Questions</h2>
-          <p>For payment questions please contact: contact@diecontainers.com or 0049 163 5393 159.</p>
+          <p>For payment questions please contact: contact@diecontainers.com or +49 (0) 89 277 808 979.</p>
         </section>
       </div>
     ),
   },
 };
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 
 export default function LegalPageEn() {
   const pathname = usePathname();
@@ -253,7 +253,7 @@ export default function LegalPageEn() {
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
-          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: BRAND_BLUE }}>{page.label}</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: "#278A2F" }}>{page.label}</span>
           <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-2">{page.title}</h1>
         </div>
         <div>{page.content}</div>

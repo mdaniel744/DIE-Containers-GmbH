@@ -24,7 +24,7 @@ import { useLocale } from "@/hooks/useLocale";
 import { useAttributeValueTranslations } from "@/hooks/useAttributeValueTranslations";
 import { useCart } from "@/lib/CartContext";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 const DEFAULT_PRODUCT_DESCRIPTION = (title) =>
   `${title} – wind- und wasserdichter ISO-Norm-Stahlcontainer aus wetterfestem Corten-Stahl. Sofort einsatzbereit, stapelbar und individuell umbaubar.`;
 
@@ -38,7 +38,7 @@ function AttributeItem({ icon: Icon, label, value }) {
   return (
     <div className="flex items-start gap-2.5 bg-muted/50 rounded-lg p-3">
       <div className="w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: "rgba(30,95,174,0.12)" }}>
-        <Icon className="w-3.5 h-3.5" style={{ color: BRAND_BLUE }} />
+        <Icon className="w-3.5 h-3.5" style={{ color: "#278A2F" }} />
       </div>
       <div className="min-w-0">
         <p className="text-[10px] text-muted-foreground uppercase tracking-wide">{label}</p>
@@ -165,7 +165,7 @@ export default function ProductDetail() {
             <div>
               <div className="flex items-center gap-2 mb-3 flex-wrap">
                 {product.badge && (
-                  <Badge className="text-xs" style={{ backgroundColor: "rgba(30,95,174,0.15)", color: BRAND_BLUE, borderColor: "rgba(30,95,174,0.3)" }}>
+                  <Badge className="text-xs" style={{ backgroundColor: "rgba(70,197,75,0.15)", color: "#278A2F", borderColor: "rgba(70,197,75,0.3)" }}>
                     {product.badge}
                   </Badge>
                 )}
@@ -207,7 +207,7 @@ export default function ProductDetail() {
               onClick={handleInquiry}
               size="lg"
               className="w-full font-heading font-bold text-base h-14 text-white shadow-lg hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: BRAND_BLUE }}
+              style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
             >
               <ChevronRight className="w-5 h-5 mr-2" />
               Unverbindliches Angebot anfordern
@@ -216,7 +216,7 @@ export default function ProductDetail() {
               onClick={handleAddToCart}
               size="lg"
               variant="outline"
-              className="w-full font-heading font-bold text-base h-14 border-[#1B3A5C] text-[#1B3A5C] hover:bg-[#1B3A5C] hover:text-white"
+              className="w-full font-heading font-bold text-base h-14 border-[#176B20] text-[#176B20] hover:bg-[#176B20] hover:text-white"
             >
               <ShoppingCart className="w-5 h-5 mr-2" />
               {T.cart}
@@ -286,7 +286,7 @@ export default function ProductDetail() {
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1E5FAE] data-[state=active]:text-foreground data-[state=active]:shadow-none px-5 py-3.5 font-heading text-sm font-medium text-muted-foreground transition-colors"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#46C54B] data-[state=active]:text-foreground data-[state=active]:shadow-none px-5 py-3.5 font-heading text-sm font-medium text-muted-foreground transition-colors"
                 >
                   {tab.label}
                 </TabsTrigger>
@@ -303,7 +303,7 @@ export default function ProductDetail() {
 
                 {/* Visual dimension strip — inspired by mtcontainer.com */}
                 {(product.outer_length || product.outer_height || product.outer_width) && (
-                  <div className="rounded-2xl mb-8 overflow-hidden" style={{ background: "linear-gradient(135deg,#1B3A5C,#0f2540)" }}>
+                  <div className="rounded-2xl mb-8 overflow-hidden" style={{ background: "linear-gradient(135deg,#176B20,#0B3D13)" }}>
                     <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
                       {[
                         { icon: Ruler, label: T.dimLength, value: product.outer_length },
@@ -437,7 +437,7 @@ export default function ProductDetail() {
                   ].map(({ icon: Ic, label }, i) => (
                     <div key={i} className="flex flex-col items-center gap-2.5 p-5 bg-card border border-border rounded-xl text-center hover:border-blue-200 transition-colors">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "rgba(30,95,174,0.12)" }}>
-                        <Ic className="w-5 h-5" style={{ color: BRAND_BLUE }} />
+                        <Ic className="w-5 h-5" style={{ color: "#278A2F" }} />
                       </div>
                       <p className="font-heading font-semibold text-xs text-foreground leading-snug">{label}</p>
                     </div>
@@ -461,7 +461,7 @@ export default function ProductDetail() {
                       "Lüftungssystem",
                     ].map((item, i, arr) => (
                       <div key={i} className={`flex items-center gap-2.5 px-5 py-3 text-sm text-muted-foreground ${i < arr.length - 1 ? "border-b border-border sm:border-b-0 sm:[&:nth-child(odd)]:border-b sm:[&:nth-child(even)]:border-b" : ""} ${i % 2 === 0 ? "bg-card" : "bg-muted/10"} border-b border-border last:border-b-0`}>
-                        <ChevronRight className="w-3.5 h-3.5 shrink-0" style={{ color: BRAND_BLUE }} />
+                        <ChevronRight className="w-3.5 h-3.5 shrink-0" style={{ color: "#278A2F" }} />
                         {item}
                       </div>
                     ))}
@@ -481,7 +481,7 @@ export default function ProductDetail() {
                     { icon: ShieldCheck, label: "Transport", value: "Vollversichert", sub: "Kranwagen-Lieferung" },
                   ].map(({ icon: Ic, label, value, sub }, i) => (
                     <div key={i} className="flex flex-col items-center gap-1.5 p-4 border border-border rounded-xl bg-card text-center">
-                      <Ic className="w-5 h-5 mb-1" style={{ color: BRAND_BLUE }} />
+                      <Ic className="w-5 h-5 mb-1" style={{ color: "#278A2F" }} />
                       <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{label}</p>
                       <p className="font-heading font-bold text-sm text-foreground">{value}</p>
                       <p className="text-[10px] text-muted-foreground">{sub}</p>
@@ -498,7 +498,7 @@ export default function ProductDetail() {
                     { n: "04", title: "Abnahme vor Ort", desc: "Gemeinsame Prüfung bei Übergabe – kein Aufwand für Sie." },
                   ].map(({ n, title, desc }, i, arr) => (
                     <div key={i} className={`flex items-start gap-4 px-5 py-4 bg-card ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
-                      <span className="font-mono text-xs font-bold shrink-0 mt-0.5" style={{ color: BRAND_BLUE }}>{n}</span>
+                      <span className="font-mono text-xs font-bold shrink-0 mt-0.5" style={{ color: "#278A2F" }}>{n}</span>
                       <div>
                         <p className="font-heading font-semibold text-sm text-foreground">{title}</p>
                         <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>
@@ -525,7 +525,7 @@ export default function ProductDetail() {
         <Button
           onClick={handleInquiry}
           className="w-full font-heading font-semibold h-12 text-white"
-          style={{ backgroundColor: BRAND_BLUE }}
+          style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
         >
           <ChevronRight className="w-4 h-4 mr-2" />
           Angebot anfordern – {product.price_from?.toLocaleString("de-DE")} €
@@ -533,7 +533,7 @@ export default function ProductDetail() {
         <Button
           onClick={handleAddToCart}
           variant="outline"
-          className="w-full font-heading font-semibold h-11 border-[#1B3A5C] text-[#1B3A5C] hover:bg-[#1B3A5C] hover:text-white"
+          className="w-full font-heading font-semibold h-11 border-[#176B20] text-[#176B20] hover:bg-[#176B20] hover:text-white"
         >
           <ShoppingCart className="w-4 h-4 mr-2" />
           {T.cart}

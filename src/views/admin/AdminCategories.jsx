@@ -102,7 +102,7 @@ function CategoryForm({ initial, onSave, onCancel }) {
         <Button variant="ghost" onClick={onCancel} className="text-slate-400 hover:text-white">
           <X className="w-4 h-4 mr-1" /> Abbrechen
         </Button>
-        <Button disabled={saving || !form.name || !form.slug} onClick={handleSave} className="text-white" style={{ backgroundColor: "#1E5FAE" }}>
+        <Button disabled={saving || !form.name || !form.slug} onClick={handleSave} className="text-white" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
           <Check className="w-4 h-4 mr-1" /> {saving ? "Speichern..." : "Speichern"}
         </Button>
       </div>
@@ -139,7 +139,7 @@ export default function AdminCategories() {
           <h1 className="font-heading font-bold text-white text-2xl">Kategorien</h1>
           <p className="text-slate-400 text-sm mt-1">{categories.length} Container-Kategorien</p>
         </div>
-        <Button onClick={() => { setShowForm(true); setEditingId(null); }} className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#1E5FAE" }}>
+        <Button onClick={() => { setShowForm(true); setEditingId(null); }} className="font-heading font-semibold text-white hover:opacity-90" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
           <Plus className="w-4 h-4 mr-2" /> Neue Kategorie
         </Button>
       </div>

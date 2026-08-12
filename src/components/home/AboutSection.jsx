@@ -12,7 +12,7 @@ export default function AboutSection() {
   const T = useSection("aboutSection");
 
   return (
-    <section className="py-20 lg:py-28 bg-primary overflow-hidden">
+    <section className="py-20 lg:py-28 bg-secondary overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
@@ -25,7 +25,7 @@ export default function AboutSection() {
             <p className="text-white/70 leading-relaxed mb-5">{T.body1}</p>
             <p className="text-white/70 leading-relaxed mb-8">{T.body2}</p>
             <Link to="/ueber-uns">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-heading font-semibold px-8">
+              <Button size="lg" className="bg-white text-secondary hover:bg-white/90 font-heading font-semibold px-8">
                 {T.cta}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>

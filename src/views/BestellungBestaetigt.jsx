@@ -37,7 +37,7 @@ export default function BestellungBestaetigt() {
   return (
     <div className="min-h-screen bg-background">
       {/* Progress breadcrumb */}
-      <div className="bg-[#1B3A5C] text-white py-4">
+      <div className="bg-[#176B20] text-white py-4">
         <div className="max-w-4xl mx-auto px-4 flex items-center justify-center gap-3 text-sm tracking-widest uppercase">
           <Step label="Warenkorb" active={false} />
           <ArrowRight className="w-4 h-4 text-white/40" />
@@ -99,7 +99,7 @@ export default function BestellungBestaetigt() {
               {order.items?.map((item, i) => (
                 <div key={i} className="flex justify-between items-center py-3 border-b border-border text-sm">
                   <span>{item.title} <span className="text-muted-foreground">× {item.quantity}</span></span>
-                  <span className="font-medium" style={{ color: "#1B3A5C" }}>
+                  <span className="font-medium" style={{ color: "#176B20" }}>
                     {fmt((item.price || 0) * item.quantity)} €
                   </span>
                 </div>
@@ -117,7 +117,7 @@ export default function BestellungBestaetigt() {
                 <div key={label} className="flex justify-between items-start py-3 border-b border-border text-sm last:border-0">
                   <span className={bold ? "font-bold" : "font-medium"}>{label}</span>
                   <span className={`text-right max-w-[60%] ${colored ? "font-semibold" : "text-muted-foreground"}`}
-                    style={colored ? { color: "#1B3A5C" } : {}}>
+                    style={colored ? { color: "#176B20" } : {}}>
                     {value}
                   </span>
                 </div>
@@ -153,7 +153,7 @@ export default function BestellungBestaetigt() {
         {/* CTA */}
         <div className="flex justify-center pt-2">
           <Link to="/shop">
-            <Button style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }} className="font-heading font-semibold px-8 h-11">
+            <Button style={{ backgroundColor: "#46C54B", color: "#0D2A12" }} className="font-heading font-semibold px-8 h-11">
               Weiter einkaufen <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>

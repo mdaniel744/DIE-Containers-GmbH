@@ -6,12 +6,12 @@ import { ContainerSVG } from "@/components/seo/ContainerDiagram";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const BRAND_BLUE = "#1E5FAE";
-const NAVY = "#1B3A5C";
+const BRAND_BLUE = "#46C54B";
+const NAVY = "#176B20";
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: "#278A2F" }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -177,7 +177,7 @@ export default function ContainerMasse() {
 
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
-        <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }} />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${NAVY}, #0B3D13)` }} />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <nav className="flex items-center gap-1.5 text-xs text-white/50 mb-6 flex-wrap">
             <Link to="/" className="hover:text-white transition-colors">Startseite</Link>
@@ -193,7 +193,7 @@ export default function ContainerMasse() {
             Container Maße im Überblick – 10 Fuß, 20 Fuß, 40 Fuß und High Cube Container mit Außenmaßen, Innenmaßen, Volumen, Gewicht und Türöffnungen vergleichen.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -377,7 +377,7 @@ export default function ContainerMasse() {
             </div>
             <div className="rounded-2xl border border-border bg-card p-5">
               <div className="flex items-center gap-2 mb-3">
-                <Package className="w-5 h-5" style={{ color: BRAND_BLUE }} />
+                <Package className="w-5 h-5" style={{ color: "#278A2F" }} />
                 <h3 className="font-heading font-bold text-sm text-foreground">Innenmaße</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -402,7 +402,7 @@ export default function ContainerMasse() {
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Container Maßen</h2>
           <FaqAccordion items={FAQS} />
         </section>

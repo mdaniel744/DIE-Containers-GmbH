@@ -7,8 +7,8 @@ import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoP
 import ContactBanner from "@/components/shared/ContactBanner";
 import ProductListingSection from "@/components/shop/ProductListingSection";
 
-const BRAND_BLUE = "#1E5FAE";
-const NAVY = "#1B3A5C";
+const BRAND_BLUE = "#46C54B";
+const NAVY = "#176B20";
 
 /* â”€â”€ Image assets â”€â”€ */
 const IMG_HERO = "/images/buerocontainer-20ft-ral7016-hero.jpg";
@@ -20,7 +20,7 @@ const IMG_DELIVERY = "/images/buerocontainer-lieferung-kran.jpg";
 
 /* â”€â”€ Helpers â”€â”€ */
 function IL({ to, children }) {
-  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: BRAND_BLUE }}>{children}</Link>;
+  return <Link to={to} className="font-semibold underline decoration-1 underline-offset-2 hover:opacity-80 transition-opacity" style={{ color: "#278A2F" }}>{children}</Link>;
 }
 
 function SH({ children }) {
@@ -137,7 +137,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
             Bürocontainer kaufen – neue und gebrauchte Bürocontainer für Baustellen, Gewerbe und temporäre Arbeitsräume. 20 Fuß Bürocontainer, Lieferung und Beratung.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
+            <Link to="/shop" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
               Kostenloses Angebot anfordern <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/shop?type=B%C3%BCrocontainer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white border border-white/25 hover:bg-white/10 transition-colors">
@@ -307,7 +307,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
             <h3 className="font-heading font-bold text-sm text-foreground mb-4 flex items-center gap-2">
-              <Ruler className="w-4 h-4" style={{ color: BRAND_BLUE }} />
+              <Ruler className="w-4 h-4" style={{ color: "#278A2F" }} />
               Ein 20 Fuß Bürocontainer eignet sich besonders für:
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -459,19 +459,19 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
         </section>
 
         {/* â”€â”€ CTA â”€â”€ */}
-        <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0f2540)` }}>
+        <div className="rounded-2xl p-6 sm:p-8 mb-14 flex flex-col sm:flex-row items-center gap-5 justify-between" style={{ background: `linear-gradient(135deg, ${NAVY}, #0B3D13)` }}>
           <div>
             <h2 className="font-heading font-bold text-white text-lg sm:text-xl mb-1">Jetzt Bürocontainer anfragen</h2>
             <p className="text-white/60 text-sm">Teilen Sie uns Nutzung, Größe und Lieferort mit – Sie erhalten ein passendes Angebot.</p>
           </div>
-          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE }}>
+          <Link to="/shop" className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
             Angebot anfordern <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
         {/* â”€â”€ FAQ â”€â”€ */}
         <section className="mb-14">
-          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: BRAND_BLUE }}>FAQ</span>
+          <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>FAQ</span>
           <h2 className="font-heading font-bold text-2xl text-foreground mb-5">Häufige Fragen zu Bürocontainern</h2>
           <FaqAccordion items={FAQS} />
         </section>

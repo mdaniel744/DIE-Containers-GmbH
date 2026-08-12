@@ -29,7 +29,7 @@ export default function Warenkorb() {
           <p className="text-muted-foreground">Entdecken Sie unsere Container und fügen Sie sie hinzu.</p>
         </div>
         <Link to="/shop">
-          <Button style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }} className="font-heading font-semibold px-8 h-11">
+          <Button style={{ backgroundColor: "#46C54B", color: "#0D2A12" }} className="font-heading font-semibold px-8 h-11">
             Container entdecken <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </Link>
@@ -81,7 +81,7 @@ export default function Warenkorb() {
                         alt={item.product.title}
                         className="w-16 h-12 object-cover rounded-lg flex-shrink-0"
                       />
-                      <Link to={`/produkt/${item.product.slug || item.product.id}`} className="font-heading font-semibold text-sm hover:text-[#1E5FAE] transition-colors line-clamp-2">
+                      <Link to={`/produkt/${item.product.slug || item.product.id}`} className="font-heading font-semibold text-sm hover:text-[#278A2F] transition-colors line-clamp-2">
                         {item.product.title}
                       </Link>
                     </div>
@@ -109,7 +109,7 @@ export default function Warenkorb() {
                     </div>
 
                     {/* Line total */}
-                    <div className="text-sm font-bold text-right" style={{ color: "#1B3A5C" }}>
+                    <div className="text-sm font-bold text-right" style={{ color: "#176B20" }}>
                       {fmt(lineTotal)} €
                     </div>
 
@@ -153,7 +153,7 @@ export default function Warenkorb() {
               <div className="flex justify-between items-start pt-2">
                 <span className="font-heading font-bold text-base">Gesamtsumme</span>
                 <div className="text-right">
-                  <div className="font-heading font-bold text-xl" style={{ color: "#1B3A5C" }}>
+                  <div className="font-heading font-bold text-xl" style={{ color: "#176B20" }}>
                     {fmt(total)} €
                   </div>
                 </div>
@@ -163,7 +163,7 @@ export default function Warenkorb() {
             <Button
               onClick={() => navigate("/kasse")}
               className="w-full mt-6 h-12 font-heading font-bold text-base"
-              style={{ backgroundColor: "#1E5FAE", color: "#FFFFFF" }}
+              style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
             >
               Weiter Zur Kasse <ArrowRight className="w-4 h-4 ml-2" />
             </Button>

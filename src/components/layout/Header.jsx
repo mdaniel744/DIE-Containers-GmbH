@@ -98,10 +98,10 @@ function CatalogDropdown({ visible, categories, locale, onClose }) {
                 key={cat.slug}
                 to={resolveCatalogCategoryHref(cat, locale)}
                 onClick={onClose}
-                className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#1E5FAE]/70 hover:shadow-md transition-all overflow-hidden"
+                className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#46C54B]/70 hover:shadow-md transition-all overflow-hidden"
               >
                 {/* Image area */}
-                <div className="relative bg-[#F2F7FC] flex items-center justify-center p-3 h-28 overflow-hidden">
+                <div className="relative bg-[#F2FBF3] flex items-center justify-center p-3 h-28 overflow-hidden">
                   <img
                     src={cat.image_url || HERO_IMAGE}
                     alt={cat.name}
@@ -110,7 +110,7 @@ function CatalogDropdown({ visible, categories, locale, onClose }) {
                 </div>
                 {/* Label */}
                 <div className="px-3 py-2.5 border-t border-border/60">
-                  <p className="font-heading font-semibold text-xs text-foreground group-hover:text-[#1B3A5C] transition-colors leading-tight">
+                  <p className="font-heading font-semibold text-xs text-foreground group-hover:text-[#176B20] transition-colors leading-tight">
                     {cat.name}
                   </p>
                 </div>
@@ -124,7 +124,7 @@ function CatalogDropdown({ visible, categories, locale, onClose }) {
               to="/angebot"
               onClick={onClose}
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#1E5FAE" }}
+              style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
             >
               {t("nav.requestQuote")}
             </Link>
@@ -247,7 +247,7 @@ export default function Header() {
           <Link to="/" className="group flex items-center" aria-label="DIE Container GmbH – Startseite">
             <div className="relative h-12 w-28 overflow-hidden sm:w-32 lg:h-14 lg:w-36">
               <img
-                src="/images/die-container-logo-blue.png"
+                src="/images/die-container-logo-green.png"
                 alt="DIE Container GmbH Logo"
                 className="absolute left-1/2 top-1/2 h-28 w-28 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-200 group-hover:scale-105 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
               />
@@ -386,25 +386,25 @@ export default function Header() {
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:+491635393159"
+              href="tel:+4989277808979"
               className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>0049 163 5393 159</span>
+              <span>+49 (0) 89 277 808 979</span>
             </a>
             <Link to="/warenkorb" className="relative p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Warenkorb">
               <ShoppingCart className="w-5 h-5 text-foreground/70" />
               {itemCount > 0 && (
                 <span
                   className="absolute -top-1 -right-1 min-w-[18px] h-[18px] rounded-full text-[11px] font-bold flex items-center justify-center text-white px-1 leading-none"
-                  style={{ backgroundColor: "#1E5FAE" }}
+                  style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
                 >
                   {itemCount > 99 ? "99+" : itemCount}
                 </span>
               )}
             </Link>
             <Link to="/angebot">
-              <Button className="font-heading font-semibold text-sm text-white" style={{ backgroundColor: "#1E5FAE" }}>
+              <Button className="font-heading font-semibold text-sm text-white" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
                 {t("nav.cta")}
               </Button>
             </Link>
@@ -421,7 +421,7 @@ export default function Header() {
               {itemCount > 0 && (
                 <span
                   className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 rounded-full text-[10px] font-bold flex items-center justify-center text-white px-0.5 leading-none"
-                  style={{ backgroundColor: "#1E5FAE" }}
+                  style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
                 >
                   {itemCount > 9 ? "9+" : itemCount}
                 </span>
@@ -431,7 +431,7 @@ export default function Header() {
               ref={menuButtonRef}
               type="button"
               onClick={() => (isOpen ? closeMobileMenu() : setIsOpen(true))}
-              className="inline-flex h-12 w-12 touch-manipulation items-center justify-center rounded-xl border border-transparent hover:bg-muted active:border-border active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1E5FAE] focus-visible:ring-offset-2 transition-colors"
+              className="inline-flex h-12 w-12 touch-manipulation items-center justify-center rounded-xl border border-transparent hover:bg-muted active:border-border active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46C54B] focus-visible:ring-offset-2 transition-colors"
               aria-label={isOpen ? (locale === "de" ? "Menü schließen" : "Close menu") : t("nav.menu")}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
@@ -516,9 +516,9 @@ export default function Header() {
                             key={cat.slug}
                             to={resolveCatalogCategoryHref(cat, locale)}
                             onClick={closeMobileMenu}
-                            className="flex min-h-28 touch-manipulation flex-col items-center overflow-hidden rounded-xl border border-border bg-card p-2 text-center transition-colors hover:border-[#1E5FAE]/70 active:bg-muted"
+                            className="flex min-h-28 touch-manipulation flex-col items-center overflow-hidden rounded-xl border border-border bg-card p-2 text-center transition-colors hover:border-[#46C54B]/70 active:bg-muted"
                           >
-                            <div className="w-full h-16 bg-[#F2F7FC] rounded-lg mb-1.5 flex items-center justify-center p-1">
+                            <div className="w-full h-16 bg-[#F2FBF3] rounded-lg mb-1.5 flex items-center justify-center p-1">
                               <img src={cat.image_url || HERO_IMAGE} alt={cat.name} className="w-full h-full object-contain" />
                             </div>
                             <p className="font-heading text-xs font-semibold leading-tight text-foreground">{cat.name}</p>
@@ -573,7 +573,7 @@ export default function Header() {
 
               <div className="pt-3 border-t border-border mt-3 space-y-2">
                 <Link to="/angebot" className="block touch-manipulation" onClick={closeMobileMenu}>
-                  <Button className="w-full font-heading font-semibold text-white" style={{ backgroundColor: "#1E5FAE" }}>
+                  <Button className="w-full font-heading font-semibold text-white" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
                     {t("nav.cta")}
                   </Button>
                 </Link>

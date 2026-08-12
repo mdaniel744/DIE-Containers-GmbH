@@ -29,7 +29,7 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#1E5FAE" }}>
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}>
             <Container className="w-5 h-5 text-white" />
           </div>
           <span className="font-heading font-bold text-xl text-white">DIE Container Admin</span>
@@ -71,7 +71,7 @@ export default function AdminLogin() {
               type="submit"
               disabled={loading}
               className="w-full h-11 font-heading font-semibold text-white hover:opacity-90"
-              style={{ backgroundColor: "#1E5FAE" }}
+              style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
             >
               {loading ? "Anmelden..." : "Anmelden"}
             </Button>

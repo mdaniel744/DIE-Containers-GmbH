@@ -15,7 +15,7 @@ export default function ContactBanner() {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
       className="my-12 rounded-2xl overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #1B3A5C 0%, #0f2540 100%)" }}
+      style={{ background: "linear-gradient(135deg, #176B20 0%, #0B3D13 100%)" }}
     >
       <div className="px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div>
@@ -26,7 +26,7 @@ export default function ContactBanner() {
           <p className="text-white/60 text-sm">{T.description}</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-          <a href="tel:+491635393159" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-secondary font-heading font-semibold text-sm transition-colors hover:bg-white/90">
+          <a href="tel:+4989277808979" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-secondary font-heading font-semibold text-sm transition-colors hover:bg-white/90">
             <Phone className="w-4 h-4" />
             {T.ctaPhone}
           </a>

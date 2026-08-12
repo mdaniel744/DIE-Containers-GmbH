@@ -139,7 +139,7 @@ export default function ShopFilters({ filters, setFilters, priceRange, setPriceR
                     })}
                     title={option.label}
                     className={`w-8 h-8 rounded-full border-2 transition-all ${
-                      isChecked ? "border-[#1E5FAE] scale-110 shadow-md" : "border-border hover:border-[#1E5FAE]/50"
+                      isChecked ? "border-[#46C54B] scale-110 shadow-md" : "border-border hover:border-[#46C54B]/50"
                     }`}
                     style={{ backgroundColor: COLOR_MAP[option.value] || FALLBACK_COLOR }}
                   />
@@ -155,7 +155,7 @@ export default function ShopFilters({ filters, setFilters, priceRange, setPriceR
                     <Checkbox
                       checked={isChecked}
                       onCheckedChange={() => toggleFilter(group.key, option.value)}
-                      className="data-[state=checked]:bg-[#1B3A5C] data-[state=checked]:border-[#1B3A5C]"
+                      className="data-[state=checked]:bg-[#176B20] data-[state=checked]:border-[#176B20]"
                     />
                     <span className={`text-sm transition-colors ${isChecked ? "text-foreground font-medium" : "text-muted-foreground group-hover:text-foreground"}`}>
                       {option.label}

@@ -16,7 +16,7 @@ export default function About() {
   return (
     <div className="pt-20 lg:pt-24 pb-20">
       {/* Hero */}
-      <section className="relative py-20 lg:py-28 bg-primary text-primary-foreground overflow-hidden">
+      <section className="relative py-20 lg:py-28 bg-secondary text-secondary-foreground overflow-hidden">
         <div className="absolute inset-0 blueprint-line opacity-[0.03]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -25,7 +25,7 @@ export default function About() {
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6 tracking-tight">
                 {T.title}<span className="text-white">{T.titleColored}</span>{T.title2}
               </h1>
-              <p className="text-lg text-primary-foreground/70 leading-relaxed">{T.body}</p>
+              <p className="text-lg text-secondary-foreground/70 leading-relaxed">{T.body}</p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="rounded-xl overflow-hidden">
               <img src={DELIVERY_IMAGE} alt={T.imgAlt} className="w-full h-72 lg:h-96 object-cover rounded-xl" />

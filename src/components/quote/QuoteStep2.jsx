@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 import { useAttributeOptions } from "@/hooks/useAttributeOptions";
 
-const BRAND_BLUE = "#1E5FAE";
+const BRAND_BLUE = "#46C54B";
 
 const TRANSPORT_ICONS = {
   delivery_no_unload: Truck,
@@ -106,7 +106,7 @@ export default function QuoteStep2({ data, setData }) {
                 key={value}
                 onClick={() => update("unloading_method", value)}
                 className={`flex flex-col items-center p-4 rounded-xl border-2 text-center transition-all ${
-                  active ? "border-[#1E5FAE] bg-[#1E5FAE]/5" : "border-border hover:border-[#1E5FAE]/40 bg-card"
+                  active ? "border-[#46C54B] bg-[#46C54B]/5" : "border-border hover:border-[#46C54B]/40 bg-card"
                 }`}
               >
                 <Icon className="w-6 h-6 mb-2" style={{ color: active ? BRAND_BLUE : "#888" }} />

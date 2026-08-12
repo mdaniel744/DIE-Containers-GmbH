@@ -126,7 +126,7 @@ export default function AdminProductEdit() {
           onClick={handleSave}
           disabled={saving || !form.title}
           className="font-heading font-semibold text-white hover:opacity-90 min-w-[120px]"
-          style={{ backgroundColor: saved ? "#10b981" : "#1E5FAE" }}
+          style={{ backgroundColor: saved ? "#10b981" : "#46C54B", color: "#0D2A12" }}
         >
           {saving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
           {saved ? "Gespeichert!" : saving ? "Speichern..." : "Speichern"}
@@ -313,7 +313,7 @@ export default function AdminProductEdit() {
           onClick={handleSave}
           disabled={saving || !form.title}
           className="font-heading font-semibold text-white hover:opacity-90 min-w-[140px]"
-          style={{ backgroundColor: saved ? "#10b981" : "#1E5FAE" }}
+          style={{ backgroundColor: saved ? "#10b981" : "#46C54B", color: "#0D2A12" }}
         >
           {saving ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Save className="w-4 h-4 mr-2" />}
           {saved ? "Gespeichert!" : saving ? "Speichern..." : "Änderungen speichern"}

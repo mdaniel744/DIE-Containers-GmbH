@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -38,7 +38,7 @@ export default function DeliveryProcess() {
         </div>
       </section>
 
-      <div style={{ background: "linear-gradient(135deg,#1B3A5C,#0f2540)" }} className="py-12">
+      <div style={{ background: "linear-gradient(135deg,#176B20,#0B3D13)" }} className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
@@ -53,7 +53,7 @@ export default function DeliveryProcess() {
                 </div>
                 <div>
                   <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">{T.phoneLabel}</p>
-                  <a href="tel:+491635393159" className="font-heading font-semibold text-white hover:opacity-80 transition-opacity">0049 163 5393 159</a>
+                  <a href="tel:+4989277808979" className="font-heading font-semibold text-white hover:opacity-80 transition-opacity">+49 (0) 89 277 808 979</a>
                 </div>
               </div>
               <div className="flex items-center gap-3">
