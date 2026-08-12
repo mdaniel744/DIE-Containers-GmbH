@@ -68,6 +68,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="de">
       <head>
+        <meta
+          name="google-site-verification"
+          content="8C-y9coHfuJRqd1J-cws6FPE4QDG4LW4Gybn76HvBBo"
+        />
         {/* PWA — Apple-specific tags (not covered by Next.js metadata API) */}
         <link rel="apple-touch-icon" href="/images/die-container-logo-green.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
