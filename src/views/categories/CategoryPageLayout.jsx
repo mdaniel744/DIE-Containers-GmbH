@@ -22,8 +22,8 @@ export default function CategoryPageLayout({ filterKey, filterValue, i18nSection
   const Tpage = useSection("categoryPage");
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="dc-page">
+      <div className="dc-page-shell">
 
         {/* Breadcrumb */}
         <nav className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6">
@@ -35,14 +35,14 @@ export default function CategoryPageLayout({ filterKey, filterValue, i18nSection
         </nav>
 
         {/* Header */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="dc-page-hero">
           <div className="flex items-center gap-2 mb-2">
-            <span className="font-mono text-xs tracking-widest uppercase" style={{ color: "#278A2F" }}>{T.label}</span>
+            <span className="dc-kicker">{T.label}</span>
           </div>
-          <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-3">{T.title}</h1>
-          <p className="text-muted-foreground max-w-2xl">{T.description}</p>
-          <div className="mt-3 text-sm text-muted-foreground">
-            <Link to={T.guidePath} className="text-blue-500 hover:underline">{T.guideLink}</Link>
+          <h1 className="dc-page-title">{T.title}</h1>
+          <p className="dc-page-intro">{T.description}</p>
+          <div className="mt-5 text-sm text-[#123E19]/75">
+            <Link to={T.guidePath} className="font-semibold text-[#123E19] underline decoration-[#123E19]/35 underline-offset-4 hover:text-[#0D2A12]">{T.guideLink}</Link>
           </div>
         </motion.div>
 
@@ -56,11 +56,11 @@ export default function CategoryPageLayout({ filterKey, filterValue, i18nSection
         {seoContent}
 
         {/* Cross-links */}
-        <div className="mt-16 pt-10 border-t border-border">
-          <h2 className="font-heading font-semibold text-lg mb-4">{Tpage.moreCategories}</h2>
+        <div className="mt-16 border-t border-border pt-10">
+          <h2 className="mb-5 font-heading text-2xl font-bold">{Tpage.moreCategories}</h2>
           <div className="flex flex-wrap gap-2">
             {crossLinks.map(({ key, href }) => (
-              <Link key={href} to={href} className="px-4 py-2 bg-card border border-border rounded-lg text-sm hover:border-blue-300 transition-colors">
+              <Link key={href} to={href} className="rounded-full border border-border bg-white px-5 py-2.5 text-sm font-semibold text-[#176B20] transition-colors hover:border-[#46C54B] hover:bg-[#F0F8F1]">
                 {Tpage.crossLinks[key]}
               </Link>
             ))}

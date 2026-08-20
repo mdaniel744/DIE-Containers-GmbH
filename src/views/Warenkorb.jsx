@@ -38,7 +38,7 @@ export default function Warenkorb() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="dc-page min-h-screen">
       {justAdded && (
         <div className="bg-emerald-600 text-white px-4 py-3">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
@@ -53,13 +53,17 @@ export default function Warenkorb() {
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <h1 className="font-heading font-bold text-3xl mb-8">Warenkorb</h1>
+      <div className="dc-page-shell py-0">
+        <div className="dc-page-hero">
+          <span className="dc-kicker">Ihre Auswahl</span>
+          <h1 className="dc-page-title">Warenkorb</h1>
+          <p className="dc-page-intro">Prüfen Sie Ihre Container, Mengen und die berechneten Gesamtkosten.</p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Product table */}
           <div className="lg:col-span-2">
-            <div className="border border-border rounded-xl overflow-hidden">
+            <div className="overflow-hidden rounded-[1.5rem] border border-border bg-white shadow-sm">
               {/* Header */}
               <div className="hidden sm:grid grid-cols-[2fr_1fr_1fr_1fr_auto] gap-4 px-5 py-3 bg-muted text-xs font-heading font-bold uppercase tracking-wider text-muted-foreground">
                 <span>Produkt</span>
@@ -134,7 +138,7 @@ export default function Warenkorb() {
           </div>
 
           {/* Order summary sidebar */}
-          <div className="border border-border rounded-xl p-6 bg-card">
+          <div className="rounded-[1.5rem] border border-border bg-card p-6 shadow-sm lg:sticky lg:top-24">
             <h2 className="font-heading font-bold text-lg mb-5 uppercase tracking-wide">Warenkorb-Summe</h2>
 
             <div className="space-y-2 text-sm">
@@ -162,7 +166,7 @@ export default function Warenkorb() {
 
             <Button
               onClick={() => navigate("/kasse")}
-              className="w-full mt-6 h-12 font-heading font-bold text-base"
+              className="mt-6 h-12 w-full rounded-full font-heading text-base font-bold"
               style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
             >
               Weiter Zur Kasse <ArrowRight className="w-4 h-4 ml-2" />

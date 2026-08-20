@@ -37,42 +37,42 @@ const strings = {
       title1: "Seecontainer ",
       titleColored: "kaufen",
       title2: " in Deutschland",
-      subtitle: "Neue und gebrauchte 10ft, 20ft und 40ft Container zu attraktiven Preisen.",
+      subtitle: "Neue und gebrauchte 10-, 20- und 40-Fuß-Container mit individuell geplanter Lieferung.",
       ctaExplore: "Container entdecken",
       ctaQuote: "Angebot anfordern",
-      stat1: "Container auf Lager",
-      stat2: "Express-Lieferung",
-      stat3: "Qualitätsgeprüft",
+      stat1: "10, 20 & 40 Fuß",
+      stat2: "Neu & gebraucht",
+      stat3: "Lieferung nach Absprache",
     },
 
     // ─── WHY CHOOSE US ───────────────────────────────────────────────────────
     whyChooseUs: {
       label: "Vorteile",
       title: "Warum DIE Container GmbH?",
-      description: "Zuverlässige Containerlösungen für Unternehmen und Privatkunden in Deutschland und Europa.",
+      description: "Von der Auswahl bis zur Anlieferung erhalten Sie klare Informationen zu Container, Zustand und Transport.",
       features: [
-        { title: "Deutschlandweite Lieferung", desc: "Wir liefern Ihren Container direkt an Ihren Wunschort in ganz Deutschland." },
-        { title: "Transparente Preise", desc: "Keine versteckten Kosten – alle Preise klar und nachvollziehbar." },
-        { title: "Neue & gebrauchte Container", desc: "Große Auswahl an neuen und geprüften gebrauchten Containern." },
-        { title: "Persönliche Beratung", desc: "Unsere Experten beraten Sie individuell bei der Auswahl." },
-        { title: "Individuelle Transportplanung", desc: "Maßgeschneiderte Logistiklösungen für jede Situation." },
+        { title: "Lieferung nach Absprache", desc: "Transportweg, Entladung und Termin werden für den jeweiligen Standort abgestimmt." },
+        { title: "Nachvollziehbares Angebot", desc: "Containerpreis, Umsatzsteuer und Transport werden im Angebot getrennt ausgewiesen." },
+        { title: "Neu oder gebraucht", desc: "Verfügbare Container unterscheiden sich nach Größe, Zustand und Ausführung." },
+        { title: "Direkter Ansprechpartner", desc: "Fragen zu Auswahl und Ablauf beantworten wir persönlich per Telefon oder E-Mail." },
+        { title: "Planung für den Standort", desc: "Zufahrt, Platzbedarf und gewünschte Entladung fließen in die Lieferplanung ein." },
       ],
     },
 
     // ─── ABOUT SECTION (homepage) ────────────────────────────────────────────
     aboutSection: {
       label: "Über DIE Container GmbH",
-      title1: "Praktische und robuste ",
-      titleColored: "Containerlösungen",
-      title2: " für jeden Einsatz",
-      body1: "DIE Container GmbH ist Ihr zuverlässiger Partner für den Kauf von neuen und gebrauchten Containern in Deutschland und Europa.",
-      body2: "Wir bieten praktische, robuste und flexible Lösungen für Unternehmen, Gewerbe, Bau, Lagerung, Logistik und private Einsatzzwecke – mit klarer Auswahl, transparenten Informationen und professioneller Abwicklung.",
+      title1: "Willkommen bei der DIE Container GmbH – Ihrem zuverlässigen Partner im ",
+      titleColored: "Containerhandel",
+      title2: "",
+      body1: "Mit Sitz in Putzbrunn sind wir auf den Handel, die Vermietung und den Transport von Transport-, Lager- und Spezialcontainern spezialisiert.",
+      body2: "Wir unterstützen Unternehmen und Privatkunden bei der Auswahl einer passenden Containerlösung und begleiten den Ablauf persönlich – von der Anfrage bis zur Lieferung.",
       cta: "Mehr über uns",
       highlights: [
-        { value: "DE & EU", label: "Liefergebiet", desc: "Containerlösungen in Deutschland und Europa" },
-        { value: "B2B & B2C", label: "Für alle Kunden", desc: "Für Unternehmen, Gewerbe und private Nutzung" },
-        { value: "Neu & gebraucht", label: "Klare Auswahl", desc: "Passende Container für verschiedene Einsatzzwecke" },
-        { value: "Transparent", label: "Professionell", desc: "Klare Kommunikation und zuverlässige Abwicklung" },
+        { value: "Kauf", label: "Containerhandel", desc: "Neue und gebrauchte Container nach Verfügbarkeit" },
+        { value: "Miete", label: "Containermiete", desc: "Container für zeitlich begrenzte Einsätze" },
+        { value: "Transport", label: "Lieferplanung", desc: "Organisation von Anlieferung und Entladung" },
+        { value: "Spezial", label: "Containertypen", desc: "Transport-, Lager- und Spezialcontainer" },
       ],
     },
 
@@ -107,8 +107,8 @@ const strings = {
     // ─── CONTAINER TYPES (homepage category grid) ────────────────────────────
     containerTypes: {
       label: "Containertypen",
-      title: "Für jeden Einsatz der richtige Container",
-      description: "Entdecken Sie unsere Vielfalt an Containertypen – von Standard bis Spezial.",
+      title: "Container für Ihren Einsatz",
+      description: "Wählen Sie den passenden Container für Lagerung, Transport, Büro, Kühlung oder individuelle Nutzung.",
     },
 
     // ─── SHOP BY SIZE (homepage size grid) ───────────────────────────────────
@@ -642,40 +642,40 @@ const strings = {
       title1: "",
       titleColored: "Buy",
       title2: " shipping containers in Germany",
-      subtitle: "New and used 10ft, 20ft and 40ft containers at attractive prices.",
+      subtitle: "New and used 10ft, 20ft and 40ft containers with delivery planned for your location.",
       ctaExplore: "Explore containers",
       ctaQuote: "Request a quote",
-      stat1: "Containers in stock",
-      stat2: "Express delivery",
-      stat3: "Quality checked",
+      stat1: "10ft, 20ft & 40ft",
+      stat2: "New & used",
+      stat3: "Delivery by arrangement",
     },
 
     whyChooseUs: {
       label: "Benefits",
       title: "Why DIE Container GmbH?",
-      description: "Reliable container solutions for businesses and private customers in Germany and Europe.",
+      description: "From selection to delivery, you receive clear information about the container, its condition and transport.",
       features: [
-        { title: "Nationwide delivery", desc: "We deliver your container directly to your desired location throughout Germany." },
-        { title: "Transparent pricing", desc: "No hidden costs – all prices clear and transparent." },
-        { title: "New & used containers", desc: "Wide selection of new and inspected used containers." },
-        { title: "Personal consultation", desc: "Our experts provide individual advice to help you choose." },
-        { title: "Individual transport planning", desc: "Tailored logistics solutions for every situation." },
+        { title: "Delivery by arrangement", desc: "The route, unloading method and date are coordinated for the delivery location." },
+        { title: "Itemised quotation", desc: "Container price, VAT and transport are shown separately in the quotation." },
+        { title: "New or used", desc: "Available containers differ by size, condition and configuration." },
+        { title: "Direct contact", desc: "We answer questions about selection and the process by phone or email." },
+        { title: "Site-specific planning", desc: "Access, required space and unloading method are considered during delivery planning." },
       ],
     },
 
     aboutSection: {
       label: "About DIE Container GmbH",
-      title1: "Practical and robust ",
-      titleColored: "container solutions",
-      title2: " for every use",
-      body1: "DIE Container GmbH is your reliable partner for buying new and used containers in Germany and Europe.",
-      body2: "We provide practical, robust and flexible solutions for businesses, trade, construction, storage, logistics and private use, with clear choices, transparent information and professional handling.",
+      title1: "Welcome to DIE Container GmbH – your partner for ",
+      titleColored: "container trading",
+      title2: "",
+      body1: "Based in Putzbrunn, we specialise in the sale, rental and transport of shipping, storage and specialist containers.",
+      body2: "We help businesses and private customers select a suitable container and provide direct support from the initial enquiry through to delivery.",
       cta: "More about us",
       highlights: [
-        { value: "DE & EU", label: "Service area", desc: "Container solutions across Germany and Europe" },
-        { value: "B2B & B2C", label: "For every customer", desc: "For businesses, trade and private use" },
-        { value: "New & used", label: "Clear selection", desc: "Suitable containers for different applications" },
-        { value: "Transparent", label: "Professional", desc: "Clear communication and reliable handling" },
+        { value: "Buy", label: "Container sales", desc: "New and used containers subject to availability" },
+        { value: "Rent", label: "Container rental", desc: "Containers for temporary use" },
+        { value: "Transport", label: "Delivery planning", desc: "Organisation of delivery and unloading" },
+        { value: "Specialist", label: "Container types", desc: "Shipping, storage and specialist containers" },
       ],
     },
 
@@ -707,8 +707,8 @@ const strings = {
 
     containerTypes: {
       label: "Container types",
-      title: "The right container for every purpose",
-      description: "Discover our range of container types – from standard to specialist.",
+      title: "Containers for your application",
+      description: "Choose a suitable container for storage, transport, office use, refrigeration or an individual project.",
     },
 
     shopBySize: {

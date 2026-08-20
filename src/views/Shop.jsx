@@ -103,31 +103,31 @@ export default function Shop() {
   }
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="dc-page">
+      <div className="dc-page-shell">
         {/* Header */}
-        <div className="mb-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-heading font-bold text-3xl lg:text-4xl tracking-tight"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="dc-page-hero"
+        >
+          <span className="dc-kicker">Containerhandel</span>
+          <h1
+            className="dc-page-title"
           >
             {T.title}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-muted-foreground mt-2"
+          </h1>
+          <p
+            className="dc-page-intro"
           >
             {filteredProducts.length} {T.available}
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
 
         <div className="flex gap-8">
           {/* Desktop sidebar */}
           <aside className="hidden lg:block w-64 shrink-0">
-            <div className="sticky top-24 bg-card/80 backdrop-blur-xl rounded-xl border border-border p-5 max-h-[calc(100vh-7rem)] overflow-y-auto">
+            <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-[1.5rem] border border-border bg-card/95 p-6 shadow-sm backdrop-blur-xl">
               {filterContent}
             </div>
           </aside>
@@ -143,7 +143,7 @@ export default function Shop() {
                     <SlidersHorizontal className="w-4 h-4 mr-2" />
                     {T.filter}
                     {activeCount > 0 && (
-                      <span className="ml-1.5 w-5 h-5 rounded-full bg-secondary text-secondary-foreground text-xs flex items-center justify-center">
+                    <span className="ml-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#46C54B] text-xs text-white">
                         {activeCount}
                       </span>
                     )}
@@ -160,7 +160,7 @@ export default function Shop() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="text-sm border border-border rounded-lg px-3 py-2 bg-card focus:ring-2 focus:ring-secondary/30 focus:border-secondary outline-none"
+                className="rounded-xl border border-border bg-card px-4 py-2.5 text-sm outline-none focus:border-[#46C54B] focus:ring-2 focus:ring-[#46C54B]/20"
               >
                 <option value="price_asc">{T.sortAsc}</option>
                 <option value="price_desc">{T.sortDesc}</option>
@@ -175,7 +175,7 @@ export default function Shop() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-20">
+              <div className="rounded-[1.5rem] border border-dashed border-border bg-white py-20 text-center">
                 <Package className="w-12 h-12 mx-auto text-muted-foreground/40 mb-4" />
                 <h3 className="font-heading font-semibold text-lg mb-2">{T.empty}</h3>
                 <p className="text-sm text-muted-foreground mb-6">{T.emptyHint}</p>

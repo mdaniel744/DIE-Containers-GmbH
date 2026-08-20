@@ -11,10 +11,11 @@ export default function WhyChooseUs() {
   const T = useSection("whyChooseUs");
 
   return (
-    <section className="py-20 lg:py-28 bg-secondary text-secondary-foreground">
+    <section className="relative overflow-hidden bg-[#46C54B] py-20 text-white lg:py-32">
+      <div className="pointer-events-none absolute -left-24 -top-28 h-80 w-80 rounded-full border border-white/20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading label={T.label} title={T.title} description={T.description} inverted />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <SectionHeading title={T.title} description={T.description} align="left" display inverted />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {T.features.map((f, i) => (
             <motion.div
               key={i}
@@ -22,15 +23,15 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center p-6 rounded-xl border border-white/15 hover:border-white/40 transition-colors"
+              className="relative rounded-[1.5rem] border border-white/70 bg-white/85 p-6 shadow-[0_18px_45px_rgba(18,62,25,0.12)] transition-all hover:-translate-y-1 hover:bg-white"
             >
               {(() => { const Icon = ICONS[i]; return (
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Icon className="w-6 h-6 text-white" />
+                <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-white">
+                  <Icon className="h-6 w-6 text-[#176B20]" />
                 </div>
               ); })()}
-              <h3 className="font-heading font-semibold text-sm mb-2">{f.title}</h3>
-              <p className="text-xs text-secondary-foreground/60 leading-relaxed">{f.desc}</p>
+              <h3 className="font-heading text-lg font-bold leading-tight text-[#123E19]">{f.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
             </motion.div>
           ))}
         </div>

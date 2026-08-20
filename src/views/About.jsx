@@ -1,184 +1,329 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, Truck, Shield, Wrench, Headphones, CheckCircle, MapPin, Phone, Mail } from "lucide-react";
-import SectionHeading from "@/components/shared/SectionHeading";
-import { DELIVERY_IMAGE } from "@/lib/productData";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  CheckCircle2,
+  GraduationCap,
+  Lightbulb,
+  Mail,
+  MapPin,
+  Phone,
+  Scale,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
-import { useSection } from "@/lib/i18n";
 
-const VALUE_ICONS = [Users, Shield, Truck, Wrench, Headphones];
-const LOCATION_ICONS = [MapPin, Phone, Mail];
+const COMPANY_IMAGE = "/images/about/container-yard-depot.jpg";
+const LOGISTICS_IMAGE = "/images/about/container-terminal-logistics.webp";
+
+const TEAM_PRINCIPLES = [
+  {
+    icon: Workflow,
+    title: "Strukturiert",
+    description: "Transparente Abläufe von der ersten Anfrage bis zur Lieferung.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Lösungsorientiert",
+    description: "Eine passende und wirtschaftliche Lösung für den Kauf gängiger Standard- und Seecontainer.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Technisch auf dem neuesten Stand",
+    description: "Regelmäßige Schulungen zu aktuellen Prozessen, Produkten und zur Kundenberatung.",
+  },
+];
+
+const VALUES = [
+  {
+    icon: Scale,
+    title: "Integrität",
+    description:
+      "Unser Kundenservice beantwortet Ihre Fragen vor dem Kauf transparent, damit Sie eine fundierte Entscheidung treffen können.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Qualität",
+    description:
+      "Wir achten sorgfältig auf die Auswahl und den dokumentierten Zustand der Container, bevor sie an unsere Kunden ausgeliefert werden.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Weiterentwicklung",
+    description:
+      "Wir entwickeln unseren Service kontinuierlich weiter, damit Containerzustand, Beratung und Abwicklung noch besser zu Ihren Anforderungen passen.",
+  },
+];
+
+const FACTS = [
+  { value: "Seit 2020", label: "im Containerhandel" },
+  { value: "Deutschlandweit", label: "Beratung und Lieferung" },
+  { value: "Handel · Miete · Transport", label: "aus einer Hand koordiniert" },
+];
 
 export default function About() {
-  const T = useSection("about");
-
   return (
-    <div className="pt-20 lg:pt-24 pb-20">
-      {/* Hero */}
-      <section className="relative py-20 lg:py-28 bg-secondary text-secondary-foreground overflow-hidden">
-        <div className="absolute inset-0 blueprint-line opacity-[0.03]" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              <span className="font-mono text-xs text-white/80 tracking-widest uppercase">{T.label}</span>
-              <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl mt-4 mb-6 tracking-tight">
-                {T.title}<span className="text-white">{T.titleColored}</span>{T.title2}
-              </h1>
-              <p className="text-lg text-secondary-foreground/70 leading-relaxed">{T.body}</p>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="rounded-xl overflow-hidden">
-              <img src={DELIVERY_IMAGE} alt={T.imgAlt} className="w-full h-72 lg:h-96 object-cover rounded-xl" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 bg-background border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {T.stats.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
-                <p className="font-heading font-bold text-3xl lg:text-4xl text-secondary">{s.value}</p>
-                <p className="text-sm text-muted-foreground mt-1">{s.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Business credentials */}
-      <section className="py-8 bg-muted/30 border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm text-muted-foreground">
-            <span className="flex items-center gap-2"><Shield className="w-4 h-4 text-secondary shrink-0" /><span>Eingetragen: DIE Container GmbH</span></span>
-            <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-secondary shrink-0" /><span>Handelsregister: HRB 256757</span></span>
-            <span className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-secondary shrink-0" /><span>USt-IdNr.: DE 330443785</span></span>
-            <span className="flex items-center gap-2"><MapPin className="w-4 h-4 text-secondary shrink-0" /><span>Putzbrunn, Bayern, Deutschland</span></span>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Trust */}
-      <section className="py-20 lg:py-28 bg-muted/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading label={T.trustLabel} title={T.trustTitle} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-            {T.trustItems.map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-card rounded-xl border border-border p-7 flex gap-5">
-                <div className="w-10 h-10 shrink-0 rounded-full bg-secondary flex items-center justify-center font-heading font-bold text-secondary-foreground text-lg">
-                  {i + 1}
-                </div>
-                <div>
-                  <h3 className="font-heading font-bold text-base mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Values */}
-      <section className="py-20 lg:py-28 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading label={T.valuesLabel} title={T.valuesTitle} />
-          {T.valuesIntro && (
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center -mt-2 mb-10">
-              {T.valuesIntro}
+    <div className="overflow-hidden pb-20 pt-20 lg:pt-24">
+      <section className="relative bg-[#46C54B] py-16 text-white sm:py-20 lg:py-28">
+        <div className="absolute inset-0 blueprint-line opacity-[0.035]" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="mb-5 font-mono text-xs font-bold uppercase tracking-[0.22em] text-white/80">
+              DIE Container GmbH
             </p>
-          )}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {T.values.map((v, i) => {
-              const Icon = VALUE_ICONS[i % VALUE_ICONS.length];
+            <h1 className="max-w-4xl font-heading text-4xl font-bold leading-[0.98] tracking-[-0.045em] text-white sm:text-5xl lg:text-7xl">
+              Über uns.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/90 sm:text-xl">
+              Seit Oktober 2020 unterstützen wir Unternehmen und Privatkunden in ganz Deutschland mit fairen, zuverlässigen und praktischen Containerlösungen.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/shop"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-heading text-sm font-bold text-[#176B20] transition-transform hover:-translate-y-0.5"
+              >
+                Container ansehen
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/kontakt"
+                className="inline-flex items-center justify-center rounded-full border border-white/55 px-7 py-3.5 font-heading text-sm font-bold text-white transition-colors hover:bg-white/15"
+              >
+                Persönlich beraten lassen
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.12 }}
+            className="relative"
+          >
+            <div className="overflow-hidden rounded-[2rem] border-4 border-white/75 bg-white shadow-[0_28px_70px_-34px_rgba(13,42,18,0.55)]">
+              <img
+                src={COMPANY_IMAGE}
+                alt="Containerdepot mit Umschlagfahrzeug"
+                className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[500px]"
+              />
+            </div>
+            <div className="absolute -bottom-5 left-5 rounded-2xl bg-white px-5 py-4 shadow-lg sm:left-8">
+              <p className="font-heading text-xl font-bold text-[#176B20]">Putzbrunn</p>
+              <p className="text-sm text-[#123E19]/70">Unser Standort bei München</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-white py-10 sm:py-12">
+        <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
+          {FACTS.map((fact, index) => (
+            <motion.div
+              key={fact.value}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="rounded-[1.5rem] border border-[#CDEBCD] bg-[#F4FBF4] p-6"
+            >
+              <p className="font-heading text-xl font-bold text-[#176B20] lg:text-2xl">{fact.value}</p>
+              <p className="mt-1 text-sm leading-6 text-[#34533A]">{fact.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="overflow-hidden rounded-[2rem] bg-[#DDF4DF] p-3"
+          >
+            <img
+              src={LOGISTICS_IMAGE}
+              alt="Containerterminal mit Transport- und Umschlagtechnik"
+              className="h-[340px] w-full rounded-[1.4rem] object-cover sm:h-[440px] lg:h-[520px]"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#23832B]">
+              Unser Unternehmen
+            </p>
+            <h2 className="font-heading text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-[#0D2A12] sm:text-5xl lg:text-6xl">
+              Fairer Containerhandel seit Oktober 2020.
+            </h2>
+            <div className="mt-7 space-y-5 text-base leading-8 text-[#34533A] sm:text-lg">
+              <p>
+                Seit Oktober 2020 steht die DIE Container GmbH für einen fairen und zuverlässigen Containerhandel in Deutschland. Aus dem ursprünglichen Angebot an Lagerlösungen hat sich ein vielseitiges Unternehmen für den Verkauf, die Vermietung und den Transport von Containern entwickelt.
+              </p>
+              <p>
+                Heute begleiten wir unsere Kunden von der Auswahl des richtigen Containers bis zur pünktlichen Lieferung. Für Verladung und Transport koordinieren wir die entsprechende Technik, damit Seecontainer fachgerecht abgeholt, sicher transportiert und am gewünschten Ort bereitgestellt werden.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-[#DDF4DF] py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#23832B]">
+                Unser Team
+              </p>
+              <h2 className="font-heading text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-[#0D2A12] sm:text-5xl lg:text-6xl">
+                Erfahrenes Team.
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="space-y-4 text-base leading-8 text-[#34533A] sm:text-lg"
+            >
+              <p>
+                Hinter der DIE Container GmbH steht ein engagiertes Team mit Erfahrung in den Bereichen Containerhandel, Logistik und Kundenberatung. Wir arbeiten strukturiert und lösungsorientiert. Dabei verfolgen wir das Ziel, für Kunden, die Seecontainer kaufen möchten, eine passende und wirtschaftliche Lösung zu finden.
+              </p>
+              <p>
+                Regelmäßige Schulungen und die kontinuierliche Weiterentwicklung unserer Abläufe halten unser Team und unser Fachwissen auf dem neuesten Stand.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {TEAM_PRINCIPLES.map((item, index) => {
+              const Icon = item.icon;
               return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-card rounded-xl border border-border p-6 text-center">
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-secondary/10 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-secondary" />
+                <motion.article
+                  key={item.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  className="rounded-[1.75rem] bg-white p-7 shadow-[0_18px_45px_-34px_rgba(13,42,18,0.45)]"
+                >
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#46C54B] text-white">
+                    <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="font-heading font-semibold text-base mb-2">{v.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-                </motion.div>
+                  <h3 className="font-heading text-xl font-bold text-[#0D2A12]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#34533A]">{item.description}</p>
+                </motion.article>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Why Us */}
-      {T.whyItems?.length > 0 && (
-        <section className="py-20 lg:py-28 bg-muted/40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeading label={T.whyLabel} title={T.whyTitle} />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {T.whyItems.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
+      <section className="bg-[#46C54B] py-20 text-white lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+              Unsere Werte
+            </p>
+            <h2 className="font-heading text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+              Unsere Unternehmenswerte.
+            </h2>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/90">
+              Integrität, Qualität und Offenheit für neue Lösungen prägen unsere tägliche Arbeit. Wir handeln verantwortungsbewusst, transparent und mit Blick auf langlebige, ressourcenschonende Containerlösungen.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {VALUES.map((value, index) => {
+              const Icon = value.icon;
+              return (
+                <motion.article
+                  key={value.title}
+                  initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="bg-card rounded-xl border border-border p-6"
+                  transition={{ delay: index * 0.08 }}
+                  className="rounded-[1.75rem] bg-white p-7 lg:p-8"
                 >
-                  <CheckCircle className="w-5 h-5 text-secondary mb-4" />
-                  <h3 className="font-heading font-semibold text-base mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+                  <Icon className="h-7 w-7 text-[#23832B]" />
+                  <h3 className="mt-6 font-heading text-2xl font-bold text-[#0D2A12]">{value.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#34533A]">{value.description}</p>
+                </motion.article>
+              );
+            })}
           </div>
-        </section>
-      )}
 
-      {/* Location */}
-      {T.locationTitle && (
-        <section className="py-20 lg:py-28 bg-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                <span className="font-mono text-xs text-secondary tracking-widest uppercase">{T.locationLabel}</span>
-                <h2 className="font-heading font-bold text-2xl lg:text-3xl tracking-tight mt-3 mb-4">{T.locationTitle}</h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">{T.locationBody}</p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-card rounded-2xl border border-border p-6 lg:p-8"
-              >
-                <div className="space-y-5">
-                  {T.locationDetails?.map((item, i) => {
-                    const Icon = LOCATION_ICONS[i % LOCATION_ICONS.length];
-                    const content = (
-                      <div className="flex items-start gap-4">
-                        <div className="w-11 h-11 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
-                          <Icon className="w-5 h-5 text-secondary" />
-                        </div>
-                        <div>
-                          <p className="font-heading font-semibold text-sm text-foreground">{item.label}</p>
-                          <p className="text-sm text-muted-foreground mt-1">{item.value}</p>
-                        </div>
-                      </div>
-                    );
-                    return item.href ? (
-                      <a key={i} href={item.href} className="block hover:opacity-80 transition-opacity">
-                        {content}
-                      </a>
-                    ) : (
-                      <div key={i}>{content}</div>
-                    );
-                  })}
+          <p className="mx-auto mt-9 max-w-3xl text-center text-base leading-7 text-white/90">
+            Ein respektvoller Umgang ist für uns selbstverständlich – im Team ebenso wie in der Zusammenarbeit mit Kunden, Lieferanten und Partnern.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16 lg:px-8">
+          <div>
+            <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#23832B]">
+              Unser Standort
+            </p>
+            <h2 className="font-heading text-4xl font-bold leading-[1.04] tracking-[-0.04em] text-[#0D2A12] sm:text-5xl">
+              Unser Hauptsitz befindet sich in Putzbrunn.
+            </h2>
+            <p className="mt-6 text-base leading-8 text-[#34533A]">
+              Von unserem Standort in der Nähe von München aus koordinieren wir die Beratung, den Containerhandel und die Lieferungen für Kunden in ganz Deutschland.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] border border-[#CDEBCD] bg-[#F4FBF4] p-7 sm:p-9">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="flex gap-4 sm:col-span-2">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#23832B]" />
+                <div>
+                  <p className="font-heading font-bold text-[#0D2A12]">DIE Container GmbH</p>
+                  <p className="mt-1 text-sm leading-6 text-[#34533A]">
+                    Hermann-Oberth-Str. 23<br />85640 Putzbrunn, Deutschland
+                  </p>
                 </div>
-              </motion.div>
+              </div>
+              <a href="tel:+4989277808979" className="flex gap-4 rounded-2xl bg-white p-4 transition-transform hover:-translate-y-0.5">
+                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-[#23832B]" />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#34533A]">Telefon</p>
+                  <p className="mt-1 font-heading font-bold text-[#0D2A12]">+49 (0) 89 277 808 979</p>
+                </div>
+              </a>
+              <a href="mailto:contact@diecontainers.com" className="flex gap-4 rounded-2xl bg-white p-4 transition-transform hover:-translate-y-0.5">
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#23832B]" />
+                <div className="min-w-0">
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#34533A]">E-Mail</p>
+                  <p className="mt-1 break-all font-heading font-bold text-[#0D2A12]">contact@diecontainers.com</p>
+                </div>
+              </a>
+            </div>
+            <div className="mt-6 flex items-start gap-3 border-t border-[#CDEBCD] pt-6 text-sm leading-6 text-[#34533A]">
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#23832B]" />
+              <span>Handelsregister HRB 256757 · USt-IdNr. DE 330443785</span>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* Contact Banner */}
-      <section className="py-4 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-2">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ContactBanner />
         </div>
       </section>

@@ -9,17 +9,17 @@ export default function FAQSection() {
   const T = useSection("faqSection");
 
   return (
-    <section className="py-20 lg:py-28 bg-background">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading label={T.label} title={T.title} description={T.description} />
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+    <section className="bg-[#F3F7F2] py-20 lg:py-32">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:px-8">
+        <SectionHeading title={T.title} description={T.description} align="left" display />
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:pt-2">
           <Accordion type="single" collapsible className="space-y-3">
             {T.items.map((faq, i) => (
-              <AccordionItem key={i} value={`faq-${i}`} className="bg-card border border-border rounded-xl px-6 data-[state=open]:shadow-sm transition-shadow">
-                <AccordionTrigger className="text-sm font-heading font-semibold text-left hover:no-underline hover:text-secondary transition-colors py-5">
+              <AccordionItem key={i} value={`faq-${i}`} className="rounded-[1.25rem] border border-[#DDE8DC] bg-white px-6 data-[state=open]:shadow-[0_14px_35px_rgba(20,72,29,0.08)] transition-shadow">
+                <AccordionTrigger className="py-6 text-left font-heading text-base font-bold text-[#123E19] transition-colors hover:text-[#2B9D36] hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5">
+                <AccordionContent className="pb-6 text-sm leading-relaxed text-[#5F7865]">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

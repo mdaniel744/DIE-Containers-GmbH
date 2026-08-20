@@ -17,8 +17,8 @@ const CONDITION_DISPLAY = {
 
 const badgeStyles = {
   Neu: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20",
-  Gebraucht: "bg-blue-500/10 text-blue-700 border-blue-500/20",
-  Bestseller: "bg-blue-500/10 text-blue-700 border-blue-500/20",
+  Gebraucht: "bg-[#E9F6EA] text-[#176B20] border-[#B9DFBC]",
+  Bestseller: "bg-[#E9F6EA] text-[#176B20] border-[#B9DFBC]",
   Angebot: "bg-rose-500/10 text-rose-700 border-rose-500/20",
 };
 
@@ -40,7 +40,7 @@ export default function ProductCard({ product, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-      className="group bg-card rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500"
+      className="group overflow-hidden rounded-[1.5rem] border border-border bg-card shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#B9DFBC] hover:shadow-xl"
     >
       <Link to={`/produkt/${product.slug || product.id}`}>
         <div className="relative aspect-[4/3] overflow-hidden bg-muted">
@@ -56,18 +56,18 @@ export default function ProductCard({ product, index = 0 }) {
         </div>
       </Link>
 
-      <div className="p-5">
+      <div className="p-5 sm:p-6">
         <div className="mb-2">
-          <h3 className="font-heading font-semibold text-sm leading-snug line-clamp-2">{product.title}</h3>
+          <h3 className="line-clamp-2 font-heading text-base font-semibold leading-snug">{product.title}</h3>
         </div>
 
         <div className="flex items-center gap-2 mb-3 flex-wrap">
-          <span className="text-xs font-mono text-muted-foreground bg-muted px-2 py-0.5 rounded">{product.size}</span>
-          <span className="text-xs font-mono text-muted-foreground bg-muted px-2 py-0.5 rounded">{conditionLabel}</span>
+          <span className="rounded-full bg-[#F0F7F1] px-3 py-1 font-mono text-xs text-[#176B20]">{product.size}</span>
+          <span className="rounded-full bg-[#F0F7F1] px-3 py-1 font-mono text-xs text-[#176B20]">{conditionLabel}</span>
         </div>
 
         <div className="mb-4">
-          <span className="font-heading font-bold text-xl text-foreground">
+          <span className="font-heading text-2xl font-bold text-foreground">
             {product.price_from?.toLocaleString("de-DE")} €
           </span>
         </div>
@@ -76,14 +76,14 @@ export default function ProductCard({ product, index = 0 }) {
           <Button
             size="sm"
             onClick={handleAddToCart}
-            className="w-full text-xs font-medium text-white hover:opacity-90"
+            className="h-11 w-full rounded-full text-sm font-bold hover:opacity-90"
             style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
           >
             <ShoppingCart className="w-3.5 h-3.5 mr-1.5" />
             {T.cart}
           </Button>
           <Link to={`/produkt/${product.slug || product.id}`} className="w-full">
-            <Button size="sm" variant="outline" className="w-full text-xs font-medium">
+            <Button size="sm" variant="outline" className="h-11 w-full rounded-full text-sm font-semibold">
               {T.details}
             </Button>
           </Link>

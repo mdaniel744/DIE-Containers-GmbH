@@ -133,8 +133,8 @@ export default function ProductDetail() {
         <title>{product.title} {Tpd.titleAction} – {product.price_from?.toLocaleString("de-DE")} € | DIE Container GmbH</title>
         <meta name="description" content={metaDescription} />
       </Helmet>
-    <div className="pt-20 lg:pt-24 pb-28 lg:pb-20 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="dc-page pb-28 lg:pb-20">
+      <div className="dc-page-shell">
         {/* Breadcrumb */}
         <nav className="mb-6 flex items-center gap-2 text-sm text-muted-foreground">
           <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
@@ -144,7 +144,7 @@ export default function ProductDetail() {
           <span className="text-foreground font-medium truncate">{product.title}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Gallery */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -159,7 +159,7 @@ export default function ProductDetail() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="space-y-5"
+            className="space-y-5 rounded-[1.75rem] border border-border bg-white p-6 shadow-sm sm:p-8"
           >
             {/* Badges + title */}
             <div>
@@ -175,14 +175,14 @@ export default function ProductDetail() {
                   </Badge>
                 )}
               </div>
-              <h1 className="font-heading font-bold text-2xl sm:text-3xl tracking-tight">{product.title}</h1>
-              <p className="text-muted-foreground mt-2 leading-relaxed">{product.short_description}</p>
+              <h1 className="font-heading text-3xl font-bold tracking-[-0.035em] sm:text-4xl">{product.title}</h1>
+              <p className="mt-3 text-base leading-7 text-muted-foreground">{product.short_description}</p>
             </div>
 
             {/* Price */}
-            <div className="border-t border-b border-border py-4">
+            <div className="rounded-[1.25rem] bg-[#F0F7F1] p-5">
               <div className="flex items-baseline gap-2">
-                <span className="font-heading font-bold text-3xl text-foreground">
+                <span className="font-heading text-4xl font-bold text-[#123E19]">
                   {product.price_from?.toLocaleString("de-DE")} €
                 </span>
               </div>
@@ -191,7 +191,7 @@ export default function ProductDetail() {
             {/* Quantity */}
             <div>
               <label className="text-xs text-muted-foreground font-medium mb-2 block">{T.quantityLabel}</label>
-              <div className="inline-flex items-center border border-border rounded-lg">
+              <div className="inline-flex items-center rounded-full border border-border bg-white">
                 <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-2.5 hover:bg-muted transition-colors">
                   <Minus className="w-4 h-4" />
                 </button>
@@ -206,7 +206,7 @@ export default function ProductDetail() {
             <Button
               onClick={handleInquiry}
               size="lg"
-              className="w-full font-heading font-bold text-base h-14 text-white shadow-lg hover:opacity-90 transition-opacity"
+              className="h-14 w-full rounded-full font-heading text-base font-bold shadow-lg transition-opacity hover:opacity-90"
               style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
             >
               <ChevronRight className="w-5 h-5 mr-2" />
@@ -216,7 +216,7 @@ export default function ProductDetail() {
               onClick={handleAddToCart}
               size="lg"
               variant="outline"
-              className="w-full font-heading font-bold text-base h-14 border-[#176B20] text-[#176B20] hover:bg-[#176B20] hover:text-white"
+              className="h-14 w-full rounded-full border-[#176B20] font-heading text-base font-bold text-[#176B20] hover:bg-[#176B20] hover:text-white"
             >
               <ShoppingCart className="w-5 h-5 mr-2" />
               {T.cart}
@@ -254,12 +254,12 @@ export default function ProductDetail() {
                 </div>
               )}
               {product.weather_resistant && (
-                <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5">
+                <div className="flex items-center gap-1.5 rounded-full border border-[#B9DFBC] bg-[#E9F6EA] px-3 py-1.5 text-xs text-[#176B20]">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   {T.weatherLabel}
                 </div>
               )}
-              <div className="flex items-center gap-1.5 text-xs text-blue-700 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5">
+              <div className="flex items-center gap-1.5 rounded-full border border-[#B9DFBC] bg-[#E9F6EA] px-3 py-1.5 text-xs text-[#176B20]">
                 <Award className="w-3.5 h-3.5" />
                 {T.isoLabel}
               </div>
@@ -274,7 +274,7 @@ export default function ProductDetail() {
         </div>
 
         {/* Tabs */}
-        <div className="mt-16">
+        <div className="dc-panel mt-16">
           <Tabs defaultValue="description" className="w-full">
             <TabsList className="w-full justify-start border-b border-border rounded-none bg-transparent p-0 h-auto gap-0 flex-wrap">
               {[

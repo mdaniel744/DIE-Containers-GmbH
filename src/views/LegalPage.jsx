@@ -35,7 +35,7 @@ function renderTextContent(content) {
     if (block.includes("**")) {
       const parts = block.split(/\*\*/);
       return (
-        <p key={i} className="mb-3 leading-relaxed text-sm">
+        <p key={i} className="mb-4 text-base leading-8">
           {parts.map((part, j) =>
             j % 2 === 1 ? <strong key={j} className="text-foreground font-semibold">{part}</strong> : part
           )}
@@ -44,27 +44,27 @@ function renderTextContent(content) {
     }
     if (block.startsWith("- ")) {
       return (
-        <ul key={i} className="list-disc pl-5 mb-3 space-y-1 text-sm">
+        <ul key={i} className="mb-4 list-disc space-y-2 pl-5 text-base leading-7">
           {block.split("\n").map((item, j) => (
             <li key={j}>{item.replace("- ", "")}</li>
           ))}
         </ul>
       );
     }
-    return <p key={i} className="mb-3 leading-relaxed text-sm">{block}</p>;
+    return <p key={i} className="mb-4 text-base leading-8">{block}</p>;
   });
 }
 
 function Section({ number, title, children }) {
   return (
-    <div className="mb-8">
+    <div className="mb-6 rounded-[1.5rem] border border-border bg-white p-6 shadow-sm sm:p-7">
       <div className="flex items-center gap-3 mb-3">
         <span className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white font-heading" style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
           {number}
         </span>
-        <h2 className="font-heading font-bold text-base text-foreground">{title}</h2>
+        <h2 className="font-heading text-xl font-bold text-foreground">{title}</h2>
       </div>
-      <div className="pl-10 text-sm text-muted-foreground leading-relaxed space-y-2">
+      <div className="space-y-3 text-base leading-7 text-muted-foreground sm:pl-10">
         {children}
       </div>
     </div>
@@ -515,101 +515,272 @@ function RueckgabePage() {
 }
 
 function VersandPage() {
-  const promises = [
-    { icon: Shield, text: "Transparente Lieferzeiten" },
-    { icon: Truck, text: "Professionelle Logistikplanung" },
-    { icon: CheckCircle, text: "Klar kommunizierte Versandkosten" },
-    { icon: CheckCircle, text: "Sichere, zuverlässige Containerlieferung" },
+  const deliveryFactors = [
+    "Lieferadresse und Region",
+    "Containertyp und Containergröße",
+    "Gewählter Transportweg",
+    "Geografische, logistische oder klimatische Bedingungen",
+  ];
+
+  const costDetails = [
+    "Versandkosten sind nicht im Produktpreis enthalten.",
+    "Alle Transportkosten werden für den konkreten Auftrag individuell berechnet.",
+    "Die endgültigen Versandkosten werden im Angebot und auf der Rechnung ausgewiesen.",
+    "Der Versand wird erst nach Ihrer Bestätigung der Transportkosten beauftragt.",
+  ];
+
+  const deliverySteps = [
+    {
+      title: "Lieferadresse prüfen",
+      description: "Wir prüfen die Adresse, Zufahrt und individuellen Anforderungen am Lieferort.",
+    },
+    {
+      title: "Transportlösung auswählen",
+      description: "Wir ermitteln eine passende, wirtschaftliche Route und die benötigte Technik.",
+    },
+    {
+      title: "Termin abstimmen",
+      description: "Der Liefertermin wird vor der Anfahrt verbindlich mit Ihnen koordiniert.",
+    },
+    {
+      title: "Container anliefern",
+      description: "Der Container wird an die vereinbarte Lieferadresse transportiert.",
+    },
   ];
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="mb-10">
-            <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Versand</span>
-            <h1 className="font-heading font-bold text-3xl tracking-tight mb-3">Liefer- & Versandrichtlinie</h1>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Alle Informationen zu Liefergebiet, Lieferzeiten, Transportkosten und dem Ablauf Ihrer Containerlieferung.
+    <div className="min-h-screen overflow-hidden bg-white pb-20 pt-20 lg:pt-24">
+      <section className="relative bg-[#46C54B] py-16 text-white sm:py-20 lg:py-28">
+        <div className="absolute inset-0 blueprint-line opacity-[0.035]" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <p className="mb-5 font-mono text-xs font-bold uppercase tracking-[0.22em] text-white/80">
+              Lieferung & Versand
             </p>
+            <h1 className="font-heading text-4xl font-bold leading-[0.98] tracking-[-0.045em] sm:text-5xl lg:text-7xl">
+              Ihre Containerlieferung klar geplant.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/90 sm:text-xl">
+              Hier finden Sie alle wichtigen Informationen zu Liefergebiet, Lieferzeiten, Transportkosten und dem Ablauf Ihrer Containerlieferung.
+            </p>
+            <Link
+              to="/angebot"
+              className="mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-heading text-sm font-bold text-[#176B20] transition-transform hover:-translate-y-0.5"
+            >
+              Transportangebot anfordern
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.12 }}
+            className="overflow-hidden rounded-[2rem] border-4 border-white/75 bg-white shadow-[0_28px_70px_-34px_rgba(13,42,18,0.55)]"
+          >
+            <img
+              src="/images/shipping/container-truck-delivery.webp"
+              alt="LKW mit blauem Seecontainer auf dem Weg zum Lieferort"
+              className="h-[340px] w-full object-cover sm:h-[430px] lg:h-[500px]"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-white py-10 sm:py-12">
+        <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
+          {[
+            { value: "Deutschland", label: "Liefergebiet ohne Inseln" },
+            { value: "3–9 Werktage", label: "übliche Lieferzeit nach Auftragsannahme" },
+            { value: "Individuell", label: "berechnete Transportkosten" },
+          ].map((fact, index) => (
+            <motion.div
+              key={fact.value}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="rounded-[1.5rem] border border-[#CDEBCD] bg-[#F4FBF4] p-6"
+            >
+              <p className="font-heading text-xl font-bold text-[#176B20] lg:text-2xl">{fact.value}</p>
+              <p className="mt-1 text-sm leading-6 text-[#34533A]">{fact.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-16 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2rem] bg-[#DDF4DF] p-7 sm:p-9 lg:p-10"
+          >
+            <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#23832B]">
+              <MapPin className="h-6 w-6" />
+            </div>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#23832B]">01 · Liefergebiet</p>
+            <h2 className="mt-3 font-heading text-3xl font-bold leading-tight tracking-[-0.03em] text-[#0D2A12] sm:text-4xl">
+              Deutschlandweite Lieferung
+            </h2>
+            <div className="mt-5 space-y-4 text-base leading-8 text-[#34533A]">
+              <p>Wir liefern ausschließlich innerhalb Deutschlands. Lieferungen auf deutsche Inseln sind derzeit leider nicht möglich.</p>
+              <p>Die Anlieferung erfolgt grundsätzlich bis zur Bordsteinkante an der von Ihnen angegebenen Lieferadresse.</p>
+            </div>
+          </motion.article>
+
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 }}
+            className="rounded-[2rem] border border-[#CDEBCD] bg-white p-7 sm:p-9 lg:p-10"
+          >
+            <div className="mb-7 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#46C54B] text-white">
+              <Truck className="h-6 w-6" />
+            </div>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#23832B]">02 · Lieferzeiten</p>
+            <h2 className="mt-3 font-heading text-3xl font-bold leading-tight tracking-[-0.03em] text-[#0D2A12] sm:text-4xl">
+              Üblicherweise 3–9 Werktage
+            </h2>
+            <p className="mt-5 text-base leading-8 text-[#34533A]">
+              Die Standardlieferzeit beträgt 3–9 Werktage nach Auftragsannahme. Die tatsächliche Lieferzeit kann von folgenden Faktoren abhängen:
+            </p>
+            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+              {deliveryFactors.map((factor) => (
+                <li key={factor} className="flex items-start gap-3 rounded-2xl bg-[#F4FBF4] p-4 text-sm leading-6 text-[#34533A]">
+                  <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#23832B]" />
+                  <span>{factor}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.article>
+        </div>
+      </section>
+
+      <section className="bg-[#DDF4DF] py-20 lg:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#23832B]">03 · Kosten</p>
+            <h2 className="mt-4 font-heading text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-[#0D2A12] sm:text-5xl lg:text-6xl">
+              Transportkosten werden individuell berechnet.
+            </h2>
+            <p className="mt-6 text-base leading-8 text-[#34533A] sm:text-lg">
+              Entfernung, Containergröße, Stückzahl und Entladeart beeinflussen den Aufwand. Deshalb nennen wir die endgültigen Kosten erst nach Prüfung des konkreten Lieferauftrags.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2rem] bg-white p-7 shadow-[0_18px_50px_-38px_rgba(13,42,18,0.5)] sm:p-9"
+          >
+            <ul className="space-y-4">
+              {costDetails.map((detail) => (
+                <li key={detail} className="flex items-start gap-4 text-base leading-7 text-[#34533A]">
+                  <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#46C54B] text-white">
+                    <CheckCircle className="h-4 w-4" />
+                  </span>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#23832B]">04 · Lieferablauf</p>
+            <h2 className="mt-4 font-heading text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-[#0D2A12] sm:text-5xl lg:text-6xl">
+              Vier klare Schritte bis zum Lieferort.
+            </h2>
           </div>
 
-          <div className="divide-y divide-border">
-            <Section number="1" title="Liefergebiet">
-              <p>Wir liefern ausschließlich innerhalb Deutschlands. Ein Versand auf deutsche Inseln ist leider nicht möglich.</p>
-              <p>Die Lieferung erfolgt <strong className="text-foreground">bis zur Bordsteinkante</strong> an der angegebenen Lieferadresse.</p>
-            </Section>
-
-            <Section number="2" title="Lieferzeiten">
-              <div className="bg-muted/50 rounded-xl px-4 py-3 flex items-center gap-3">
-                <Truck className="w-5 h-5 flex-shrink-0" style={{ color: "#278A2F" }} />
-                <span><strong className="text-foreground">Standardlieferzeit:</strong> 3–9 Werktage nach Auftragsannahme</span>
-              </div>
-              <p className="mt-2">Lieferzeiten können abhängig von folgenden Faktoren variieren:</p>
-              <BulletList items={["Lieferadresse und Region", "Containertyp und -größe", "Gewählter Transportweg", "Geografische, logistische oder klimatische Bedingungen"]} />
-            </Section>
-
-            <Section number="3" title="Versand- und Transportkosten">
-              <BulletList items={[
-                "Versandkosten sind nicht pauschal im Produktpreis enthalten",
-                "Alle Transportkosten werden individuell berechnet",
-                "Die endgültigen Versandkosten werden im Angebot / auf der Rechnung mitgeteilt",
-                "Der Versand erfolgt erst nach Bestätigung der Transportkosten durch den Kunden",
-              ]} />
-            </Section>
-
-            <Section number="4" title="Ablauf der Lieferung">
-              <NumberedList items={[
-                "Prüfung der Lieferadresse und individuellen Anforderungen",
-                "Auswahl der schnellsten und wirtschaftlichsten Transportlösung",
-                "Terminabstimmung mit dem Kunden",
-                "Lieferung des Containers an den vereinbarten Standort",
-              ]} />
-            </Section>
-
-            <Section number="5" title="Transport- und Umschlagsarten">
-              <p>Abhängig vom Lieferort und Containertyp wählt unser Logistikteam den optimalen Transportweg:</p>
-              <TransportTable />
-            </Section>
-
-            <Section number="6" title="Kombinierte Transportlösungen">
-              <p>Bei komplexeren Routen können kombinierte Transportarten eingesetzt werden:</p>
-              <BulletList items={["Bahn + LKW", "Binnenschiff + LKW"]} />
-            </Section>
-
-            <Section number="7" title="Pflichten des Kunden">
-              <BulletList items={[
-                "Eine korrekte und vollständige Lieferadresse anzugeben",
-                "Für ausreichende Zugänglichkeit des Lieferortes zu sorgen",
-                "Uns vorab über Zufahrtsbeschränkungen, Bodenverhältnisse oder besondere Gegebenheiten zu informieren",
-              ]} />
-            </Section>
-
-            <Section number="8" title="Unser Liefer-Versprechen">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-                {promises.map(({ icon: Icon, text }, i) => (
-                  <div key={i} className="flex items-center gap-3 bg-muted/50 rounded-xl px-4 py-3">
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: "#278A2F" }} />
-                    <span className="font-medium text-foreground text-sm">{text}</span>
-                  </div>
-                ))}
-              </div>
-            </Section>
-
-            <Section number="9" title="Kontakt & Support">
-              <p>Bei Fragen zur Lieferung oder für ein individuelles Transportangebot kontaktieren Sie uns:</p>
-              <ContactBlock />
-              <div className="mt-4">
-                <Link to="/shop"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
-                  Transportangebot anfordern <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </div>
-            </Section>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {deliverySteps.map((step, index) => (
+              <motion.article
+                key={step.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.07 }}
+                className="rounded-[1.75rem] border border-[#CDEBCD] bg-[#F4FBF4] p-6"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#46C54B] font-heading text-sm font-bold text-white">
+                  {index + 1}
+                </span>
+                <h3 className="mt-6 font-heading text-xl font-bold text-[#0D2A12]">{step.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#34533A]">{step.description}</p>
+              </motion.article>
+            ))}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </section>
+
+      <section className="bg-[#46C54B] py-20 text-white lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <motion.article
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2rem] bg-white p-7 sm:p-9"
+          >
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#23832B]">05 · Kombinierte Transportlösungen</p>
+            <h2 className="mt-4 font-heading text-3xl font-bold tracking-[-0.03em] sm:text-4xl">Wenn eine Strecke mehr als einen Verkehrsträger braucht.</h2>
+            <p className="mt-5 text-base leading-8 text-[#34533A]">
+              Für komplexere Routen können verschiedene Transportarten kombiniert werden.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {["Bahn + LKW", "Binnenschiff + LKW"].map((route) => (
+                <div key={route} className="rounded-2xl bg-[#DDF4DF] px-5 py-4 font-heading font-bold text-[#176B20]">
+                  {route}
+                </div>
+              ))}
+            </div>
+          </motion.article>
+
+          <motion.article
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 }}
+            className="rounded-[2rem] bg-white p-7 sm:p-9"
+          >
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#23832B]">06 · Ihre Vorbereitung</p>
+            <h2 className="mt-4 font-heading text-3xl font-bold tracking-[-0.03em] sm:text-4xl">Was wir vor der Lieferung von Ihnen benötigen.</h2>
+            <ul className="mt-6 space-y-4">
+              {[
+                "Eine korrekte und vollständige Lieferadresse",
+                "Ausreichende Zugänglichkeit zum vorgesehenen Lieferort",
+                "Frühzeitige Hinweise zu Zufahrtsbeschränkungen, Bodenverhältnissen oder besonderen Gegebenheiten",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-base leading-7 text-[#34533A]">
+                  <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-[#23832B]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.article>
+        </div>
+      </section>
+
+      <section className="bg-white py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ContactBanner />
+        </div>
+      </section>
     </div>
   );
 }
@@ -902,11 +1073,14 @@ export default function LegalPage() {
   }
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="dc-page">
+      <div className="dc-reading-shell">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="font-heading font-bold text-3xl tracking-tight mb-8">{page.title}</h1>
-          <div className="prose prose-sm max-w-none text-muted-foreground">
+          <div className="dc-page-hero">
+            <span className="dc-kicker">Rechtliches</span>
+            <h1 className="dc-page-title">{page.title}</h1>
+          </div>
+          <div className="dc-panel p-6 text-muted-foreground sm:p-9">
             {renderTextContent(page.content)}
           </div>
           <ContactBanner />

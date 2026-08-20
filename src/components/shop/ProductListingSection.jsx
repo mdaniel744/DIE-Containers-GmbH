@@ -78,22 +78,22 @@ export default function ProductListingSection({
     <section id={id} className={className}>
       {title && (
         <div className="mb-6">
-          <h2 className="font-heading text-2xl font-bold tracking-tight text-foreground lg:text-3xl">{title}</h2>
-          {description && <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{description}</p>}
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground lg:text-4xl">{title}</h2>
+          {description && <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground">{description}</p>}
         </div>
       )}
 
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
+      <div className="mb-7 flex flex-wrap items-center justify-between gap-4 rounded-[1.25rem] border border-border bg-[#F3F7F2] p-4">
         <div className="flex flex-wrap gap-2">
           {CONDITION_CODES.map((code) => (
             <button
               key={code}
               type="button"
               onClick={() => setConditionFilter(code)}
-              className={`rounded-lg border px-3 py-1.5 text-xs font-medium transition-all ${
+              className={`rounded-full border px-4 py-2 text-xs font-semibold transition-all ${
                 conditionFilter === code
                   ? "border-transparent text-white"
-                  : "border-border bg-card text-muted-foreground hover:border-blue-300"
+                  : "border-border bg-white text-muted-foreground hover:border-[#46C54B] hover:text-[#176B20]"
               }`}
               style={conditionFilter === code ? { backgroundColor: BRAND_BLUE, color: "#0D2A12" } : {}}
             >
@@ -106,7 +106,7 @@ export default function ProductListingSection({
           <select
             value={sortBy}
             onChange={(event) => setSortBy(event.target.value)}
-            className="rounded-lg border border-border bg-card px-3 py-2 text-sm outline-none"
+            className="rounded-xl border border-border bg-white px-4 py-2.5 text-sm outline-none"
             aria-label="Sortierung"
           >
             <option value="price_asc">{Tpage.sortAsc}</option>

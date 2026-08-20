@@ -14,23 +14,22 @@ export default function ContactBanner() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="my-12 rounded-2xl overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #176B20 0%, #0B3D13 100%)" }}
+      className="my-14 overflow-hidden rounded-[2rem] bg-[#46C54B] text-white shadow-[0_24px_70px_-36px_rgba(34,126,42,0.45)]"
     >
-      <div className="px-8 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div className="flex flex-col items-start justify-between gap-7 px-7 py-10 sm:flex-row sm:items-center sm:px-10 lg:px-12 lg:py-12">
         <div>
-          <p className="text-xs font-mono tracking-widest uppercase mb-2 text-white/80">
+          <p className="mb-2 font-mono text-xs uppercase tracking-widest text-white/80">
             {T.label}
           </p>
-          <h3 className="font-heading font-bold text-xl sm:text-2xl text-white mb-1">{T.title}</h3>
-          <p className="text-white/60 text-sm">{T.description}</p>
+          <h3 className="mb-2 max-w-2xl font-heading text-2xl font-bold leading-tight text-white sm:text-3xl">{T.title}</h3>
+          <p className="max-w-2xl text-base leading-7 text-white/85">{T.description}</p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-          <a href="tel:+4989277808979" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white text-secondary font-heading font-semibold text-sm transition-colors hover:bg-white/90">
+          <a href="tel:+4989277808979" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-heading text-sm font-bold text-[#176B20] transition-colors hover:bg-white/90">
             <Phone className="w-4 h-4" />
             {T.ctaPhone}
           </a>
-          <Link to="/kontakt" className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-heading font-semibold text-sm text-white border border-white/20 hover:bg-white/10 transition-colors">
+          <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-full border border-white/55 px-6 py-3 font-heading text-sm font-bold text-white transition-colors hover:bg-white/15">
             <Mail className="w-4 h-4" />
             {T.ctaContact}
             <ArrowRight className="w-3.5 h-3.5" />

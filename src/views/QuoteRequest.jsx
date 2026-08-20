@@ -183,11 +183,11 @@ export default function QuoteRequest() {
 
   if (submitted) {
     return (
-      <div className="pt-32 pb-20 min-h-screen bg-background">
+      <div className="dc-page min-h-screen">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="max-w-lg mx-auto px-4 text-center"
+          className="dc-panel mx-auto max-w-lg px-7 py-12 text-center"
         >
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
             <Check className="w-8 h-8 text-emerald-500" />
@@ -196,7 +196,7 @@ export default function QuoteRequest() {
           <p className="text-muted-foreground mb-8">{T.successText}</p>
           <Button
             onClick={() => navigate("/")}
-            className="font-heading font-semibold text-white hover:opacity-90"
+            className="rounded-full font-heading font-semibold hover:opacity-90"
             style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
           >
             {T.backToHome}
@@ -207,19 +207,20 @@ export default function QuoteRequest() {
   }
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 min-h-screen bg-background">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6">
+    <div className="dc-page min-h-screen">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6">
         {/* Header */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
-          <h1 className="font-heading font-bold text-3xl tracking-tight mb-2">{T.title}</h1>
-          <p className="text-muted-foreground">{T.subtitle}</p>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="dc-page-hero">
+          <span className="dc-kicker">Persönliches Angebot</span>
+          <h1 className="dc-page-title">{T.title}</h1>
+          <p className="dc-page-intro">{T.subtitle}</p>
         </motion.div>
 
         {prefilledProduct && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 flex items-center gap-3 p-4 rounded-xl border border-[#46C54B]/30 bg-[#46C54B]/5"
+            className="mb-7 flex items-center gap-3 rounded-[1.25rem] border border-[#B9DFBC] bg-[#F0F7F1] p-4"
           >
             <img src={prefilledProduct.image_url} alt={prefilledProduct.title} className="w-12 h-12 rounded-lg object-cover shrink-0" />
             <div className="flex-1 min-w-0">
@@ -231,7 +232,7 @@ export default function QuoteRequest() {
         )}
 
         {/* Progress stepper */}
-        <div className="mb-10">
+        <div className="mb-8 rounded-[1.25rem] border border-border bg-white p-5 shadow-sm">
           <div className="flex items-center justify-between mb-3">
             {T.steps.map((label, i) => (
               <div key={label} className="flex flex-col items-center gap-1">
@@ -268,7 +269,7 @@ export default function QuoteRequest() {
         </div>
 
         {/* Step content */}
-        <div className="bg-card rounded-2xl border border-border p-6 sm:p-8">
+        <div className="dc-panel p-6 sm:p-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={step}
@@ -299,7 +300,7 @@ export default function QuoteRequest() {
             variant="outline"
             onClick={() => setStep(step - 1)}
             disabled={step === 0}
-            className="font-medium"
+            className="rounded-full px-6 font-medium"
           >
             <ArrowLeft className="w-4 h-4 mr-2" /> {T.back}
           </Button>
@@ -308,7 +309,7 @@ export default function QuoteRequest() {
             <Button
               onClick={() => setStep(step + 1)}
               disabled={!canAdvance()}
-              className="font-heading font-semibold text-white hover:opacity-90"
+              className="rounded-full px-6 font-heading font-semibold hover:opacity-90"
               style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
             >
               {T.next} <ArrowRight className="w-4 h-4 ml-2" />
@@ -317,7 +318,7 @@ export default function QuoteRequest() {
             <Button
               onClick={handleSubmit}
               disabled={!canAdvance() || submitting}
-              className="font-heading font-semibold text-white hover:opacity-90"
+              className="rounded-full px-6 font-heading font-semibold hover:opacity-90"
               style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
             >
               {submitting ? (

@@ -33,7 +33,7 @@ function AddressBlock({ values, onChange, prefix, showPhone = false }) {
         onChange={(e) => onChange(name, e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="h-11"
+        className="h-12 rounded-xl"
       />
     </div>
   );
@@ -149,9 +149,13 @@ export default function Kasse() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <h1 className="font-heading font-bold text-3xl mb-8">Kasse</h1>
+    <div className="dc-page min-h-screen">
+      <div className="dc-page-shell py-0">
+        <div className="dc-page-hero">
+          <span className="dc-kicker">Sicher abschließen</span>
+          <h1 className="dc-page-title">Kasse</h1>
+          <p className="dc-page-intro">Ergänzen Sie Ihre Rechnungs- und Lieferdaten. Die Zahlung erfolgt per SEPA-Banküberweisung.</p>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
@@ -160,7 +164,7 @@ export default function Kasse() {
             <div className="lg:col-span-3 space-y-8">
 
               {/* Billing */}
-              <div>
+              <div className="dc-panel p-6 sm:p-8">
                 <h2 className="font-heading font-bold text-lg uppercase tracking-wide mb-5">Rechnungsdaten</h2>
                 <div className="space-y-4">
                   <AddressBlock values={billing} onChange={updateBilling} prefix="bill" showPhone={true} />
@@ -181,7 +185,7 @@ export default function Kasse() {
               </div>
 
               {/* Delivery address toggle */}
-              <div>
+              <div className="dc-panel p-6 sm:p-8">
                 <label className="flex items-center gap-3 cursor-pointer select-none">
                   <input
                     type="checkbox"
@@ -200,7 +204,7 @@ export default function Kasse() {
                 )}
               </div>
 
-              <div className="border border-border rounded-xl p-5 bg-muted/30">
+              <div className="rounded-[1.5rem] border border-[#B9DFBC] bg-[#F0F7F1] p-6">
                 <h2 className="font-heading font-bold text-lg uppercase tracking-wide mb-3">Zahlungsart</h2>
                 <label className="flex items-start gap-3 cursor-default">
                   <input type="radio" checked readOnly aria-label="SEPA-Banküberweisung" className="mt-1 accent-[#46C54B]" />
@@ -212,7 +216,7 @@ export default function Kasse() {
               </div>
 
               {/* Notes */}
-              <div className="flex flex-col gap-1">
+              <div className="dc-panel flex flex-col gap-2 p-6 sm:p-8">
                 <Label htmlFor="notes" className="text-sm font-medium">
                   Anmerkungen zur Bestellung <span className="text-muted-foreground font-normal text-xs">(optional)</span>
                 </Label>
@@ -227,7 +231,7 @@ export default function Kasse() {
             </div>
 
             {/* ─── Right: order summary ─── */}
-            <div className="lg:col-span-2 border border-border rounded-xl overflow-hidden bg-card sticky top-24">
+            <div className="sticky top-24 overflow-hidden rounded-[1.5rem] border border-border bg-card shadow-sm lg:col-span-2">
 
               {/* Summary header */}
               <div className="px-6 py-4 border-b border-border">
@@ -298,7 +302,7 @@ export default function Kasse() {
                 <Button
                   type="submit"
                   disabled={submitting}
-                  className="w-full h-12 font-heading font-bold text-base"
+                  className="h-12 w-full rounded-full font-heading text-base font-bold"
                   style={{ backgroundColor: "#46C54B", color: "#0D2A12" }}
                 >
                   {submitting ? "Wird verarbeitet…" : "Zahlungspflichtig Bestellen →"}

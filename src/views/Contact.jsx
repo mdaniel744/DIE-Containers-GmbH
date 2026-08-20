@@ -55,12 +55,12 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
-          <span className="font-mono text-xs text-secondary tracking-widest uppercase">{T.label}</span>
-          <h1 className="font-heading font-bold text-3xl lg:text-4xl mt-3 tracking-tight">{T.title}</h1>
-          <p className="text-muted-foreground mt-2 max-w-lg">{T.subtitle}</p>
+    <div className="dc-page">
+      <div className="dc-page-shell">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="dc-page-hero">
+          <span className="dc-kicker">{T.label}</span>
+          <h1 className="dc-page-title">{T.title}</h1>
+          <p className="dc-page-intro">{T.subtitle}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -69,9 +69,9 @@ export default function Contact() {
             {T.infoItems.map((item, i) => {
               const Icon = ICONS[i];
               return (
-                <div key={i} className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border">
-                  <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-secondary" />
+                <div key={i} className="flex items-start gap-4 rounded-[1.25rem] border border-border bg-card p-5 shadow-sm">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#DDF4DF]">
+                    <Icon className="h-5 w-5 text-[#176B20]" />
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground font-medium uppercase tracking-wider">{item.label}</p>
@@ -89,7 +89,7 @@ export default function Contact() {
           {/* Form */}
           <div className="lg:col-span-2">
             {sent ? (
-              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-card rounded-xl border border-border p-10 text-center">
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="dc-panel p-10 text-center">
                 <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-emerald-500/10 flex items-center justify-center">
                   <Check className="w-7 h-7 text-emerald-500" />
                 </div>
@@ -97,7 +97,7 @@ export default function Contact() {
                 <p className="text-sm text-muted-foreground">{T.sentText}</p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-card rounded-xl border border-border p-6 sm:p-8 space-y-5">
+              <form onSubmit={handleSubmit} className="dc-panel space-y-5 p-6 sm:p-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label>{T.nameLabel} *</Label>
@@ -120,10 +120,10 @@ export default function Contact() {
                   <Label>{T.messageLabel} *</Label>
                   <Textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder={T.messagePlaceholder} className="min-h-[140px]" />
                 </div>
-                <Button type="submit" disabled={submitting} className="bg-secondary text-secondary-foreground hover:bg-secondary/90 font-heading font-semibold">
+                <Button type="submit" disabled={submitting} className="h-12 rounded-full bg-[#46C54B] px-7 font-heading font-bold text-white hover:bg-[#3CAF41]">
                   {submitting ? (
                     <span className="flex items-center gap-2">
-                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0D2A12]/30 border-t-[#0D2A12]" />
                       Wird gesendet…
                     </span>
                   ) : (

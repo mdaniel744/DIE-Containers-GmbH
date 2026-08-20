@@ -13,7 +13,7 @@ export default function FeaturedProducts() {
   return (
     <section className="py-20 lg:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading label={T.label} title={T.title} description={T.description} />
+        <SectionHeading title={T.title} description={T.description} align="left" display />
         {loading ? (
           <div className="flex justify-center py-12">
             <div className="w-8 h-8 border-4 border-border border-t-foreground rounded-full animate-spin" />

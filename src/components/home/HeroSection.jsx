@@ -11,37 +11,39 @@ export default function HeroSection() {
   const T = useSection("hero");
 
   return (
-    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+    <section className="relative flex min-h-[92svh] items-center overflow-hidden bg-[#0B3511]">
       <div className="absolute inset-0">
         <img src={HERO_IMAGE} alt="Seecontainer kaufen" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-secondary/84" />
+        <div className="absolute inset-0 bg-[#0B3511]/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B3511] via-[#0B3511]/92 to-[#0B3511]/25" />
         <div className="absolute inset-0 blueprint-line opacity-[0.04]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 w-full">
-        <div className="max-w-2xl">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-display text-white leading-[1.08] tracking-tight">
-            {T.title1}<span className="text-white">{T.titleColored}</span>{T.title2}
+      <div className="relative mx-auto w-full max-w-7xl px-4 pb-14 pt-28 sm:px-6 lg:px-8 lg:pb-20 lg:pt-36">
+        <div className="max-w-5xl">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} className="font-heading text-5xl font-bold leading-[0.98] tracking-[-0.055em] text-white sm:text-7xl lg:text-[6rem] xl:text-[7rem]">
+            {T.title1}<span className="text-[#7CF081]">{T.titleColored}</span>{T.title2}
           </motion.h1>
 
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} className="mt-6 text-lg sm:text-xl text-white/75 leading-relaxed max-w-lg">
+          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} className="mt-7 max-w-2xl text-lg leading-relaxed text-white sm:text-2xl">
             {T.subtitle}
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} className="mt-10 flex flex-col sm:flex-row gap-3">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link to="/shop">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-heading font-semibold text-lg px-10 h-14 w-full sm:w-auto">
+              <Button size="lg" className="h-14 w-full rounded-full bg-[#46C54B] px-9 font-heading text-base font-bold text-white shadow-[0_14px_34px_rgba(70,197,75,0.28)] hover:bg-[#3CAF41] sm:w-auto">
                 {T.ctaExplore}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Link to="/angebot">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 font-heading font-semibold text-lg px-10 h-14 w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="h-14 w-full rounded-full border-white/40 bg-white/5 px-9 font-heading text-base font-bold text-white backdrop-blur-sm hover:bg-white hover:text-[#0B3511] sm:w-auto">
                 <FileText className="w-4 h-4 mr-2" />
                 {T.ctaQuote}
               </Button>
             </Link>
           </motion.div>
+
         </div>
       </div>
     </section>

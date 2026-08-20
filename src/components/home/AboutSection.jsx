@@ -2,30 +2,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Award, Truck, Users, ShieldCheck, ArrowRight } from "lucide-react";
+import { ShoppingCart, CalendarDays, Truck, Package, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSection } from "@/lib/i18n";
 
-const ICONS = [Award, Truck, ShieldCheck, Users];
+const ICONS = [ShoppingCart, CalendarDays, Truck, Package];
 
 export default function AboutSection() {
   const T = useSection("aboutSection");
 
   return (
-    <section className="py-20 lg:py-28 bg-secondary overflow-hidden">
+    <section className="overflow-hidden bg-[#F3F7F2] py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <span className="inline-block font-mono text-xs font-medium tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border border-white/40 text-white">
-              {T.label}
-            </span>
-            <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white leading-tight mb-5">
-              {T.title1}<span className="text-white">{T.titleColored}</span>{T.title2}
+            <h2 className="mb-7 font-heading text-4xl font-bold leading-[1.02] tracking-[-0.04em] text-[#123E19] sm:text-5xl lg:text-6xl">
+              {T.title1}<span className="text-[#2B9D36]">{T.titleColored}</span>{T.title2}
             </h2>
-            <p className="text-white/70 leading-relaxed mb-5">{T.body1}</p>
-            <p className="text-white/70 leading-relaxed mb-8">{T.body2}</p>
+            <p className="mb-5 max-w-xl text-base leading-relaxed text-[#31563A] sm:text-lg">{T.body1}</p>
+            <p className="mb-9 max-w-xl text-base leading-relaxed text-[#31563A] sm:text-lg">{T.body2}</p>
             <Link to="/ueber-uns">
-              <Button size="lg" className="bg-white text-secondary hover:bg-white/90 font-heading font-semibold px-8">
+              <Button size="lg" className="h-13 rounded-full bg-[#123E19] px-8 font-heading font-bold text-white hover:bg-[#0B3511]">
                 {T.cta}
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -36,13 +33,13 @@ export default function AboutSection() {
             {T.highlights.map((h, i) => {
               const Icon = ICONS[i];
               return (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 + i * 0.1 }} className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 transition-colors">
-                  <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-3">
-                    <Icon className="w-5 h-5 text-white" />
+                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 + i * 0.1 }} className="rounded-[1.5rem] border border-[#D9E9D8] bg-white p-5 shadow-[0_16px_40px_rgba(20,72,29,0.07)] transition-transform hover:-translate-y-1 sm:p-6">
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#E5F7E6]">
+                    <Icon className="h-5 w-5 text-[#21882B]" />
                   </div>
-                  <p className="font-heading font-bold text-2xl text-white">{h.value}</p>
-                  <p className="font-heading font-semibold text-sm text-white/80 mt-0.5">{h.label}</p>
-                  <p className="text-xs text-white/50 mt-1 leading-relaxed">{h.desc}</p>
+                  <p className="font-heading text-2xl font-bold tracking-tight text-[#123E19]">{h.value}</p>
+                  <p className="mt-1 font-heading text-sm font-semibold text-[#31563A]">{h.label}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-[#5F7865]">{h.desc}</p>
                 </motion.div>
               );
             })}

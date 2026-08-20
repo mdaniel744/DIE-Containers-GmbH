@@ -10,8 +10,8 @@ const BRAND_BLUE = "#46C54B";
 
 export function SeoPageLayout({ breadcrumb, label, title, intro, children, embedded = false }) {
   return (
-    <div className={embedded ? "" : "pt-20 lg:pt-24 pb-20 bg-background min-h-screen"}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className={embedded ? "" : "dc-page"}>
+      <div className={embedded ? "" : "dc-reading-shell"}>
         {/* Breadcrumb */}
         {!embedded && breadcrumb && (
           <nav className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6 flex-wrap">
@@ -29,19 +29,19 @@ export function SeoPageLayout({ breadcrumb, label, title, intro, children, embed
           </nav>
         )}
 
-        {!embedded && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        {!embedded && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="dc-page-hero">
           {label && (
-            <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: "#278A2F" }}>
+            <span className="dc-kicker">
               {label}
             </span>
           )}
-          <h1 className="font-heading font-bold text-3xl lg:text-4xl tracking-tight mb-4">{title}</h1>
+          <h1 className="dc-page-title">{title}</h1>
           {intro && (
-            <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-2xl">{intro}</p>
+            <p className="dc-page-intro">{intro}</p>
           )}
         </motion.div>}
 
-        {children}
+        <div className="dc-reading">{children}</div>
 
         <ContactBanner />
       </div>
@@ -51,21 +51,21 @@ export function SeoPageLayout({ breadcrumb, label, title, intro, children, embed
 
 export function SeoSection({ title, children }) {
   return (
-    <section className="mb-10">
-      <h2 className="font-heading font-bold text-xl lg:text-2xl tracking-tight mb-4 text-foreground">{title}</h2>
-      <div className="text-muted-foreground text-sm leading-relaxed space-y-3">{children}</div>
+    <section className="mb-12 border-b border-border pb-12 last:border-0">
+      <h2 className="mb-5 font-heading text-2xl font-bold leading-tight tracking-[-0.025em] text-foreground lg:text-3xl">{title}</h2>
+      <div className="space-y-4 text-base leading-8 text-muted-foreground">{children}</div>
     </section>
   );
 }
 
 export function SeoTable({ headers, rows }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-border mb-6">
+    <div className="mb-8 overflow-x-auto rounded-[1.25rem] border border-border bg-white shadow-sm">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-muted border-b border-border">
+          <tr className="border-b border-[#46C54B] bg-[#46C54B]">
             {headers.map((h, i) => (
-              <th key={i} className="px-4 py-3 text-left font-heading font-semibold text-foreground text-xs uppercase tracking-wide">{h}</th>
+              <th key={i} className="px-5 py-4 text-left font-heading text-xs font-semibold uppercase tracking-wide text-white">{h}</th>
             ))}
           </tr>
         </thead>
@@ -73,7 +73,7 @@ export function SeoTable({ headers, rows }) {
           {rows.map((row, i) => (
             <tr key={i} className={i % 2 === 0 ? "bg-card" : "bg-muted/30"}>
               {row.map((cell, j) => (
-                <td key={j} className="px-4 py-3 text-muted-foreground">{cell}</td>
+                <td key={j} className="px-5 py-4 text-muted-foreground">{cell}</td>
               ))}
             </tr>
           ))}
@@ -90,13 +90,13 @@ export function InternalLinkGrid({ links }) {
         <Link
           key={i}
           to={link.href}
-          className="flex items-center justify-between gap-3 p-4 bg-card border border-border rounded-xl hover:border-blue-300 hover:shadow-sm transition-all group"
+          className="group flex items-center justify-between gap-3 rounded-[1.25rem] border border-border bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#46C54B] hover:shadow-md"
         >
           <div>
-            <p className="font-heading font-semibold text-sm text-foreground group-hover:text-blue-600 transition-colors">{link.title}</p>
-            {link.desc && <p className="text-xs text-muted-foreground mt-0.5">{link.desc}</p>}
+            <p className="font-heading text-base font-semibold text-foreground transition-colors group-hover:text-[#176B20]">{link.title}</p>
+            {link.desc && <p className="mt-1 text-sm leading-6 text-muted-foreground">{link.desc}</p>}
           </div>
-          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-blue-500 shrink-0 transition-colors" />
+          <ArrowRight className="h-5 w-5 shrink-0 text-[#176B20] transition-transform group-hover:translate-x-1" />
         </Link>
       ))}
     </div>
@@ -108,16 +108,16 @@ export function FaqAccordion({ items }) {
   return (
     <div className="space-y-2 mb-8">
       {items.map((item, i) => (
-        <div key={i} className="bg-card border border-border rounded-xl overflow-hidden">
+        <div key={i} className="overflow-hidden rounded-[1.25rem] border border-border bg-white shadow-sm">
           <button
             onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+            className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
           >
-            <span className="font-heading font-semibold text-sm text-foreground">{item.q}</span>
+            <span className="font-heading text-base font-semibold text-foreground">{item.q}</span>
             <ChevronRight className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform ${open === i ? "rotate-90" : ""}`} />
           </button>
           {open === i && (
-            <div className="px-5 pb-4 text-sm text-muted-foreground leading-relaxed border-t border-border pt-3">
+            <div className="border-t border-border px-6 pb-5 pt-4 text-base leading-7 text-muted-foreground">
               {item.a}
             </div>
           )}
@@ -129,12 +129,11 @@ export function FaqAccordion({ items }) {
 
 export function CtaBanner({ text, btnLabel, btnHref }) {
   return (
-    <div className="rounded-2xl p-6 sm:p-8 my-8 flex flex-col sm:flex-row items-center gap-4 justify-between" style={{ background: "linear-gradient(135deg,#176B20,#0B3D13)" }}>
-      <p className="font-heading font-bold text-white text-lg sm:text-xl">{text}</p>
+    <div className="my-10 flex flex-col items-start justify-between gap-5 overflow-hidden rounded-[1.75rem] bg-[#DDF4DF] p-7 sm:flex-row sm:items-center sm:p-9">
+      <p className="max-w-2xl font-heading text-xl font-bold leading-tight text-[#123E19] sm:text-2xl">{text}</p>
       <Link
         to={btnHref || "/angebot"}
-        className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-        style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}
+        className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#46C54B] px-6 py-3 font-heading text-sm font-bold text-white transition-colors hover:bg-[#3CAF41]"
       >
         {btnLabel || "Angebot anfordern"}
         <ArrowRight className="w-4 h-4" />
