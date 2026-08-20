@@ -17,8 +17,9 @@ import {
 } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
 
-const COMPANY_IMAGE = "/images/about/container-yard-depot.jpg";
 const LOGISTICS_IMAGE = "/images/about/container-terminal-logistics.webp";
+const HERO_BACKGROUND = "/images/about/about-hero-container-depot.jpg";
+const VALUES_BACKGROUND = "/images/about/about-values-container-depot.jpg";
 
 const TEAM_PRINCIPLES = [
   {
@@ -68,13 +69,26 @@ const FACTS = [
 export default function About() {
   return (
     <div className="overflow-hidden pb-20 pt-20 lg:pt-24">
-      <section className="relative bg-[#46C54B] py-16 text-white sm:py-20 lg:py-28">
-        <div className="absolute inset-0 blueprint-line opacity-[0.035]" />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8">
+      <section className="relative flex min-h-[620px] items-center overflow-hidden bg-black py-16 text-white sm:min-h-[680px] sm:py-20 lg:min-h-[720px] lg:py-28">
+        <img
+          src={HERO_BACKGROUND}
+          alt="Containerdepot mit Lkw und Seecontainern"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/70 lg:hidden" />
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 34%, rgba(0,0,0,0.48) 54%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.08) 100%)",
+          }}
+        />
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
+            className="max-w-3xl"
           >
             <p className="mb-5 font-mono text-xs font-bold uppercase tracking-[0.22em] text-white/80">
               DIE Container GmbH
@@ -99,25 +113,6 @@ export default function About() {
               >
                 Persönlich beraten lassen
               </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.12 }}
-            className="relative"
-          >
-            <div className="overflow-hidden rounded-[2rem] border-4 border-white/75 bg-white shadow-[0_28px_70px_-34px_rgba(13,42,18,0.55)]">
-              <img
-                src={COMPANY_IMAGE}
-                alt="Containerdepot mit Umschlagfahrzeug"
-                className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[500px]"
-              />
-            </div>
-            <div className="absolute -bottom-5 left-5 rounded-2xl bg-white px-5 py-4 shadow-lg sm:left-8">
-              <p className="font-heading text-xl font-bold text-[#176B20]">Putzbrunn</p>
-              <p className="text-sm text-[#123E19]/70">Unser Standort bei München</p>
             </div>
           </motion.div>
         </div>
@@ -234,8 +229,15 @@ export default function About() {
         </div>
       </section>
 
-      <section className="bg-[#46C54B] py-20 text-white lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-black py-20 text-white lg:py-28">
+        <img
+          src={VALUES_BACKGROUND}
+          alt="Seecontainer und Transportfahrzeuge in einem Containerdepot"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-white/80">
               Unsere Werte
@@ -258,7 +260,7 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08 }}
-                  className="rounded-[1.75rem] bg-white p-7 lg:p-8"
+                  className="rounded-[1.75rem] border border-white/40 bg-white/95 p-7 shadow-[0_24px_55px_-32px_rgba(0,0,0,0.85)] backdrop-blur-sm lg:p-8"
                 >
                   <Icon className="h-7 w-7 text-[#23832B]" />
                   <h3 className="mt-6 font-heading text-2xl font-bold text-[#0D2A12]">{value.title}</h3>

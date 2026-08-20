@@ -34,10 +34,10 @@ const strings = {
     // ─── HERO ─────────────────────────────────────────────────────────────────
     hero: {
       badge: "Nr. 1 in Deutschland",
-      title1: "Seecontainer ",
-      titleColored: "kaufen",
-      title2: " in Deutschland",
-      subtitle: "Neue und gebrauchte 10-, 20- und 40-Fuß-Container mit individuell geplanter Lieferung.",
+      title1: "Günstige neue und gebrauchte ",
+      titleColored: "Seecontainer",
+      title2: " zur schnellen Lieferung.",
+      subtitle: "Willkommen bei der DIE Container GmbH, wo der Kauf und Verkauf von schnell lieferbaren Seecontainern ganz einfach ist. Mit Sitz in Putzbrunn beliefern wir Sie deutschlandweit mit Seecontainern.",
       ctaExplore: "Container entdecken",
       ctaQuote: "Angebot anfordern",
       stat1: "10, 20 & 40 Fuß",
@@ -652,10 +652,10 @@ const strings = {
 
     hero: {
       badge: "No. 1 in Germany",
-      title1: "",
-      titleColored: "Buy",
-      title2: " shipping containers in Germany",
-      subtitle: "New and used 10ft, 20ft and 40ft containers with delivery planned for your location.",
+      title1: "Affordable New and Used ",
+      titleColored: "Shipping Containers",
+      title2: " for Quick Delivery",
+      subtitle: "Welcome to DIE Container GmbH, where buying and selling fast-moving shipping containers is simple and convenient. Based in Putzbrunn, we supply and deliver shipping containers to customers throughout Germany.",
       ctaExplore: "Explore containers",
       ctaQuote: "Request a quote",
       stat1: "10ft, 20ft & 40ft",
