@@ -21,16 +21,16 @@ const gewichtRows = [
 const faqs = [
   { q: "Wie groß ist ein 40 Fuß Container?", a: "12,192 m lang, 2,438 m breit und 2,591 m hoch (Standard) bzw. 2,896 m (High Cube). Entspricht in etwa der Länge eines LKW-Aufliegers." },
   { q: "Was ist der Unterschied zwischen Standard und High Cube?", a: "Der High Cube ist 30 cm höher (2,90 m statt 2,59 m). Dadurch passen größere Güter rein und es ist mehr Stauraum vorhanden (76 m³ statt 67 m³)." },
-  { q: "Was kostet ein 40 Fuß Container?", a: "Gebraucht ab ca. 2.990 â‚¬, High Cube ab ca. 3.490 â‚¬. Neue Einheiten ab ca. 3.990 â‚¬ bzw. 4.490 â‚¬. Transportkosten werden separat kalkuliert." },
+  { q: "Was kostet ein 40 Fuß Container?", a: "Der aktuelle Preis hängt von Zustand, Bauhöhe, Ausführung und Verfügbarkeit ab. Die Produktpreise im Shop sind maßgeblich; Transportkosten werden separat kalkuliert." },
   { q: "Kann ich einen 40 Fuß Container als Wohnraum nutzen?", a: "Ja, 40 Fuß High Cube Container sind besonders beliebt für Wohnprojekte, da die extra Deckenhöhe ein angenehmes Raumgefühl erzeugt. Baugenehmigung beachten." },
   { q: "Wie schwer ist ein 40 Fuß Container?", a: "Eigengewicht ca. 3.800–4.000 kg. Maximale Zuladung ca. 26.300–26.500 kg." },
 ];
 
 const relatedLinks = [
-  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container", desc: "Kompaktere Alternative ab 1.990 â‚¬" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container", desc: "Kompaktere Alternative für Lagerung und Transport" },
   { href: "/wohncontainer-kaufen", title: "Wohncontainer", desc: "40 HC beliebt für Wohnprojekte" },
   { href: "/buerocontainer-kaufen", title: "Bürocontainer", desc: "Mobiles Büro schlüsselfertig" },
-  { href: "/kuehlcontainer-kaufen", title: "Kühlcontainer", desc: "40 Fuß Reefer ab 6.500 â‚¬" },
+  { href: "/kuehlcontainer-kaufen", title: "Kühlcontainer", desc: "Temperaturgeführte Lagerung in verschiedenen Größen" },
 ];
 
 function FaqItem({ q, a }) {
@@ -114,7 +114,7 @@ export default function ShopSeoBanner40ft() {
               <li>Güter über 2,39 m Höhe</li>
               <li>Ausbau zum <Link to="/wohncontainer-kaufen" className="text-blue-500 hover:underline">Wohn-</Link> oder <Link to="/buerocontainer-kaufen" className="text-blue-500 hover:underline">Bürocontainer</Link></li>
               <li>Maximum Volumen (76 m³ vs. 67 m³)</li>
-              <li>Preisaufschlag nur ca. 300–500 â‚¬</li>
+              <li>Preisunterschied abhängig vom aktuellen Shopangebot</li>
             </ul>
           </div>
         </div>

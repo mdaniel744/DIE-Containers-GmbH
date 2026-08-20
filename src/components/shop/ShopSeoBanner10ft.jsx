@@ -15,7 +15,7 @@ const massRows = [
 
 const faqs = [
   { q: "Wie groß ist ein 10 Fuß Container?", a: "Außenmaße: 2,991 m lang, 2,438 m breit, 2,591 m hoch. Das nutzbare Innenvolumen beträgt ca. 15,7 m³ – ideal für kompakte Lagerlösungen." },
-  { q: "Was kostet ein 10 Fuß Container?", a: "Gebrauchte 10 Fuß Container starten ab ca. 990 â‚¬ netto. Neue Einheiten ab ca. 1.890 â‚¬. Transportkosten werden separat kalkuliert." },
+  { q: "Was kostet ein 10 Fuß Container?", a: "Der aktuelle Preis hängt von Zustand, Ausführung und Verfügbarkeit ab. Die Produktpreise im Shop sind maßgeblich; Transportkosten werden separat kalkuliert." },
   { q: "Wofür eignet sich ein 10 Fuß Container?", a: "Als Gartencontainer, Baustellenlager, Werkzeugcontainer, Archivcontainer oder als Basismodul für individuelle Containergebäude." },
   { q: "Kann ein 10 Fuß Container gestapelt werden?", a: "Ja, dank ISO-genormter Eckbeschläge können 10 Fuß Container mit kompatiblen Containern gestapelt werden." },
   { q: "Wie wird ein 10 Fuß Container geliefert?", a: "Per Kranwagen deutschlandweit innerhalb von 3–7 Werktagen. Express-Lieferung innerhalb von 72 Stunden auf Anfrage möglich." },
@@ -23,7 +23,7 @@ const faqs = [
 
 const relatedLinks = [
   { href: "/20-fuss-container-kaufen", title: "20 Fuß Container", desc: "Der meistverkaufte Standardcontainer" },
-  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container", desc: "Maximaler Stauraum – ab 2.990 â‚¬" },
+  { href: "/40-fuss-container-kaufen", title: "40 Fuß Container", desc: "Maximaler Stauraum für größere Anforderungen" },
   { href: "/lagercontainer-kaufen", title: "Lagercontainer", desc: "Alle Lagercontainer im Überblick" },
   { href: "/buerocontainer-kaufen", title: "Bürocontainer", desc: "Mobiles Büro – schlüsselfertig" },
 ];
@@ -94,11 +94,11 @@ export default function ShopSeoBanner10ft() {
               </thead>
               <tbody>
                 {[
-                  ["Gebraucht", "Standard", "ab 990 â‚¬"],
-                  ["Generalüberholt", "Standard", "ab 1.390 â‚¬"],
-                  ["Neu", "Standard", "ab 1.890 â‚¬"],
-                  ["Gebraucht", "High Cube", "ab 1.190 â‚¬"],
-                  ["Neu", "High Cube", "ab 2.190 â‚¬"],
+                  ["Gebraucht", "Standard", "Aktueller Shoppreis"],
+                  ["Generalüberholt", "Standard", "Aktueller Shoppreis"],
+                  ["Neu", "Standard", "Aktueller Shoppreis"],
+                  ["Gebraucht", "High Cube", "Aktueller Shoppreis"],
+                  ["Neu", "High Cube", "Aktueller Shoppreis"],
                 ].map((row, i) => (
                   <tr key={i} className={i % 2 === 0 ? "bg-card" : "bg-muted/30"}>
                     {row.map((cell, j) => <td key={j} className="px-4 py-3 text-muted-foreground">{cell}</td>)}

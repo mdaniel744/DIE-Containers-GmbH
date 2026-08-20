@@ -70,7 +70,7 @@ function CatalogDropdown({ visible, categories, locale, onClose }) {
   return (
     <AnimatePresence>
       {visible && (
-        <div id="desktop-catalog-menu" className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[700px] z-50">
+        <div id="desktop-catalog-menu" className="absolute left-1/2 top-full z-50 w-[780px] max-w-[calc(100vw-2rem)] -translate-x-1/2 pt-2">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,11 +101,11 @@ function CatalogDropdown({ visible, categories, locale, onClose }) {
                 className="group flex flex-col rounded-xl border border-border bg-card hover:border-[#46C54B]/70 hover:shadow-md transition-all overflow-hidden"
               >
                 {/* Image area */}
-                <div className="relative bg-[#F2FBF3] flex items-center justify-center p-3 h-28 overflow-hidden">
+                <div className="relative flex h-36 items-center justify-center overflow-hidden bg-[#F2FBF3] p-2">
                   <img
                     src={cat.image_url || HERO_IMAGE}
                     alt={cat.name}
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.04]"
                   />
                 </div>
                 {/* Label */}
@@ -205,10 +205,12 @@ export default function Header() {
   useEffect(() => {
     if (!isOpen) return undefined;
 
-    const previousOverflow = document.body.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     const focusFrame = window.requestAnimationFrame(() => mobileMenuRef.current?.focus());
 
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -232,7 +234,8 @@ export default function Header() {
 
     return () => {
       window.cancelAnimationFrame(focusFrame);
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
       document.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("resize", handleResize);
     };
@@ -411,7 +414,7 @@ export default function Header() {
           </div>
 
           {/* Mobile toggle */}
-          <div className="lg:hidden flex items-center gap-1">
+          <div className="relative z-20 flex shrink-0 items-center gap-1 lg:hidden">
             <Link
               to="/warenkorb"
               className="relative inline-flex h-11 w-11 touch-manipulation items-center justify-center rounded-xl hover:bg-muted active:bg-muted transition-colors"
@@ -430,13 +433,13 @@ export default function Header() {
             <button
               ref={menuButtonRef}
               type="button"
-              onClick={() => (isOpen ? closeMobileMenu() : setIsOpen(true))}
-              className="inline-flex h-12 w-12 touch-manipulation items-center justify-center rounded-xl border border-transparent hover:bg-muted active:border-border active:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46C54B] focus-visible:ring-offset-2 transition-colors"
+              onClick={() => setIsOpen((current) => !current)}
+              className="relative z-20 inline-flex h-14 w-14 shrink-0 cursor-pointer touch-manipulation select-none items-center justify-center rounded-2xl border border-[#BFE0C2] bg-white shadow-sm transition-colors hover:bg-[#F2FBF3] active:bg-[#DDF4DF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46C54B] focus-visible:ring-offset-2"
               aria-label={isOpen ? (locale === "de" ? "Menü schließen" : "Close menu") : t("nav.menu")}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="h-7 w-7" aria-hidden="true" /> : <Menu className="h-7 w-7" aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -451,11 +454,11 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 bottom-0 top-16 z-40 lg:hidden"
+            className="fixed inset-0 z-[70] lg:hidden"
           >
             <button
               type="button"
-              className="absolute inset-0 h-full w-full cursor-default bg-slate-950/40 backdrop-blur-[1px]"
+              className="absolute inset-0 h-full w-full cursor-default touch-manipulation bg-slate-950/45 backdrop-blur-[1px]"
               onClick={closeMobileMenu}
               aria-label={locale === "de" ? "Navigation schließen" : "Close navigation"}
             />
@@ -470,9 +473,20 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-y-0 right-0 z-10 w-[calc(100%_-_1.5rem)] max-w-sm overflow-y-auto overscroll-contain border-l border-border bg-background shadow-2xl focus:outline-none"
+              className="absolute inset-y-0 right-0 z-10 flex h-[100dvh] w-[calc(100%_-_1rem)] max-w-md flex-col overflow-hidden border-l border-border bg-background shadow-2xl focus:outline-none"
             >
-            <nav className="min-h-full space-y-1 px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-4">
+            <div className="flex min-h-16 shrink-0 items-center justify-between border-b border-border bg-background/95 px-4 backdrop-blur-xl">
+              <span className="font-heading text-base font-bold text-foreground">{t("nav.menu")}</span>
+              <button
+                type="button"
+                onClick={closeMobileMenu}
+                className="inline-flex h-12 w-12 shrink-0 cursor-pointer touch-manipulation items-center justify-center rounded-xl border border-border bg-white text-foreground shadow-sm transition-colors hover:bg-muted active:bg-[#DDF4DF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46C54B]"
+                aria-label={locale === "de" ? "Menü schließen" : "Close menu"}
+              >
+                <X className="h-7 w-7" aria-hidden="true" />
+              </button>
+            </div>
+            <nav className="flex-1 space-y-1 overflow-y-auto overscroll-contain px-4 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-3">
               {simpleNavItems.map((item) => (
                 <Link
                   key={item.path}
@@ -516,9 +530,9 @@ export default function Header() {
                             key={cat.slug}
                             to={resolveCatalogCategoryHref(cat, locale)}
                             onClick={closeMobileMenu}
-                            className="flex min-h-28 touch-manipulation flex-col items-center overflow-hidden rounded-xl border border-border bg-card p-2 text-center transition-colors hover:border-[#46C54B]/70 active:bg-muted"
+                            className="flex min-h-36 touch-manipulation flex-col items-center overflow-hidden rounded-xl border border-border bg-card p-2 text-center transition-colors hover:border-[#46C54B]/70 active:bg-muted"
                           >
-                            <div className="w-full h-16 bg-[#F2FBF3] rounded-lg mb-1.5 flex items-center justify-center p-1">
+                            <div className="mb-2 flex h-24 w-full items-center justify-center rounded-lg bg-[#F2FBF3] p-1">
                               <img src={cat.image_url || HERO_IMAGE} alt={cat.name} className="w-full h-full object-contain" />
                             </div>
                             <p className="font-heading text-xs font-semibold leading-tight text-foreground">{cat.name}</p>

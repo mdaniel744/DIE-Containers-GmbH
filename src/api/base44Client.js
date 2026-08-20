@@ -13,8 +13,8 @@ import { z } from "zod";
 // Validated before every INSERT to prevent malformed or oversized payloads
 // being written directly to the database via the public anon key.
 const QuoteSchema = z.object({
-  first_name: z.string().min(1).max(100),
-  last_name: z.string().min(1).max(100),
+  first_name: z.string().trim().min(1).max(100),
+  last_name: z.string().trim().max(100).optional().default(""),
   email: z.string().email().max(254),
   phone: z.string().max(30).optional().default(""),
   company: z.string().max(200).optional().default(""),
@@ -30,6 +30,10 @@ const QuoteSchema = z.object({
   country: z.string().max(100).optional(),
   unloading_method: z.string().max(100).optional(),
   desired_delivery_date: z.string().max(20).optional(),
+  delivery_street: z.string().trim().max(150).optional().default(""),
+  delivery_house_number: z.string().trim().max(20).optional().default(""),
+  delivery_postal_code: z.string().trim().max(5).optional().default(""),
+  delivery_city: z.string().trim().max(100).optional().default(""),
   product_id: z.string().uuid().optional().nullable(),
   product_title: z.string().max(300).optional(),
   unit_price: z.number().nonnegative().optional(),
@@ -39,6 +43,33 @@ const QuoteSchema = z.object({
   gross_subtotal: z.number().nonnegative().optional(),
   shipping_fee: z.number().nonnegative().nullable().optional(),
   total_amount: z.number().nonnegative().nullable().optional(),
+}).superRefine((quote, context) => {
+  const deliverySelected = ["delivery_no_unload", "delivery_with_unload"].includes(quote.unloading_method);
+  if (!deliverySelected) return;
+
+  const requiredAddressFields = [
+    ["delivery_street", quote.delivery_street],
+    ["delivery_house_number", quote.delivery_house_number],
+    ["delivery_city", quote.delivery_city],
+  ];
+
+  requiredAddressFields.forEach(([path, value]) => {
+    if (!value) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [path],
+        message: "Für die gewählte Lieferoption ist eine vollständige Lieferadresse erforderlich.",
+      });
+    }
+  });
+
+  if (!/^\d{5}$/.test(quote.delivery_postal_code)) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["delivery_postal_code"],
+      message: "Bitte geben Sie eine gültige fünfstellige deutsche Postleitzahl ein.",
+    });
+  }
 });
 
 // Dashboard's `condition` column uses English codes; the storefront UI/filters
@@ -293,6 +324,10 @@ const supabaseQuoteRequests = {
       country,
       unloading_method,
       desired_delivery_date,
+      delivery_street,
+      delivery_house_number,
+      delivery_postal_code,
+      delivery_city,
       product_title,
       unit_price,
       net_subtotal,
@@ -324,6 +359,13 @@ const supabaseQuoteRequests = {
         country,
         unloading_method,
         desired_delivery_date,
+        delivery_address: ["delivery_no_unload", "delivery_with_unload"].includes(unloading_method) ? {
+          street: delivery_street,
+          house_number: delivery_house_number,
+          postal_code: delivery_postal_code,
+          city: delivery_city,
+          country: "Deutschland",
+        } : null,
         pricing: unit_price == null ? null : {
           product_title,
           unit_price,

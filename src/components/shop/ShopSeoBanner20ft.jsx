@@ -22,7 +22,7 @@ const gewichtRows = [
 const faqs = [
   { q: "Wie groß ist ein 20 Fuß Container?", a: "Außenmaße: 6,058 m × 2,438 m × 2,591 m. Innenlänge ca. 5,9 m, Innenbreite 2,35 m." },
   { q: "Was passt in einen 20 Fuß Container?", a: "Ca. 33 m³ – entspricht dem Inhalt einer 3–4-Zimmer-Wohnung, 10–11 Europaletten oder ca. 25 t Schüttgut." },
-  { q: "Was kostet ein 20 Fuß Container?", a: "Gebrauchte Einheiten starten ab ca. 1.990 â‚¬, neue ab ca. 2.490 â‚¬. Transportkosten werden separat kalkuliert." },
+  { q: "Was kostet ein 20 Fuß Container?", a: "Der aktuelle Preis hängt von Zustand, Ausführung und Verfügbarkeit ab. Die Produktpreise im Shop sind maßgeblich; Transportkosten werden separat kalkuliert." },
   { q: "Kann ich einen 20 Fuß Container stapeln?", a: "Ja, bis zu 8 beladene Container können gestapelt werden. Die Eckbeschläge sind nach ISO 1161 ausgelegt." },
 ];
 

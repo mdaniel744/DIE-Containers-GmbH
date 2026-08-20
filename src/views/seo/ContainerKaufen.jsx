@@ -58,7 +58,7 @@ const FACTORS = [
   { icon: Package, title: "Größe & Volumen", desc: "10ft für kleine Vorhaben, 20ft als Allrounder, 40ft für maximale Kapazität." },
   { icon: Star, title: "Zustand", desc: "One Trip (nahezu neu) kostet 20–30 % mehr als gebraucht, bietet aber keine Gebrauchsspuren." },
   { icon: Wrench, title: "Containertyp", desc: "Standard ist am günstigsten. High Cube, Open Side, Kühl- oder Bürocontainer kosten entsprechend mehr." },
-  { icon: MapPin, title: "Standort & Lieferung", desc: "Transportkosten starten ab ca. 250 â‚¬ und steigen mit Entfernung und Zugangsbedingungen." },
+  { icon: MapPin, title: "Standort & Lieferung", desc: "Transportkosten werden passend zu Entfernung, Fahrzeug, Entladeart und Zugangsbedingungen individuell kalkuliert." },
   { icon: TrendingUp, title: "Marktlage", desc: "Containerpreise folgen globalen Handelsströmen – Verfügbarkeit schwankt saisonal." },
   { icon: ShieldCheck, title: "CSC-Zertifikat", desc: "Bestätigt internationale Zulassung und Tragfähigkeit – wichtig für Wiederverkauf und Export." },
 ];

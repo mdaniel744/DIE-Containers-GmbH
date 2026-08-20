@@ -249,7 +249,7 @@ function ZahlungsbedingungenPage() {
               <ContactBlock />
             </Section>
           </div>
-          <ContactBanner />
+          <ContactBanner wide />
         </motion.div>
       </div>
     </div>
@@ -356,7 +356,7 @@ function AgbPage() {
               ]} />
             </Section>
           </div>
-          <ContactBanner />
+          <ContactBanner wide />
         </motion.div>
       </div>
     </div>
@@ -412,7 +412,7 @@ function DatenschutzPage() {
               <ContactBlock />
             </Section>
           </div>
-          <ContactBanner />
+          <ContactBanner wide />
         </motion.div>
       </div>
     </div>
@@ -508,6 +508,7 @@ function RueckgabePage() {
               </div>
             </Section>
           </div>
+          <ContactBanner wide />
         </motion.div>
       </div>
     </div>
@@ -876,7 +877,7 @@ function GeneralTermsPage() {
             </Section>
           </div>
           <div className="mt-8">
-            <ContactBanner />
+            <ContactBanner wide />
           </div>
         </motion.div>
       </div>
@@ -965,7 +966,7 @@ function VatDutiesPage() {
             </Section>
           </div>
           <div className="mt-8">
-            <ContactBanner />
+            <ContactBanner wide />
           </div>
         </motion.div>
       </div>
@@ -1041,7 +1042,7 @@ function CookiePolicyPage() {
             </Section>
           </div>
           <div className="mt-8">
-            <ContactBanner />
+            <ContactBanner wide />
           </div>
         </motion.div>
       </div>

@@ -23,6 +23,14 @@ const isPositiveInteger = (value) => {
   const numericValue = Number(value);
   return Number.isInteger(numericValue) && numericValue > 0;
 };
+const requiresDeliveryAddress = (method) => ["delivery_no_unload", "delivery_with_unload"].includes(method);
+const hasText = (value) => Boolean(String(value || "").trim());
+const hasValidGermanDeliveryAddress = (data) => (
+  hasText(data.delivery_street) &&
+  hasText(data.delivery_house_number) &&
+  /^\d{5}$/.test(String(data.delivery_postal_code || "")) &&
+  hasText(data.delivery_city)
+);
 
 export default function QuoteRequest() {
   const T = useSection("quote");
@@ -57,6 +65,10 @@ export default function QuoteRequest() {
     phone: "",
     company: "",
     additional_notes: "",
+    delivery_street: "",
+    delivery_house_number: "",
+    delivery_postal_code: "",
+    delivery_city: "",
     accepted_terms: false,
   });
   const [prefilledProduct, setPrefilledProduct] = useState(null);
@@ -150,7 +162,9 @@ export default function QuoteRequest() {
       return data.container_size && data.container_height && data.condition && data.unloading_method && isPositiveInteger(data.quantity);
     }
     if (step === 2) {
-      return data.first_name && data.last_name && data.email && data.phone && data.accepted_terms;
+      const contactComplete = hasText(data.first_name) && hasText(data.email) && hasText(data.phone) && data.accepted_terms;
+      const addressComplete = !requiresDeliveryAddress(data.unloading_method) || hasValidGermanDeliveryAddress(data);
+      return contactComplete && addressComplete;
     }
     return false;
   };
