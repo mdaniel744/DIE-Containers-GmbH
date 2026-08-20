@@ -1,8 +1,26 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ChevronRight, Phone, CheckCircle, AlertTriangle, ArrowRight, Info } from "lucide-react";
+import {
+  ChevronRight,
+  Mail,
+  CheckCircle,
+  AlertTriangle,
+  ArrowRight,
+  Info,
+  ClipboardList,
+  FileCheck2,
+  Construction,
+  Truck,
+  PackageCheck,
+  MoveHorizontal,
+  MoveVertical,
+  Ruler,
+  Layers3,
+  UserRoundCheck,
+  TriangleAlert,
+} from "lucide-react";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
@@ -19,32 +37,52 @@ const STEPS = [
 {
   num: "01",
   title: "Angebotsanfrage",
-  desc: "Unverbindlich anfragen – per Formular, Telefon oder E-Mail. Angabe von Containertyp, Lieferort und Wunschtermin.",
-  icon: "📋"
+  desc: "Teilen Sie uns mit, welchen Container Sie benötigen und wohin er geliefert werden soll. Je genauer die Angaben zur Zufahrt sind, desto zuverlässiger lässt sich die Anlieferung planen.",
+  points: ["Containerart, Größe und Stückzahl", "Postleitzahl und gewünschter Aufstellort", "Fotos von Zufahrt und Rangierfläche, falls verfügbar"],
+  icon: ClipboardList,
+  image: "/images/delivery-steps/request-quote.png",
+  imageAlt: "Beratung und Anfrage für ein Containerangebot",
+  imageScale: 1.14
 },
 {
   num: "02",
   title: "Angebot & Bestätigung",
-  desc: "Sie erhalten ein verbindliches Angebot mit Endpreis inklusive Transport. Nach Auftragsbestätigung wird der Liefertermin koordiniert.",
-  icon: "✅"
+  desc: "Wir prüfen Verfügbarkeit, Transportweg und passende Entlademethode. Anschließend erhalten Sie ein nachvollziehbares Angebot für Container und Transport.",
+  points: ["Prüfung von Depot und Verfügbarkeit", "Auswahl des geeigneten Transportfahrzeugs", "Abstimmung des voraussichtlichen Lieferzeitraums"],
+  icon: FileCheck2,
+  image: "/images/delivery-steps/approve-quote.png",
+  imageAlt: "Angebot genehmigen und Containerbestellung bestätigen",
+  imageScale: 1.02
 },
 {
   num: "03",
   title: "Aufstellplatz vorbereiten",
-  desc: "Untergrund vorbereiten und Zufahrt freihalten. Ausreichend Platz für LKW-Rangieren einplanen.",
-  icon: "🏗️"
+  desc: "Vor dem Liefertag müssen Zufahrt, Rangierfläche und Untergrund frei und belastbar sein. Hindernisse sollten vorab gemeldet werden.",
+  points: ["Zufahrt mindestens 3,5 m breit und 4,5 m hoch", "Ebener, tragfähiger Untergrund am Aufstellort", "Ausreichend gerade Fläche zum Rangieren und Absetzen"],
+  icon: Construction,
+  image: "/images/delivery-steps/prepare-delivery-site.png",
+  imageAlt: "Lieferort und Aufstellfläche für den Container vorbereiten",
+  imageScale: 1.05
 },
 {
   num: "04",
   title: "Lieferung per LKW",
-  desc: "Je nach Containertyp und Entfernung wird ein Kipper-Tieflader, Flachbett-Trailer oder LKW-Kran eingesetzt.",
-  icon: "🚚"
+  desc: "Der Fahrer liefert den Container zum vereinbarten Termin. Je nach Container, Strecke und örtlicher Situation kommt das zuvor abgestimmte Fahrzeug zum Einsatz.",
+  points: ["Ansprechpartner ist zum Termin erreichbar", "Zufahrt und Entladebereich bleiben vollständig frei", "Sicherheitsabstand während Rangieren und Entladen einhalten"],
+  icon: Truck,
+  image: "/images/delivery-steps/container-delivery-truck.png",
+  imageAlt: "Containerlieferung per LKW von DIE Container GmbH",
+  imageScale: 1.62
 },
 {
   num: "05",
   title: "Abnahme & Übergabe",
-  desc: "Gemeinsame Sichtprüfung vor Ort. Bei Mängeln sofortige Dokumentation. Container ist sofort einsatzbereit.",
-  icon: "🔑"
+  desc: "Nach dem Absetzen prüfen Sie gemeinsam mit dem Fahrer die Position und den sichtbaren Zustand. Auffälligkeiten werden direkt dokumentiert.",
+  points: ["Aufstellposition und Türausrichtung kontrollieren", "Äußeren Zustand gemeinsam prüfen", "Übergabe bestätigen und Container übernehmen"],
+  icon: PackageCheck,
+  image: "/images/delivery-steps/container-handover.png",
+  imageAlt: "Übernahme und Übergabe des gelieferten Containers",
+  imageScale: 1.08
 }];
 
 
@@ -53,7 +91,7 @@ const TRUCK_TYPES = [
 {
   title: "Kipper-Tieflader (Tilt Trailer)",
   badge: "Häufigste Methode",
-  badgeColor: BRAND_BLUE,
+  badgeColor: NAVY,
   desc: "Der Kipper-Tieflader ist die gängigste Methode für Containerlieferungen. Das Fahrzeug fährt rückwärts an die Abstellposition, neigt die Ladefläche hydraulisch und lässt den Container langsam auf den Boden gleiten – ganz ohne Kran oder Maschinen vor Ort.",
   pros: [
   "Kein Kran oder Gabelstapler vor Ort benötigt",
@@ -98,42 +136,42 @@ const TRUCK_TYPES = [
 /* â”€â”€ Site Requirements â”€â”€ */
 const REQUIREMENTS = [
 {
-  icon: "↔️",
+  icon: MoveHorizontal,
   title: "Zufahrtsbreite",
   value: "min. 3,5 m",
   note: "Besser 4 m für komfortables Rangieren",
   ok: true
 },
 {
-  icon: "↕️",
+  icon: MoveVertical,
   title: "Durchfahrtshöhe",
   value: "min. 4,5 m",
   note: "Container auf LKW benötigt volle Höhe",
   ok: true
 },
 {
-  icon: "📏",
+  icon: Ruler,
   title: "Freie Geradeausfahrt",
   value: "min. 20 m (40ft: 35 m)",
   note: "Kipper-Tieflader braucht gerade Ablauffläche",
   ok: true
 },
 {
-  icon: "🧱",
+  icon: Layers3,
   title: "Untergrund",
   value: "Fest & Eben",
   note: "Beton, Schotter, Pflaster – kein aufgeweichter Boden",
   ok: true
 },
 {
-  icon: "👤",
+  icon: UserRoundCheck,
   title: "Ansprechpartner",
   value: "Vor Ort",
   note: "Für Abnahme und Einweisen des Fahrers anwesend sein",
   ok: true
 },
 {
-  icon: "⚠️",
+  icon: TriangleAlert,
   title: "Besonderheiten melden",
   value: "Vorab",
   note: "Engstellen, Brücken, Stromleitungen, Höhenbeschränkungen",
@@ -143,18 +181,23 @@ const REQUIREMENTS = [
 
 /* â”€â”€ Cost Table Data â”€â”€ */
 const costRows = [
-{ distance: "Bis 50 km", c20: "250–400 â‚¬", c40: "350–550 â‚¬" },
-{ distance: "50–150 km", c20: "400–650 â‚¬", c40: "550–850 â‚¬" },
-{ distance: "150–300 km", c20: "650–900 â‚¬", c40: "850–1.150 â‚¬" },
+{ distance: "Bis 50 km", c20: "250–400 €", c40: "350–550 €" },
+{ distance: "50–150 km", c20: "400–650 €", c40: "550–850 €" },
+{ distance: "150–300 km", c20: "650–900 €", c40: "850–1.150 €" },
 { distance: "Über 300 km", c20: "Auf Anfrage", c40: "Auf Anfrage" }];
+
+
 
 
 /* â”€â”€ Delivery Diagram SVG â”€â”€ */
 function DeliveryDiagram() {
   return (
-    <div className="bg-slate-50 rounded-2xl border border-border p-6 my-8">
-      <p className="font-heading font-bold text-sm text-foreground mb-4 text-center">Kipper-Tieflader – Draufsicht & Platzbedarf</p>
-      <svg viewBox="0 0 500 220" className="w-full max-w-xl mx-auto block" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div className="mb-8 rounded-2xl border border-[#46C54B]/25 bg-white p-4 shadow-sm sm:p-6">
+      <div className="mb-5 text-center">
+        <p className="font-heading text-lg font-bold text-foreground sm:text-xl">Platzbedarf für die Anlieferung</p>
+        <p className="mt-1 text-sm text-muted-foreground">Beispielhafte Draufsicht bei der Entladung mit einem Kipper-Tieflader</p>
+      </div>
+      <svg viewBox="0 0 500 220" className="mx-auto block w-full max-w-3xl" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Draufsicht eines Kipper-Tiefladers mit benötigter Zufahrtsbreite und gerader Ablauffläche">
         {/* Road / ground */}
         <rect x="0" y="100" width="500" height="120" fill="#e8edf2" rx="4" />
         <text x="250" y="215" textAnchor="middle" fontSize="10" fill="#94a3b8">Zufahrtsbereich</text>
@@ -206,7 +249,7 @@ function DeliveryDiagram() {
 const faqs = [
 { q: "Wie wird ein Container geliefert?", a: "Seecontainer werden per LKW transportiert. Die häufigste Methode in Deutschland ist der Kipper-Tieflader: Das Fahrzeug fährt rückwärts an die gewünschte Position, neigt die Ladefläche hydraulisch und lässt den Container ohne Kran auf den Boden gleiten. Bei langen Strecken oder High Cube Containern werden Flachbett- oder Step-Deck-Trailer eingesetzt." },
 { q: "Benötige ich einen Kran für die Lieferung?", a: "Bei Lieferung per Kipper-Tieflader (Tilt Trailer) wird kein Kran benötigt. Der Container wird direkt vom Fahrzeug auf den Boden abgesetzt. Bei Flachbett- oder Step-Deck-Lieferungen muss am Zielort ein Kran oder ein geeigneter Gabelstapler vorhanden sein." },
-{ q: "Was kostet die Container-Lieferung?", a: "Transportkosten starten bei ca. 250 â‚¬ für kurze Distanzen und steigen mit der Entfernung. Hinzu kommen mögliche Erschwernistarife bei engen Zufahrten, Nachtlieferungen oder Sondergenehmigungen. Die genauen Kosten werden individuell kalkuliert und im Angebot ausgewiesen." },
+{ q: "Was kostet die Container-Lieferung?", a: "Transportkosten starten bei ca. 250 € für kurze Distanzen und steigen mit der Entfernung. Hinzu kommen mögliche Erschwernistarife bei engen Zufahrten, Nachtlieferungen oder Sondergenehmigungen. Die genauen Kosten werden individuell kalkuliert und im Angebot ausgewiesen." },
 { q: "Was muss ich für die Anlieferung vorbereiten?", a: "Stellen Sie sicher, dass die Zufahrt mindestens 3,5 m breit und 4,5 m hoch ist. Für eine Kipper-Lieferung sind außerdem ca. 20 m (bei 40ft ca. 35 m) freie Geradeausfahrt nötig. Der Untergrund muss fest und eben sein – Schotter, Pflaster oder Beton sind ideal. Ein Ansprechpartner sollte vor Ort sein." },
 { q: "Was passiert wenn die Zufahrt zu eng ist?", a: "Bei engen Zufahrten oder besonderen Hindernissen (Brücken, Stromleitungen, Steigungen) prüfen wir alternative Fahrzeuge oder Lösungen. Bitte informieren Sie uns unbedingt vorab, damit wir die passende Logistik planen können." },
 { q: "Können beladene Container geliefert oder abgeholt werden?", a: "Nein – Kipper-Tieflader können ausschließlich leere Container transportieren. Soll ein beladener Container bewegt oder exportiert werden, ist Hebetechnik (Kran oder Schwerlast-Gabelstapler) am Standort erforderlich." },
@@ -225,6 +268,9 @@ const relatedLinks = [
 
 
 export default function ContainerLieferung() {
+  const [activeStep, setActiveStep] = useState(0);
+  const selectedStep = STEPS[activeStep];
+
   return (
     <div className="pt-20 lg:pt-24 pb-20 bg-background min-h-screen">
 
@@ -247,7 +293,7 @@ export default function ContainerLieferung() {
           </nav>
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
             <div className="flex-1">
-              <span className="font-mono text-xs tracking-widest uppercase mb-3 block" style={{ color: "#278A2F" }}>
+              <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-white/70">
                 Lieferservice
               </span>
               <h1 className="font-heading font-bold text-3xl lg:text-5xl text-white tracking-tight mb-4">
@@ -257,16 +303,16 @@ export default function ContainerLieferung() {
                 Seecontainer werden per Spezialfahrzeug geliefert. Je nach Containertyp, Entfernung und Zugangssituation setzen wir unterschiedliche Transportmethoden ein. Wir liefern zuverlässig in alle Bundesländer.
               </p>
               <div className="flex flex-wrap gap-4 mt-6">
-                <Link to="/shop"
+                <Link to="/angebot"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-                style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
+                style={{ backgroundColor: BRAND_BLUE }}>
                   
                   Lieferangebot anfordern <ArrowRight className="w-4 h-4" />
                 </Link>
-                <a href="tel:+4989277808979"
+                <a href="mailto:contact@diecontainers.com"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-heading font-semibold text-sm text-white border border-white/20 hover:bg-white/10 transition-colors">
                   
-                  <Phone className="w-4 h-4" /> Direkt anrufen
+                  <Mail className="w-4 h-4" /> E-Mail schreiben
                 </a>
               </div>
             </div>
@@ -296,28 +342,97 @@ export default function ContainerLieferung() {
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">So läuft Ihre Container-Lieferung ab</h2>
           </div>
 
-          <div className="relative">
-            <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-transparent via-border to-transparent" />
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-              {STEPS.map((step, i) =>
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative flex flex-col items-center text-center p-5 rounded-2xl bg-card border border-border hover:border-blue-300 hover:shadow-md transition-all">
-                
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center font-heading font-bold text-xs text-white mb-3 shrink-0 relative z-10"
-                style={{ backgroundColor: NAVY }}>
-                    {step.num}
-                  </div>
-                  <div className="text-2xl mb-2">{step.icon}</div>
-                  <p className="font-heading font-bold text-sm text-foreground mb-1.5">{step.title}</p>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
-                </motion.div>
-              )}
+          <div className="overflow-hidden rounded-[2rem] border border-[#46C54B]/25 bg-[#F3FBF4] p-3 sm:p-5">
+            <div
+              role="tablist"
+              aria-label="Schritte der Container-Lieferung"
+              className="flex gap-2 overflow-x-auto pb-2 lg:overflow-visible"
+            >
+              {STEPS.map((step, i) => {
+                const StepIcon = step.icon;
+                const isActive = activeStep === i;
+                return (
+                  <button
+                    key={step.num}
+                    id={`delivery-step-tab-${i}`}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`delivery-step-panel-${i}`}
+                    onClick={() => setActiveStep(i)}
+                    className={`flex min-w-[10.5rem] flex-1 items-center gap-3 rounded-2xl border px-4 py-3 text-left transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#46C54B] focus-visible:ring-offset-2 ${
+                      isActive
+                        ? "border-[#176B20] bg-[#176B20] text-white shadow-sm"
+                        : "border-[#46C54B]/20 bg-white text-foreground hover:border-[#46C54B]/60"
+                    }`}
+                  >
+                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${isActive ? "bg-white/15" : "bg-[#46C54B]/15 text-[#176B20]"}`}>
+                      <StepIcon className="h-5 w-5" strokeWidth={1.8} />
+                    </span>
+                    <span className="block font-heading text-xs font-bold leading-4">{step.title}</span>
+                  </button>
+                );
+              })}
             </div>
+
+            <motion.div
+              key={selectedStep.num}
+              id={`delivery-step-panel-${activeStep}`}
+              role="tabpanel"
+              aria-labelledby={`delivery-step-tab-${activeStep}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="mt-3 grid overflow-hidden rounded-[1.6rem] border border-[#46C54B]/20 bg-white shadow-sm lg:grid-cols-[1.08fr_0.92fr]"
+            >
+              <div className="relative min-h-72 bg-[#EAF4EB] p-3 sm:min-h-80 sm:p-4 lg:min-h-[27rem] lg:p-5">
+                <img
+                  src={selectedStep.image}
+                  alt={selectedStep.imageAlt}
+                  className="absolute inset-0 h-full w-full object-contain p-4 sm:p-5"
+                  style={{ transform: `scale(${selectedStep.imageScale})` }}
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                  {selectedStep.title}
+                </h3>
+                <p className="mt-4 text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">
+                  {selectedStep.desc}
+                </p>
+                <ul className="mt-6 space-y-3">
+                  {selectedStep.points.map((point) => (
+                    <li key={point} className="flex items-start gap-3 text-sm leading-5 text-foreground/80">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#46C54B]/15">
+                        <CheckCircle className="h-3.5 w-3.5 text-[#23832B]" />
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8">
+                  {activeStep < STEPS.length - 1 ? (
+                    <button
+                      type="button"
+                      onClick={() => setActiveStep((current) => current + 1)}
+                      className="inline-flex items-center gap-2 rounded-xl bg-[#176B20] px-5 py-3 font-heading text-sm font-semibold text-white transition-colors hover:bg-[#125A1A]"
+                    >
+                      Nächster Schritt <ArrowRight className="h-4 w-4" />
+                    </button>
+                  ) : (
+                    <Link
+                      to="/angebot"
+                      className="inline-flex items-center gap-2 rounded-xl bg-[#176B20] px-5 py-3 font-heading text-sm font-semibold text-white transition-colors hover:bg-[#125A1A]"
+                    >
+                      Angebot anfordern <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -328,7 +443,7 @@ export default function ContainerLieferung() {
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Welches Fahrzeug wird eingesetzt?</h2>
             <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Die Wahl des Fahrzeugs hängt vom Containertyp, der Entfernung und den Zugangsbedingungen am Zielort ab.</p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="space-y-8">
             {TRUCK_TYPES.map((truck, i) =>
             <motion.div
               key={i}
@@ -336,30 +451,32 @@ export default function ContainerLieferung() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex flex-col rounded-2xl bg-card border border-border hover:shadow-md transition-all overflow-hidden">
+              className="grid overflow-hidden rounded-[2rem] border border-border bg-card shadow-sm transition-shadow hover:shadow-lg lg:grid-cols-[1.08fr_0.92fr]">
               
-                <div className="h-44 overflow-hidden bg-slate-100">
-                  <img src={truck.img} alt={truck.alt} className="w-full h-full object-cover" />
+                <div className={`relative min-h-72 overflow-hidden bg-slate-100 sm:min-h-80 lg:min-h-[26rem] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <img src={truck.img} alt={truck.alt} className="absolute inset-0 h-full w-full object-contain p-3 sm:p-4" loading="lazy" />
                 </div>
-                <div className="p-6 flex flex-col flex-1">
-                <span className="text-xs font-heading font-bold px-2.5 py-1 rounded-full text-white mb-3 self-start"
-                style={{ backgroundColor: truck.badgeColor }}>
-                  {truck.badge}
-                </span>
-                <h3 className="font-heading font-bold text-base text-foreground mb-2">{truck.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{truck.desc}</p>
-                <ul className="space-y-1.5 mb-4">
-                  {truck.pros.map((pro, j) =>
-                  <li key={j} className="flex items-start gap-2 text-xs text-muted-foreground">
-                      <CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" />
-                      {pro}
-                    </li>
-                  )}
-                </ul>
-                <div className="mt-auto flex items-start gap-2 p-3 rounded-xl bg-blue-50 border border-blue-200 hidden">
-                  <Info className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
-                  <p className="text-xs text-blue-700">{truck.note}</p>
-                </div>
+                <div className={`flex flex-col justify-center p-6 sm:p-8 lg:p-10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <span className="mb-4 self-start rounded-full px-3 py-1.5 font-heading text-xs font-bold text-white"
+                  style={{ backgroundColor: truck.badgeColor }}>
+                    {truck.badge}
+                  </span>
+                  <h3 className="font-heading text-2xl font-bold tracking-tight text-foreground lg:text-3xl">{truck.title}</h3>
+                  <p className="mb-6 mt-3 text-sm leading-6 text-muted-foreground sm:text-base sm:leading-7">{truck.desc}</p>
+                  <ul className="mb-6 space-y-3">
+                    {truck.pros.map((pro, j) =>
+                    <li key={j} className="flex items-start gap-3 text-sm leading-5 text-foreground/80">
+                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#46C54B]/15">
+                          <CheckCircle className="h-3.5 w-3.5 text-[#23832B]" />
+                        </span>
+                        {pro}
+                      </li>
+                    )}
+                  </ul>
+                  <div className="mt-auto flex items-start gap-3 rounded-2xl border border-[#46C54B]/25 bg-[#F3FBF4] p-4">
+                    <Info className="mt-0.5 h-5 w-5 shrink-0 text-[#23832B]" />
+                    <p className="text-sm leading-5 text-[#164D1B]">{truck.note}</p>
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -380,34 +497,39 @@ export default function ContainerLieferung() {
           <div className="text-center mb-8">
             <span className="font-mono text-xs tracking-widest uppercase mb-2 block" style={{ color: "#278A2F" }}>Checkliste</span>
             <h2 className="font-heading font-bold text-2xl lg:text-3xl text-foreground">Was müssen Sie vorbereiten?</h2>
-            <p className="text-muted-foreground text-sm mt-2 max-w-xl mx-auto">Bereiten Sie diese Punkte vor dem Liefertag vor, um einen reibungslosen Ablauf zu gewährleisten</p>
+            <p className="text-muted-foreground text-sm mt-2 max-w-2xl mx-auto sm:text-base sm:leading-7">Prüfen Sie Zufahrt, Rangierfläche und Aufstellort rechtzeitig. Die Grafik und Checkliste zeigen die wichtigsten Voraussetzungen auf einen Blick.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {REQUIREMENTS.map((req, i) =>
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.07 }}
-              className={`p-5 rounded-2xl border ${req.ok ? "bg-card border-border" : "bg-blue-50 border-blue-200"}`}>
-              
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl shrink-0">{req.icon}</span>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <p className="font-heading font-bold text-sm text-foreground">{req.title}</p>
-                      {req.ok ?
-                    <CheckCircle className="w-4 h-4 text-green-500 shrink-0" /> :
-                    <AlertTriangle className="w-4 h-4 text-blue-500 shrink-0" />
-                    }
+          <div className="rounded-[2rem] border border-[#46C54B]/25 bg-[#F3FBF4] p-4 sm:p-6 lg:p-8">
+            <DeliveryDiagram />
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {REQUIREMENTS.map((req, i) => {
+                const RequirementIcon = req.icon;
+                return (
+                  <motion.div
+                    key={req.title}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06 }}
+                    className={`rounded-2xl border bg-white p-5 shadow-sm sm:p-6 ${req.ok ? "border-[#46C54B]/20" : "border-[#176B20]/45"}`}
+                  >
+                    <div className="mb-5 flex items-center justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#46C54B]/15 text-[#176B20]">
+                        <RequirementIcon className="h-6 w-6" strokeWidth={1.8} />
+                      </div>
+                      {req.ok ? (
+                        <CheckCircle className="h-5 w-5 text-[#23832B]" />
+                      ) : (
+                        <AlertTriangle className="h-5 w-5 text-[#176B20]" />
+                      )}
                     </div>
-                    <p className="font-heading font-semibold text-lg leading-none mb-1" style={{ color: "#278A2F" }}>{req.value}</p>
-                    <p className="text-xs text-muted-foreground">{req.note}</p>
-                  </div>
-                </div>
-              </motion.div>
-            )}
+                    <p className="font-heading text-sm font-bold text-foreground">{req.title}</p>
+                    <p className="mt-1 font-heading text-xl font-bold leading-tight text-[#23832B] sm:text-2xl">{req.value}</p>
+                    <p className="mt-2 text-sm leading-5 text-muted-foreground">{req.note}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </section>
 

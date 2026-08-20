@@ -2,7 +2,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, Package, Maximize } from "lucide-react";
-import { ContainerSVG } from "@/components/seo/ContainerDiagram";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 
@@ -18,19 +17,22 @@ function SH({ children }) {
   return <h2 className="font-heading font-bold text-xl lg:text-2xl text-foreground tracking-tight mb-4">{children}</h2>;
 }
 
-/* â”€â”€ Container size card with SVG + specs â”€â”€ */
-function SizeCard({ title, svgProps, specs, note }) {
+/* â”€â”€ Container size card with product image + specs â”€â”€ */
+function SizeCard({ title, image, imageAlt, specs, note }) {
   return (
     <div className="rounded-2xl border border-border bg-card overflow-hidden mb-8">
       <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
         <h3 className="font-heading font-bold text-sm text-foreground">{title}</h3>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        {/* SVG diagram */}
-        <div className="p-6 flex items-center justify-center bg-muted/20 border-b lg:border-b-0 lg:border-r border-border">
-          <div className="w-full max-w-sm">
-            <ContainerSVG {...svgProps} />
-          </div>
+        {/* Container product image */}
+        <div className="p-2 sm:p-3 min-h-80 sm:min-h-96 lg:min-h-[28rem] flex items-center justify-center overflow-hidden bg-white border-b lg:border-b-0 lg:border-r border-border">
+          <img
+            src={image}
+            alt={imageAlt}
+            className="h-80 sm:h-96 lg:h-[28rem] w-full object-contain scale-[1.08] sm:scale-[1.12]"
+            loading="lazy"
+          />
         </div>
         {/* Specs table */}
         <div className="p-5">
@@ -276,21 +278,15 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="10 Fuß Standard Container"
-            svgProps={{
-              boxW: 40, boxD: 28, boxH: 52,
-              lengthLabel: "2,99 m", widthLabel: "2,44 m", heightLabel: "2,59 m",
-              uid: "10ft-masse"
-            }}
+            image="/images/container-dimensions/10ft-standard-container.png"
+            imageAlt="10 Fuß Standard Seecontainer"
             specs={SPECS_10FT}
             note="Ein 10 Fuß Container ist besonders praktisch, wenn eine kleine, sichere und wetterfeste Lagerlösung benötigt wird. Für größere Lageraufgaben ist jedoch meist ein 20 Fuß Container sinnvoller."
           />
           <SizeCard
             title="10 Fuß High Cube Container"
-            svgProps={{
-              boxW: 40, boxD: 28, boxH: 65,
-              lengthLabel: "2,99 m", widthLabel: "2,44 m", heightLabel: "2,90 m",
-              uid: "10hc-masse"
-            }}
+            image="/images/container-dimensions/10ft-high-cube-container.png"
+            imageAlt="10 Fuß High Cube Container"
             specs={SPECS_10HC}
             note="Der 10 Fuß High Cube Container bietet durch seine größere Höhe ca. 30 cm mehr Innenraum als der Standard Container. Er eignet sich für sperrige Güter oder wenn zusätzliche Innenhöhe benötigt wird."
           />
@@ -304,21 +300,15 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="20 Fuß Standard Container"
-            svgProps={{
-              boxW: 80, boxD: 28, boxH: 52,
-              lengthLabel: "6,06 m", widthLabel: "2,44 m", heightLabel: "2,59 m",
-              uid: "20ft-masse"
-            }}
+            image="/images/container-dimensions/20ft-standard-container.png"
+            imageAlt="20 Fuß Standard Seecontainer"
             specs={SPECS_20FT}
             note={<>Ein 20 Fuß Container eignet sich für Werkzeuge, Maschinen, Möbel, Baumaterialien, Waren und vieles mehr. Wer eine flexible Allround Lösung sucht, findet weitere Informationen auf der Seite <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL>.</>}
           />
           <SizeCard
             title="20 Fuß High Cube Container"
-            svgProps={{
-              boxW: 80, boxD: 28, boxH: 65,
-              lengthLabel: "6,06 m", widthLabel: "2,44 m", heightLabel: "2,90 m",
-              uid: "20hc-masse"
-            }}
+            image="/images/container-dimensions/20ft-high-cube-container.png"
+            imageAlt="20 Fuß High Cube Container"
             specs={SPECS_20HC}
             note="Der 20 Fuß High Cube Container bietet ca. 30 cm mehr Innenhöhe als der Standard Container und damit mehr Ladevolumen. Er ist ideal für sperrige Waren, Regalsysteme oder wenn jeder Kubikmeter zählt."
           />
@@ -332,11 +322,8 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="40 Fuß Standard Container"
-            svgProps={{
-              boxW: 140, boxD: 28, boxH: 52,
-              lengthLabel: "12,19 m", widthLabel: "2,44 m", heightLabel: "2,59 m",
-              uid: "40ft-masse"
-            }}
+            image="/images/container-dimensions/40ft-standard-container.png"
+            imageAlt="40 Fuß Standard Seecontainer"
             specs={SPECS_40FT}
             note={<>Ein 40 Fuß Container ist ideal, wenn viel Stauraum benötigt wird und ausreichend Platz für Lieferung und Aufstellung vorhanden ist. Weitere Details finden Sie auf der Seite <IL to="/40-fuss-container-kaufen">40 Fuß Container kaufen</IL>.</>}
           />
@@ -350,11 +337,8 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="40 Fuß High Cube Container"
-            svgProps={{
-              boxW: 140, boxD: 28, boxH: 65,
-              lengthLabel: "12,19 m", widthLabel: "2,44 m", heightLabel: "2,90 m",
-              uid: "40hc-masse"
-            }}
+            image="/images/container-dimensions/40ft-high-cube-container.png"
+            imageAlt="40 Fuß High Cube Seecontainer"
             specs={SPECS_40HC}
             note="Ein High Cube Container ist besonders sinnvoll, wenn sperrige Güter, Regalsysteme, Maschinen oder voluminöse Waren gelagert werden sollen. Auch für Umbauten oder Sonderlösungen kann die zusätzliche Höhe vorteilhaft sein."
           />
