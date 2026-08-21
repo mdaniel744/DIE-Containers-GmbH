@@ -49,7 +49,7 @@ const strings = {
     whyChooseUs: {
       label: "Vorteile",
       title: "Warum DIE Container GmbH?",
-      description: "Von der Auswahl bis zur Anlieferung erhalten Sie klare Informationen zu Container, Zustand und Transport.",
+      description: "Von der Auswahl bis zur Lieferung erhalten Sie detaillierte Informationen, die Sie bei Ihrer Kaufentscheidung unterstützen. Wir erläutern den Containerzustand, mögliche Transportrouten und den geplanten Ablauf der Anlieferung.",
       features: [
         { title: "Lieferung nach Absprache", desc: "Transportweg, Entladung und Termin werden für den jeweiligen Standort abgestimmt." },
         { title: "Nachvollziehbares Angebot", desc: "Containerpreis, Umsatzsteuer und Transport werden im Angebot getrennt ausgewiesen." },
@@ -100,28 +100,50 @@ const strings = {
     // ─── FEATURED PRODUCTS ───────────────────────────────────────────────────
     featured: {
       label: "Beliebte Produkte",
-      title: "Unsere meistgefragten Container",
-      description: "Entdecken Sie die beliebtesten Container unserer Kunden – von Standard bis Spezial.",
+      title: "Die von unseren Kunden am häufigsten nachgefragten Versandcontainer",
+      description: "Hier finden Sie marktübliche Container, die besonders häufig nachgefragt werden. Wir bieten unsere verfügbaren Versandcontainer zu fair kalkulierten Preisen an. Wenn Sie einen passenden Container gefunden haben oder weitere Informationen benötigen, fordern Sie einfach ein kostenloses und unverbindliches Angebot an.",
     },
 
     // ─── CONTAINER TYPES (homepage category grid) ────────────────────────────
     containerTypes: {
       label: "Containertypen",
-      title: "Container für Ihren Einsatz",
-      description: "Wählen Sie den passenden Container für Lagerung, Transport, Büro, Kühlung oder individuelle Nutzung.",
+      title: "Versandcontainer nach Typ kaufen.",
+      description: "Je nach Einsatzzweck stehen unterschiedliche Arten von Versandcontainern zur Auswahl. Während einige Unternehmen zusätzlichen Lagerraum benötigen, suchen andere eine mobile Bürolösung oder einen Container für temperaturempfindliche Waren. Wir bieten Containerlösungen für unterschiedliche Anforderungen und beraten Sie bei der passenden Auswahl.",
+      types: {
+        shipping: {
+          label: "Seecontainer",
+          description: "Seecontainer sind Standard-Frachtcontainer ohne Umbauten. Sie sind als 10 Fuß, 20 Fuß und 40 Fuß Container sowie je nach Modell in Standardhöhe oder als High Cube erhältlich.",
+        },
+        openSide: {
+          label: "Container mit offener Seite",
+          description: "Container mit offener Seite erleichtern das Be- und Entladen sperriger oder großflächiger Güter über die Längsseite. Sie sind hauptsächlich in 20 Fuß und 40 Fuß sowie in Standard- und High-Cube-Ausführung erhältlich.",
+        },
+        doubleDoor: {
+          label: "Container mit Doppeltür",
+          description: "Doppeltürcontainer verfügen an beiden Stirnseiten über Türen. Dadurch bleibt der Inhalt von beiden Enden zugänglich und das Be- und Entladen kann schneller und flexibler organisiert werden.",
+        },
+        office: {
+          label: "Bürocontainer",
+          description: "Bürocontainer bieten mobile Arbeitsräume, die sich schnell aufstellen und bei Bedarf versetzen lassen. Ausstattung und Innenaufteilung können je nach Einsatz an individuelle Büroanforderungen angepasst werden.",
+        },
+        reefer: {
+          label: "Kühlcontainer",
+          description: "Kühlcontainer sind für die Lagerung und den Transport temperaturempfindlicher Waren konzipiert. Sie sind in gängigen Containergrößen erhältlich und verfügen je nach Modell über Kühlaggregate verschiedener Hersteller, beispielsweise Thermo King oder Carrier.",
+        },
+      },
     },
 
     // ─── SHOP BY SIZE (homepage size grid) ───────────────────────────────────
     shopBySize: {
       label: "Containergrößen",
-      title: "Container nach Größe",
-      description: "Finden Sie den passenden Container für Ihr Projekt – von kompakt bis XXL.",
+      title: "Versandcontainer nach Größe kaufen.",
+      description: "Versandcontainer sind in verschiedenen Standardgrößen erhältlich. Wir führen 10 Fuß, 20 Fuß und 40 Fuß Container, die zu den gängigsten Größen auf dem Markt gehören. Es gibt sie in zwei hauptsächlichen Höhenvarianten: mit einer Standardhöhe von 2,59 m und als High Cube mit einer Höhe von 2,89 m. Wählen Sie unten die passende Größe für Ihren Bedarf aus.",
       watchNow: "Jetzt ansehen",
       genericDesc: "Jetzt verfügbar – Details und Preise im Shop.",
       sizes: {
-        "10ft": { label: "10 Fuß Container", description: "Kompakt & vielseitig – ideal für Garten, Baustelle und kleine Lagerflächen." },
-        "20ft": { label: "20 Fuß Container", description: "Der Klassiker – perfekt als Lager, Werkstatt oder für den Transport." },
-        "40ft": { label: "40 Fuß Container", description: "Maximaler Stauraum – für große Projekte und professionelle Nutzung." },
+        "10ft": { label: "10 Fuß Container", description: "Kompakte Mini-Seecontainer eignen sich ideal für die sichere Aufbewahrung von Wertsachen und für Standorte mit begrenztem Platz. Durch ihre kurzen Abmessungen sind sie besonders formstabil und flexibel aufstellbar." },
+        "20ft": { label: "20 Fuß Container", description: "20 Fuß Seecontainer gehören zu den am häufigsten nachgefragten Containern. Sie sind in zahlreichen Ausführungen erhältlich – darunter Open-Side-Container, umgebaute Bürocontainer und Wohncontainer für mobile Raumlösungen." },
+        "40ft": { label: "40 Fuß Container", description: "40 Fuß Container bieten maximalen Stauraum für große Sendungen, umfangreiche Lageraufgaben oder modulare Raumlösungen. Wir bieten verschiedene Modelle und Ausführungen sowohl neu als auch gebraucht und abhängig von der aktuellen Verfügbarkeit an." },
       },
     },
 

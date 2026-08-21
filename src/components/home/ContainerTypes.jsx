@@ -9,6 +9,28 @@ import { useSection } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { resolveCatalogCategoryHref } from "@/lib/catalogLinks";
 
+const CATEGORY_PAGE_PATHS = {
+  shipping: "/seecontainer-kaufen",
+  openSide: "/open-side-container-kaufen",
+  doubleDoor: "/double-door-container-kaufen",
+  office: "/buerocontainer-kaufen",
+  reefer: "/kuehlcontainer-kaufen",
+};
+
+function getCategoryContentKey(category) {
+  const value = `${category.slug || ""} ${category.name || ""}`
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+  if (/open[ -]?side|offene[rn]? seite|offener-seite/.test(value)) return "openSide";
+  if (/double[ -]?door|doppeltur|tunnel/.test(value)) return "doubleDoor";
+  if (/buro|office/.test(value)) return "office";
+  if (/kuhl|kuehl|reefer|refrigerated/.test(value)) return "reefer";
+  if (/seecontainer|shipping container|standardcontainer/.test(value)) return "shipping";
+  return null;
+}
+
 export default function ContainerTypes() {
   const { categories, loading } = useFeaturedCategories();
   const T = useSection("containerTypes");
@@ -16,13 +38,18 @@ export default function ContainerTypes() {
 
   if (loading || categories.length === 0) return null;
 
-  const types = categories.map((cat) => ({
-    type: cat.slug,
-    label: cat.name,
-    desc: cat.description || T.description,
-    image: cat.image_url || HERO_IMAGE,
-    path: resolveCatalogCategoryHref(cat, locale),
-  }));
+  const types = categories.map((cat) => {
+    const contentKey = getCategoryContentKey(cat);
+    const localizedContent = contentKey ? T.types?.[contentKey] : null;
+
+    return {
+      type: cat.slug,
+      label: localizedContent?.label || cat.name,
+      desc: localizedContent?.description || cat.description || T.description,
+      image: cat.image_url || HERO_IMAGE,
+      path: CATEGORY_PAGE_PATHS[contentKey] || resolveCatalogCategoryHref(cat, locale),
+    };
+  });
 
   return (
     <section className="relative overflow-hidden bg-[#DDF4DF] py-20 text-[#0D2A12] lg:py-32">
@@ -52,6 +79,7 @@ export default function ContainerTypes() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              className="h-full"
             >
               <Link
                 to={item.path}
@@ -68,7 +96,7 @@ export default function ContainerTypes() {
                 <div className="flex items-end justify-between gap-4 p-5 pb-6 sm:p-6 sm:pb-7">
                   <div className="min-w-0">
                     <h3 className="font-heading text-2xl font-bold tracking-[-0.03em] text-[#123E19] sm:text-3xl">{item.label}</h3>
-                    <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.desc}</p>
                   </div>
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#46C54B] text-white transition-transform duration-300 group-hover:translate-x-1">
                     <ArrowRight className="h-5 w-5" />

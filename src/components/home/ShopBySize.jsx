@@ -33,8 +33,8 @@ export default function ShopBySize() {
     const sizeStrings = T.sizes?.[size];
     return {
       size,
-      label: v?.label || sizeStrings?.label || `${size} Container`,
-      description: v?.description || sizeStrings?.description || T.genericDesc,
+      label: sizeStrings?.label || v?.label || `${size} Container`,
+      description: sizeStrings?.description || v?.description || T.genericDesc,
       image: known?.image || FALLBACK_IMAGE,
       path: known?.path || `/shop?size=${encodeURIComponent(size)}`,
     };
@@ -62,7 +62,7 @@ export default function ShopBySize() {
 
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7">
           {sizes.map((item, i) => (
-            <motion.div key={item.size} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}>
+            <motion.div key={item.size} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }} className="h-full">
               <Link to={item.path} className="group block h-full overflow-hidden rounded-[2rem] border border-white/70 bg-white/85 p-2 shadow-[0_24px_60px_rgba(18,62,25,0.14)] transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-[0_30px_70px_rgba(18,62,25,0.2)]">
                 <div className="aspect-[4/3] overflow-hidden rounded-[1.55rem] bg-white/95 p-6 sm:p-8">
                   <img src={item.image} alt={item.label} className="w-full h-full object-contain drop-shadow-[0_16px_18px_rgba(5,55,15,0.2)] transition-transform duration-700 group-hover:scale-[1.06]" loading="lazy" />
