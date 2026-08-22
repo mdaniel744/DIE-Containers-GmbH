@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   ArrowLeft, Save, Upload, X, Plus, Loader2, Image as ImageIcon, Eye
 } from "lucide-react";
+import MediaImage from "@/components/shared/MediaImage";
 
 const EMPTY = {
   title: "", slug: "", short_description: "", description: "",
@@ -217,7 +218,7 @@ export default function AdminProductEdit() {
             <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
               {(form.gallery_urls || []).map((url, i) => (
                 <div key={i} className="relative aspect-square rounded-xl overflow-hidden bg-slate-800 group">
-                  <img src={url} alt="" className="w-full h-full object-cover" />
+                  <MediaImage src={url} alt="" className="h-full w-full object-cover" width={400} height={300} sizes="160px" quality={75} />
                   <button
                     onClick={() => removeGalleryImage(i)}
                     className="absolute top-1 right-1 w-6 h-6 bg-black/70 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -247,7 +248,7 @@ export default function AdminProductEdit() {
             <div className="aspect-[4/3] rounded-xl overflow-hidden bg-slate-800 mb-3 relative">
               {form.image_url ? (
                 <>
-                  <img src={form.image_url} alt="" className="w-full h-full object-cover" />
+                  <MediaImage src={form.image_url} alt="" className="h-full w-full object-cover" width={400} height={300} sizes="160px" quality={75} />
                   <button onClick={() => set("image_url", "")}
                     className="absolute top-2 right-2 w-7 h-7 bg-black/70 rounded-full flex items-center justify-center hover:bg-black/90 transition-colors">
                     <X className="w-3.5 h-3.5 text-white" />

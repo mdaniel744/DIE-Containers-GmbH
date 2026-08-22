@@ -5,6 +5,7 @@ import { base44 } from "@/api/base44Client";
 import { Plus, Pencil, Trash2, Search, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import MediaImage from "@/components/shared/MediaImage";
 
 export default function AdminProducts() {
   const [products, setProducts] = useState([]);
@@ -90,7 +91,7 @@ export default function AdminProducts() {
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-10 rounded-lg overflow-hidden bg-slate-800 shrink-0">
-                            {p.image_url && <img src={p.image_url} alt={p.title} className="w-full h-full object-cover" />}
+                            {p.image_url && <MediaImage src={p.image_url} alt={p.title} className="h-full w-full object-cover" width={160} height={120} sizes="80px" quality={75} />}
                           </div>
                           <div className="min-w-0">
                             <p className="text-white font-medium truncate max-w-[160px]">{p.title}</p>

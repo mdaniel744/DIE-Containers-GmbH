@@ -29,7 +29,7 @@ export default function WieWirdGeliefert() {
             <strong className="text-foreground">Anfrage & Angebot:</strong> Sie stellen eine unverbindliche Anfrage mit Containertyp und Lieferadresse. Innerhalb von 24 Stunden erhalten Sie ein verbindliches Angebot inklusive Transportkosten.
           </li>
           <li>
-            <strong className="text-foreground">Auftragsbestätigung:</strong> Nach Ihrer Bestätigung wird ein Liefertermin (typisch: 3–7 Werktage, Express 72 h) vereinbart.
+            <strong className="text-foreground">Auftragsbestätigung:</strong> Nach Ihrer Bestätigung wird ein Liefertermin vereinbart. Die Lieferzeit beträgt in der Regel 3–9 Werktage nach Auftragsannahme.
           </li>
           <li>
             <strong className="text-foreground">Vorbereitung:</strong> Sie bereiten den Aufstellplatz vor – vier Auflagerpunkte (Betonsteine o. ä.) an den Eckpositionen des Containers, Zufahrt freihalten (3,5 m Breite, 4,5 m Höhe).

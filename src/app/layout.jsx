@@ -48,7 +48,6 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/images/die-container-logo-green.png`,
   email: "contact@diecontainers.com",
-  telephone: "+49 (0) 89 277 808 979",
   vatID: "DE 330443785",
   identifier: {
     "@type": "PropertyValue",

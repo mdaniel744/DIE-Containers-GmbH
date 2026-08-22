@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CheckCircle, Package, Wrench, Building2, Thermometer } from "lucide-react";
+import MediaImage from "@/components/shared/MediaImage";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
 
 /* â”€â”€ Image assets â”€â”€ */
 const IMG_20FT = "/images/seecontainer-20ft-grau.jpg";
-const IMG_40FT = "/images/seecontainer-40ft-crane.jpg";
-const IMG_BUERO = "/images/buerocontainer-20ft-ral7016-hero.jpg";
+const IMG_40FT = "/images/seecontainer-40ft-crane.webp";
+const IMG_BUERO = "/images/buerocontainer-20ft-ral7016-hero.webp";
 const IMG_KUEHL = "/images/refrigerated-container-10ft.webp";
 const IMG_WOHN = "/images/wohncontainer-modern-front.webp";
 
@@ -177,7 +178,7 @@ export default function ShopSeoContainerKaufen() {
                 className="group flex flex-col h-full rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-blue-200 transition-all bg-card"
               >
                 <div className="h-44 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50">
-                  <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  <MediaImage src={card.img} alt={card.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" width={1200} height={800} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={80} />
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="flex items-center gap-2 mb-2">
@@ -276,7 +277,7 @@ export default function ShopSeoContainerKaufen() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
             <div className="h-40 overflow-hidden bg-gradient-to-br from-blue-50 to-slate-50">
-              <img src={IMG_20FT} alt="20 Fuß Container kaufen" className="w-full h-full object-cover" />
+              <MediaImage src={IMG_20FT} alt="20 Fuß Container kaufen" className="h-full w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
             </div>
             <div className="p-5">
               <h3 className="font-heading font-bold text-sm text-foreground mb-2">20 Fuß Container</h3>
@@ -288,7 +289,7 @@ export default function ShopSeoContainerKaufen() {
           </div>
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
             <div className="h-40 overflow-hidden bg-gradient-to-br from-blue-50 to-slate-50">
-              <img src={IMG_40FT} alt="40 Fuß Container kaufen" className="w-full h-full object-cover" />
+              <MediaImage src={IMG_40FT} alt="40 Fuß Container kaufen" className="h-full w-full object-cover" width={1200} height={1600} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
             </div>
             <div className="p-5">
               <h3 className="font-heading font-bold text-sm text-foreground mb-2">40 Fuß Container</h3>

@@ -5,12 +5,13 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CheckCircle, Truck, Package, ShieldCheck, Wrench, Building2, Thermometer, Star, MapPin, TrendingUp } from "lucide-react";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
+import MediaImage from "@/components/shared/MediaImage";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
 
 /* â”€â”€ Image assets â”€â”€ */
-const IMG_20FT = "/images/gebrauchte-seecontainer.png";
+const IMG_20FT = "/images/gebrauchte-seecontainer.webp";
 const IMG_40FT = "/images/die-container-yard.jpeg";
 const IMG_BUERO = "/images/mobiler-wohncontainer.jpg";
 const IMG_KUEHL = "/images/shipping-container-logistics.jpeg";
@@ -108,10 +109,15 @@ export default function ContainerKaufen() {
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img
+          <MediaImage
             src="/images/crane-is-hoisting-containers.avif"
             alt="Seecontainer Stapel im Hafen"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
+            width={1600}
+            height={900}
+            sizes="100vw"
+            quality={82}
+            priority
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.93) 0%, rgba(15,37,64,0.88) 100%)" }} />
         </div>
@@ -212,7 +218,7 @@ export default function ContainerKaufen() {
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
                 <Link to={card.href} className="group flex flex-col h-full rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-blue-200 transition-all bg-card">
                   <div className="h-44 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50">
-                    <img src={card.img} alt={card.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                    <MediaImage src={card.img} alt={card.title} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105" width={1200} height={800} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" quality={80} />
                   </div>
                   <div className="p-5 flex-1 flex flex-col">
                     <div className="flex items-center gap-2 mb-2">
@@ -286,7 +292,7 @@ export default function ContainerKaufen() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-44 overflow-hidden bg-gradient-to-br from-blue-50 to-slate-50">
-                <img src={IMG_20FT} alt="20 Fuß Container kaufen" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_20FT} alt="20 Fuß Container kaufen" className="h-full w-full object-cover" width={1920} height={700} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-2">20 Fuß Container</h3>
@@ -298,7 +304,7 @@ export default function ContainerKaufen() {
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-44 overflow-hidden bg-gradient-to-br from-blue-50 to-slate-50">
-                <img src={IMG_40FT} alt="40 Fuß Container kaufen" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_40FT} alt="40 Fuß Container kaufen" className="h-full w-full object-cover" width={1800} height={1100} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-2">40 Fuß Container</h3>

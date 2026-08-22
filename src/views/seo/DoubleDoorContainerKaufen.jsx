@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
   SeoPageLayout, SeoSection, InternalLinkGrid, FaqAccordion, CtaBanner
 } from "@/components/seo/SeoPageLayout";
+import MediaImage from "@/components/shared/MediaImage";
 
 const IMG_HERO = "/images/double-door-40hc-ral5013-open.jpg";
 const IMG_OPEN_GREY = "/images/double-door-40hc-ral7005-open.jpg";
@@ -31,7 +32,7 @@ function ImageCard({ src, alt, title, text, className = "" }) {
   return (
     <div className={`rounded-2xl border border-border bg-card overflow-hidden ${className}`}>
       <div className="h-64 overflow-hidden">
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
+        <MediaImage src={src} alt={alt} className="h-full w-full object-cover" width={1200} height={900} sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
       </div>
       {(title || text) && (
         <div className="p-5">

@@ -6,13 +6,15 @@ import { ArrowRight, ChevronRight, CheckCircle, Building2, Truck, ShieldCheck, W
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 import ProductListingSection from "@/components/shop/ProductListingSection";
+import MediaImage from "@/components/shared/MediaImage";
+import HeroFloatingMedia from "@/components/shared/HeroFloatingMedia";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
 
 /* â”€â”€ Image assets â”€â”€ */
-const IMG_HERO = "/images/buerocontainer-20ft-ral7016-hero.jpg";
-const IMG_PRODUCT = "/images/buerocontainer-20ft-ral7016-side.jpg";
+const IMG_HERO = "/images/buerocontainer-20ft-ral7016-hero.webp";
+const IMG_PRODUCT = "/images/buerocontainer-20ft-ral7016-side.webp";
 const IMG_INTERIOR = "/images/buerocontainer-interior-empty.jpg";
 const IMG_USED = "/images/buerocontainer-white-exterior.jpg";
 const IMG_MODULAR = "/images/buerocontainer-modulare-20ft-anlage.webp";
@@ -119,9 +121,10 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_HERO} alt="20 Fuß Bürocontainer RAL 7016 wird per Kran geliefert" className="w-full h-full object-cover" />
+          <MediaImage src={IMG_HERO} alt="20 Fuß Bürocontainer RAL 7016 wird per Kran geliefert" className="h-full w-full object-cover" width={1840} height={1227} sizes="100vw" quality={82} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(15,37,64,0.85) 100%)" }} />
         </div>
+        <HeroFloatingMedia src="/images/hero-elements/hero-buerocontainer.png" alt="Grauer Bürocontainer" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <nav className="flex items-center gap-1.5 text-xs text-white/50 mb-6 flex-wrap">
             <Link to="/" className="hover:text-white transition-colors">Startseite</Link>
@@ -182,7 +185,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_PRODUCT} alt="20 Fuß Bürocontainer RAL 7016 – Außenansicht" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_PRODUCT} alt="20 Fuß Bürocontainer RAL 7016 – Außenansicht" className="h-full w-full object-cover" width={1840} height={1227} sizes="(max-width: 1024px) 100vw, 50vw" quality={82} />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Neue Bürocontainer</h3>
@@ -191,7 +194,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_INTERIOR} alt="Bürocontainer Innenraum mit Fenster, Boden und Beleuchtung" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_INTERIOR} alt="Bürocontainer Innenraum mit Fenster, Boden und Beleuchtung" className="h-full w-full object-cover" width={1840} height={1227} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Voll ausgebauter Innenraum</h3>
@@ -270,7 +273,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_USED} alt="Gebrauchter weißer Bürocontainer im Freigelände" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_USED} alt="Gebrauchter weißer Bürocontainer im Freigelände" className="h-full w-full object-cover" width={1840} height={1227} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
@@ -302,7 +305,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
           </div>
           <div className="rounded-2xl border border-border bg-card overflow-hidden mb-6">
             <div className="h-72 bg-gradient-to-br from-slate-100 to-slate-50 flex items-center justify-center">
-              <img src={IMG_MODULAR} alt="Modulare 20 Fuß Containeranlage mit Fenster und Treppe" className="w-full h-full object-contain" />
+              <MediaImage src={IMG_MODULAR} alt="Modulare 20 Fuß Containeranlage mit Fenster und Treppe" className="h-full w-full object-contain" width={900} height={1600} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
             </div>
           </div>
           <div className="rounded-2xl border border-border bg-card p-5">
@@ -428,7 +431,7 @@ export default function BuerocontainerKaufen({ embedded = false, showProducts = 
               </div>
             </div>
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden min-h-64">
-              <img src={IMG_DELIVERY} alt="Bürocontainer Lieferung per Kran" className="w-full h-full object-cover" />
+              <MediaImage src={IMG_DELIVERY} alt="Bürocontainer Lieferung per Kran" className="h-full w-full object-cover" width={1000} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
             </div>
           </div>
         </section>

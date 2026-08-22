@@ -5,6 +5,7 @@ import {
   SeoPageLayout, SeoSection, InternalLinkGrid, FaqAccordion, CtaBanner
 } from "@/components/seo/SeoPageLayout";
 import ProductListingSection from "@/components/shop/ProductListingSection";
+import MediaImage from "@/components/shared/MediaImage";
 
 const IMG_SIDE_BLUE_1 = "/images/open-side-40hc-ral5010-side-door-1.jpg";
 const IMG_SIDE_BLUE_2 = "/images/open-side-40hc-ral5010-side-door-4.jpg";
@@ -34,7 +35,7 @@ function ImageCard({ src, alt, title, text, className = "" }) {
   return (
     <div className={`rounded-2xl border border-border bg-card overflow-hidden ${className}`}>
       <div className="h-64 overflow-hidden">
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
+        <MediaImage src={src} alt={alt} className="h-full w-full object-cover" width={1600} height={1200} sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
       </div>
       {(title || text) && (
         <div className="p-5">
@@ -170,6 +171,8 @@ export default function OpenSideContainerKaufen({ embedded = false, showProducts
       label="Produkt-Ratgeber"
       title="Container mit offener Seite kaufen"
       intro="Container mit offener Seite kaufen – Open Side Container für Lagerung, Baustelle, Gewerbe und sperrige Güter. 20 Fuß und 40 Fuß Modelle, neu oder gebraucht mit Lieferung."
+      heroMedia="/images/hero-elements/hero-open-side-container.png"
+      heroMediaAlt="Container mit vollständig geöffneter Seitenwand"
       embedded={embedded}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

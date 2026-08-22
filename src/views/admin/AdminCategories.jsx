@@ -4,6 +4,7 @@ import { base44 } from "@/api/base44Client";
 import { Plus, Pencil, Trash2, X, Check, GripVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import MediaImage from "@/components/shared/MediaImage";
 
 const EMPTY_FORM = { name: "", slug: "", description: "", image_url: "", icon: "", sort_order: 0, is_active: true };
 
@@ -94,7 +95,7 @@ function CategoryForm({ initial, onSave, onCancel }) {
       </div>
       {form.image_url && (
         <div className="flex items-center gap-3">
-          <img src={form.image_url} alt="Preview" className="w-20 h-14 object-cover rounded-lg border border-slate-600" />
+          <MediaImage src={form.image_url} alt="Preview" className="h-14 w-20 rounded-lg border border-slate-600 object-cover" width={160} height={112} sizes="80px" quality={75} />
           <span className="text-xs text-slate-500">Bildvorschau</span>
         </div>
       )}
@@ -193,7 +194,7 @@ export default function AdminCategories() {
                       <td className="px-5 py-3">
                         <div className="flex items-center gap-3">
                           {cat.image_url ? (
-                            <img src={cat.image_url} alt={cat.name} className="w-12 h-9 rounded-lg object-cover bg-slate-800 shrink-0" />
+                            <MediaImage src={cat.image_url} alt={cat.name} className="h-9 w-12 shrink-0 rounded-lg bg-slate-800 object-cover" width={96} height={72} sizes="48px" quality={75} />
                           ) : (
                             <div className="w-12 h-9 rounded-lg bg-slate-800 shrink-0 flex items-center justify-center">
                               <span className="text-slate-600 text-xs">–</span>

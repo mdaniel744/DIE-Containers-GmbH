@@ -16,7 +16,7 @@ const CONTAINER_TYPES = [
 
 const STEPS = [
   { n: 1, title: "Choose your container", desc: "Select the right size and type in our container shop or use the container advisor." },
-  { n: 2, title: "Request a free quote", desc: "Submit your enquiry online, by phone or email. We respond within 24 hours." },
+  { n: 2, title: "Request a free quote", desc: "Submit your enquiry online or by email. We respond as soon as possible." },
   { n: 3, title: "Confirm the order", desc: "After accepting the binding quote, the delivery date is scheduled." },
   { n: 4, title: "Delivery to your site", desc: "We deliver throughout Germany with our own crane vehicle within 72 hours of order confirmation." },
 ];
@@ -24,7 +24,7 @@ const STEPS = [
 const FAQS = [
   { q: "How do I buy a shipping container?", a: "Browse our container shop, select your container and request a free no-obligation quote. After accepting the quote, we schedule delivery." },
   { q: "Can I buy a used container?", a: "Yes. We offer a large selection of inspected used (cargo-worthy) containers. All used containers are checked for water and wind tightness before sale." },
-  { q: "How long does delivery take?", a: "Typically 3–7 working days after order confirmation. Express delivery within 48 hours is possible for stock in your area." },
+  { q: "How long does delivery take?", a: "Typically 3–9 working days after order acceptance. Delivery times may vary depending on the destination, container type and logistics." },
   { q: "Do you deliver throughout Germany?", a: "Yes. We deliver to all regions of Germany with our own crane vehicles. Transport costs depend on distance and start from approx. €250." },
   { q: "What sizes are available?", a: "We stock 10 ft, 20 ft and 40 ft containers in standard and High Cube variants, as well as refrigerated containers, office containers and special types." },
 ];

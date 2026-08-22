@@ -13,7 +13,7 @@ import {
   ShoppingCart, Minus, Plus, ArrowLeft, Truck, ShieldCheck,
   Ruler, Weight, Package, Layers, DoorOpen, Award,
   CheckCircle2, Box, Maximize2, Zap, Thermometer, Wind,
-  Lock, BarChart3, Clock, MapPin, PhoneCall, Star,
+  Lock, BarChart3, Clock, MapPin, Mail, Star,
   Wrench, Shield, ChevronRight
 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -433,7 +433,7 @@ export default function ProductDetail() {
                     { icon: Wrench, label: "Umbaubar & lackierbar" },
                     { icon: Thermometer, label: "Extrem witterungsbeständig" },
                     { icon: CheckCircle2, label: "Vor Auslieferung geprüft" },
-                    { icon: PhoneCall, label: "Kostenlose Beratung" },
+                    { icon: Mail, label: "Beratung per E-Mail" },
                   ].map(({ icon: Ic, label }, i) => (
                     <div key={i} className="flex flex-col items-center gap-2.5 p-5 bg-card border border-border rounded-xl text-center hover:border-blue-200 transition-colors">
                       <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: "rgba(30,95,174,0.12)" }}>
@@ -472,45 +472,73 @@ export default function ProductDetail() {
 
             {/* DELIVERY TAB */}
             <TabsContent value="delivery" className="mt-10">
-              <div className="max-w-3xl">
-                {/* Key delivery stats */}
-                <div className="grid grid-cols-3 gap-3 mb-8">
-                  {[
-                    { icon: Clock, label: "Lieferzeit", value: "3–7 Werktage", sub: "Express ab 72 h" },
-                    { icon: MapPin, label: "Liefergebiet", value: "Deutschland", sub: "Österreich auf Anfrage" },
-                    { icon: ShieldCheck, label: "Transport", value: "Vollversichert", sub: "Kranwagen-Lieferung" },
-                  ].map(({ icon: Ic, label, value, sub }, i) => (
-                    <div key={i} className="flex flex-col items-center gap-1.5 p-4 border border-border rounded-xl bg-card text-center">
-                      <Ic className="w-5 h-5 mb-1" style={{ color: "#278A2F" }} />
-                      <p className="text-[10px] text-muted-foreground uppercase tracking-wider">{label}</p>
-                      <p className="font-heading font-bold text-sm text-foreground">{value}</p>
-                      <p className="text-[10px] text-muted-foreground">{sub}</p>
-                    </div>
-                  ))}
+              <div className="max-w-4xl">
+                <div className="mb-8 max-w-3xl">
+                  <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[#278A2F]">
+                    Versand & Lieferung
+                  </p>
+                  <h2 className="mt-2 font-heading text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-3xl">
+                    Ihre Containerlieferung auf einen Blick
+                  </h2>
+                  <p className="mt-3 text-sm leading-7 text-muted-foreground sm:text-base">
+                    Wir liefern ausschließlich innerhalb Deutschlands. Lieferzeit, Transportweg und Kosten werden passend zu Container, Lieferadresse und Entladesituation geplant.
+                  </p>
                 </div>
 
-                {/* Steps – compact list */}
-                <div className="rounded-xl border border-border overflow-hidden mb-6">
+                {/* Key delivery facts */}
+                <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {[
-                    { n: "01", title: "Jetzt bestellen", desc: "Container auswählen, Anzahl festlegen und einfach online bestellen." },
-                    { n: "02", title: "Terminvereinbarung", desc: "Unser Team klärt Zufahrt, Untergrund und Wunschtermin mit Ihnen." },
-                    { n: "03", title: "Lieferung per Kranwagen", desc: "Direktlieferung an Ihren Aufstellort, fachmännisch abgesetzt." },
-                    { n: "04", title: "Abnahme vor Ort", desc: "Gemeinsame Prüfung bei Übergabe – kein Aufwand für Sie." },
-                  ].map(({ n, title, desc }, i, arr) => (
-                    <div key={i} className={`flex items-start gap-4 px-5 py-4 bg-card ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
-                      <span className="font-mono text-xs font-bold shrink-0 mt-0.5" style={{ color: "#278A2F" }}>{n}</span>
-                      <div>
-                        <p className="font-heading font-semibold text-sm text-foreground">{title}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{desc}</p>
+                    { icon: Clock, label: "Lieferzeit", value: "3–9 Werktage", sub: "nach Auftragsannahme" },
+                    { icon: MapPin, label: "Liefergebiet", value: "Deutschland", sub: "keine Inselzustellung" },
+                    { icon: Truck, label: "Transportkosten", value: "Individuell", sub: "im Angebot ausgewiesen" },
+                  ].map(({ icon: Ic, label, value, sub }, i) => (
+                    <div key={i} className="flex min-h-36 flex-col justify-between rounded-2xl border border-[#CDEBCD] bg-[#F4FBF4] p-5">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#278A2F] shadow-sm">
+                        <Ic className="h-5 w-5" />
+                      </div>
+                      <div className="mt-5">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{label}</p>
+                        <p className="mt-1 font-heading text-lg font-bold text-foreground">{value}</p>
+                        <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Ground note */}
-                <div className="flex gap-3 p-4 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-800">
-                  <Award className="w-4 h-4 shrink-0 mt-0.5 text-blue-500" />
-                  <p><strong>Untergrund:</strong> Ebener, fester Untergrund (Pflaster, Asphalt oder Schotter) erforderlich. Sondersituationen auf Anfrage.</p>
+                <div className="mb-6 overflow-hidden rounded-2xl border border-border bg-card">
+                  <div className="border-b border-border bg-muted/30 px-5 py-4 sm:px-6">
+                    <h3 className="font-heading text-base font-bold text-foreground sm:text-lg">So wird Ihre Lieferung geplant</h3>
+                  </div>
+                  {[
+                    { n: "01", title: "Lieferadresse prüfen", desc: "Wir prüfen Adresse, Zufahrt und die Anforderungen am vorgesehenen Lieferort." },
+                    { n: "02", title: "Transportlösung auswählen", desc: "Wir ermitteln eine geeignete und wirtschaftliche Route sowie die erforderliche Technik." },
+                    { n: "03", title: "Termin abstimmen", desc: "Der Liefertermin wird vor der Anfahrt verbindlich mit Ihnen koordiniert." },
+                    { n: "04", title: "Container anliefern", desc: "Der Container wird an die vereinbarte Lieferadresse bis zur Bordsteinkante transportiert." },
+                  ].map(({ n, title, desc }, i, arr) => (
+                    <div key={i} className={`flex items-start gap-4 px-5 py-4 sm:px-6 ${i < arr.length - 1 ? "border-b border-border" : ""}`}>
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#46C54B] font-mono text-[11px] font-bold text-white">{n}</span>
+                      <div>
+                        <p className="font-heading font-semibold text-sm text-foreground">{title}</p>
+                        <p className="mt-1 text-xs leading-5 text-muted-foreground sm:text-sm">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center rounded-2xl bg-[#176B20] p-5 text-white sm:p-6">
+                  <div>
+                    <h3 className="font-heading text-base font-bold sm:text-lg">Wichtig für die Anlieferung</h3>
+                    <p className="mt-2 max-w-2xl text-xs leading-6 text-white/80 sm:text-sm">
+                      Bitte geben Sie eine vollständige Lieferadresse an und informieren Sie uns frühzeitig über Zufahrtsbeschränkungen, Bodenverhältnisse oder andere Besonderheiten am Standort.
+                    </p>
+                  </div>
+                  <Link
+                    to="/versand"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-heading text-sm font-bold text-[#176B20] transition-transform hover:-translate-y-0.5"
+                  >
+                    Alle Lieferdetails
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
                 </div>
               </div>
             </TabsContent>

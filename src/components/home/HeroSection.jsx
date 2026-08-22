@@ -4,8 +4,38 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { motion } from "framer-motion";
-import { HERO_IMAGE } from "@/lib/productData";
 import { useSection } from "@/lib/i18n";
+import { getImageProps } from "next/image";
+
+const HERO_ALT = "Shipping containers available from DIE Container GmbH";
+
+function HeroPicture() {
+  const { props: desktop } = getImageProps({
+    src: "/images/neue-versand-container-kaufen-desktop.webp",
+    alt: HERO_ALT,
+    width: 1920,
+    height: 700,
+    sizes: "100vw",
+    quality: 82,
+    priority: true,
+  });
+  const { props: mobile } = getImageProps({
+    src: "/images/neue-versand-container-kaufen-mobile.webp",
+    alt: HERO_ALT,
+    width: 900,
+    height: 1200,
+    sizes: "100vw",
+    quality: 80,
+    priority: true,
+  });
+
+  return (
+    <picture>
+      <source media="(max-width: 767px)" srcSet={mobile.srcSet} sizes={mobile.sizes} />
+      <img {...desktop} className="h-full w-full object-cover" />
+    </picture>
+  );
+}
 
 export default function HeroSection() {
   const T = useSection("hero");
@@ -13,7 +43,7 @@ export default function HeroSection() {
   return (
     <section className="relative flex min-h-[92svh] items-center overflow-hidden bg-black">
       <div className="absolute inset-0">
-        <img src={HERO_IMAGE} alt="Shipping containers available from DIE Container GmbH" className="w-full h-full object-cover" />
+        <HeroPicture />
         <div className="absolute inset-0 bg-black/65 lg:hidden" />
         <div
           className="absolute inset-0 hidden lg:block"

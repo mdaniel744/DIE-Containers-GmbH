@@ -35,9 +35,9 @@ const strings = {
     hero: {
       badge: "Nr. 1 in Deutschland",
       title1: "Günstige neue und gebrauchte ",
-      titleColored: "Seecontainer",
-      title2: " zur schnellen Lieferung.",
-      subtitle: "Willkommen bei der DIE Container GmbH, wo der Kauf und Verkauf von schnell lieferbaren Seecontainern ganz einfach ist. Mit Sitz in Putzbrunn beliefern wir Sie deutschlandweit mit Seecontainern.",
+      titleColored: "Schiffscontainer",
+      title2: " zu verkaufen.",
+      subtitle: "Möchten Sie einen neuen oder gebrauchten Seecontainer kaufen? Dann sind Sie bei der DIE Container GmbH genau richtig. Wir verkaufen sehr gefragte Seecontainer, die von den meisten Unternehmen oder für den privaten Gebrauch benötigt werden.",
       ctaExplore: "Container entdecken",
       ctaQuote: "Angebot anfordern",
       stat1: "10, 20 & 40 Fuß",
@@ -54,7 +54,7 @@ const strings = {
         { title: "Lieferung nach Absprache", desc: "Transportweg, Entladung und Termin werden für den jeweiligen Standort abgestimmt." },
         { title: "Nachvollziehbares Angebot", desc: "Containerpreis, Umsatzsteuer und Transport werden im Angebot getrennt ausgewiesen." },
         { title: "Neu oder gebraucht", desc: "Verfügbare Container unterscheiden sich nach Größe, Zustand und Ausführung." },
-        { title: "Direkter Ansprechpartner", desc: "Fragen zu Auswahl und Ablauf beantworten wir persönlich per Telefon oder E-Mail." },
+        { title: "Direkter E-Mail-Kontakt", desc: "Fragen zu Auswahl und Ablauf beantworten wir persönlich per E-Mail." },
         { title: "Planung für den Standort", desc: "Zufahrt, Platzbedarf und gewünschte Entladung fließen in die Lieferplanung ein." },
       ],
     },
@@ -88,9 +88,8 @@ const strings = {
         { label: "Angebot erhalten", desc: "Erhalten Sie Ihr individuelles Angebot per E-Mail." },
         { label: "Lieferung vereinbaren", desc: "Vereinbaren Sie den Liefertermin nach Auftragsbestätigung." },
       ],
-      contactLabel: "Direktkontakt",
-      contactTitle: "Fragen? Wir sind persönlich für Sie da.",
-      phoneLabel: "Telefon",
+      contactLabel: "E-Mail-Kontakt",
+      contactTitle: "Fragen? Schreiben Sie uns per E-Mail.",
       emailLabel: "E-Mail",
       hoursLabel: "Erreichbar",
       hours: "Mo–Fr 8–18 Uhr",
@@ -156,7 +155,7 @@ const strings = {
         { q: "Was kostet ein Seecontainer?", a: "Die Preise variieren je nach Größe, Zustand und Typ. Ein gebrauchter 20 Fuß Standardcontainer ist ab ca. 1.990 € erhältlich, neue Container starten bei ca. 2.490 €. Hinzu kommen individuelle Transportkosten, die von der Lieferentfernung abhängen. Fordern Sie ein unverbindliches Angebot an für Ihren genauen Preis inklusive Lieferung." },
         { q: "Wie erfolgt die Lieferung?", a: "Wir liefern Ihren Container deutschlandweit per Kranwagen direkt an Ihren Wunschort. Alternativ können Sie den Container bei einem unserer Standorte abholen. Die Lieferung wird individuell geplant und berücksichtigt Zufahrtswege, Abstellfläche und Entlademöglichkeiten." },
         { q: "Kann ich einen gebrauchten Container kaufen?", a: "Ja! Wir bieten eine große Auswahl an geprüften gebrauchten Containern. Alle Gebrauchtcontainer werden vor dem Verkauf auf Wasser- und Winddichtheit überprüft und befinden sich in einem guten, funktionalen Zustand. Generalüberholte Container werden zusätzlich aufbereitet und neu lackiert." },
-        { q: "Wie lange dauert die Lieferung?", a: "Die Lieferzeit hängt von Verfügbarkeit und Standort ab. In der Regel beträgt die Lieferzeit 3-7 Werktage nach Auftragsbestätigung. Bei Lagerbeständen in Ihrer Nähe sind auch Express-Lieferungen innerhalb von 48 Stunden möglich." },
+        { q: "Wie lange dauert die Lieferung?", a: "Die Lieferzeit hängt von Verfügbarkeit, Lieferort, Containertyp und Logistik ab. In der Regel beträgt sie 3–9 Werktage nach Auftragsannahme." },
       ],
     },
 
@@ -345,10 +344,9 @@ const strings = {
     // ─── CONTACT PAGE ────────────────────────────────────────────────────────
     contact: {
       label: "Kontakt",
-      title: "Sprechen Sie mit uns",
-      subtitle: "Haben Sie Fragen oder benötigen eine Beratung? Unser Team steht Ihnen gerne zur Verfügung.",
+      title: "Schreiben Sie uns",
+      subtitle: "Haben Sie Fragen oder benötigen eine Beratung? Unser Team ist per E-Mail und Kontaktformular für Sie erreichbar.",
       infoItems: [
-        { label: "Telefon", value: "+49 (0) 89 277 808 979", href: "tel:+4989277808979" },
         { label: "E-Mail", value: "contact@diecontainers.com", href: "mailto:contact@diecontainers.com" },
         { label: "Adresse", value: "Hermann-Oberth-Str. 23, 85640 Putzbrunn, Deutschland" },
         { label: "Öffnungszeiten", value: "Büro: Mo–Fr 8:00–17:30 | Lager: Mo–Fr 7:30–16:30" },
@@ -386,14 +384,14 @@ const strings = {
           title: "Lieferung",
           items: [
             { q: "Wie erfolgt die Lieferung?", a: "Wir liefern per Kranwagen direkt an Ihren Wunschort. Die Lieferung wird individuell geplant und berücksichtigt Zufahrtswege und Abstellfläche." },
-            { q: "Wie lange dauert die Lieferung?", a: "In der Regel 3-7 Werktage nach Auftragsbestätigung. Express-Lieferungen innerhalb von 48 Stunden sind möglich." },
+            { q: "Wie lange dauert die Lieferung?", a: "In der Regel 3–9 Werktage nach Auftragsannahme. Je nach Lieferort, Containertyp und Logistik kann die Lieferzeit variieren." },
             { q: "Was kostet die Lieferung?", a: "Die Transportkosten richten sich nach Entfernung und Container-Größe. Sie erhalten die genauen Kosten in Ihrem individuellen Angebot." },
           ],
         },
         {
           title: "Bestellung",
           items: [
-            { q: "Wie bestelle ich einen Container?", a: "Wählen Sie Ihren gewünschten Container aus, fordern Sie ein unverbindliches Angebot an und bestätigen Sie das Angebot per E-Mail oder Telefon." },
+            { q: "Wie bestelle ich einen Container?", a: "Wählen Sie Ihren gewünschten Container aus, fordern Sie ein unverbindliches Angebot an und bestätigen Sie das Angebot per E-Mail." },
             { q: "Kann ich online bezahlen?", a: "Nein, eine Online-Zahlung ist nicht möglich. Nach Auftragsbestätigung erhalten Sie eine Rechnung mit unseren Bankdaten." },
             { q: "Ist die Angebotsanfrage verbindlich?", a: "Nein, alle Anfragen über unsere Website sind unverbindlich und kostenlos." },
           ],
@@ -447,7 +445,6 @@ const strings = {
       locationBody: "DIE Container GmbH ist in Putzbrunn ansässig und liefert Container in alle 16 Bundesländer – von Schleswig-Holstein bis Bayern, von Nordrhein-Westfalen bis Sachsen. Wir beliefern Kunden aus Lagerung, Bauwesen, Handel, Industrie, modularen Raumlösungen und Export.",
       locationDetails: [
         { label: "Standort", value: "Putzbrunn, Deutschland" },
-        { label: "Telefon", value: "+49 (0) 89 277 808 979", href: "tel:+4989277808979" },
         { label: "E-Mail", value: "contact@diecontainers.com", href: "mailto:contact@diecontainers.com" },
       ],
     },
@@ -463,7 +460,7 @@ const strings = {
       seoPara2: (title, floor) => `Der ${title} von DIE Container GmbH ist aus hochwertigem Corten-Stahl (wetterfester Baustahl nach EN 10025-5) gefertigt. Die natürliche Oxidationsschutzschicht des Corten-Stahls macht aufwendige Oberflächenbehandlungen überflüssig und sorgt für eine außergewöhnlich lange Lebensdauer – auch unter extremen Witterungsbedingungen. Alle Schweißnähte sind nach ISO 3834 wasserdicht ausgeführt; der ${floor} garantiert maximale Belastbarkeit und Widerstandsfähigkeit gegen mechanischen Abrieb.`,
       seoPara3: (size, type) => `Einsatzbereiche: Der ${size} ${type}-Container eignet sich hervorragend als Lager-, Werkzeug- und Materialcontainer auf Baustellen, als Außenlager für Industrie und Handel, als sicherer Archiv- und Aktenschrank oder als Basis für individuelle Containerumbauten (Wohncontainer, Pop-up-Stores, Sanitärcontainer). Dank seiner standardisierten ISO-Außenmaße ist er stapelbar und problemlos mit Kran, Reach-Stacker oder Gabelstapler handhabbar.`,
       seoPara4: (cscCertified) => `Qualitätssicherung & Zertifizierung: Vor der Auslieferung durchläuft jeder Container eine mehrstufige Qualitätsprüfung durch unser zertifiziertes Serviceteam: Sichtprüfung aller Strukturbauteile, Wassereinbringtest auf Dichheit, Messung der Bodentraglast sowie Funktionsprüfung aller Türverriegelungen. ${cscCertified ? "Das beigelegte CSC-Zertifikat (Convention for Safe Containers) bestätigt die Verwendbarkeit im internationalen Seefrachtverkehr." : ""} Auf Wunsch kann ein TÜV-Gutachten als Zusatzleistung beauftragt werden.`,
-      seoPara5: "Lieferung & Service: DIE Container GmbH liefert deutschlandweit mit eigenem Kranfahrzeug innerhalb von 72 Stunden direkt an Ihren Wunschort – inklusive fachmännischer Abladeberatung. Unser Team berät Sie kostenlos zu Untergrundbeschaffenheit, Aufstellgenehmigungen und individuellen Umbauwünschen. Fordern Sie jetzt Ihr unverbindliches Angebot an.",
+      seoPara5: "Lieferung & Service: DIE Container GmbH plant Lieferungen innerhalb Deutschlands individuell nach Container, Lieferort, Zufahrt und Entladesituation. Unser Team berät Sie per E-Mail zu Untergrundbeschaffenheit, Aufstellgenehmigungen und individuellen Umbauwünschen. Fordern Sie jetzt Ihr unverbindliches Angebot an.",
       metaFallback: (title, price) => `${title} kaufen – wind- und wasserdichter ISO-Stahlcontainer von DIE Container GmbH. Ab ${price} €, deutschlandweite Lieferung.`,
     },
 
@@ -478,10 +475,10 @@ const strings = {
     // ─── CONTACT BANNER (shared component) ──────────────────────────────────
     contactBanner: {
       label: "Haben Sie Fragen?",
-      title: "Wir beraten Sie persönlich & kostenlos",
-      description: "Unser Team hilft Ihnen, den richtigen Container für Ihre Anforderungen zu finden.",
-      ctaPhone: "+49 (0) 89 277 808 979",
-      ctaContact: "Kontakt aufnehmen",
+      title: "Kontaktieren Sie uns per E-Mail",
+      description: "Unser Team beantwortet Ihre Fragen und hilft Ihnen bei der Auswahl des passenden Containers.",
+      ctaEmail: "E-Mail senden",
+      ctaContact: "Kontaktformular",
     },
 
     // ─── FOOTER LINK ARRAYS ──────────────────────────────────────────────────
@@ -693,7 +690,7 @@ const strings = {
         { title: "Delivery by arrangement", desc: "The route, unloading method and date are coordinated for the delivery location." },
         { title: "Itemised quotation", desc: "Container price, VAT and transport are shown separately in the quotation." },
         { title: "New or used", desc: "Available containers differ by size, condition and configuration." },
-        { title: "Direct contact", desc: "We answer questions about selection and the process by phone or email." },
+        { title: "Direct email contact", desc: "We answer questions about selection and the process personally by email." },
         { title: "Site-specific planning", desc: "Access, required space and unloading method are considered during delivery planning." },
       ],
     },
@@ -725,9 +722,8 @@ const strings = {
         { label: "Receive your quote", desc: "Get your personalised quote by email." },
         { label: "Arrange delivery", desc: "Schedule your delivery date after order confirmation." },
       ],
-      contactLabel: "Direct contact",
-      contactTitle: "Questions? We are personally here for you.",
-      phoneLabel: "Phone",
+      contactLabel: "Email contact",
+      contactTitle: "Questions? Send us an email.",
       emailLabel: "Email",
       hoursLabel: "Available",
       hours: "Mon–Fri 8am–6pm",
@@ -767,7 +763,7 @@ const strings = {
         { q: "How much does a shipping container cost?", a: "Prices vary depending on size, condition and type. A used 20ft standard container is available from approx. €1,990, new containers start at approx. €2,490. Individual transport costs are added depending on the delivery distance. Request a non-binding quote for your exact price including delivery." },
         { q: "How is delivery handled?", a: "We deliver your container throughout Germany by crane truck directly to your desired location. Alternatively, you can collect the container from one of our depots. Delivery is planned individually and takes into account access routes, parking areas and unloading options." },
         { q: "Can I buy a used container?", a: "Yes! We offer a wide selection of inspected used containers. All used containers are checked for water and wind tightness before sale and are in good, functional condition. Refurbished containers are additionally reconditioned and repainted." },
-        { q: "How long does delivery take?", a: "Delivery time depends on availability and location. Typically 3–7 working days after order confirmation. Express deliveries within 48 hours are possible for stock near you." },
+        { q: "How long does delivery take?", a: "Delivery time depends on availability, destination, container type and logistics. It is typically 3–9 working days after order acceptance." },
       ],
     },
 
@@ -951,10 +947,9 @@ const strings = {
 
     contact: {
       label: "Contact",
-      title: "Talk to us",
-      subtitle: "Do you have questions or need advice? Our team is happy to help.",
+      title: "Email us",
+      subtitle: "Do you have questions or need advice? Our team is available by email and through the contact form.",
       infoItems: [
-        { label: "Phone", value: "+49 (0) 89 277 808 979", href: "tel:+4989277808979" },
         { label: "Email", value: "contact@diecontainers.com", href: "mailto:contact@diecontainers.com" },
         { label: "Address", value: "Hermann-Oberth-Str. 23, 85640 Putzbrunn, Germany" },
         { label: "Opening hours", value: "Office: Mon–Fri 8:00–17:30 | Warehouse: Mon–Fri 7:30–16:30" },
@@ -991,14 +986,14 @@ const strings = {
           title: "Delivery",
           items: [
             { q: "How is delivery handled?", a: "We deliver by crane truck directly to your desired location. Delivery is planned individually and takes into account access routes and parking areas." },
-            { q: "How long does delivery take?", a: "Typically 3–7 working days after order confirmation. Express deliveries within 48 hours are possible." },
+            { q: "How long does delivery take?", a: "Typically 3–9 working days after order acceptance. Delivery times may vary depending on the destination, container type and logistics." },
             { q: "What does delivery cost?", a: "Transport costs depend on distance and container size. You will receive the exact costs in your personalised quote." },
           ],
         },
         {
           title: "Ordering",
           items: [
-            { q: "How do I order a container?", a: "Select your desired container, request a non-binding quote and confirm the quote by email or phone." },
+            { q: "How do I order a container?", a: "Select your desired container, request a non-binding quote and confirm the quote by email." },
             { q: "Can I pay online?", a: "No, online payment is not available. After order confirmation you will receive an invoice with our bank details." },
             { q: "Is the quote request binding?", a: "No, all enquiries through our website are non-binding and free of charge." },
           ],
@@ -1047,7 +1042,7 @@ const strings = {
       seoPara2: (title, floor) => `The ${title} from DIE Container GmbH is manufactured from high-quality Corten steel (weather-resistant structural steel to EN 10025-5). The natural oxidation protection layer eliminates complex surface treatments and ensures an exceptionally long service life. All welds are waterproof to ISO 3834; the ${floor || "floor"} guarantees maximum load capacity and resistance to mechanical abrasion.`,
       seoPara3: (size, type) => `Applications: The ${size} ${type} container is ideal as a storage, tool and material container on construction sites, as external storage for industry and trade, as a secure archive, or as the basis for individual container conversions. Thanks to its standardised ISO external dimensions it is stackable and easily handled by crane, reach stacker or forklift.`,
       seoPara4: (cscCertified) => `Quality assurance: Before delivery, every container undergoes a multi-stage quality inspection: visual inspection of all structural components, water ingress test, floor load capacity measurement and functional check of all door locks. ${cscCertified ? "The enclosed CSC certificate confirms suitability for international sea freight." : ""} A TÜV inspection report is available as an optional extra.`,
-      seoPara5: "Delivery & service: DIE Container GmbH delivers throughout Germany with its own crane vehicle within 72 hours directly to your desired location – including professional unloading advice. Our team provides free advice on ground conditions, permits and conversion wishes. Request your non-binding quote now.",
+      seoPara5: "Delivery & service: DIE Container GmbH plans deliveries within Germany individually according to the container, delivery location, access and unloading situation. Our team advises you by email on ground conditions, permits and conversion wishes. Request your non-binding quote now.",
       metaFallback: (title, price) => `${title} – waterproof and windproof ISO steel container from DIE Container GmbH. From €${price}, nationwide delivery.`,
     },
 
@@ -1060,10 +1055,10 @@ const strings = {
 
     contactBanner: {
       label: "Have a question?",
-      title: "We advise you personally & free of charge",
-      description: "Our team helps you find the right container for your requirements.",
-      ctaPhone: "+49 (0) 89 277 808 979",
-      ctaContact: "Get in touch",
+      title: "Contact us by email",
+      description: "Our team answers your questions and helps you find the right container for your requirements.",
+      ctaEmail: "Send email",
+      ctaContact: "Contact form",
     },
 
     // ─── FOOTER LINK ARRAYS ──────────────────────────────────────────────────

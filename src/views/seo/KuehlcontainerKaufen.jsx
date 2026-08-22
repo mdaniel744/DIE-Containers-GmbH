@@ -6,6 +6,8 @@ import { ArrowRight, ChevronRight, CheckCircle, Zap, ShieldCheck, Star } from "l
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 import ProductListingSection from "@/components/shop/ProductListingSection";
+import MediaImage from "@/components/shared/MediaImage";
+import HeroFloatingMedia from "@/components/shared/HeroFloatingMedia";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
@@ -134,9 +136,10 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_HERO} alt="Weißer Kühlcontainer mit Kühlaggregat im Depot" className="w-full h-full object-cover" />
+          <MediaImage src={IMG_HERO} alt="Weißer Kühlcontainer mit Kühlaggregat im Depot" className="h-full w-full object-cover" width={1200} height={900} sizes="100vw" quality={82} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.90) 0%, rgba(15,37,64,0.82) 100%)" }} />
         </div>
+        <HeroFloatingMedia src="/images/hero-elements/hero-kuehlcontainer.png" alt="Weiße Kühlcontainer mit Kühlaggregaten" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <nav className="flex items-center gap-1.5 text-xs text-white/50 mb-6 flex-wrap">
             <Link to="/" className="hover:text-white transition-colors">Startseite</Link>
@@ -286,7 +289,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
             </div>
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_SPLIT} alt="Kühlaggregat Split-System für Kühlcontainer" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_SPLIT} alt="Kühlaggregat Split-System für Kühlcontainer" className="h-full w-full object-cover" width={1200} height={900} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
           </div>
@@ -329,7 +332,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_GEBRAUCHT} alt="Gebrauchte Kühlcontainer im Depot" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_GEBRAUCHT} alt="Gebrauchte Kühlcontainer im Depot" className="h-full w-full object-cover" width={1200} height={900} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
@@ -378,7 +381,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
             </div>
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_COMPRESSOR} alt="Thermo King Kühlaggregat Kompressor" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_COMPRESSOR} alt="Thermo King Kühlaggregat Kompressor" className="h-full w-full object-cover" width={1200} height={900} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
           </div>
@@ -460,7 +463,7 @@ export default function KuehlcontainerKaufen({ embedded = false, showProducts = 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_40FT} alt="Kühlcontainer mit Thermo-King-Kühlaggregat" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_40FT} alt="Kühlcontainer mit Thermo-King-Kühlaggregat" className="h-full w-full object-cover" width={1200} height={900} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">

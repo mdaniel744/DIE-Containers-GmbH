@@ -6,16 +6,17 @@ import { ArrowRight, ChevronRight, CheckCircle, Wrench } from "lucide-react";
 import { InternalLinkGrid, FaqAccordion, CtaBanner } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 import ProductListingSection from "@/components/shop/ProductListingSection";
+import MediaImage from "@/components/shared/MediaImage";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
 
 /* â”€â”€ Images â”€â”€ */
-const IMG_HERO = "/images/seecontainer-kaufen-hero.png";
+const IMG_HERO = "/images/seecontainer-kaufen-hero.webp";
 const IMG_NEW_20FT = "/images/seecontainer-20ft-grau.jpg";
 const IMG_USED = "/images/seecontainer-gebraucht-40ft-stapel.jpg";
 const IMG_20FT = "/images/seecontainer-20ft-blau.jpg";
-const IMG_40FT = "/images/seecontainer-40ft-crane.jpg";
+const IMG_40FT = "/images/seecontainer-40ft-crane.webp";
 const IMG_OPEN_SIDE = "/images/seecontainer-40ft-open-side.svg";
 
 /* â”€â”€ Advantages â”€â”€ */
@@ -98,7 +99,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_HERO} alt="Seecontainer kaufen – Containerverladung per Reach Stacker" className="w-full h-full object-cover" />
+          <MediaImage src={IMG_HERO} alt="Seecontainer kaufen – Containerverladung per Reach Stacker" className="h-full w-full object-cover" width={1600} height={1200} sizes="100vw" quality={82} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(15,37,64,0.87) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
@@ -173,7 +174,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
             </div>
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 bg-muted/30 flex items-center justify-center">
-                <img src={IMG_OPEN_SIDE} alt="40 Fuß High Cube Open Side Seecontainer" className="w-full h-full object-contain p-5" />
+                <MediaImage src={IMG_OPEN_SIDE} alt="40 Fuß High Cube Open Side Seecontainer" className="h-full w-full object-contain p-5" width={800} height={600} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="p-4">
                 <p className="font-heading font-bold text-sm text-foreground mb-1">Auch als Open-Side-Variante</p>
@@ -197,7 +198,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src={IMG_NEW_20FT} alt="Neuer grauer 20 Fuß Seecontainer" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_NEW_20FT} alt="Neuer grauer 20 Fuß Seecontainer" className="h-full w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Neue Seecontainer (One Trip)</h3>
@@ -213,7 +214,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src={IMG_USED} alt="Gebrauchte gestapelte 40 Fuß Seecontainer" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_USED} alt="Gebrauchte gestapelte 40 Fuß Seecontainer" className="h-full w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${BRAND_BLUE}15, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Gebrauchte Seecontainer (Cargo-Worthy)</h3>
@@ -252,7 +253,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
             </div>
             <div className="lg:col-span-2">
               <div className="rounded-2xl overflow-hidden border border-border">
-                <img src={IMG_20FT} alt="20 Fuß Seecontainer kaufen" className="w-full h-56 object-cover" />
+                <MediaImage src={IMG_20FT} alt="20 Fuß Seecontainer kaufen" className="h-56 w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
                 <div className="p-4 bg-card">
                   <p className="font-heading font-bold text-sm text-foreground mb-1">20 Fuß Seecontainer</p>
                   <p className="text-xs text-muted-foreground">ca. 6,06 × 2,44 × 2,59 m | ~33 m³ Volumen</p>
@@ -282,7 +283,7 @@ export default function SeecontainerKaufen({ embedded = false, showProducts = tr
             </div>
             <div className="lg:col-span-2">
               <div className="rounded-2xl overflow-hidden border border-border">
-                <img src={IMG_40FT} alt="40 Fuß Seecontainer kaufen – High Cube" className="w-full h-56 object-cover" />
+                <MediaImage src={IMG_40FT} alt="40 Fuß Seecontainer kaufen – High Cube" className="h-56 w-full object-cover" width={1200} height={1600} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
                 <div className="p-4 bg-card">
                   <p className="font-heading font-bold text-sm text-foreground mb-1">40 Fuß Seecontainer</p>
                   <p className="text-xs text-muted-foreground">ca. 12,19 × 2,44 × 2,59 m | ~67 m³ Volumen</p>

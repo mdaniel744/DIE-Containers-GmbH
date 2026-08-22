@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
+import MediaImage from "@/components/shared/MediaImage";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
@@ -40,7 +41,7 @@ const STEPS = [
   desc: "Teilen Sie uns mit, welchen Container Sie benötigen und wohin er geliefert werden soll. Je genauer die Angaben zur Zufahrt sind, desto zuverlässiger lässt sich die Anlieferung planen.",
   points: ["Containerart, Größe und Stückzahl", "Postleitzahl und gewünschter Aufstellort", "Fotos von Zufahrt und Rangierfläche, falls verfügbar"],
   icon: ClipboardList,
-  image: "/images/delivery-steps/request-quote.png",
+  image: "/images/delivery-steps/request-quote.webp",
   imageAlt: "Beratung und Anfrage für ein Containerangebot",
   imageScale: 1.14
 },
@@ -50,7 +51,7 @@ const STEPS = [
   desc: "Wir prüfen Verfügbarkeit, Transportweg und passende Entlademethode. Anschließend erhalten Sie ein nachvollziehbares Angebot für Container und Transport.",
   points: ["Prüfung von Depot und Verfügbarkeit", "Auswahl des geeigneten Transportfahrzeugs", "Abstimmung des voraussichtlichen Lieferzeitraums"],
   icon: FileCheck2,
-  image: "/images/delivery-steps/approve-quote.png",
+  image: "/images/delivery-steps/approve-quote.webp",
   imageAlt: "Angebot genehmigen und Containerbestellung bestätigen",
   imageScale: 1.02
 },
@@ -60,7 +61,7 @@ const STEPS = [
   desc: "Vor dem Liefertag müssen Zufahrt, Rangierfläche und Untergrund frei und belastbar sein. Hindernisse sollten vorab gemeldet werden.",
   points: ["Zufahrt mindestens 3,5 m breit und 4,5 m hoch", "Ebener, tragfähiger Untergrund am Aufstellort", "Ausreichend gerade Fläche zum Rangieren und Absetzen"],
   icon: Construction,
-  image: "/images/delivery-steps/prepare-delivery-site.png",
+  image: "/images/delivery-steps/prepare-delivery-site.webp",
   imageAlt: "Lieferort und Aufstellfläche für den Container vorbereiten",
   imageScale: 1.05
 },
@@ -70,7 +71,7 @@ const STEPS = [
   desc: "Der Fahrer liefert den Container zum vereinbarten Termin. Je nach Container, Strecke und örtlicher Situation kommt das zuvor abgestimmte Fahrzeug zum Einsatz.",
   points: ["Ansprechpartner ist zum Termin erreichbar", "Zufahrt und Entladebereich bleiben vollständig frei", "Sicherheitsabstand während Rangieren und Entladen einhalten"],
   icon: Truck,
-  image: "/images/delivery-steps/container-delivery-truck.png",
+  image: "/images/delivery-steps/container-delivery-truck.webp",
   imageAlt: "Containerlieferung per LKW von DIE Container GmbH",
   imageScale: 1.62
 },
@@ -80,7 +81,7 @@ const STEPS = [
   desc: "Nach dem Absetzen prüfen Sie gemeinsam mit dem Fahrer die Position und den sichtbaren Zustand. Auffälligkeiten werden direkt dokumentiert.",
   points: ["Aufstellposition und Türausrichtung kontrollieren", "Äußeren Zustand gemeinsam prüfen", "Übergabe bestätigen und Container übernehmen"],
   icon: PackageCheck,
-  image: "/images/delivery-steps/container-handover.png",
+  image: "/images/delivery-steps/container-handover.webp",
   imageAlt: "Übernahme und Übergabe des gelieferten Containers",
   imageScale: 1.08
 }];
@@ -386,12 +387,15 @@ export default function ContainerLieferung() {
               className="mt-3 grid overflow-hidden rounded-[1.6rem] border border-[#46C54B]/20 bg-white shadow-sm lg:grid-cols-[1.08fr_0.92fr]"
             >
               <div className="relative min-h-72 bg-[#EAF4EB] p-3 sm:min-h-80 sm:p-4 lg:min-h-[27rem] lg:p-5">
-                <img
+                <MediaImage
                   src={selectedStep.image}
                   alt={selectedStep.imageAlt}
                   className="absolute inset-0 h-full w-full object-contain p-4 sm:p-5"
+                  width={512}
+                  height={560}
+                  sizes="(max-width: 1024px) 100vw, 54vw"
+                  quality={80}
                   style={{ transform: `scale(${selectedStep.imageScale})` }}
-                  loading="lazy"
                 />
               </div>
 
@@ -454,7 +458,15 @@ export default function ContainerLieferung() {
               className="grid overflow-hidden rounded-[2rem] border border-border bg-card shadow-sm transition-shadow hover:shadow-lg lg:grid-cols-[1.08fr_0.92fr]">
               
                 <div className={`relative min-h-72 overflow-hidden bg-slate-100 sm:min-h-80 lg:min-h-[26rem] ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <img src={truck.img} alt={truck.alt} className="absolute inset-0 h-full w-full object-contain p-3 sm:p-4" loading="lazy" />
+                  <MediaImage
+                    src={truck.img}
+                    alt={truck.alt}
+                    className="absolute inset-0 h-full w-full object-contain p-3 sm:p-4"
+                    width={1200}
+                    height={800}
+                    sizes="(max-width: 1024px) 100vw, 54vw"
+                    quality={82}
+                  />
                 </div>
                 <div className={`flex flex-col justify-center p-6 sm:p-8 lg:p-10 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                   <span className="mb-4 self-start rounded-full px-3 py-1.5 font-heading text-xs font-bold text-white"

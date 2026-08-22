@@ -8,6 +8,7 @@ import { useFeaturedCategories } from "@/hooks/useCategories";
 import { useSection } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { resolveCatalogCategoryHref } from "@/lib/catalogLinks";
+import MediaImage from "@/components/shared/MediaImage";
 
 const CATEGORY_PAGE_PATHS = {
   shipping: "/seecontainer-kaufen",
@@ -86,11 +87,12 @@ export default function ContainerTypes() {
                 className="group block h-full overflow-hidden rounded-[2rem] border border-white bg-white/90 p-2 shadow-[0_24px_60px_rgba(18,62,25,0.12)] transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:shadow-[0_30px_70px_rgba(18,62,25,0.18)]"
               >
                 <div className="aspect-[4/3] overflow-hidden rounded-[1.55rem] bg-white/95">
-                  <img
+                  <MediaImage
                     src={item.image}
                     alt={item.label}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={80}
                   />
                 </div>
                 <div className="flex items-end justify-between gap-4 p-5 pb-6 sm:p-6 sm:pb-7">

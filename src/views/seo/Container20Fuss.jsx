@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CheckCircle, Package, Wrench } from "lucide-react";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
+import MediaImage from "@/components/shared/MediaImage";
+import HeroFloatingMedia from "@/components/shared/HeroFloatingMedia";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
@@ -113,9 +115,10 @@ export default function Container20Fuss() {
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_20FT_HERO} alt="Gebrauchter 20 Fuß Seecontainer kaufen" className="w-full h-full object-cover" />
+          <MediaImage src={IMG_20FT_HERO} alt="Gebrauchter 20 Fuß Seecontainer kaufen" className="h-full w-full object-cover" width={1600} height={1200} sizes="100vw" quality={82} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(15,37,64,0.87) 100%)" }} />
         </div>
+        <HeroFloatingMedia src="/images/hero-elements/hero-20ft-container.png" alt="Blauer 20 Fuß Seecontainer" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <nav className="flex items-center gap-1.5 text-xs text-white/50 mb-6 flex-wrap">
             <Link to="/" className="hover:text-white transition-colors">Startseite</Link>
@@ -184,7 +187,7 @@ export default function Container20Fuss() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src={IMG_20FT_HC} alt="Neuer 20 Fuß High Cube Container" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_20FT_HC} alt="Neuer 20 Fuß High Cube Container" className="h-full w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Neue 20 Fuß Container (One Trip)</h3>
@@ -200,7 +203,7 @@ export default function Container20Fuss() {
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-48 overflow-hidden">
-                <img src={IMG_20FT_STANDARD} alt="Gebrauchter 20 Fuß Container kaufen" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_20FT_STANDARD} alt="Gebrauchter 20 Fuß Container kaufen" className="h-full w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="px-5 py-3 border-b border-border" style={{ background: `linear-gradient(90deg, ${BRAND_BLUE}15, transparent)` }}>
                 <h3 className="font-heading font-bold text-sm text-foreground">Gebrauchte 20 Fuß Container (Cargo-Worthy)</h3>
@@ -236,7 +239,7 @@ export default function Container20Fuss() {
             </div>
             <div className="lg:col-span-2">
               <div className="rounded-2xl overflow-hidden border border-border">
-                <img src={IMG_20FT_OPEN_SIDE_CLOSED} alt="20 Fuß High Cube Open Side Container geschlossen" className="w-full h-56 object-cover" />
+                <MediaImage src={IMG_20FT_OPEN_SIDE_CLOSED} alt="20 Fuß High Cube Open Side Container geschlossen" className="h-56 w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
                 <div className="p-4 bg-card">
                   <p className="font-heading font-bold text-sm text-foreground mb-1">20 Fuß Open Side Container</p>
                   <p className="text-xs text-muted-foreground">Seitliche Türen für komfortables Beladen sperriger Waren.</p>
@@ -267,7 +270,7 @@ export default function Container20Fuss() {
               Die genauen Maße können je nach Hersteller und Bauart leicht variieren. Ein klassischer 20 Fuß Container hat jedoch standardisierte Richtwerte, die für die Planung sehr hilfreich sind.
             </p>
             <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-border">
-              <img src={IMG_20FT_OPEN_SIDE_OPEN} alt="20 Fuß High Cube Open Side Container geöffnet" className="w-full h-56 object-cover" />
+              <MediaImage src={IMG_20FT_OPEN_SIDE_OPEN} alt="20 Fuß High Cube Open Side Container geöffnet" className="h-56 w-full object-cover" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
             </div>
           </div>
           <div className="overflow-x-auto rounded-2xl border border-border mb-6">
@@ -310,7 +313,7 @@ export default function Container20Fuss() {
             </div>
             <div className="lg:col-span-2">
               <div className="rounded-2xl overflow-hidden border border-border">
-                <img src={IMG_20FT_BUERO} alt="20 Fuß Bürocontainer RAL 7016" className="w-full h-56 object-cover" />
+                <MediaImage src={IMG_20FT_BUERO} alt="20 Fuß Bürocontainer RAL 7016" className="h-56 w-full object-cover" width={1200} height={800} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
                 <div className="p-4 bg-card">
                   <p className="font-heading font-bold text-sm text-foreground mb-1">20 Fuß Bürocontainer</p>
                   <p className="text-xs text-muted-foreground">Auch als Bürocontainer oder Wohncontainer in 20 Fuß verfügbar.</p>

@@ -18,7 +18,7 @@ const faqs = [
   { q: "Was kostet ein 10 Fuß Container?", a: "Der aktuelle Preis hängt von Zustand, Ausführung und Verfügbarkeit ab. Die Produktpreise im Shop sind maßgeblich; Transportkosten werden separat kalkuliert." },
   { q: "Wofür eignet sich ein 10 Fuß Container?", a: "Als Gartencontainer, Baustellenlager, Werkzeugcontainer, Archivcontainer oder als Basismodul für individuelle Containergebäude." },
   { q: "Kann ein 10 Fuß Container gestapelt werden?", a: "Ja, dank ISO-genormter Eckbeschläge können 10 Fuß Container mit kompatiblen Containern gestapelt werden." },
-  { q: "Wie wird ein 10 Fuß Container geliefert?", a: "Per Kranwagen deutschlandweit innerhalb von 3–7 Werktagen. Express-Lieferung innerhalb von 72 Stunden auf Anfrage möglich." },
+  { q: "Wie wird ein 10 Fuß Container geliefert?", a: "Die Lieferung erfolgt deutschlandweit und in der Regel innerhalb von 3–9 Werktagen nach Auftragsannahme. Der genaue Ablauf wird individuell abgestimmt." },
 ];
 
 const relatedLinks = [

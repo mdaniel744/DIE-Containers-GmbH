@@ -3,6 +3,7 @@ import React from "react";
 import {
   SeoPageLayout, SeoSection, SeoTable, InternalLinkGrid, FaqAccordion, CtaBanner
 } from "@/components/seo/SeoPageLayout";
+import MediaImage from "@/components/shared/MediaImage";
 
 const fundamentTable = {
   headers: ["Fundamenttyp", "Aufwand", "Kosten", "Geeignet für"],
@@ -99,11 +100,14 @@ export default function ContainerFundament() {
               className="group overflow-hidden rounded-[1.75rem] border border-border bg-white shadow-[0_18px_45px_-32px_rgba(13,42,18,0.35)]"
             >
               <div className="overflow-hidden bg-[#EAF6EB]">
-                <img
+                <MediaImage
                   src={example.image}
                   alt={example.alt}
-                  loading="lazy"
                   className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-[1.025] sm:h-72"
+                  width={1600}
+                  height={1000}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={82}
                 />
               </div>
               <figcaption className="p-6">

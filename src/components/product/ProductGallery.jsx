@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import MediaImage from "@/components/shared/MediaImage";
 
 export default function ProductGallery({ images, title, imageAlts = [] }) {
   const allImages = images && images.length > 0 ? images : [];
@@ -19,15 +20,23 @@ export default function ProductGallery({ images, title, imageAlts = [] }) {
         {/* Main image with slider controls */}
         <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-muted border border-border group">
           <AnimatePresence mode="wait">
-            <motion.img
-              key={selected} src={allImages[selected]}
-
-              alt={imageAlts[selected] || title}
-              className="w-full h-full object-cover"
+            <motion.div
+              key={selected}
+              className="absolute inset-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }} />
+              transition={{ duration: 0.25 }}
+            >
+              <MediaImage
+                src={allImages[selected]}
+                alt={imageAlts[selected] || title}
+                className="h-full w-full object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
+                priority={selected === 0}
+              />
+            </motion.div>
             
           </AnimatePresence>
 
@@ -86,7 +95,13 @@ export default function ProductGallery({ images, title, imageAlts = [] }) {
             "border-border hover:border-[#46C54B]/50"}`
             }>
             
-                <img src={img} alt={imageAlts[i] || `${title} ${i + 1}`} className="w-full h-full object-cover" />
+                <MediaImage
+                  src={img}
+                  alt={imageAlts[i] || `${title} ${i + 1}`}
+                  className="h-full w-full object-cover"
+                  sizes="80px"
+                  quality={75}
+                />
               </button>
           )}
           </div>
@@ -127,16 +142,22 @@ export default function ProductGallery({ images, title, imageAlts = [] }) {
               </>
           }
 
-            <motion.img
+            <motion.div
             key={selected}
-            src={allImages[selected]}
-            alt={imageAlts[selected] || title}
-            className="max-w-full max-h-[90vh] object-contain rounded-lg"
+            className="flex h-[90vh] w-full items-center justify-center"
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            onClick={(e) => e.stopPropagation()} />
+            onClick={(e) => e.stopPropagation()}>
+              <MediaImage
+                src={allImages[selected]}
+                alt={imageAlts[selected] || title}
+                className="max-h-[90vh] max-w-full rounded-lg object-contain"
+                sizes="100vw"
+                quality={90}
+              />
+            </motion.div>
           
 
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm">

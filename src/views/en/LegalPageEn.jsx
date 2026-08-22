@@ -14,7 +14,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Contact</h2>
-          <p>Phone: +49 (0) 89 277 808 979<br />Email: contact@diecontainers.com</p>
+          <p>Email: contact@diecontainers.com</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Commercial register</h2>
@@ -179,7 +179,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">How to initiate a return</h2>
-          <p>Contact us at contact@diecontainers.com or +49 (0) 89 277 808 979 to arrange a return.</p>
+          <p>Contact us at contact@diecontainers.com to arrange a return.</p>
         </section>
       </div>
     ),
@@ -195,7 +195,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Delivery times</h2>
-          <p>Containers are typically delivered within 3–7 working days of order confirmation. Express delivery within 48 hours is available for in-stock containers in your region.</p>
+          <p>Containers are typically delivered within 3–9 working days after order acceptance. Delivery times may vary depending on the destination, container type and logistics.</p>
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Transport costs</h2>
@@ -232,7 +232,7 @@ const LEGAL_CONTENT = {
         </section>
         <section>
           <h2 className="font-heading font-semibold text-base text-foreground mb-2">Questions</h2>
-          <p>For payment questions please contact: contact@diecontainers.com or +49 (0) 89 277 808 979.</p>
+          <p>For payment questions please contact: contact@diecontainers.com.</p>
         </section>
       </div>
     ),

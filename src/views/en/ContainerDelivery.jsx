@@ -9,7 +9,7 @@ import { Mail, Truck, CheckCircle, MapPin, FileText } from "lucide-react";
 const BRAND_BLUE = "#46C54B";
 
 const DELIVERY_STEPS = [
-  { icon: FileText, title: "1. Request a quote", desc: "Submit a no-obligation enquiry via our form, by phone or email." },
+  { icon: FileText, title: "1. Request a quote", desc: "Submit a no-obligation enquiry via our form or by email." },
   { icon: Mail, title: "2. Receive your quote", desc: "You receive a binding quote with the total price including transport within 24 hours." },
   { icon: MapPin, title: "3. Prepare the site", desc: "Prepare the surface and keep the access road clear. We'll advise you on what's needed." },
   { icon: Truck, title: "4. Delivery by truck", desc: "Depending on the container type and distance, we use a tilt-bed trailer, flatbed or step-deck." },
@@ -41,7 +41,7 @@ const CHECKLIST = [
 
 const FAQS = [
   { q: "How is the container delivered?", a: "We deliver throughout Germany by specialist vehicle directly to your desired location. The most common method is a tilt-bed trailer that slides the container off the truck. Alternatively, cranes or flatbed trailers are used depending on the site conditions." },
-  { q: "How long does delivery take?", a: "Typically 3–7 working days after order confirmation. Express deliveries within 48 hours are possible for in-stock items near your location." },
+  { q: "How long does delivery take?", a: "Typically 3–9 working days after order acceptance. Delivery times may vary depending on the destination, container type and logistics." },
   { q: "What does delivery cost?", a: "Transport costs depend on distance and container size, starting from approx. €250 for local deliveries. You receive the exact cost in your individual quote." },
   { q: "What do I need to prepare for delivery?", a: "The access road must be at least 3.5 m wide and passable for heavy goods vehicles. The placement area must be level and have adequate load-bearing capacity. A person must be on site to guide the driver." },
   { q: "Can I specify the exact placement position?", a: "Yes. Our drivers take great care with precise positioning. You can specify the exact location and we will do our best to meet your wishes. In some cases a crane may be needed for very precise placement." },

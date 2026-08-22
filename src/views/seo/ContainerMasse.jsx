@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronRight, Package, Maximize } from "lucide-react";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
+import MediaImage from "@/components/shared/MediaImage";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
@@ -27,11 +28,12 @@ function SizeCard({ title, image, imageAlt, specs, note }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
         {/* Container product image */}
         <div className="p-2 sm:p-3 min-h-80 sm:min-h-96 lg:min-h-[28rem] flex items-center justify-center overflow-hidden bg-white border-b lg:border-b-0 lg:border-r border-border">
-          <img
+          <MediaImage
             src={image}
             alt={imageAlt}
             className="h-80 sm:h-96 lg:h-[28rem] w-full object-contain scale-[1.08] sm:scale-[1.12]"
-            loading="lazy"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            quality={90}
           />
         </div>
         {/* Specs table */}
@@ -278,14 +280,14 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="10 Fuß Standard Container"
-            image="/images/container-dimensions/10ft-standard-container.png"
+            image="/images/container-dimensions/10ft-standard-container.webp"
             imageAlt="10 Fuß Standard Seecontainer"
             specs={SPECS_10FT}
             note="Ein 10 Fuß Container ist besonders praktisch, wenn eine kleine, sichere und wetterfeste Lagerlösung benötigt wird. Für größere Lageraufgaben ist jedoch meist ein 20 Fuß Container sinnvoller."
           />
           <SizeCard
             title="10 Fuß High Cube Container"
-            image="/images/container-dimensions/10ft-high-cube-container.png"
+            image="/images/container-dimensions/10ft-high-cube-container.webp"
             imageAlt="10 Fuß High Cube Container"
             specs={SPECS_10HC}
             note="Der 10 Fuß High Cube Container bietet durch seine größere Höhe ca. 30 cm mehr Innenraum als der Standard Container. Er eignet sich für sperrige Güter oder wenn zusätzliche Innenhöhe benötigt wird."
@@ -300,14 +302,14 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="20 Fuß Standard Container"
-            image="/images/container-dimensions/20ft-standard-container.png"
+            image="/images/container-dimensions/20ft-standard-container.webp"
             imageAlt="20 Fuß Standard Seecontainer"
             specs={SPECS_20FT}
             note={<>Ein 20 Fuß Container eignet sich für Werkzeuge, Maschinen, Möbel, Baumaterialien, Waren und vieles mehr. Wer eine flexible Allround Lösung sucht, findet weitere Informationen auf der Seite <IL to="/20-fuss-container-kaufen">20 Fuß Container kaufen</IL>.</>}
           />
           <SizeCard
             title="20 Fuß High Cube Container"
-            image="/images/container-dimensions/20ft-high-cube-container.png"
+            image="/images/container-dimensions/20ft-high-cube-container.webp"
             imageAlt="20 Fuß High Cube Container"
             specs={SPECS_20HC}
             note="Der 20 Fuß High Cube Container bietet ca. 30 cm mehr Innenhöhe als der Standard Container und damit mehr Ladevolumen. Er ist ideal für sperrige Waren, Regalsysteme oder wenn jeder Kubikmeter zählt."
@@ -322,7 +324,7 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="40 Fuß Standard Container"
-            image="/images/container-dimensions/40ft-standard-container.png"
+            image="/images/container-dimensions/40ft-standard-container.webp"
             imageAlt="40 Fuß Standard Seecontainer"
             specs={SPECS_40FT}
             note={<>Ein 40 Fuß Container ist ideal, wenn viel Stauraum benötigt wird und ausreichend Platz für Lieferung und Aufstellung vorhanden ist. Weitere Details finden Sie auf der Seite <IL to="/40-fuss-container-kaufen">40 Fuß Container kaufen</IL>.</>}
@@ -337,7 +339,7 @@ export default function ContainerMasse() {
           </p>
           <SizeCard
             title="40 Fuß High Cube Container"
-            image="/images/container-dimensions/40ft-high-cube-container.png"
+            image="/images/container-dimensions/40ft-high-cube-container.webp"
             imageAlt="40 Fuß High Cube Seecontainer"
             specs={SPECS_40HC}
             note="Ein High Cube Container ist besonders sinnvoll, wenn sperrige Güter, Regalsysteme, Maschinen oder voluminöse Waren gelagert werden sollen. Auch für Umbauten oder Sonderlösungen kann die zusätzliche Höhe vorteilhaft sein."

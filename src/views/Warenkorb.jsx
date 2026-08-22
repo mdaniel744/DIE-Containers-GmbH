@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { X, Minus, Plus, ShoppingCart, CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/CartContext";
+import MediaImage from "@/components/shared/MediaImage";
 
 const VAT_RATE = 0.19;
 const DELIVERY_FEE = 420;
@@ -80,10 +81,14 @@ export default function Warenkorb() {
                   <div key={item.product.id} className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr_1fr_auto] gap-4 items-center px-5 py-4 border-t border-border">
                     {/* Product */}
                     <div className="flex items-center gap-3">
-                      <img
+                      <MediaImage
                         src={item.product.image_url}
                         alt={item.product.title}
-                        className="w-16 h-12 object-cover rounded-lg flex-shrink-0"
+                        className="h-12 w-16 flex-shrink-0 rounded-lg object-cover"
+                        width={128}
+                        height={96}
+                        sizes="64px"
+                        quality={75}
                       />
                       <Link to={`/produkt/${item.product.slug || item.product.id}`} className="font-heading font-semibold text-sm hover:text-[#278A2F] transition-colors line-clamp-2">
                         {item.product.title}

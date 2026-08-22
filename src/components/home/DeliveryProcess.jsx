@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SectionHeading from "@/components/shared/SectionHeading";
-import { Search, MapPin, FileText, Mail, Truck, Phone, AtSign, Clock, ArrowRight } from "lucide-react";
+import { Search, MapPin, FileText, Mail, Truck, AtSign, Clock, ArrowRight } from "lucide-react";
 import { useSection } from "@/lib/i18n";
 
 const STEP_ICONS = [Search, MapPin, FileText, Mail, Truck];
@@ -46,15 +46,6 @@ export default function DeliveryProcess() {
             </div>
 
             <div className="flex flex-col gap-6 text-sm text-white/85 sm:flex-row">
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/20">
-                  <Phone className="h-4 w-4 text-white" />
-                </div>
-                <div>
-                  <p className="mb-0.5 text-[10px] uppercase tracking-wider text-white/65">{T.phoneLabel}</p>
-                  <a href="tel:+4989277808979" className="font-heading font-semibold text-white transition-opacity hover:opacity-80">+49 (0) 89 277 808 979</a>
-                </div>
-              </div>
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/20">
                   <AtSign className="h-4 w-4 text-white" />

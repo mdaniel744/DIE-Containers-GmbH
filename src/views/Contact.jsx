@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Phone, Mail, MapPin, Clock, Send, Check } from "lucide-react";
+import { Mail, MapPin, Clock, Send, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 import { supabase, STORE_ID } from "@/lib/supabaseClient";
 
-const ICONS = [Phone, Mail, MapPin, Clock];
+const ICONS = [Mail, MapPin, Clock];
 
 export default function Contact() {
   const T = useSection("contact");

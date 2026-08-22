@@ -12,6 +12,7 @@ import QuoteCostSummary from "@/components/quote/QuoteCostSummary";
 import { useSection } from "@/lib/i18n";
 import { getContainerHeightVariant, normalizeQuoteContainerSize } from "@/lib/quoteContainer";
 import { useProducts } from "@/hooks/useProducts";
+import MediaImage from "@/components/shared/MediaImage";
 import {
   calculateQuoteCosts,
   findMatchingQuoteProduct,
@@ -236,7 +237,7 @@ export default function QuoteRequest() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-7 flex items-center gap-3 rounded-[1.25rem] border border-[#B9DFBC] bg-[#F0F7F1] p-4"
           >
-            <img src={prefilledProduct.image_url} alt={prefilledProduct.title} className="w-12 h-12 rounded-lg object-cover shrink-0" />
+            <MediaImage src={prefilledProduct.image_url} alt={prefilledProduct.title} className="h-12 w-12 shrink-0 rounded-lg object-cover" width={96} height={96} sizes="48px" quality={75} />
             <div className="flex-1 min-w-0">
               <p className="text-xs font-mono uppercase tracking-wide" style={{ color: "#278A2F" }}>{T.selectedProduct}</p>
               <p className="font-heading font-semibold text-sm text-foreground truncate">{prefilledProduct.title}</p>

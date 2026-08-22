@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight, CheckCircle, X, Home, Truck, ShieldCheck, Wrench, Snowflake, Building2, Star, AlertTriangle, Plug } from "lucide-react";
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
+import MediaImage from "@/components/shared/MediaImage";
+import HeroFloatingMedia from "@/components/shared/HeroFloatingMedia";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
@@ -134,9 +136,10 @@ export default function WohncontainerKaufen() {
       {/* â”€â”€ Hero â”€â”€ */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img src={IMG_HERO} alt="Moderner mobiler Wohncontainer mit Glasfront und Holzverkleidung" className="w-full h-full object-cover" />
+          <MediaImage src={IMG_HERO} alt="Moderner mobiler Wohncontainer mit Glasfront und Holzverkleidung" className="h-full w-full object-cover" width={1200} height={800} sizes="100vw" quality={82} priority />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.88) 0%, rgba(15,37,64,0.78) 100%)" }} />
         </div>
+        <HeroFloatingMedia src="/images/hero-elements/hero-wohncontainer.png" alt="Moderner Wohncontainer mit Glasfront" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
           <nav className="flex items-center gap-1.5 text-xs text-white/50 mb-6 flex-wrap">
             <Link to="/" className="hover:text-white transition-colors">Startseite</Link>
@@ -185,7 +188,7 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_PRODUCT_1} alt="Moderner Wohncontainer mit großer Glasfront" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_PRODUCT_1} alt="Moderner Wohncontainer mit großer Glasfront" className="h-full w-full object-cover" width={1200} height={800} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Moderne Wohncontainer</h3>
@@ -194,7 +197,7 @@ export default function WohncontainerKaufen() {
             </div>
             <div className="rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-64 overflow-hidden">
-                <img src={IMG_PRODUCT_2} alt="Zweigeschossiger 20 Fuß Wohncontainer mit Außentreppe" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_PRODUCT_2} alt="Zweigeschossiger 20 Fuß Wohncontainer mit Außentreppe" className="h-full w-full object-cover" width={900} height={1600} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
               <div className="p-5">
                 <h3 className="font-heading font-bold text-sm text-foreground mb-1.5">Mobile Wohneinheiten</h3>
@@ -210,7 +213,7 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_WINTERFEST} alt="Zweigeschossige Wohncontaineranlage mit Außentreppe" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_WINTERFEST} alt="Zweigeschossige Wohncontaineranlage mit Außentreppe" className="h-full w-full object-cover" width={1200} height={800} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
@@ -285,7 +288,7 @@ export default function WohncontainerKaufen() {
             </div>
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 bg-gradient-to-br from-slate-100 to-white flex items-center justify-center">
-                <img src={IMG_INTERIOR} alt="3D-Grundriss eines 40 Fuß Wohncontainers mit Küche, Bad und Terrasse" className="w-full h-full object-contain" />
+                <MediaImage src={IMG_INTERIOR} alt="3D-Grundriss eines 40 Fuß Wohncontainers mit Küche, Bad und Terrasse" className="h-full w-full object-contain" width={1600} height={1200} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
           </div>
@@ -310,7 +313,7 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_SCHLUESSEL} alt="Schlüsselfertiger zweistöckiger Wohncontainer mit Treppe" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_SCHLUESSEL} alt="Schlüsselfertiger zweistöckiger Wohncontainer mit Treppe" className="h-full w-full object-cover" width={900} height={1600} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
@@ -333,7 +336,7 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_GEBRAUCHT} alt="Gebrauchte rote Wohncontaineranlage mit Außentreppe" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_GEBRAUCHT} alt="Gebrauchte rote Wohncontaineranlage mit Außentreppe" className="h-full w-full object-cover" width={1200} height={800} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">
@@ -433,7 +436,7 @@ export default function WohncontainerKaufen() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
             <div className="lg:col-span-2 rounded-2xl border border-border bg-card overflow-hidden">
               <div className="h-full min-h-64 overflow-hidden">
-                <img src={IMG_TRANSPORT} alt="Wohncontainer wird per LKW-Kran geliefert und aufgestellt" className="w-full h-full object-cover" />
+                <MediaImage src={IMG_TRANSPORT} alt="Wohncontainer wird per LKW-Kran geliefert und aufgestellt" className="h-full w-full object-cover" width={1000} height={1000} sizes="(max-width: 1024px) 100vw, 50vw" quality={80} />
               </div>
             </div>
             <div className="lg:col-span-3 text-sm text-muted-foreground leading-relaxed space-y-4">

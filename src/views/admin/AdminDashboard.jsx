@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Package, FileText, ArrowRight, CheckCircle2, Clock } from "lucide-react";
+import MediaImage from "@/components/shared/MediaImage";
 
 export default function AdminDashboard() {
   const [products, setProducts] = useState([]);
@@ -110,7 +111,7 @@ export default function AdminDashboard() {
                 <Link key={p.id} to={`/admin/produkte/${p.id}`}
                   className="flex items-center gap-3 py-2 border-b border-slate-800 last:border-0 hover:opacity-80 transition-opacity">
                   <div className="w-10 h-10 rounded-lg overflow-hidden bg-slate-800 shrink-0">
-                    {p.image_url && <img src={p.image_url} alt={p.title} className="w-full h-full object-cover" />}
+                    {p.image_url && <MediaImage src={p.image_url} alt={p.title} className="h-full w-full object-cover" width={160} height={120} sizes="80px" quality={75} />}
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-white text-sm font-medium truncate">{p.title}</p>

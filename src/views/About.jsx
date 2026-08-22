@@ -10,16 +10,16 @@ import {
   Lightbulb,
   Mail,
   MapPin,
-  Phone,
   Scale,
   ShieldCheck,
   Workflow,
 } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
+import MediaImage from "@/components/shared/MediaImage";
 
 const LOGISTICS_IMAGE = "/images/about/container-terminal-logistics.webp";
-const HERO_BACKGROUND = "/images/about/about-hero-container-depot.jpg";
-const VALUES_BACKGROUND = "/images/about/about-values-container-depot.jpg";
+const HERO_BACKGROUND = "/images/about/about-hero-container-depot.webp";
+const VALUES_BACKGROUND = "/images/about/about-values-container-depot.webp";
 
 const TEAM_PRINCIPLES = [
   {
@@ -70,10 +70,15 @@ export default function About() {
   return (
     <div className="overflow-hidden pb-20 pt-20 lg:pt-24">
       <section className="relative flex min-h-[620px] items-center overflow-hidden bg-black py-16 text-white sm:min-h-[680px] sm:py-20 lg:min-h-[720px] lg:py-28">
-        <img
+        <MediaImage
           src={HERO_BACKGROUND}
           alt="Containerdepot mit Lkw und Seecontainern"
           className="absolute inset-0 h-full w-full object-cover object-center"
+          width={2400}
+          height={703}
+          sizes="100vw"
+          quality={82}
+          priority
         />
         <div className="absolute inset-0 bg-black/70 lg:hidden" />
         <div
@@ -144,10 +149,14 @@ export default function About() {
             viewport={{ once: true }}
             className="overflow-hidden rounded-[2rem] bg-[#DDF4DF] p-3"
           >
-            <img
+            <MediaImage
               src={LOGISTICS_IMAGE}
               alt="Containerterminal mit Transport- und Umschlagtechnik"
               className="h-[340px] w-full rounded-[1.4rem] object-cover sm:h-[440px] lg:h-[520px]"
+              width={1080}
+              height={800}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={82}
             />
           </motion.div>
 
@@ -230,10 +239,14 @@ export default function About() {
       </section>
 
       <section className="relative overflow-hidden bg-black py-20 text-white lg:py-28">
-        <img
+        <MediaImage
           src={VALUES_BACKGROUND}
           alt="Seecontainer und Transportfahrzeuge in einem Containerdepot"
           className="absolute inset-0 h-full w-full object-cover object-center"
+          width={2400}
+          height={703}
+          sizes="100vw"
+          quality={80}
         />
         <div className="absolute inset-0 bg-black/75" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
@@ -301,13 +314,6 @@ export default function About() {
                   </p>
                 </div>
               </div>
-              <a href="tel:+4989277808979" className="flex gap-4 rounded-2xl bg-white p-4 transition-transform hover:-translate-y-0.5">
-                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-[#23832B]" />
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#34533A]">Telefon</p>
-                  <p className="mt-1 font-heading font-bold text-[#0D2A12]">+49 (0) 89 277 808 979</p>
-                </div>
-              </a>
               <a href="mailto:contact@diecontainers.com" className="flex gap-4 rounded-2xl bg-white p-4 transition-transform hover:-translate-y-0.5">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-[#23832B]" />
                 <div className="min-w-0">

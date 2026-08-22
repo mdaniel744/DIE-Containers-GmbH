@@ -2,8 +2,9 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, MessageCircle, MapPin, CheckCircle, Truck, Shield, CreditCard, Lock, FileText, Building, AlertTriangle } from "lucide-react";
+import { Mail, MapPin, CheckCircle, Truck, Shield, CreditCard, Lock, FileText, Building, AlertTriangle } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
+import MediaImage from "@/components/shared/MediaImage";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
@@ -11,7 +12,7 @@ const NAVY = "#176B20";
 const legalContent = {
   impressum: {
     title: "Impressum",
-    content: "**Angaben gemäß § 5 TMG:**\n\nDie Container GmbH\nHermann-Oberth-Str 23\n85640 Putzbrunn\nDeutschland\n\n**Kontakt:**\nTel.: 015901014410\nE-Mail: contact@containers.com\n\n**Registereintrag:**\nRegistergericht: Amtsgericht München\nRegisternummer: HRB 256757\n\n**Vertreten durch:**\nGeschäftsführer: Julian Hallal\n\n**Umsatzsteuer-Identifikationsnummer:**\nDE330443785",
+    content: "**Angaben gemäß § 5 TMG:**\n\nDie Container GmbH\nHermann-Oberth-Str 23\n85640 Putzbrunn\nDeutschland\n\n**Kontakt:**\nE-Mail: contact@diecontainers.com\n\n**Registereintrag:**\nRegistergericht: Amtsgericht München\nRegisternummer: HRB 256757\n\n**Vertreten durch:**\nGeschäftsführer: Julian Hallal\n\n**Umsatzsteuer-Identifikationsnummer:**\nDE330443785",
   },
   "cookie-policy": {
     title: "Cookie Policy",
@@ -103,21 +104,13 @@ function ContactBlock() {
   return (
     <div className="mt-4 rounded-2xl overflow-hidden border border-border">
       <div className="p-1" style={{ background: `linear-gradient(135deg, ${NAVY}, #0B3D13)` }}>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 items-stretch">
           <a href="mailto:contact@diecontainers.com"
             className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
             <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
             <div className="min-w-0">
               <p className="text-xs text-white/60 font-mono uppercase tracking-wide">E-Mail</p>
               <p className="text-sm font-semibold text-white leading-tight break-all">contact@diecontainers.com</p>
-            </div>
-          </a>
-          <a href="https://wa.me/4989277808979" target="_blank" rel="noopener noreferrer"
-            className="flex items-start gap-3 bg-white/5 hover:bg-white/10 transition-colors rounded-xl px-4 py-4">
-            <MessageCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#278A2F" }} />
-            <div className="min-w-0">
-              <p className="text-xs text-white/60 font-mono uppercase tracking-wide">WhatsApp</p>
-              <p className="text-sm font-semibold text-white leading-tight">+49 (0) 89 277 808 979</p>
             </div>
           </a>
           <div className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-4">
@@ -433,79 +426,88 @@ function RueckgabePage() {
           </div>
 
           <div className="divide-y divide-border">
-            <Section number="1" title="Rückgaberecht für Verbraucher">
-              <p>Verbraucher haben gemäß den gesetzlichen Bestimmungen grundsätzlich das Recht, innerhalb von <strong className="text-foreground">14 Tagen nach Erhalt der Ware</strong> den Vertrag zu widerrufen.</p>
-              <p className="mt-2">Weitere Informationen hierzu finden Sie in unserer <strong className="text-foreground">Widerrufsbelehrung</strong>.</p>
+            <Section number="1" title="Allgemeines">
+              <p>Bei unseren Containern handelt es sich um <strong className="text-foreground">schwere Industriegüter</strong>. Aufgrund von Größe, Gewicht sowie dem erforderlichen Spezialtransport gelten besondere Bedingungen für Rückgabe, Reklamation und Rücktransport.</p>
+              <p>Alle Container werden im <strong className="text-foreground">vertraglich vereinbarten Zustand</strong> geliefert.</p>
+              <p>Gesetzliche Widerrufs- und Gewährleistungsrechte bleiben unberührt.</p>
             </Section>
 
-            <Section number="2" title="Bedingungen für Rückgaben">
-              <p>Damit eine Rückgabe akzeptiert werden kann, müssen folgende Voraussetzungen erfüllt sein:</p>
+            <Section number="2" title="Prüfung bei Lieferung">
+              <p>Der Container sollte <strong className="text-foreground">direkt bei der Lieferung und während des Abladens</strong> geprüft werden.</p>
+              <p>Bitte achten Sie insbesondere auf:</p>
               <BulletList items={[
-                "Der Container darf nicht dauerhaft genutzt oder verändert worden sein",
-                "Der Container muss sich im gleichen Zustand befinden, in dem er geliefert wurde",
-                "Alle zugehörigen Dokumente müssen vorhanden sein",
+                "sichtbare Transportschäden",
+                "größere strukturelle Schäden",
+                "Türen und Verriegelungen",
+                "Boden und Innenraum",
+                "Übereinstimmung mit der bestellten Ausführung",
               ]} />
-              <p className="mt-3">Der Käufer trägt grundsätzlich die Kosten der Rücksendung, sofern nichts anderes vereinbart wurde. Aufgrund der Größe und des Gewichts von Containern erfolgt eine Rücksendung in der Regel über eine <strong className="text-foreground">individuell organisierte Transportlösung</strong>.</p>
-            </Section>
-
-            <Section number="3" title="Ausschluss der Rückgabe">
-              <p>Das Rückgaberecht besteht <strong className="text-foreground">nicht</strong> bei:</p>
-              <BulletList items={[
-                "Individuell angefertigten Containern",
-                "Containern, die nach Kundenspezifikation modifiziert wurden",
-                "Bereits genutzten oder veränderten Containern",
-                "Containern mit beschädigten oder fehlenden Dokumenten",
-              ]} />
-            </Section>
-
-            <Section number="4" title="Reklamationen & Mängel">
-              <p>Sollte der gelieferte Container nicht der vereinbarten Beschreibung entsprechen oder Mängel aufweisen, gehen Sie bitte wie folgt vor:</p>
-              <NumberedList items={[
-                "Mängel innerhalb von 7 Tagen nach Lieferung schriftlich melden",
-                "Mängel mit Fotos und einer detaillierten Beschreibung dokumentieren",
-                "Reklamation per E-Mail oder WhatsApp an uns senden",
-                "Wir prüfen die Reklamation und melden uns innerhalb von 5 Werktagen",
-              ]} />
-            </Section>
-
-            <Section number="5" title="Erstattungsverfahren">
-              <p>Nach Genehmigung einer Rückgabe oder Reklamation erfolgt die Erstattung wie folgt:</p>
-              <BulletList items={[
-                "Erstattung innerhalb von 14 Tagen nach bestätigter Rücknahme",
-                "Rückzahlung auf das ursprünglich verwendete Zahlungsmittel",
-                "Bei Teilerstattungen wird der vereinbarte Betrag separat kommuniziert",
-              ]} />
-              <div className="mt-3 bg-muted/50 rounded-xl px-4 py-3">
-                <p className="text-xs text-muted-foreground"><strong className="text-foreground">Hinweis:</strong> Transportkosten für die Rücksendung werden in der Regel nicht erstattet, es sei denn, der Mangel ist auf einen Fehler unsererseits zurückzuführen.</p>
+              <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-amber-950">
+                <p className="font-semibold">Offensichtliche Schäden oder Falschlieferungen müssen möglichst sofort gemeldet und dokumentiert werden.</p>
               </div>
             </Section>
 
-            <Section number="6" title="Gewährleistung">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-                {[
-                  { label: "Neue Container", desc: "Gesetzliche Gewährleistungsfrist von 2 Jahren gemäß § 437 BGB" },
-                  { label: "Gebrauchte Container", desc: "Verkauf im beschriebenen Zustand; Gewährleistung auf 1 Jahr verkürzt" },
-                  { label: "Generalüberholte Container", desc: "12 Monate Gewährleistung auf überholte Komponenten" },
-                  { label: "Individuelle Umbauten", desc: "Gewährleistung gemäß individueller Vereinbarung im Angebot" },
-                ].map((item, i) => (
-                  <div key={i} className="bg-muted/50 rounded-xl px-4 py-3">
-                    <p className="font-heading font-semibold text-sm text-foreground mb-1">{item.label}</p>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+            <Section number="3" title="Ablehnung bei beschädigter Lieferung">
+              <p>Wird bereits bei der Lieferung ein <strong className="text-foreground">erheblicher Schaden oder eine eindeutige Falschlieferung</strong> festgestellt, kann die Annahme des Containers verweigert werden.</p>
+              <p>Bitte informieren Sie uns in diesem Fall sofort.</p>
+              <p>Bei einer berechtigten Beanstandung organisieren wir je nach Fall:</p>
+              <BulletList items={[
+                "Ersatzlieferung",
+                "Rückabwicklung und Rückerstattung",
+              ]} />
+              <p>Die erforderliche Rückführung des beanstandeten Containers wird von uns organisiert.</p>
             </Section>
 
-            <Section number="7" title="Kontakt für Rückgaben & Reklamationen">
-              <p>Für Rückgaben, Reklamationen oder Fragen zur Erstattung kontaktieren Sie uns direkt:</p>
-              <ContactBlock />
-              <div className="mt-4">
-                <Link to="/kontakt"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading font-semibold text-sm text-white hover:opacity-90 transition-opacity"
-                  style={{ backgroundColor: BRAND_BLUE, color: "#0D2A12" }}>
-                  Reklamation einreichen <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </div>
+            <Section number="4" title="Nach Annahme des Containers">
+              <p>Wurde der Container abgeladen und angenommen, können <strong className="text-foreground">offensichtliche Transportschäden nicht einfach wie eine normale Rückgabe behandelt werden</strong>.</p>
+              <p>Später festgestellte Mängel können jedoch weiterhin im Rahmen der gesetzlichen Gewährleistung reklamiert werden.</p>
+              <p>Die Annahme des Containers bedeutet daher <strong className="text-foreground">keinen Verzicht auf gesetzliche Mängelrechte</strong>.</p>
+            </Section>
+
+            <Section number="5" title="Widerruf durch Verbraucher">
+              <p>Verbraucher haben bei Online-Bestellungen grundsätzlich ein <strong className="text-foreground">14-tägiges gesetzliches Widerrufsrecht</strong>, soweit keine gesetzliche Ausnahme besteht.</p>
+              <p>Da Container nicht per Paketdienst zurückgesendet werden können, muss eine Rückführung <strong className="text-foreground">immer mit uns abgestimmt werden</strong>.</p>
+              <p>Weitere Informationen zu Fristen, Rücktransport und möglichen Rückführungskosten finden Sie in unserer <Link to="/widerrufsrecht" className="font-semibold text-[#23832B] underline decoration-1 underline-offset-4 hover:text-[#176B20]">Widerrufsbelehrung</Link>.</p>
+            </Section>
+
+            <Section number="6" title="Gebrauchte Container">
+              <p>Gebrauchte Container können typische Gebrauchsspuren aufweisen, zum Beispiel:</p>
+              <BulletList items={[
+                "Dellen",
+                "Kratzer",
+                "Farbabweichungen",
+                "Oberflächenkorrosion",
+                "frühere Reparaturen",
+              ]} />
+              <p>Solche Gebrauchsspuren stellen <strong className="text-foreground">keinen Mangel dar</strong>, wenn sie dem beschriebenen und vereinbarten Zustand des Containers entsprechen.</p>
+            </Section>
+
+            <Section number="7" title="Mängel und Reklamationen">
+              <p>Entspricht der Container nicht dem vereinbarten Zustand oder liegt ein berechtigter Mangel vor, prüfen wir den Fall und organisieren die erforderliche Lösung.</p>
+              <p>Je nach Situation kann dies insbesondere sein:</p>
+              <BulletList items={[
+                "Nachbesserung",
+                "Ersatzcontainer",
+                "Preisminderung",
+                "Rückabwicklung, sofern die gesetzlichen Voraussetzungen erfüllt sind",
+              ]} />
+              <p>Bei einer berechtigten Reklamation werden die gesetzlich von uns zu tragenden Transport- und Nacherfüllungskosten übernommen.</p>
+            </Section>
+
+            <Section number="8" title="Rücktransport">
+              <p><strong className="text-foreground">Container dürfen nicht ohne vorherige Abstimmung eigenständig zurückgesendet werden.</strong></p>
+              <p>Aufgrund von Gewicht und Abmessungen müssen folgende Schritte vorher mit uns koordiniert werden:</p>
+              <BulletList items={[
+                "Abholung",
+                "Rücktransport",
+                "Kranarbeiten",
+                "Ersatzlieferungen",
+              ]} />
+            </Section>
+
+            <Section number="9" title="Geschäftskunden">
+              <p>Für Unternehmer besteht grundsätzlich <strong className="text-foreground">kein gesetzliches 14-tägiges Widerrufsrecht</strong>.</p>
+              <p>Für Kaufleute gelten zusätzlich die gesetzlichen Untersuchungs- und Rügepflichten.</p>
             </Section>
           </div>
           <ContactBanner wide />
@@ -583,10 +585,14 @@ function VersandPage() {
             transition={{ duration: 0.7, delay: 0.12 }}
             className="overflow-hidden rounded-[2rem] border-4 border-white/75 bg-white shadow-[0_28px_70px_-34px_rgba(13,42,18,0.55)]"
           >
-            <img
+            <MediaImage
               src="/images/shipping/container-truck-delivery.webp"
               alt="LKW mit blauem Seecontainer auf dem Weg zum Lieferort"
               className="h-[340px] w-full object-cover sm:h-[430px] lg:h-[500px]"
+              width={1024}
+              height={1024}
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              quality={82}
             />
           </motion.div>
         </div>

@@ -47,7 +47,7 @@ const faqs = [
   },
   {
     q: "Wie wird ein 10 Fuß Container geliefert?",
-    a: "Die Lieferung erfolgt per Kranwagen direkt an Ihren Wunschort – deutschlandweit innerhalb von 3–7 Werktagen. Express-Lieferung innerhalb von 72 Stunden ist auf Anfrage möglich."
+    a: "Die Lieferung erfolgt deutschlandweit und in der Regel innerhalb von 3–9 Werktagen nach Auftragsannahme. Der genaue Transport- und Abladeablauf wird individuell abgestimmt."
   },
   {
     q: "Brauche ich eine Genehmigung für einen 10 Fuß Container?",
@@ -81,6 +81,8 @@ export default function Container10Fuss() {
       label="Produkt-Ratgeber"
       title="10 Fuß Container kaufen – Kompakte Seecontainer für Lagerung und Transport"
       intro="Der 10 Fuß Container ist die kompakteste Variante der ISO-Seecontainer – ideal für begrenzte Platzverhältnisse. Erfahren Sie alles über Maße, Preise, Anwendungsbereiche und wie Sie den richtigen 10 Fuß Container für Ihren Bedarf finden."
+      heroMedia="/images/hero-elements/hero-10ft-container.png"
+      heroMediaAlt="Blauer 10 Fuß Seecontainer"
     >
       {/* Introduction */}
       <SeoSection title="Was ist ein 10 Fuß Container?">
@@ -194,7 +196,7 @@ export default function Container10Fuss() {
           Wichtig für die Lieferplanung: Der Unterstellplatz sollte eben und tragfähig sein. Für weichen Untergrund (Rasen, lockere Erde) empfehlen wir eine einfache Fundamentlösung. Unser <Link to="/container-fundament" className="text-blue-500 hover:underline">Ratgeber zu Container-Fundamenten</Link> zeigt alle gängigen Varianten mit Kosten- und Aufwandsschätzung.
         </p>
         <p>
-          Die Standard-Lieferzeit beträgt 3–7 Werktage. Express-Lieferung innerhalb von 72 Stunden ist möglich. Alle Details zu Ablauf, Anforderungen und Kosten finden Sie in unserem <Link to="/container-lieferung" className="text-blue-500 hover:underline">Ratgeber zur Container Lieferung</Link>.
+          Die Standard-Lieferzeit beträgt 3–9 Werktage nach Auftragsannahme. Je nach Lieferort, Containertyp und Logistik kann die Lieferzeit variieren. Alle Details zu Ablauf, Anforderungen und Kosten finden Sie in unserem <Link to="/container-lieferung" className="text-blue-500 hover:underline">Ratgeber zur Container Lieferung</Link>.
         </p>
         <p>
           Für die meisten kurzfristigen Aufstellungen (unter 3 Monaten) ist in Deutschland keine Baugenehmigung erforderlich. Bei dauerhafter Nutzung sollten Sie vorab das Bauamt kontaktieren. Mehr dazu in unserem <Link to="/container-genehmigung" className="text-blue-500 hover:underline">Leitfaden zur Container Genehmigung</Link>.

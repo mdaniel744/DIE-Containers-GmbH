@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, ChevronDown, ShoppingCart } from "lucide-react";
+import { Menu, X, Mail, ChevronDown, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import { useT } from "@/lib/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { isLocalizablePath, stripLocalePrefix } from "@/lib/locale";
 import { isCatalogPath, resolveCatalogCategoryHref } from "@/lib/catalogLinks";
+import MediaImage from "@/components/shared/MediaImage";
 
 const simpleNavItems = [
   { label: "Home", path: "/" },
@@ -24,16 +25,16 @@ const SERVICE_ITEMS = [
 ];
 
 const FALLBACK_CATALOG_CATEGORIES = [
-  { slug: "seecontainer", nameDe: "Seecontainer", nameEn: "Shipping containers", image_url: "/images/quote-category-seecontainer.png?v=20260723" },
-  { slug: "10ft", nameDe: "10 Fuß Container", nameEn: "10ft containers", image_url: "/images/container-category-10ft.png" },
-  { slug: "20ft", nameDe: "20 Fuß Container", nameEn: "20ft containers", image_url: "/images/container-category-20ft.png" },
-  { slug: "40ft", nameDe: "40 Fuß Container", nameEn: "40ft containers", image_url: "/images/container-category-40ft.png" },
+  { slug: "seecontainer", nameDe: "Seecontainer", nameEn: "Shipping containers", image_url: "/images/quote-category-seecontainer.webp" },
+  { slug: "10ft", nameDe: "10 Fuß Container", nameEn: "10ft containers", image_url: "/images/container-category-10ft.webp" },
+  { slug: "20ft", nameDe: "20 Fuß Container", nameEn: "20ft containers", image_url: "/images/container-category-20ft.webp" },
+  { slug: "40ft", nameDe: "40 Fuß Container", nameEn: "40ft containers", image_url: "/images/container-category-40ft.webp" },
   { slug: "open-side", nameDe: "Container mit offener Seite", nameEn: "Open side containers", image_url: "/images/open-side-20hc-ral7016-open-3.jpg" },
   { slug: "double-door", nameDe: "Doppeltüren Container", nameEn: "Double door containers", image_url: "/images/double-door-40hc-ral5010-open.jpg" },
-  { slug: "lagercontainer", nameDe: "Lagercontainer", nameEn: "Storage containers", image_url: "/images/container-category-20ft.png" },
-  { slug: "buerocontainer", nameDe: "Bürocontainer", nameEn: "Office containers", image_url: "/images/quote-category-buerocontainer.png" },
-  { slug: "kuehlcontainer", nameDe: "Kühlcontainer", nameEn: "Refrigerated containers", image_url: "/images/quote-category-kuehlcontainer.png" },
-  { slug: "wohncontainer", nameDe: "Wohncontainer", nameEn: "Living containers", image_url: "/images/quote-category-wohncontainer.png" },
+  { slug: "lagercontainer", nameDe: "Lagercontainer", nameEn: "Storage containers", image_url: "/images/container-category-20ft.webp" },
+  { slug: "buerocontainer", nameDe: "Bürocontainer", nameEn: "Office containers", image_url: "/images/quote-category-buerocontainer.webp" },
+  { slug: "kuehlcontainer", nameDe: "Kühlcontainer", nameEn: "Refrigerated containers", image_url: "/images/quote-category-kuehlcontainer.webp" },
+  { slug: "wohncontainer", nameDe: "Wohncontainer", nameEn: "Living containers", image_url: "/images/quote-category-wohncontainer.webp" },
 ];
 
 function getFallbackCatalogCategories(locale) {
@@ -102,10 +103,12 @@ function CatalogDropdown({ visible, categories, locale, onClose }) {
               >
                 {/* Image area */}
                 <div className="relative flex h-36 items-center justify-center overflow-hidden bg-[#F2FBF3] p-2">
-                  <img
+                  <MediaImage
                     src={cat.image_url || HERO_IMAGE}
                     alt={cat.name}
                     className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.04]"
+                    sizes="240px"
+                    quality={80}
                   />
                 </div>
                 {/* Label */}
@@ -249,10 +252,15 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="group flex items-center" aria-label="DIE Container GmbH – Startseite">
             <div className="relative h-12 w-28 overflow-hidden sm:w-32 lg:h-14 lg:w-36">
-              <img
+              <MediaImage
                 src="/images/die-container-logo-green.png"
                 alt="DIE Container GmbH Logo"
                 className="absolute left-1/2 top-1/2 h-28 w-28 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-200 group-hover:scale-105 sm:h-32 sm:w-32 lg:h-36 lg:w-36"
+                width={512}
+                height={512}
+                sizes="(max-width: 640px) 112px, (max-width: 1024px) 128px, 144px"
+                quality={90}
+                priority
               />
             </div>
           </Link>
@@ -389,11 +397,11 @@ export default function Header() {
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="tel:+4989277808979"
+              href="mailto:contact@diecontainers.com"
               className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Phone className="w-4 h-4" />
-              <span>+49 (0) 89 277 808 979</span>
+              <Mail className="w-4 h-4" />
+              <span>E-Mail senden</span>
             </a>
             <Link to="/warenkorb" className="relative p-2 rounded-lg hover:bg-muted transition-colors" aria-label="Warenkorb">
               <ShoppingCart className="w-5 h-5 text-foreground/70" />
@@ -533,7 +541,13 @@ export default function Header() {
                             className="flex min-h-36 touch-manipulation flex-col items-center overflow-hidden rounded-xl border border-border bg-card p-2 text-center transition-colors hover:border-[#46C54B]/70 active:bg-muted"
                           >
                             <div className="mb-2 flex h-24 w-full items-center justify-center rounded-lg bg-[#F2FBF3] p-1">
-                              <img src={cat.image_url || HERO_IMAGE} alt={cat.name} className="w-full h-full object-contain" />
+                              <MediaImage
+                                src={cat.image_url || HERO_IMAGE}
+                                alt={cat.name}
+                                className="h-full w-full object-contain"
+                                sizes="50vw"
+                                quality={80}
+                              />
                             </div>
                             <p className="font-heading text-xs font-semibold leading-tight text-foreground">{cat.name}</p>
                           </Link>

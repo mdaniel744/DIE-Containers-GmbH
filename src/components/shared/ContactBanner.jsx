@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSection } from "@/lib/i18n";
 
@@ -32,12 +32,11 @@ export default function ContactBanner({ wide = false }) {
             <p className="max-w-2xl text-base leading-7 text-white/85">{T.description}</p>
           </div>
           <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-            <a href="tel:+4989277808979" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-heading text-sm font-bold text-[#176B20] transition-colors hover:bg-white/90">
-              <Phone className="w-4 h-4" />
-              {T.ctaPhone}
+            <a href="mailto:contact@diecontainers.com" className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-heading text-sm font-bold text-[#176B20] transition-colors hover:bg-white/90">
+              <Mail className="w-4 h-4" />
+              {T.ctaEmail}
             </a>
             <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-full border border-white/55 px-6 py-3 font-heading text-sm font-bold text-white transition-colors hover:bg-white/15">
-              <Mail className="w-4 h-4" />
               {T.ctaContact}
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>

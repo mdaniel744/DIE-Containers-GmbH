@@ -6,6 +6,7 @@ import { ChevronRight, ArrowRight, TrendingUp, Package, MapPin, Truck, Star, Wre
 import { FaqAccordion, CtaBanner, InternalLinkGrid } from "@/components/seo/SeoPageLayout";
 import ContactBanner from "@/components/shared/ContactBanner";
 import { useProducts } from "@/hooks/useProducts";
+import MediaImage from "@/components/shared/MediaImage";
 
 const BRAND_BLUE = "#46C54B";
 const NAVY = "#176B20";
@@ -15,21 +16,21 @@ const PRICE_ROWS = [
     sizeKey: "10ft",
     size: "10 Fuß Container",
     length: "3,0 m",
-    img: "/images/container-category-10ft.png",
+    img: "/images/container-category-10ft.webp",
     href: "/10-fuss-container-kaufen",
   },
   {
     sizeKey: "20ft",
     size: "20 Fuß Container",
     length: "6,06 m",
-    img: "/images/container-category-20ft.png",
+    img: "/images/container-category-20ft.webp",
     href: "/20-fuss-container-kaufen",
   },
   {
     sizeKey: "40ft",
     size: "40 Fuß Container",
     length: "12,19 m",
-    img: "/images/container-category-40ft.png",
+    img: "/images/container-category-40ft.webp",
     href: "/40-fuss-container-kaufen",
   },
 ];
@@ -92,7 +93,7 @@ const FAQS = [
 ];
 
 const RELATED = [
-  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Alles über den meistgekauften Seecontainer", img: "/images/gebrauchte-seecontainer.png" },
+  { href: "/20-fuss-container-kaufen", title: "20 Fuß Container kaufen", desc: "Alles über den meistgekauften Seecontainer", img: "/images/gebrauchte-seecontainer.webp" },
   { href: "/container-lieferung", title: "Container Lieferung", desc: "Transportkosten & Logistik in Deutschland", img: "/images/wohncontainer-transport.jpg" },
   { href: "/container-fundament", title: "Container Fundament", desc: "Kosten & Arten für das perfekte Fundament", img: "/images/die-container-yard.jpeg" },
 ];
@@ -150,10 +151,15 @@ export default function ContainerKosten() {
       {/* Hero */}
       <div className="relative overflow-hidden mb-16">
         <div className="absolute inset-0">
-          <img
+          <MediaImage
             src="/images/crane-is-hoisting-containers.avif"
             alt="Gestapelte Seecontainer im Hafen"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
+            width={1600}
+            height={900}
+            sizes="100vw"
+            quality={82}
+            priority
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(27,58,92,0.92) 0%, rgba(15,37,64,0.85) 100%)" }} />
         </div>
@@ -213,7 +219,7 @@ export default function ContainerKosten() {
                 {/* Row header */}
                 <div className="grid md:grid-cols-[minmax(230px,300px)_1fr] items-center border-b border-border" style={{ background: `linear-gradient(90deg, ${NAVY}12, transparent)` }}>
                   <div className="h-44 md:h-52 overflow-hidden bg-white flex items-center justify-center px-2 py-1 md:px-4">
-                    <img src={row.img} alt={row.size} className="w-full h-full object-contain scale-110 md:scale-125" />
+                    <MediaImage src={row.img} alt={row.size} className="h-full w-full scale-110 object-contain md:scale-125" width={512} height={512} sizes="(max-width: 768px) 42vw, 220px" quality={85} />
                   </div>
                   <div className="px-6 py-6 md:px-8">
                     <Link to={row.href} className="font-heading font-bold text-xl md:text-2xl text-foreground hover:underline">{row.size}</Link>
@@ -456,7 +462,7 @@ export default function ContainerKosten() {
                 className="group flex flex-col rounded-2xl border border-border overflow-hidden hover:shadow-md hover:border-blue-200 transition-all bg-card"
               >
                 <div className="h-36 overflow-hidden bg-[#F2FBF3] flex items-center justify-center p-4">
-                  <img src={art.img} alt={art.title} className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+                  <MediaImage src={art.img} alt={art.title} className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105" width={1200} height={800} sizes="(max-width: 768px) 100vw, 33vw" quality={80} />
                 </div>
                 <div className="p-4 flex-1 flex flex-col">
                   <p className="font-heading font-bold text-sm text-foreground group-hover:text-[#176B20] transition-colors mb-1">{art.title}</p>

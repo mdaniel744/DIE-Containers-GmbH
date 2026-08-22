@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import ContactBanner from "@/components/shared/ContactBanner";
+import HeroFloatingMedia from "@/components/shared/HeroFloatingMedia";
 export { default as ContainerDiagram } from "./ContainerDiagram";
 
 const BRAND_BLUE = "#46C54B";
 
-export function SeoPageLayout({ breadcrumb, label, title, intro, children, embedded = false }) {
+export function SeoPageLayout({ breadcrumb, label, title, intro, heroMedia, heroMediaAlt, children, embedded = false }) {
   return (
     <div className={embedded ? "" : "dc-page"}>
       <div className={embedded ? "" : "dc-reading-shell"}>
@@ -30,15 +31,18 @@ export function SeoPageLayout({ breadcrumb, label, title, intro, children, embed
         )}
 
         {!embedded && <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="dc-page-hero">
-          {label && (
-            <span className="dc-kicker">
-              {label}
-            </span>
-          )}
-          <h1 className="dc-page-title">{title}</h1>
-          {intro && (
-            <p className="dc-page-intro">{intro}</p>
-          )}
+          <HeroFloatingMedia src={heroMedia} alt={heroMediaAlt} />
+          <div className="relative z-10">
+            {label && (
+              <span className="dc-kicker">
+                {label}
+              </span>
+            )}
+            <h1 className="dc-page-title">{title}</h1>
+            {intro && (
+              <p className="dc-page-intro">{intro}</p>
+            )}
+          </div>
         </motion.div>}
 
         <div className="dc-reading">{children}</div>

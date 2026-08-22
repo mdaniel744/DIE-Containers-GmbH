@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useT, useSection } from "@/lib/i18n";
 import { openCookieSettings } from "@/lib/cookieConsent";
+import MediaImage from "@/components/shared/MediaImage";
 
 export default function Footer() {
   const t = useT();
@@ -22,19 +23,20 @@ export default function Footer() {
           <div>
             <Link to="/" className="mb-4 block w-fit" aria-label="DIE Container GmbH – Startseite">
               <div className="relative h-16 w-36 overflow-hidden">
-                <img
+                <MediaImage
                   src="/images/die-container-logo-white.png"
                   alt="DIE Container GmbH Logo"
                   className="absolute left-1/2 top-1/2 h-36 w-36 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+                  width={120}
+                  height={120}
+                  sizes="144px"
+                  quality={90}
                 />
               </div>
             </Link>
             <p className="font-heading font-semibold text-white mb-3">DIE Container GmbH</p>
             <p className="text-sm text-secondary-foreground/70 leading-relaxed mb-5">{t("footer.tagline")}</p>
             <div className="space-y-3 text-sm text-secondary-foreground/70">
-              <a href="tel:+4989277808979" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="w-4 h-4" /> +49 (0) 89 277 808 979
-              </a>
               <a href="mailto:contact@diecontainers.com" className="flex items-center gap-2 text-xs xl:text-sm hover:text-white transition-colors">
                 <Mail className="w-4 h-4" /> contact@diecontainers.com
               </a>
