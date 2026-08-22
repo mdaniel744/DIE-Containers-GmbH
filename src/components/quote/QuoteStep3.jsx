@@ -28,7 +28,6 @@ export default function QuoteStep3({ data, setData }) {
             id="quote-name"
             value={data.first_name || ""}
             onChange={(e) => update("first_name", e.target.value)}
-            placeholder={T.namePlaceholder2}
             autoComplete="name"
             required
           />
@@ -36,17 +35,17 @@ export default function QuoteStep3({ data, setData }) {
 
         <div className="space-y-2">
           <Label htmlFor="quote-email" className="text-sm font-medium">{T.emailLabel2} *</Label>
-          <Input id="quote-email" type="email" value={data.email || ""} onChange={(e) => update("email", e.target.value)} placeholder={T.emailPlaceholder2} autoComplete="email" required />
+          <Input id="quote-email" type="email" value={data.email || ""} onChange={(e) => update("email", e.target.value)} autoComplete="email" required />
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="quote-phone" className="text-sm font-medium">{T.phoneLabel2} *</Label>
-          <Input id="quote-phone" type="tel" value={data.phone || ""} onChange={(e) => update("phone", e.target.value)} placeholder="+49 30 1234567" autoComplete="tel" required />
+          <Input id="quote-phone" type="tel" value={data.phone || ""} onChange={(e) => update("phone", e.target.value)} autoComplete="tel" required />
         </div>
 
         <div className="space-y-2 sm:col-span-2">
           <Label htmlFor="quote-company" className="text-sm font-medium">{T.companyLabel}</Label>
-          <Input id="quote-company" value={data.company || ""} onChange={(e) => update("company", e.target.value)} placeholder="ACME GmbH" autoComplete="organization" />
+          <Input id="quote-company" value={data.company || ""} onChange={(e) => update("company", e.target.value)} autoComplete="organization" />
         </div>
 
       </div>
@@ -68,7 +67,6 @@ export default function QuoteStep3({ data, setData }) {
                 id="delivery-street"
                 value={data.delivery_street || ""}
                 onChange={(e) => update("delivery_street", e.target.value)}
-                placeholder={T.streetPlaceholder}
                 autoComplete="address-line1"
                 required
               />
@@ -80,7 +78,6 @@ export default function QuoteStep3({ data, setData }) {
                 id="delivery-house-number"
                 value={data.delivery_house_number || ""}
                 onChange={(e) => update("delivery_house_number", e.target.value)}
-                placeholder="23"
                 maxLength={20}
                 required
               />
@@ -92,7 +89,6 @@ export default function QuoteStep3({ data, setData }) {
                 id="delivery-postal-code"
                 value={data.delivery_postal_code || ""}
                 onChange={(e) => updatePostalCode(e.target.value)}
-                placeholder="85640"
                 inputMode="numeric"
                 pattern="[0-9]{5}"
                 maxLength={5}
@@ -109,7 +105,6 @@ export default function QuoteStep3({ data, setData }) {
                 id="delivery-city"
                 value={data.delivery_city || ""}
                 onChange={(e) => update("delivery_city", e.target.value)}
-                placeholder={T.cityPlaceholder}
                 autoComplete="address-level2"
                 required
               />
@@ -129,7 +124,6 @@ export default function QuoteStep3({ data, setData }) {
           id="quote-message"
           value={data.additional_notes || ""}
           onChange={(e) => update("additional_notes", e.target.value)}
-          placeholder={T.messagePlaceholder2}
           className="min-h-[100px]"
         />
       </div>

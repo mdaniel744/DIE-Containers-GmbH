@@ -101,24 +101,24 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label>{T.nameLabel} *</Label>
-                    <Input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder={T.namePlaceholder} />
+                    <Input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
                   </div>
                   <div className="space-y-2">
                     <Label>{T.emailLabel} *</Label>
-                    <Input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder={T.emailPlaceholder} />
+                    <Input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                   </div>
                   <div className="space-y-2">
                     <Label>{T.phoneLabel}</Label>
-                    <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder={T.phonePlaceholder} />
+                    <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
                   </div>
                   <div className="space-y-2">
                     <Label>{T.subjectLabel} *</Label>
-                    <Input required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} placeholder={T.subjectPlaceholder} />
+                    <Input required value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })} />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label>{T.messageLabel} *</Label>
-                  <Textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder={T.messagePlaceholder} className="min-h-[140px]" />
+                  <Textarea required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="min-h-[140px]" />
                 </div>
                 <Button type="submit" disabled={submitting} className="h-12 rounded-full bg-[#46C54B] px-7 font-heading font-bold text-white hover:bg-[#3CAF41]">
                   {submitting ? (
